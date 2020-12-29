@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 817949949006963769}
   - component: {fileID: 817949949006963770}
   - component: {fileID: 817949949006963773}
-  - component: {fileID: 1594537662681506429}
   - component: {fileID: 8940210010193202228}
+  - component: {fileID: -172278928615031843}
   m_Layer: 0
   m_Name: Balk small
   m_TagString: Untagged
@@ -100,24 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1594537662681506429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817949949006963774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f6d4f14c1015344b382e14be86a8ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyedObj: {fileID: 6897048404304005149, guid: 6bdd25664fa06ac408cdf2fb21555859,
-    type: 3}
-  health: 310
-  damagemultipier: 0.07
-  DestroyOnTerrain: 0
-  Terrain: {fileID: 0}
 --- !u!65 &8940210010193202228
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,6 +113,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7127352, y: 0.28, z: 0.28}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-172278928615031843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817949949006963774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaeee616a88b41d40a19dcfcea12b4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 310
+  OutsideDamage: 1
+  OutsideDamageMultiplier: 0.07
+  PhysicsDamage: 1
+  VelocityDamageMultiplier: 0.5
+  OtherMassDamageMultiplier: 0.005
+  PhysicsDamageThreshold: 15
+  FracturedObject: {fileID: 6897048404304005149, guid: 6bdd25664fa06ac408cdf2fb21555859,
+    type: 3}
 --- !u!1001 &5903750041946275974
 PrefabInstance:
   m_ObjectHideFlags: 0

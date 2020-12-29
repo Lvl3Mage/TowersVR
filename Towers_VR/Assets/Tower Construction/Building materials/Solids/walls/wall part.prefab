@@ -652,8 +652,8 @@ GameObject:
   - component: {fileID: 1310333850815347063}
   - component: {fileID: 3444816659155535091}
   - component: {fileID: 8588463491464570923}
-  - component: {fileID: 8176772853420816636}
   - component: {fileID: 3110566898885230886}
+  - component: {fileID: -7867810732124502507}
   m_Layer: 0
   m_Name: wall part
   m_TagString: Untagged
@@ -754,24 +754,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8176772853420816636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8913144013574989689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f6d4f14c1015344b382e14be86a8ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyedObj: {fileID: 997866040720959888, guid: 42089f581fed3c64286dade8f1a13c24,
-    type: 3}
-  health: 800
-  damagemultipier: 0.07
-  DestroyOnTerrain: 0
-  Terrain: {fileID: 0}
 --- !u!65 &3110566898885230886
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -785,6 +767,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.811892, y: 0.15295412, z: 1.7222695}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7867810732124502507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913144013574989689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaeee616a88b41d40a19dcfcea12b4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 500
+  OutsideDamage: 1
+  OutsideDamageMultiplier: 0.07
+  PhysicsDamage: 1
+  VelocityDamageMultiplier: 0.5
+  OtherMassDamageMultiplier: 0.005
+  PhysicsDamageThreshold: 15
+  FracturedObject: {fileID: 997866040720959888, guid: 42089f581fed3c64286dade8f1a13c24,
+    type: 3}
 --- !u!1001 &1284655310847118483
 PrefabInstance:
   m_ObjectHideFlags: 0

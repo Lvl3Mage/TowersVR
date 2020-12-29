@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4134831265835644658}
   - component: {fileID: 9133411984565447279}
   - component: {fileID: 2256999704662851366}
-  - component: {fileID: 114508769429503154}
+  - component: {fileID: 7775820227003244958}
   m_Layer: 0
   m_Name: sideBalk
   m_TagString: Untagged
@@ -144,7 +144,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3200002, y: 0.15078223, z: 0.28000072}
   m_Center: {x: -1.33, y: 0.04067111, z: 0.000000013908469}
---- !u!114 &114508769429503154
+--- !u!114 &7775820227003244958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,15 +153,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3596321937572626351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f6d4f14c1015344b382e14be86a8ca, type: 3}
+  m_Script: {fileID: 11500000, guid: aaeee616a88b41d40a19dcfcea12b4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyedObj: {fileID: 3947023679321790483, guid: 72a31391a5a66a743851821f6dd3f5d2,
+  _Health: 370
+  OutsideDamage: 1
+  OutsideDamageMultiplier: 0.08
+  PhysicsDamage: 1
+  VelocityDamageMultiplier: 0.6
+  OtherMassDamageMultiplier: 0.008
+  PhysicsDamageThreshold: 15
+  FracturedObject: {fileID: 3947023679321790483, guid: 72a31391a5a66a743851821f6dd3f5d2,
     type: 3}
-  health: 370
-  damagemultipier: 0.07
-  DestroyOnTerrain: 0
-  Terrain: {fileID: 0}
 --- !u!1001 &3675444774737254683
 PrefabInstance:
   m_ObjectHideFlags: 0
