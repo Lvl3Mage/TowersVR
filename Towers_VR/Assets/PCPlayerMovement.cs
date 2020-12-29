@@ -35,7 +35,7 @@ public class PCPlayerMovement : MonoBehaviour
     [SerializeField] LayerMask Walkable;
     [SerializeField] Collider PlayerPhysicalCollider;
     Collider Ladder;
-    Vector3 Axis;
+    Vector3 Axis, PastLadderPos;
     bool Jump, JumpReady = true;
     int SelectStoodOnObject(){ // Selects the collider with the smallest normal vector difference
     	float MaxAngle = Mathf.Infinity;
@@ -53,7 +53,6 @@ public class PCPlayerMovement : MonoBehaviour
     	return Saved_i;
     }
     void Update(){
-
         if(Ladder){ // Checks if the ladder collider is empty, if it isn't then it applies ladder motion, otherwise it applies normal motion
         	ApplyLadderMovement(Ladder); 
         }
@@ -64,11 +63,12 @@ public class PCPlayerMovement : MonoBehaviour
     }
     public void UseLadder(Collider LadderCol){ // a function that makes the player use a specified ladder or stops the player from using one
     	if(LadderCol == Ladder){// checks if the interaction script has passed the same value meaning that you have to stop using the ladder
-    		Ladder = null;
+    		ClearLadder();
     		ToggleRigidbody(true);
+
     	}
     	else{
-	    	Ladder = LadderCol;
+	    	SetLadder(LadderCol);
 	    	ToggleRigidbody(false);    		
     	}
 
@@ -77,7 +77,7 @@ public class PCPlayerMovement : MonoBehaviour
     	if(Input.GetKeyDown(KeyCode.Space)){
     		ToggleRigidbody(true);
 		    Player.velocity += Camera.TransformDirection(Vector3.forward*5); // Jumps from ladder
-		    Ladder = null; // nulifies the ladder 
+		    ClearLadder();
     	}
     	else{
 		    
@@ -88,14 +88,24 @@ public class PCPlayerMovement : MonoBehaviour
 	        else if (Input.GetKey(KeyCode.S)) {
 	            MovementAxis = -1;
 	        }
-	        Debug.Log(Player.velocity);
 	        Transform LadderTransform = Ladder.gameObject.transform;
 	        Transform PlayerTransform = Player.gameObject.transform;
-	        Vector3 LerpTarget = LadderTransform.TransformPoint(Vector3.down/3); // sets the horizontal position relative to the ladder
-	        LerpTarget.y = PlayerTransform.position.y + MovementAxis*LadderMoveSpeed;
-	        PlayerTransform.position = Vector3.Lerp(PlayerTransform.position,LerpTarget,Time.deltaTime * LadderLerpSpeed); // actual position set
-    	}
+            Vector3 RelativeLerpTarget = Vector3.down/3 + Vector3.forward * (LadderTransform.InverseTransformPoint(PlayerTransform.position).z + MovementAxis*LadderMoveSpeed);
+	        Vector3 LerpTarget = LadderTransform.TransformPoint(RelativeLerpTarget); // sets the horizontal position relative to the ladder
+            Vector3 LadderDelta = PastLadderPos - LadderTransform.position; // A vector that defines ladder movement (it is then added to the player position)
+	        PlayerTransform.position = Vector3.Lerp(PlayerTransform.position,LerpTarget,Time.deltaTime * LadderLerpSpeed) - LadderDelta ; // actual position set
+            
+            PastLadderPos = LadderTransform.position; // Sets the ladder past position for calculating next frame delta
+        }
     	
+    }
+    void SetLadder(Collider LadderCol){
+        Ladder = LadderCol;
+        PastLadderPos = Ladder.attachedRigidbody.transform.position;
+    }
+    void ClearLadder(){  // Clears The ladder 
+        Ladder = null;
+        PastLadderPos = Vector3.zero; // clears the past ladder position so that it doesn't infuence next ladder delta 
     }
     void ToggleRigidbody(bool val){
     	Player.isKinematic = !val;
@@ -166,6 +176,7 @@ public class PCPlayerMovement : MonoBehaviour
             Player.velocity = new Vector3(Player.velocity.x, YVel, Player.velocity.z); // A bit of a crude fix but what I essentialy do is ovveride the lerp of the y velocity if the player is jumping (could be done better)
         }
     }
+
     IEnumerator JumpReset(){
         yield return new WaitForSeconds(0.1f); // this stops the player sticking to surfaces for 0.1s as well as not letting the player jump without stoping
         JumpReady = true;
@@ -229,7 +240,7 @@ public class PCPlayerMovement : MonoBehaviour
     void OnTriggerExit(Collider other){
         if(other == Ladder){ // in case the player exited the ladder we enable the rigidbody and remove the ladder collider
         	ToggleRigidbody(true);
-        	Ladder = null;
+        	ClearLadder();
         }
         else{
 	        for (int i = 0; i < CurrentCollisions.Count; i++) 
