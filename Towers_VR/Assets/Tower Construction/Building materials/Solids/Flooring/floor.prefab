@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1203200405922066060}
   - component: {fileID: 536831902284104297}
   - component: {fileID: 536831902284104296}
+  - component: {fileID: -1951516072504665745}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -114,6 +115,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.436501, y: 4.4365005, z: 0.19637993}
   m_Center: {x: 0, y: 0.0000038146973, z: 0}
+--- !u!114 &-1951516072504665745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842837324499291993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaeee616a88b41d40a19dcfcea12b4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 800
+  OutsideDamage: 1
+  OutsideDamageMultiplier: 0.07
+  PhysicsDamage: 1
+  hehe: 0
+  VelocityDamageMultiplier: 0.5
+  OtherMassDamageMultiplier: 0.1
+  PhysicsDamageThreshold: 50
+  FracturedObject: {fileID: 4023745814672953072, guid: 4d68287787bd73b47b47a0e913b0628e,
+    type: 3}
 --- !u!1001 &200115663703444007
 PrefabInstance:
   m_ObjectHideFlags: 0

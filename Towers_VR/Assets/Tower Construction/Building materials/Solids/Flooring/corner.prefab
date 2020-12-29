@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2555598272613218554}
   - component: {fileID: 2308698828769637145}
   - component: {fileID: 1586852691128569228}
+  - component: {fileID: 8118793832225822806}
   m_Layer: 0
   m_Name: corner
   m_TagString: Untagged
@@ -117,6 +118,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8118793832225822806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4068918041387850031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaeee616a88b41d40a19dcfcea12b4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 400
+  OutsideDamage: 1
+  OutsideDamageMultiplier: 0.07
+  PhysicsDamage: 1
+  VelocityDamageMultiplier: 0.5
+  OtherMassDamageMultiplier: 0.1
+  PhysicsDamageThreshold: 50
+  FracturedObject: {fileID: 5942223612856459633, guid: 85e94a13fd34cac41bc9793720e54573,
+    type: 3}
 --- !u!1001 &809925677653481885
 PrefabInstance:
   m_ObjectHideFlags: 0

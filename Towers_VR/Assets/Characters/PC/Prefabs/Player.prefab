@@ -1182,10 +1182,10 @@ MonoBehaviour:
   AirSpeed: 4
   WalkDifficulty: 6
   JumpSpeed: 6
-  LadderMoveSpeed: 0.5
-  LadderLerpSpeed: 5
   DirectionalJump: 0.5
   WalkSteepnessMax: 0.229
+  LadderMoveSpeed: 0.5
+  LadderLerpSpeed: 5
   Player: {fileID: 9041447693736446346}
   CamDirection: {fileID: 9041447693817852401}
   MovementCenter: {fileID: 9041447694639068654}
@@ -1237,9 +1237,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.25
-  m_Height: 1.642334
+  m_Height: 1.8337402
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2020874, z: 0}
+  m_Center: {x: 0, y: 0.29779053, z: 0}
 --- !u!1 &9041447695238262816
 GameObject:
   m_ObjectHideFlags: 0
