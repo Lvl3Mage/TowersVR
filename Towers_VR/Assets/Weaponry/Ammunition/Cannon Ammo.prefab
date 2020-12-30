@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3557193940566594627}
   - component: {fileID: 2250678422364894318}
   - component: {fileID: 6558098460970264479}
+  - component: {fileID: 3075912773232968952}
   m_Layer: 11
   m_Name: Cannon Ammo
   m_TagString: Untagged
@@ -178,6 +179,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ViewOffset: {fileID: 463359291447205421}
   _HoldOffset: {fileID: 1219469586928255769}
+--- !u!114 &3075912773232968952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8186042617315062204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d38ff081ec6e540b4739f9914c4b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 0
+  OutsideDamage: 1
+  OutsideDamageMultiplier: 1
+  PhysicsDamage: 1
+  VelocityDamageMultiplier: 1
+  OtherMassDamageMultiplier: 1
+  PhysicsDamageThreshold: 0
+  ExplosionEffect: {fileID: 0}
+  Explosion: {fileID: 0}
 --- !u!1 &8985130889196690977
 GameObject:
   m_ObjectHideFlags: 0
