@@ -7,6 +7,7 @@ public class Weapon : Activatable
 	[SerializeField] protected Object MuzzleFlash;
 	[SerializeField] protected Rigidbody Barrel;
 	[SerializeField] protected float Recoil, ReloadDelay;
+    [SerializeField] protected Vector2 Inaccuracy;
 	[SerializeField] protected IntContainer[] CallBackLoaded; // a callback array which identifies the object that are in need of informing about the cannon loaded state
 	[SerializeField] protected NumberContainer[] CallBackProjectileSpeed;
     protected AmmoIdentifier Clip; // The ammo clip loaded into the weapon

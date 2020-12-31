@@ -158,14 +158,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Health: 370
   OutsideDamage: 1
-  OutsideDamageMultiplier: 0.08
+  OutsideDamageMultiplier: 0.8
   PhysicsDamage: 1
-  hehe: 0
-  VelocityDamageMultiplier: 0.6
+  VelocityDamageMultiplier: 0.3
   OtherMassDamageMultiplier: 0.1
   PhysicsDamageThreshold: 15
   FracturedObject: {fileID: 3947023679321790483, guid: 72a31391a5a66a743851821f6dd3f5d2,
     type: 3}
+  KeepVelocity: 1
 --- !u!1001 &3675444774737254683
 PrefabInstance:
   m_ObjectHideFlags: 0

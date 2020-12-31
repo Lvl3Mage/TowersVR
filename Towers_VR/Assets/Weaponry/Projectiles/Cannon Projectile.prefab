@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1446293300914154269}
   - component: {fileID: 830493475073818146}
   - component: {fileID: 582320346521725672}
+  - component: {fileID: 7266581744263301540}
   m_Layer: 0
   m_Name: Cannon Projectile
   m_TagString: Untagged
@@ -168,3 +169,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &7266581744263301540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685619737413003781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07d2696bdb3fa2499fa7a49643e9146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExplosionEffect: {fileID: 1656442405540310070, guid: 94761d32d4fa29e44899de57943944b3,
+    type: 3}
+  Explosion: {fileID: 8200426983165899535, guid: bd0fe94d3f218e5448fdd3bd86b0b6d5,
+    type: 3}
