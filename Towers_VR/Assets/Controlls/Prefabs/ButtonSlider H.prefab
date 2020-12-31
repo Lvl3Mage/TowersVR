@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6477134482606695256}
   - component: {fileID: 2419887989022139308}
   - component: {fileID: 5763602543450601789}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 7055905922959316129}
   - component: {fileID: 7055905922959316135}
   - component: {fileID: 7055905922959316134}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ButtonSlider H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,8 @@ GameObject:
   - component: {fileID: 7055905923054601658}
   - component: {fileID: 7055905923054601637}
   - component: {fileID: 7055905923054601636}
-  m_Layer: 0
+  - component: {fileID: 3718082065368974927}
+  m_Layer: 12
   m_Name: Triangle R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,6 +298,19 @@ MonoBehaviour:
   NumberTarget: {fileID: 7055905922959316134}
   Change: 1
   Acceleration: 1
+--- !u!65 &3718082065368974927
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055905923054601638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3, z: 0.24320674}
+  m_Center: {x: 0.0000002026281, y: -0.03173587, z: 0.09910347}
 --- !u!1 &7055905923294896292
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +325,8 @@ GameObject:
   - component: {fileID: 7055905923294896312}
   - component: {fileID: 7055905923294896315}
   - component: {fileID: 7055905923294896314}
-  m_Layer: 0
+  - component: {fileID: 7857047176453863055}
+  m_Layer: 12
   m_Name: Triangle L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,6 +442,19 @@ MonoBehaviour:
   NumberTarget: {fileID: 7055905922959316134}
   Change: -1
   Acceleration: -1
+--- !u!65 &7857047176453863055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055905923294896292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3, z: 0.24320674}
+  m_Center: {x: 0.0000002026281, y: -0.03173587, z: 0.09910347}
 --- !u!1 &7055905923795616398
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +467,7 @@ GameObject:
   - component: {fileID: 7055905923795616386}
   - component: {fileID: 7055905923795616397}
   - component: {fileID: 7055905923795616396}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +561,7 @@ GameObject:
   - component: {fileID: 7055905924138823002}
   - component: {fileID: 7055905924138822981}
   - component: {fileID: 7055905924138822980}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +655,7 @@ GameObject:
   - component: {fileID: 6373143708777766098}
   - component: {fileID: 1002348337168053587}
   - component: {fileID: 6169856669878140382}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

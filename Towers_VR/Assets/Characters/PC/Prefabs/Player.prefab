@@ -213,7 +213,7 @@ MonoBehaviour:
   RB: {fileID: 9041447693736446346}
   Collidable:
     serializedVersion: 2
-    m_Bits: 6455
+    m_Bits: 311
 --- !u!1 &9041447693920889831
 GameObject:
   m_ObjectHideFlags: 0

@@ -115,7 +115,7 @@ public class PCPlayerMovement : MonoBehaviour
     	SetAxis();
         ClearArrayGarbage();
 
-    	if(Input.GetKeyDown(KeyCode.Space) && JumpReady){
+    	if(OVRInput.Get(OVRInput.RawButton.X) && JumpReady){
             Jump = true;
             JumpReady = false;
         }
