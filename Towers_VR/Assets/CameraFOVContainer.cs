@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CameraFOVContainer : NumberContainer
 {
-
-	Camera Cam;
+	[SerializeField] float DefaultValue;
+	[SerializeField] Camera Cam;
 	void Awake(){
-		Cam = GetComponent<Camera>();
+		_floatValue = DefaultValue;
+		//Cam = GetComponent<Camera>();
 	}
 	protected override void ValueChanged(){
 		Cam.fieldOfView = _floatValue;

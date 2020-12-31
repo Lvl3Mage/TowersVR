@@ -7,6 +7,7 @@ public class Weapon : Activatable
 	[SerializeField] protected Object MuzzleFlash;
 	[SerializeField] protected Rigidbody Barrel;
 	[SerializeField] protected float Recoil, ReloadDelay;
+    [Tooltip("Horizontal and vertical inaccuracy multiplied by the shell velocity")]
     [SerializeField] protected Vector2 Inaccuracy;
 	[SerializeField] protected IntContainer[] CallBackLoaded; // a callback array which identifies the object that are in need of informing about the cannon loaded state
 	[SerializeField] protected NumberContainer[] CallBackProjectileSpeed;
@@ -59,7 +60,8 @@ public class Weapon : Activatable
     }
     GameObject SpawnBullet(Object bullet, float velocity, Transform gunPoint){ // the function for shooting out the projectile
         GameObject Projectile = Object.Instantiate(bullet, gunPoint.position, gunPoint.rotation) as GameObject;
-        Projectile.GetComponent<Rigidbody>().velocity = Projectile.transform.TransformDirection(Vector3.forward * velocity);
+        Vector3 RandomInaccuracy = new Vector3(Random.Range(-Inaccuracy.x, Inaccuracy.x),Random.Range(-Inaccuracy.y, Inaccuracy.y),0);
+        Projectile.GetComponent<Rigidbody>().velocity = Projectile.transform.TransformDirection(Vector3.forward * velocity + RandomInaccuracy * velocity);
         return Projectile;
     }
     void SpawnEffect(Transform gunPoint){

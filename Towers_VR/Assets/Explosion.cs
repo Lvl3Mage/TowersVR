@@ -162,7 +162,7 @@ public class Explosion : MonoBehaviour
     	destrct.DamageObject(Damage);
     }
     void ApplyForce(Rigidbody RB, Vector3 Force, Vector3 Point){
-    	RB.velocity = Force;
+    	RB.velocity = Force*70/RB.mass;//accounting on object mass
     	//RB.AddForceAtPosition(Force, Point, ForceMode.Impulse);
     }
     float SampleCurve(float Distance, float MaxDistance, float Base, AnimationCurve Curve){
