@@ -9,8 +9,6 @@ public class VRForceCollider : MonoBehaviour
 	[SerializeField] Vector2 VelLimits,ImpulseLimits;
 	[SerializeField] Rigidbody RB;
 	[SerializeField] LayerMask Collidable;
-	[Tooltip("Vectors with dot product heigher will not be applied when moving")]
-	[SerializeField] [Range(0,1)] float NonMovingCutoff;
 	void Update(){
 
 	}
@@ -41,9 +39,6 @@ public class VRForceCollider : MonoBehaviour
     			Debug.LogError("Fix this later : can't apply force because the object colliding has a mesh colider and isn't underneath the player");
     		}
     		
-    	}
-    	//Check for cutoff
-    	if(Vector3.Dot(Vector3.down, CollisionVector.normalized)<NonMovingCutoff || OVRInput.Get(OVRInput.RawAxis2D.RThumbstick) != Vector2.zero){
     	}
 		ApplyCollisionForce(CollisionPoint,CollisionVector);    		
 

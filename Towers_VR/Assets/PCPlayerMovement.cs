@@ -34,6 +34,7 @@ public class PCPlayerMovement : MonoBehaviour
     [SerializeField] Transform CamDirection, MovementCenter,RaycastCenter,Camera;
     [SerializeField] LayerMask Walkable;
     [SerializeField] Collider PlayerPhysicalCollider;
+    [SerializeField] Transform PlayerSpawnPoint;
     Collider Ladder;
     Vector3 Axis, PastLadderPos;
     bool Jump, JumpReady = true;
@@ -53,6 +54,11 @@ public class PCPlayerMovement : MonoBehaviour
     	return Saved_i;
     }
     void Update(){
+        if(Input.GetKeyDown(KeyCode.H)){
+            if(!Ladder){
+                Player.gameObject.transform.position = PlayerSpawnPoint.position;
+            }
+        }
         if(Ladder){ // Checks if the ladder collider is empty, if it isn't then it applies ladder motion, otherwise it applies normal motion
         	ApplyLadderMovement(Ladder); 
         }
@@ -115,7 +121,7 @@ public class PCPlayerMovement : MonoBehaviour
     	SetAxis();
         ClearArrayGarbage();
 
-    	if(OVRInput.Get(OVRInput.RawButton.X) && JumpReady){
+    	if(Input.GetKeyDown(KeyCode.Space) && JumpReady){
             Jump = true;
             JumpReady = false;
         }

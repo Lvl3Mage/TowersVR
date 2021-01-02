@@ -11,7 +11,7 @@ public class InteractionBehaviour : MonoBehaviour
 	Transform HeldObject, PuttingAwayObject, CurrentINInv, CurrentOUTInv;
 	Transform HeldObjectOffset, PuttingAwayObjectOffset;
 	WeaponReloader LoadTarget;
-	Inventory Inventory = new Inventory(5);
+	Inventory Inventory = new Inventory(3);
 	Interactable Interacted;
 
 	void Update(){
