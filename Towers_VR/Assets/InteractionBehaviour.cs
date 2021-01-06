@@ -57,6 +57,11 @@ public class InteractionBehaviour : MonoBehaviour
 			}
 		}
 	}
+	[ContextMenu("Interact")]
+	void DebugInteraction(){
+		GameObject AimedObject = RayForw();
+		Action(AimedObject);
+	}
 	void Lerp(Transform Moved,Transform Offset, Transform B, float SpeedPos, float SpeedRot){
 		if(Offset){
 			Vector3 PosOffset = Moved.TransformDirection(Offset.localPosition);
