@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -98,7 +98,8 @@ public class PCPlayerMovement : MonoBehaviour
 	        }
 	        Transform LadderTransform = Ladder.gameObject.transform;
 	        Transform PlayerTransform = Player.gameObject.transform;
-            Vector3 RelativeLerpTarget = Vector3.down/3 + Vector3.forward * (LadderTransform.InverseTransformPoint(PlayerTransform.position).z + MovementAxis*LadderMoveSpeed);
+            // Use Vector4.Up to add an offset to the ladder. I chose to use the position of the climb area for this
+            Vector3 RelativeLerpTarget = Vector3.forward * (LadderTransform.InverseTransformPoint(PlayerTransform.position).z + MovementAxis*LadderMoveSpeed);
 	        Vector3 LerpTarget = LadderTransform.TransformPoint(RelativeLerpTarget); // sets the horizontal position relative to the ladder
             Vector3 LadderDelta = PastLadderPos - LadderTransform.position; // A vector that defines ladder movement (it is then added to the player position)
 	        PlayerTransform.position = Vector3.Lerp(PlayerTransform.position,LerpTarget,Time.deltaTime * LadderLerpSpeed) - LadderDelta ; // actual position set
@@ -110,7 +111,10 @@ public class PCPlayerMovement : MonoBehaviour
     void SetLadder(Collider LadderCol){
         Debug.Log("New Ladder Set - " + LadderCol.gameObject.name);
         Ladder = LadderCol;
-        PastLadderPos = Ladder.attachedRigidbody.transform.position;
+        // This could work but I figured it's better to use the non rigidbosy way cause of the bugs that could cause
+        //PastLadderPos = Ladder.attachedRigidbody.transform.position;
+
+        PastLadderPos = Ladder.gameObject.transform.position;
     }
     void ClearLadder(){  // Clears The ladder 
         Debug.Log("Ladder Cleared");
@@ -241,7 +245,7 @@ public class PCPlayerMovement : MonoBehaviour
     	if(other.isTrigger){
     		return;
     	}
-        if(RigidbodyToggled && other.gameObject.layer == 14){
+        if(RigidbodyToggled && other.gameObject.layer == 14){ // checks if the collided object is a ladder and if the rigidbody was rcently toggled if both are true no collision will be detected to prevent the player from exiting the ladder immediately
             return;
         }
 
@@ -257,11 +261,16 @@ public class PCPlayerMovement : MonoBehaviour
             //Debug.Log("Added " + other.gameObject.name);
         }
     }
+    void GetOffLadderPush(){
+        Player.velocity += Camera.TransformDirection(Vector3.forward*4);
+    }
     void OnTriggerExit(Collider other){
-        if(other == Ladder && !RigidbodyToggled){ // in case the player exited the ladder we enable the rigidbody and remove the ladder collider
+        if(other == Ladder && !RigidbodyToggled){ // in case the player exited the ladder we enable the rigidbody and remove the ladder collider we also check that this hasn't happened 
             Debug.Log("Player Physically got off the ladder");
         	ToggleRigidbody(true);
         	ClearLadder();
+            GetOffLadderPush();
+
         }
         else{
 	        for (int i = 0; i < CurrentCollisions.Count; i++) 
