@@ -466,6 +466,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextField: {fileID: 9041447694075524209}
+  FrameSample: 20
+  MinFrameDifference: 1
+  FrameTimes: []
 --- !u!1 &9041447694457117558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,6 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9063d7feeb952142b341241929a4658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentCollisions: []
   AxisSpeed: 7
   Acceleration: 9
   AirAccelerate: 2
