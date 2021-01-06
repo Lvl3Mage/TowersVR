@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6555477985182377274}
-  m_Layer: 0
-  m_Name: Button
+  m_Layer: 12
+  m_Name: Activator Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1690340231180454081}
   - component: {fileID: 7094091456659084318}
   - component: {fileID: 8464749550079615113}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8055302125468912849}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b10a7a5c201d344a10f5b0f169c770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActivationClipName: SingleButtonActivation
   Target: {fileID: 0}
 --- !u!95 &3728116679336065404
 Animator:

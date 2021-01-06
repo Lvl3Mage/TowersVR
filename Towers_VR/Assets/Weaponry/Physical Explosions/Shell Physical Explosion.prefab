@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6f02412a572534295049636dba60c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RaycastObjects: 0
+  RaycastObjects: 1
   Blocking:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -53,7 +53,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   ExplodeOnStart: 1
-  ExplosionRadius: 5.84
+  ExplosionRadius: 3.36
   ForceCurve:
     serializedVersion: 2
     m_Curve:
@@ -111,7 +111,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  BaseExplosionForce: 100
-  BaseDamage: 300
+  BaseExplosionForce: 150
+  BaseDamage: 600
   DrawGizmos: 1
   Transparency: 0.621

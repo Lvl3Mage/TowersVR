@@ -9,12 +9,12 @@ public class Interactable : MonoBehaviour
 	public void Interact(bool ToggleValue){
 		Activate(ToggleValue);
 	}
-	void OnCollisionEnter(Collision collisionInfo){
+	/*void OnCollisionEnter(Collision collisionInfo){
     	Activate(true);
     }
     void OnCollisionExit(Collision collisionInfo){
     	Activate(false);
-    }
+    }*/
     void OnTriggerEnter(Collider collisionInfo){
         Activate(true);
     }

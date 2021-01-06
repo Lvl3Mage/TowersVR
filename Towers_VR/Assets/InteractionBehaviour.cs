@@ -11,7 +11,7 @@ public class InteractionBehaviour : MonoBehaviour
 	Transform HeldObject, PuttingAwayObject, CurrentINInv, CurrentOUTInv;
 	Transform HeldObjectOffset, PuttingAwayObjectOffset;
 	WeaponReloader LoadTarget;
-	Inventory Inventory = new Inventory(5);
+	Inventory Inventory = new Inventory(3);
 	Interactable Interacted;
 
 	void Update(){
@@ -56,6 +56,11 @@ public class InteractionBehaviour : MonoBehaviour
 				StoreObject();
 			}
 		}
+	}
+	[ContextMenu("Interact")]
+	void DebugInteraction(){
+		GameObject AimedObject = RayForw();
+		Action(AimedObject);
 	}
 	void Lerp(Transform Moved,Transform Offset, Transform B, float SpeedPos, float SpeedRot){
 		if(Offset){

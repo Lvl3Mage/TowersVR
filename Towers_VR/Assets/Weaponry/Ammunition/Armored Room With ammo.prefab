@@ -63,6 +63,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 155887374984474703, guid: 94bc9e66ae55a034797a6ac31f8df656,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 502496972824540145, guid: 94bc9e66ae55a034797a6ac31f8df656,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075124695491275680, guid: 94bc9e66ae55a034797a6ac31f8df656,
+        type: 3}
+      propertyPath: m_Name
+      value: AnimatorToggler Button
+      objectReference: {fileID: 0}
     - target: {fileID: 2485719328028357388, guid: 94bc9e66ae55a034797a6ac31f8df656,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,7 +136,7 @@ PrefabInstance:
     - target: {fileID: 2969240099587598774, guid: 94bc9e66ae55a034797a6ac31f8df656,
         type: 3}
       propertyPath: m_Name
-      value: Armored Room
+      value: Armored Room With ammo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94bc9e66ae55a034797a6ac31f8df656, type: 3}

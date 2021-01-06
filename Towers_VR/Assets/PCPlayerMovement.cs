@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ public class PCPlayerMovement : MonoBehaviour
 		Rigidbody = _Rigidbody;
 		}*/
 	}
-    List<Collider> CurrentCollisions = new List<Collider>();
+    [SerializeField] List<Collider> CurrentCollisions = new List<Collider>();
     [Header("Normal Movement Settings")]
 	[SerializeField] float AxisSpeed;
     [Range(0f, 10f)]  [SerializeField] float Acceleration;
@@ -34,9 +34,10 @@ public class PCPlayerMovement : MonoBehaviour
     [SerializeField] Transform CamDirection, MovementCenter,RaycastCenter,Camera;
     [SerializeField] LayerMask Walkable;
     [SerializeField] Collider PlayerPhysicalCollider;
+    [SerializeField] Transform PlayerSpawnPoint;
     Collider Ladder;
     Vector3 Axis, PastLadderPos;
-    bool Jump, JumpReady = true;
+    bool Jump, JumpReady = true, RigidbodyToggled;
     int SelectStoodOnObject(){ // Selects the collider with the smallest normal vector difference
     	float MaxAngle = Mathf.Infinity;
     	int Saved_i = 0;
@@ -53,6 +54,11 @@ public class PCPlayerMovement : MonoBehaviour
     	return Saved_i;
     }
     void Update(){
+        if(Input.GetKeyDown(KeyCode.H)){
+            if(!Ladder){
+                Player.gameObject.transform.position = PlayerSpawnPoint.position;
+            }
+        }
         if(Ladder){ // Checks if the ladder collider is empty, if it isn't then it applies ladder motion, otherwise it applies normal motion
         	ApplyLadderMovement(Ladder); 
         }
@@ -63,7 +69,8 @@ public class PCPlayerMovement : MonoBehaviour
     }
     public void UseLadder(Collider LadderCol){ // a function that makes the player use a specified ladder or stops the player from using one
     	if(LadderCol == Ladder){// checks if the interaction script has passed the same value meaning that you have to stop using the ladder
-    		ClearLadder();
+    		Debug.Log("Player chose to get off " + LadderCol.gameObject.name + " by pressing f");
+            ClearLadder();
     		ToggleRigidbody(true);
 
     	}
@@ -75,6 +82,7 @@ public class PCPlayerMovement : MonoBehaviour
     }
     void ApplyLadderMovement(Collider Ladder){
     	if(Input.GetKeyDown(KeyCode.Space)){
+            Debug.Log("Player chose to get off " + Ladder.gameObject.name + " by pressing space");
     		ToggleRigidbody(true);
 		    Player.velocity += Camera.TransformDirection(Vector3.forward*5); // Jumps from ladder
 		    ClearLadder();
@@ -90,7 +98,8 @@ public class PCPlayerMovement : MonoBehaviour
 	        }
 	        Transform LadderTransform = Ladder.gameObject.transform;
 	        Transform PlayerTransform = Player.gameObject.transform;
-            Vector3 RelativeLerpTarget = Vector3.down/3 + Vector3.forward * (LadderTransform.InverseTransformPoint(PlayerTransform.position).z + MovementAxis*LadderMoveSpeed);
+            // Use Vector4.Up to add an offset to the ladder. I chose to use the position of the climb area for this
+            Vector3 RelativeLerpTarget = Vector3.forward * (LadderTransform.InverseTransformPoint(PlayerTransform.position).z + MovementAxis*LadderMoveSpeed);
 	        Vector3 LerpTarget = LadderTransform.TransformPoint(RelativeLerpTarget); // sets the horizontal position relative to the ladder
             Vector3 LadderDelta = PastLadderPos - LadderTransform.position; // A vector that defines ladder movement (it is then added to the player position)
 	        PlayerTransform.position = Vector3.Lerp(PlayerTransform.position,LerpTarget,Time.deltaTime * LadderLerpSpeed) - LadderDelta ; // actual position set
@@ -100,16 +109,28 @@ public class PCPlayerMovement : MonoBehaviour
     	
     }
     void SetLadder(Collider LadderCol){
+        Debug.Log("New Ladder Set - " + LadderCol.gameObject.name);
         Ladder = LadderCol;
-        PastLadderPos = Ladder.attachedRigidbody.transform.position;
+        // This could work but I figured it's better to use the non rigidbosy way cause of the bugs that could cause
+        //PastLadderPos = Ladder.attachedRigidbody.transform.position;
+
+        PastLadderPos = Ladder.gameObject.transform.position;
     }
     void ClearLadder(){  // Clears The ladder 
+        Debug.Log("Ladder Cleared");
         Ladder = null;
         PastLadderPos = Vector3.zero; // clears the past ladder position so that it doesn't infuence next ladder delta 
     }
     void ToggleRigidbody(bool val){
     	Player.isKinematic = !val;
     	PlayerPhysicalCollider.enabled = val;
+        RigidbodyToggled = true; // the OnTriggerExit is called after kinematic is changed so I try to ignore those calls with this
+        StartCoroutine(ScipTrigger());
+    }
+    IEnumerator ScipTrigger(){
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame(); // waits twice for the end of frame essentially skiping the frame 
+        RigidbodyToggled = false;
     }
     void ApplyMovement(){
     	SetAxis();
@@ -187,7 +208,7 @@ public class PCPlayerMovement : MonoBehaviour
             for(int i = 0;i<CurrentCollisions.Count;i++)
             {
                 if(!CurrentCollisions[i].gameObject.activeSelf){
-                    Debug.Log("Removed " + CurrentCollisions[i].gameObject.name);
+                    //Debug.Log("Removed " + CurrentCollisions[i].gameObject.name);
                     CurrentCollisions.RemoveAt(i);
                 }
             }
@@ -224,6 +245,9 @@ public class PCPlayerMovement : MonoBehaviour
     	if(other.isTrigger){
     		return;
     	}
+        if(RigidbodyToggled && other.gameObject.layer == 14){ // checks if the collided object is a ladder and if the rigidbody was rcently toggled if both are true no collision will be detected to prevent the player from exiting the ladder immediately
+            return;
+        }
 
         bool HasCollided = false; // Checks if the object has colided with this collider previously
         for (int i = 0; i < CurrentCollisions.Count && !HasCollided; i++) 
@@ -234,20 +258,26 @@ public class PCPlayerMovement : MonoBehaviour
         }
         if(!HasCollided){
             CurrentCollisions.Add(other);
-            Debug.Log("Added " + other.gameObject.name);
+            //Debug.Log("Added " + other.gameObject.name);
         }
     }
+    void GetOffLadderPush(){
+        Player.velocity += Camera.TransformDirection(Vector3.forward*4);
+    }
     void OnTriggerExit(Collider other){
-        if(other == Ladder){ // in case the player exited the ladder we enable the rigidbody and remove the ladder collider
+        if(other == Ladder && !RigidbodyToggled){ // in case the player exited the ladder we enable the rigidbody and remove the ladder collider we also check that this hasn't happened 
+            Debug.Log("Player Physically got off the ladder");
         	ToggleRigidbody(true);
         	ClearLadder();
+            GetOffLadderPush();
+
         }
         else{
 	        for (int i = 0; i < CurrentCollisions.Count; i++) 
 	        {
 	            if(CurrentCollisions[i] == other){
 	                CurrentCollisions.RemoveAt(i);
-	                Debug.Log("Removed " + other.gameObject.name);
+	                //Debug.Log("Removed " + other.gameObject.name);
 	            }
 	        }        	
         }
