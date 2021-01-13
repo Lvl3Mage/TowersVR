@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CannonAngleCalculator : MultipleNumberContainer
 {
-	[SerializeField] NumberContainer DistanceLow, DistanceHigh;
+	[SerializeField] NumberContainer OutputDistance;
 
+	protected bool OutputDistanceType;
+	public void WriteOutputType(bool val){
+		OutputDistanceType = val;
+		OnListChange(0);
+	}
 	protected override void OnListChange(int id){// Calculating the x using the parabola formula constructed with the velocity vector -> y = t^2 * g * 1/2 + t * V.y
 
 		//Getting all the needed values for the calculations
@@ -26,9 +31,14 @@ public class CannonAngleCalculator : MultipleNumberContainer
 		Vector2 t = ResolveQuadEcuation(a,b,c);
 		t *= V.x; // multiplying the t values by the speed to calculate the distance
 
-		// Setting the values
-		DistanceLow.floatValue = t.x;
-		DistanceHigh.floatValue = t.y;
+		// Setting the value
+		if(OutputDistanceType){
+			OutputDistance.floatValue = t.y;
+		}
+		else{
+			OutputDistance.floatValue = t.x;
+		}
+		
 	}
 	Vector2 ResolveQuadEcuation(float a, float b, float c){ // solves the quadratic equation with given values
 		float Sqrt = Mathf.Sqrt(b*b-4*a*c);

@@ -8,7 +8,6 @@ public class CameraFOVContainer : NumberContainer
 	[SerializeField] Camera Cam;
 	void Awake(){
 		_floatValue = DefaultValue;
-		//Cam = GetComponent<Camera>();
 	}
 	protected override void ValueChanged(){
 		Cam.fieldOfView = _floatValue;
