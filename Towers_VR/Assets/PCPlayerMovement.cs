@@ -39,14 +39,14 @@ public class PCPlayerMovement : MonoBehaviour
     Vector3 Axis, PastLadderPos;
     bool Jump, JumpReady = true, RigidbodyToggled;
     int SelectStoodOnObject(){ // Selects the collider with the smallest normal vector difference
-    	float MaxAngle = Mathf.Infinity;
+    	float MaxAngle = -Mathf.Infinity;
     	int Saved_i = 0;
     	for (int i = 0; i<CurrentCollisions.Count; i++) 
     	{
-    		Vector3 StandVector = (MovementCenter.position - CurrentCollisions[0].ClosestPoint(MovementCenter.position));
-            float Angle = Vector3.Angle(Vector3.up, StandVector.normalized);
+    		Vector3 StandVector = (MovementCenter.position - CurrentCollisions[i].ClosestPoint(MovementCenter.position));
+            float Angle = Vector3.Dot(Vector3.up, StandVector.normalized);
             Debug.DrawRay(MovementCenter.position, -StandVector, Color.yellow);
-            if(Angle<MaxAngle){
+            if(Angle>MaxAngle){
             	MaxAngle = Angle;
             	Saved_i = i;
             }
@@ -125,9 +125,9 @@ public class PCPlayerMovement : MonoBehaviour
     	Player.isKinematic = !val;
     	PlayerPhysicalCollider.enabled = val;
         RigidbodyToggled = true; // the OnTriggerExit is called after kinematic is changed so I try to ignore those calls with this
-        StartCoroutine(ScipTrigger());
+        StartCoroutine(SkipTrigger());
     }
-    IEnumerator ScipTrigger(){
+    IEnumerator SkipTrigger(){
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame(); // waits twice for the end of frame essentially skiping the frame 
         RigidbodyToggled = false;
