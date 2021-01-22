@@ -6,7 +6,7 @@ public class CannonAngleCalculator : MultipleNumberContainer
 {
 	[SerializeField] NumberContainer OutputDistance;
 
-	protected bool OutputDistanceType;
+	protected bool OutputDistanceType = true;
 	public void WriteOutputType(bool val){
 		OutputDistanceType = val;
 		OnListChange(0);

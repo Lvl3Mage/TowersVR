@@ -4,17 +4,52 @@ using UnityEngine;
 
 public class ForceCollider : MonoBehaviour
 {
-	[SerializeField] Transform MinimumClimbPoint, Center;
-	[SerializeField] float Strength, MinimumSidePushback;
-	[SerializeField] Vector2 VelLimits,ImpulseLimits;
-	[SerializeField] Rigidbody RB;
-	[SerializeField] LayerMask Collidable;
-
+    [Header("Required References")]
+    [Tooltip("The point where the collision vector is calculated from")]
+	[SerializeField] Transform MinimumClimbPoint;
+    [Tooltip("The player center. Determines the actual force of the collision")]
+    [SerializeField] Transform Center;
+    [Tooltip("The player rigidbody")]
+    [SerializeField] Rigidbody RB;
+    [Header("Per Collision Settings")]
+    [Tooltip("The strength of each collision")]
+	[SerializeField] float Strength;
+    [Tooltip("Minimum horizontal force. Values below this one will not be applied")]
+    [SerializeField] float MinimumSidePushback;
+    [Tooltip("Horizontal and vertical force limitations. Values above these will be clamped")] 
+    [SerializeField] Vector2 ImpulseLimits;
+    [Tooltip("Horizontal and vertical velocity limitations. Values, application of which will result in a velocity higher than specified, will not be applied")]  
+    [SerializeField] Vector2 VelLimits;
+    [Tooltip("Specifies how closely does the current colision has to match the total collision vecotor to be ignored. 1 means it has to be identical where 0.5 means it can be up to 45 degrees different")]
+    [SerializeField] [Range(1f,0.5f)] float SimillarCollisionCutoff;
+	[Tooltip("The layers the player will collide with")] 
+    [SerializeField] LayerMask Collidable;
+    [Header("Total Impulse Settings")]
+    [Tooltip("Horizontal and vertical force limitations. Values above these will be clamped")] 
+    [SerializeField] Vector2 FrameImpulseLimits;
+    Vector3 TotalForce = Vector3.zero; //the total force applied per frame
+    void Start(){
+        StartCoroutine(FrameImpulseTimer());
+    }
+    IEnumerator FrameImpulseTimer(){
+        while (true) 
+        {
+            yield return new WaitForFixedUpdate(); // Will wait until after all the collisions have been calculated for this frame 
+            ApplyFrameForce(); // applies the force for this       
+        }
+    }
+    void ApplyFrameForce(){ // applies force calculated per physics update
+        if(TotalForce != Vector3.zero){
+            TotalForce = LimitImpulse(TotalForce, FrameImpulseLimits);
+            RB.velocity += TotalForce;
+            TotalForce = Vector3.zero;
+        }
+    }
     void OnTriggerStay(Collider other){
-        if(other.isTrigger){
+        if(other.isTrigger){// won't collide with triggers
             return;
         }
-        if(!(Collidable == (Collidable | (1 << other.gameObject.layer)))){
+        if(!(Collidable == (Collidable | (1 << other.gameObject.layer)))){ // won't collide with layers marked as non collidable
             return;
         }
     	Vector3 CollisionPoint;
@@ -38,34 +73,48 @@ public class ForceCollider : MonoBehaviour
     		}
     		
     	}
-        ApplyCollisionForce(CollisionPoint,CollisionVector);
+        CalculateCollisionForce(CollisionPoint,CollisionVector);
     }
-    void ApplyCollisionForce(Vector3 CollisionPoint, Vector3 CollisionVector){
+    void CalculateCollisionForce(Vector3 CollisionPoint, Vector3 CollisionVector){ // Calculates the force for the specified collision
+        //Ignores the side pushback force if it is lower than the mimimum value
         if(Mathf.Abs(CollisionVector.x)<MinimumSidePushback){
             CollisionVector.x = 0;
         }
         if(Mathf.Abs(CollisionVector.z)<MinimumSidePushback){
             CollisionVector.z = 0;
         }
-        Vector3 CollisionDir = CollisionVector.normalized;
-        float CollisionMag = CollisionVector.magnitude;
-        //Debug.Log(CollisionMag);
-        Debug.DrawRay(CollisionPoint, -CollisionDir, Color.green);
-        Vector3 impulse = -(CollisionDir/CollisionMag)*Strength; // the directional vector of a collision is devided by the distance of a clooision and then scaled with strength
+
+        Debug.DrawRay(CollisionPoint, -CollisionVector.normalized, Color.green);
+
+        Vector3 impulse = -(CollisionVector.normalized/CollisionVector.magnitude)*Strength; // the directional vector of a collision is devided by the distance of a collision and then scaled with the strength
 
         impulse = LimitImpulseByVelocity(impulse);
+        impulse = LimitImpulse(impulse, ImpulseLimits);
 
-        impulse.x = Limit(impulse.x,ImpulseLimits.x);
-        impulse.y = Limit(impulse.y,ImpulseLimits.y);
-        impulse.z = Limit(impulse.z,ImpulseLimits.x);
-        RB.velocity += impulse;
+        //Eliminates collisions that are identical
+        float difference = Vector3.Dot(impulse.normalized, TotalForce.normalized);
+        Debug.Log(difference);
+        if(SimillarCollisionCutoff<difference){ // Checks if the current collision has to be cut off
+            if(impulse.magnitude>TotalForce.magnitude){
+                TotalForce = impulse; // If the active vector is the strongest the total force will be reset
+                Debug.Log("Reset Impulse");
+            }
+            else{
+                impulse = Vector3.zero;
+                Debug.Log("Not Collided");
+            }
+        }
+        else{
+            TotalForce += impulse;
+        }
+        
     }
+
     Vector3 LimitImpulseByVelocity(Vector3 impulse){
         if(Mathf.Abs(RB.velocity.x+impulse.x)>Mathf.Abs(RB.velocity.x)){
             if(Mathf.Abs(RB.velocity.x)>VelLimits.x){
                 impulse.x = 0;
-            }
-            
+            }   
         }
         if(Mathf.Abs(RB.velocity.y+impulse.y)>Mathf.Abs(RB.velocity.y)){
             if(Mathf.Abs(RB.velocity.y)>VelLimits.y){
@@ -77,6 +126,12 @@ public class ForceCollider : MonoBehaviour
                 impulse.z = 0;
             }
         }
+        return impulse;
+    }
+    Vector3 LimitImpulse(Vector3 impulse, Vector2 Limiter){
+        impulse.x = Limit(impulse.x,Limiter.x);
+        impulse.y = Limit(impulse.y,Limiter.y);
+        impulse.z = Limit(impulse.z,Limiter.x);
         return impulse;
     }
     float Limit(float value,float limiter){

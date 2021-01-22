@@ -206,14 +206,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinimumClimbPoint: {fileID: 9041447695138336927}
   Center: {fileID: 9041447694811302276}
+  RB: {fileID: 9041447693736446346}
   Strength: 0.3
   MinimumSidePushback: 0.15
-  VelLimits: {x: 0.5, y: 0.5}
   ImpulseLimits: {x: 2, y: 2}
-  RB: {fileID: 9041447693736446346}
+  VelLimits: {x: 0.5, y: 0.5}
+  SimillarCollisionCutoff: 0.9
   Collidable:
     serializedVersion: 2
     m_Bits: 311
+  FrameImpulseLimits: {x: 2, y: 2}
 --- !u!1 &9041447693920889831
 GameObject:
   m_ObjectHideFlags: 0
