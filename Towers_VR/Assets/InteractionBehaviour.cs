@@ -15,11 +15,11 @@ public class InteractionBehaviour : MonoBehaviour
 	Interactable Interacted;
 
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.F)){
+		if(Input.GetKeyDown(KeyCode.Mouse0)){
 			GameObject AimedObject = RayForw();
 			Action(AimedObject);
 		}
-		if(Input.GetKeyUp(KeyCode.F)){
+		if(Input.GetKeyUp(KeyCode.Mouse0)){
 			
 			if(Interacted){
 				Interacted.Interact(false);

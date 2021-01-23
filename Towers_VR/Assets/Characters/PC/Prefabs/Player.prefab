@@ -1181,7 +1181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9063d7feeb952142b341241929a4658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentCollisions: []
   AxisSpeed: 7
   Acceleration: 9
   AirAccelerate: 2
@@ -1190,18 +1189,24 @@ MonoBehaviour:
   JumpSpeed: 6
   DirectionalJump: 0.5
   WalkSteepnessMax: 0.229
-  LadderMoveSpeed: 0.5
-  LadderLerpSpeed: 5
   Player: {fileID: 9041447693736446346}
-  CamDirection: {fileID: 9041447693817852401}
   MovementCenter: {fileID: 9041447694639068654}
   RaycastCenter: {fileID: 9041447694457117557}
-  Camera: {fileID: 9041447694693430485}
   Walkable:
     serializedVersion: 2
     m_Bits: 4407
+  LadderMoveSpeed: 0.5
+  LadderLerpSpeed: 5
+  CamDirection: {fileID: 9041447693817852401}
+  Camera: {fileID: 9041447694693430485}
   PlayerPhysicalCollider: {fileID: 5432048918830741394}
   PlayerSpawnPoint: {fileID: 0}
+  Front: 119
+  Back: 115
+  Right: 100
+  Left: 97
+  Jump: 32
+  Reset: 104
 --- !u!1 &9041447695138336912
 GameObject:
   m_ObjectHideFlags: 0

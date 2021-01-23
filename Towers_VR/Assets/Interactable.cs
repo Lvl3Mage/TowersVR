@@ -15,11 +15,11 @@ public class Interactable : MonoBehaviour
     void OnCollisionExit(Collision collisionInfo){
     	Activate(false);
     }*/
-    void OnTriggerEnter(Collider collisionInfo){
+    /*void OnTriggerEnter(Collider collisionInfo){
         Activate(true);
     }
     void OnTriggerExit(Collider collisionInfo){
         Activate(false);
-    }
+    }*/
     protected virtual void Activate(bool ToggleVal) {}
 }

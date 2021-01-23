@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2394113000323761359}
   - component: {fileID: 2394113000323761356}
   - component: {fileID: 2394113000323761358}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rotary Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2521551879248304135}
   - component: {fileID: 2521551879248304132}
   - component: {fileID: 2521551879248304133}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 2521551880236725360}
   - component: {fileID: 2521551880236725362}
   - component: {fileID: 2521551880236725363}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 2162835202441479442}
   - component: {fileID: 7493636531641480076}
   - component: {fileID: 1367039656024944467}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 5622977452286161293}
   - component: {fileID: 1409803768360179431}
   - component: {fileID: 9000866586542545357}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

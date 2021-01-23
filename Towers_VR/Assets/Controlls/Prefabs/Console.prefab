@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 3461468469114434178}
   - component: {fileID: 2866557217899885805}
   - component: {fileID: 2866557217899885809}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Console
   m_TagString: Untagged
   m_Icon: {fileID: 0}

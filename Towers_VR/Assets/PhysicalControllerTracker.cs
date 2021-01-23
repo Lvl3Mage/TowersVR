@@ -9,13 +9,14 @@ public class PhysicalControllerTracker : MonoBehaviour
 	[SerializeField] ControllerType Controller;
 	[SerializeField] GameObject VrRig;
 	[SerializeField] float RotationSpeed = 5, MovementSpeed = 5;
-	[SerializeField] LayerMask Grabable, Carriable;
+	[SerializeField] LayerMask Grabable, Carriable, Interactable;
 	[SerializeField] bool GrabTriggers;
-	[SerializeField] float GrabableDistance, Spheresize;
+	[SerializeField] float Spheresize, InteractRadius,InteractDistance;
 	Rigidbody VRRB, selfRB;
 	Vector3 PastVRRigPos;
 	SpringJoint GrabJoint;
 	FixedJoint CarryJoint;
+    Interactable InteractedObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,30 +32,13 @@ public class PhysicalControllerTracker : MonoBehaviour
         TrackController();
         if(GetTriggerDown()){
         	// GrabRaycast
-        	Collider[] GrabObjects = Physics.OverlapSphere(transform.position, Spheresize, Grabable);
-        	if(GrabObjects.Length > 0){
-	        	float ClosestGrabPointDistance = Mathf.Infinity;
-	        	Vector3 ClosestGrabPoint = Vector3.zero;
-	        	Collider ClosestCol = null;
-	        	foreach (Collider col in GrabObjects) 
-	        	{
-	        		Vector3 point = col.ClosestPoint(transform.position);
-	        		if(transform.InverseTransformPoint(point).magnitude<ClosestGrabPointDistance){
-	        			ClosestGrabPointDistance = transform.InverseTransformPoint(point).magnitude;
-	        			ClosestGrabPoint = point;
-	        			ClosestCol = col;
-	        		}
-	        	}
-	        	if((Carriable == (Carriable | (1 << ClosestCol.attachedRigidbody.gameObject.layer)))){
-	        		CreateCarryJoint(ClosestCol.attachedRigidbody);
-	        	}
-	        	else{
-		        	CreateGrabJoint(ClosestGrabPoint,ClosestCol.attachedRigidbody);
-	        	}
-        	}
+            Interaction();
         }
         if(GetTriggerUp()){
         	// GrabRaycast
+            if(InteractedObject){
+                InteractedObject.Interact(false);
+            }
 			if(GrabJoint){
 				Destroy(GrabJoint);
 				if(VrRig.GetComponents<SpringJoint>().Length <= 1){
@@ -72,6 +56,57 @@ public class PhysicalControllerTracker : MonoBehaviour
 		}
         if(GrabJoint){
         	TrackJoint(GrabJoint);
+        }
+    }
+    Collider GetClosestObj(Collider[] GrabObjects){
+        if(GrabObjects.Length > 0){
+            float ClosestGrabPointDistance = Mathf.Infinity;
+            Vector3 ClosestGrabPoint = Vector3.zero;
+            Collider ClosestCol = null;
+            foreach (Collider col in GrabObjects) 
+            {
+                Vector3 point = col.ClosestPoint(transform.position);
+                if(transform.InverseTransformPoint(point).magnitude<ClosestGrabPointDistance){
+                    ClosestGrabPointDistance = transform.InverseTransformPoint(point).magnitude;
+                    ClosestGrabPoint = point;
+                    ClosestCol = col;
+                }
+            }
+            return ClosestCol;
+        }
+        else{
+            return null;
+        }
+    }
+    void Interaction(){
+        Collider[] GrabObjects = Physics.OverlapCapsule(transform.position, transform.TransformPoint(0, 0, InteractDistance), InteractRadius, Interactable);
+        GameObject Obj = null;
+        if(GrabObjects.Length > 0){
+            Obj = GetClosestObj(GrabObjects).gameObject;  
+        }
+        Interactable Inter = null;
+        if(Obj){
+            Inter = Obj.GetComponent<Interactable>();
+        }
+        if(Inter){
+            Inter.Interact(true);
+            InteractedObject = Inter;
+            //Debug.Log(Inter.gameObject.name);
+        }
+        else{
+            PhysicsInteraction();
+        }
+    }
+    void PhysicsInteraction(){
+        Collider[] GrabObjects = Physics.OverlapSphere(transform.position, Spheresize, Grabable);
+        Collider ClosestCol = GetClosestObj(GrabObjects);
+        if(ClosestCol){
+            if((Carriable == (Carriable | (1 << ClosestCol.attachedRigidbody.gameObject.layer)))){
+                CreateCarryJoint(ClosestCol.attachedRigidbody);
+            }
+            else{
+                CreateGrabJoint(ClosestCol.ClosestPoint(transform.position),ClosestCol.attachedRigidbody);
+            }
         }
     }
     void CreateGrabJoint(Vector3 GrabPos, Rigidbody GrabedRB){
