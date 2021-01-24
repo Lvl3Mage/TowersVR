@@ -890,6 +890,7 @@ MonoBehaviour:
   StoredInventoryPoint: {fileID: 9041447693903748316}
   LoadPoint: {fileID: 9041447695087658289}
   PlayerMovement: {fileID: 9041447695103865018}
+  InteractKey: 323
 --- !u!1 &9041447695011207063
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class DestructableObject : MonoBehaviour
 			return _Health;
 		}
 	}
+    [ContextMenu("Damage Object")]
     public void DamageObject(float Damage){
     	if(OutsideDamage){
  			ApplyDamage(Damage*OutsideDamageMultiplier);

@@ -8,6 +8,7 @@ public class InteractionBehaviour : MonoBehaviour
 	[SerializeField] LayerMask InteractableLayers, AbleToPickUp;
 	[SerializeField] Transform GrabPoint, OutInventoryPointL, OutInventoryPointR, StoredInventoryPoint, LoadPoint;
 	[SerializeField] PCPlayerMovement PlayerMovement;
+	[SerializeField] KeyCode InteractKey;
 	Transform HeldObject, PuttingAwayObject, CurrentINInv, CurrentOUTInv;
 	Transform HeldObjectOffset, PuttingAwayObjectOffset;
 	WeaponReloader LoadTarget;
@@ -15,7 +16,7 @@ public class InteractionBehaviour : MonoBehaviour
 	Interactable Interacted;
 
 	void Update(){
-		if(Input.GetKeyDown(KeyCode.Mouse0)){
+		if(Input.GetKeyDown(InteractKey)){
 			GameObject AimedObject = RayForw();
 			Action(AimedObject);
 		}
