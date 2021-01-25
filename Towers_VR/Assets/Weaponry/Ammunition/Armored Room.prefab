@@ -460,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 2
   m_Material: {fileID: 2100000, guid: ef4e1d1d7f6547c44abba9463fdd38c1, type: 2}
-  m_DrawDistance: 1000
+  m_DrawDistance: 200
   m_FadeScale: 0.9
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 2
   m_Material: {fileID: 2100000, guid: ef4e1d1d7f6547c44abba9463fdd38c1, type: 2}
-  m_DrawDistance: 1000
+  m_DrawDistance: 200
   m_FadeScale: 0.9
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}

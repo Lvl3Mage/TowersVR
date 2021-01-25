@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6558098460970264479}
   - component: {fileID: 3075912773232968952}
   m_Layer: 11
-  m_Name: Cannon Ammo
+  m_Name: Cannon Ammo Explosive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 8186042617315062204}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463359291447205421}
   - {fileID: 1219469586928255769}

@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Health: 800
   OutsideDamage: 1
-  OutsideDamageMultiplier: 0.4
+  OutsideDamageMultiplier: 0.05
   PhysicsDamage: 1
   VelocityDamageMultiplier: 0.9
   OtherMassDamageMultiplier: 0.3

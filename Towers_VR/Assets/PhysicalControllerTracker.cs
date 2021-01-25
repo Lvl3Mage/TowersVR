@@ -114,12 +114,12 @@ public class PhysicalControllerTracker : MonoBehaviour
     	Vector3 LocalGrabPos;
     	if(GrabedRB){
 	    	LocalGrabPos = GrabedRB.gameObject.transform.InverseTransformPoint(GrabPos); // Grab position in local coordinates of the grabed object
+            GrabJoint.connectedBody = GrabedRB;
     	}
     	else{
     		LocalGrabPos = GrabPos;
     	}
     	GrabJoint = VrRig.AddComponent<SpringJoint>();
-    	GrabJoint.connectedBody = GrabedRB;
     	GrabJoint.autoConfigureConnectedAnchor = false;
     	GrabJoint.connectedAnchor = LocalGrabPos;
     	GrabJoint.spring = 10000f;

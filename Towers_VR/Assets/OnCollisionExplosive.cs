@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnCollisionExplosive : MonoBehaviour // rewrite this to be inherited
+public class OnCollisionExplosive : ActivatableProjectile // rewrite this to be inherited
 {
-	[SerializeField] Object ExplosionEffect, Explosion;
+	[SerializeField] Object ExplosionEffect, Explosion, Decal;
 	bool Exploded = false;
-	void OnCollisionEnter(Collision collisionInfo){
+	protected override void Activate(Collision collisionInfo){
 		if(!Exploded){
-			Object.Instantiate(ExplosionEffect, transform.position, transform.rotation);
-			Object.Instantiate(Explosion, transform.position, transform.rotation);
+			CreateExplosion();
+			CreateDecall(collisionInfo);
 			gameObject.SetActive(false); 			
 		}
-
+	}
+	void CreateExplosion(){
+		Object.Instantiate(ExplosionEffect, transform.position, transform.rotation);
+		Object.Instantiate(Explosion, transform.position, transform.rotation);
+	}
+	void CreateDecall(Collision Collision){
+		Transform colidedobj = Collision.collider.gameObject.transform;
+		Vector3 direction = Collision.collider.ClosestPoint(transform.position)-transform.position;
+		Object.Instantiate(Decal, transform.position, Quaternion.LookRotation(direction, Vector3.up), colidedobj);
 	}
 }

@@ -274,7 +274,7 @@ MonoBehaviour:
       maxScreenSpaceShadowSlots: 4
       screenSpaceShadowBufferFormat: 48
     decalSettings:
-      drawDistance: 1000
+      drawDistance: 5000
       atlasWidth: 4096
       atlasHeight: 4096
       perChannelMask: 0
