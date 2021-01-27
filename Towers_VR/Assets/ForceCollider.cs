@@ -93,15 +93,14 @@ public class ForceCollider : MonoBehaviour
 
         //Eliminates collisions that are identical
         float difference = Vector3.Dot(impulse.normalized, TotalForce.normalized);
-        Debug.Log(difference);
         if(SimillarCollisionCutoff<difference){ // Checks if the current collision has to be cut off
             if(impulse.magnitude>TotalForce.magnitude){
                 TotalForce = impulse; // If the active vector is the strongest the total force will be reset
-                Debug.Log("Reset Impulse");
+                //Debug.Log("Reset Impulse");
             }
             else{
                 impulse = Vector3.zero;
-                Debug.Log("Not Collided");
+                //Debug.Log("Not Collided");
             }
         }
         else{
