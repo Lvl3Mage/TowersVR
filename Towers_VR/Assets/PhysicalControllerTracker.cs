@@ -9,14 +9,20 @@ public class PhysicalControllerTracker : MonoBehaviour
 	[SerializeField] ControllerType Controller;
 	[SerializeField] GameObject VrRig;
 	[SerializeField] float RotationSpeed = 5, MovementSpeed = 5;
-	[SerializeField] LayerMask Grabable, Carriable, Interactable;
+	[SerializeField] LayerMask Grabable, Carriable, Interactable, Collectable;
 	[SerializeField] bool GrabTriggers;
-	[SerializeField] float Spheresize, InteractRadius,InteractDistance;
+	[SerializeField] float Spheresize, InteractRadius,InteractDistance, InventoryCollectRadius;
 	Rigidbody VRRB, selfRB;
 	Vector3 PastVRRigPos;
 	SpringJoint GrabJoint;
 	FixedJoint CarryJoint;
     Interactable InteractedObject;
+    GameObject CollectedItem;
+    Transform CollectedParent;
+    [Header("Controlls")]
+    [SerializeField] OVRInput.RawButton GrabInput;
+    [SerializeField] OVRInput.RawButton CollectInput;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +36,14 @@ public class PhysicalControllerTracker : MonoBehaviour
     {
         CompensatePlayerMovement();
         TrackController();
-        if(GetTriggerDown()){
+        if(OVRInput.GetDown(CollectInput)){
+            CollectAction();
+        }
+        if(OVRInput.GetDown(GrabInput)){
         	// GrabRaycast
             Interaction();
         }
-        if(GetTriggerUp()){
+        if(OVRInput.GetUp(GrabInput)){
         	// GrabRaycast
             if(InteractedObject){
                 InteractedObject.Interact(false);
@@ -78,6 +87,41 @@ public class PhysicalControllerTracker : MonoBehaviour
             return null;
         }
     }
+    void CollectAction(){
+        if(CollectedItem){
+            ThrowItem();
+        }
+        else{
+            CollectItem();
+        }
+    }   
+    void CollectItem(){
+        Collider[] CollectObjects = Physics.OverlapSphere(transform.position, InventoryCollectRadius, Collectable);
+        if(CollectObjects.Length>0){
+            Collider CollectedCol = GetClosestObj(CollectObjects);
+            Rigidbody CollectedRigidbody = CollectedCol.attachedRigidbody;
+            if(CollectedRigidbody){
+                CollectedItem = CollectedRigidbody.gameObject;
+                /*CollectedItem = CollectedRigidbody.gameObject;
+                CollectedRigidbody.detectCollisions = false;
+                CollectedRigidbody.isKinematic = true;*/
+            }
+            else{
+                CollectedItem = CollectedCol.gameObject;
+            }
+            CollectedParent = CollectedItem.transform.parent;
+            CollectedItem.transform.parent = transform;
+            CollectedItem.SetActive(false);            
+        }
+
+
+    }
+    void ThrowItem(){
+        CollectedItem.transform.parent = CollectedParent;
+        CollectedItem.SetActive(true);
+        CollectedItem = null;
+        CollectedParent = null;
+    }
     void Interaction(){
         Collider[] GrabObjects = Physics.OverlapCapsule(transform.position, transform.TransformPoint(0, 0, InteractDistance), InteractRadius, Interactable);
         GameObject Obj = null;
@@ -101,25 +145,27 @@ public class PhysicalControllerTracker : MonoBehaviour
         Collider[] GrabObjects = Physics.OverlapSphere(transform.position, Spheresize, Grabable);
         Collider ClosestCol = GetClosestObj(GrabObjects);
         if(ClosestCol){
-            if((Carriable == (Carriable | (1 << ClosestCol.attachedRigidbody.gameObject.layer)))){
-                CreateCarryJoint(ClosestCol.attachedRigidbody);
-            }
-            else{
-                CreateGrabJoint(ClosestCol.ClosestPoint(transform.position),ClosestCol.attachedRigidbody);
+            if(ClosestCol.attachedRigidbody){
+                if((Carriable == (Carriable | (1 << ClosestCol.attachedRigidbody.gameObject.layer)))){
+                    CreateCarryJoint(ClosestCol.attachedRigidbody);
+                }  
+                else{
+                    CreateGrabJoint(ClosestCol.ClosestPoint(transform.position),ClosestCol.attachedRigidbody);
+                }         
             }
         }
     }
     void CreateGrabJoint(Vector3 GrabPos, Rigidbody GrabedRB){
     	VRRB.drag = 10f;
     	Vector3 LocalGrabPos;
-    	if(GrabedRB){
-	    	LocalGrabPos = GrabedRB.gameObject.transform.InverseTransformPoint(GrabPos); // Grab position in local coordinates of the grabed object
-            GrabJoint.connectedBody = GrabedRB;
-    	}
-    	else{
-    		LocalGrabPos = GrabPos;
-    	}
     	GrabJoint = VrRig.AddComponent<SpringJoint>();
+        if(GrabedRB){
+            LocalGrabPos = GrabedRB.gameObject.transform.InverseTransformPoint(GrabPos); // Grab position in local coordinates of the grabed object
+            GrabJoint.connectedBody = GrabedRB;
+        }
+        else{
+            LocalGrabPos = GrabPos;
+        }
     	GrabJoint.autoConfigureConnectedAnchor = false;
     	GrabJoint.connectedAnchor = LocalGrabPos;
     	GrabJoint.spring = 10000f;
@@ -170,7 +216,7 @@ public class PhysicalControllerTracker : MonoBehaviour
     	}
     	return controllerRot;
     }
-    bool GetTriggerDown(){
+    /*bool GetTriggerDown(){
     	bool trigger = false;
     	if(Controller == ControllerType.Left){
     		trigger = OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger, OVRInput.Controller.LTouch);
@@ -178,7 +224,7 @@ public class PhysicalControllerTracker : MonoBehaviour
     	else if(Controller == ControllerType.Right){
     		trigger = OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger, OVRInput.Controller.RTouch);
     	}
-    	return trigger;   	
+    	return OVRInput.GetDown(GrabInput);   	
     }
     bool GetTriggerUp(){
     	bool trigger = false;
@@ -188,8 +234,8 @@ public class PhysicalControllerTracker : MonoBehaviour
     	else if(Controller == ControllerType.Right){
     		trigger = OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger, OVRInput.Controller.RTouch);
     	}
-    	return trigger;   	
-    }
+    	return OVRInput.GetUp(GrabInput);   	
+    }*/
     void TrackJoint(SpringJoint TrackedJoint){
     	Vector3 controllerPos = LocalControllerPos();
     	TrackedJoint.anchor = controllerPos;

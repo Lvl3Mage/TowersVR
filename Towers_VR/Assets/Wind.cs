@@ -17,14 +17,12 @@ public class Wind : MonoBehaviour
 		return Vector2.zero;
 	}
 	void Update(){
-		//if(AffectedObjects.Count>0){
+		// Calculations are neccesary every frame because of the compass
 		_WindVector = CalculateWind();
 		for (int i = 0; i < AffectedObjects.Count; i++) 
         {
 			AffectedObjects[i].velocity += new Vector3(_WindVector.x,0,_WindVector.y)*WindForce*Time.deltaTime*40;
-        }		
-		//}
-
+        }
 	}
 	void OnTriggerEnter(Collider other){
 		if(other.attachedRigidbody){
