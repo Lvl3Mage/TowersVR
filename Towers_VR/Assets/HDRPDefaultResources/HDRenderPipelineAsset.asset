@@ -191,7 +191,7 @@ MonoBehaviour:
   m_RenderPipelineSettings:
     supportShadowMask: 1
     supportSSR: 0
-    supportSSAO: 1
+    supportSSAO: 0
     supportSubsurfaceScattering: 1
     increaseSssSampleCount: 0
     supportVolumetrics: 1
