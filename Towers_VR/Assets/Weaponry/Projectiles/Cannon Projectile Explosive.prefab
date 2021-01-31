@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateToVelocity: 1
+  _WindFactor: 0.7
   ExplosionEffect: {fileID: 1656442405540310070, guid: 94761d32d4fa29e44899de57943944b3,
     type: 3}
   Explosion: {fileID: 8200426983165899535, guid: bd0fe94d3f218e5448fdd3bd86b0b6d5,

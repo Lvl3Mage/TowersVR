@@ -6,6 +6,12 @@ public class Projectile : MonoBehaviour
 {
 	Rigidbody RB;
 	[SerializeField] bool RotateToVelocity;
+    [SerializeField] [Range(0f,2f)] protected float _WindFactor;
+    public float WindFactor{
+        get{
+            return _WindFactor;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

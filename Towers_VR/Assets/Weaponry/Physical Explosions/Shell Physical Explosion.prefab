@@ -112,6 +112,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   BaseExplosionForce: 150
-  BaseDamage: 0.6
+  BaseDamage: 600
   DrawGizmos: 1
   Transparency: 0.621

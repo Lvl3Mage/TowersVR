@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateToVelocity: 1
+  _WindFactor: 1
 --- !u!33 &5128367846641866781
 MeshFilter:
   m_ObjectHideFlags: 0
