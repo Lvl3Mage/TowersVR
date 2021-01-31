@@ -161,8 +161,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Zoom
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 272b179ce23e8dc4685289d9e76e59ec, type: 2}
-  m_sharedMaterial: {fileID: 8018643125674678474, guid: 272b179ce23e8dc4685289d9e76e59ec,
+  m_fontAsset: {fileID: 11400000, guid: 3b85fc5251b453641aa4a29b49e5deb6, type: 2}
+  m_sharedMaterial: {fileID: 8018643125674678474, guid: 3b85fc5251b453641aa4a29b49e5deb6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -187,8 +187,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.3
-  m_fontSizeBase: 0.3
+  m_fontSize: 0.48
+  m_fontSizeBase: 0.48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

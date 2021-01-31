@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5925f83e9c37eb740af4e825263fc989
+  - enabled: 1
+    path: Assets/Scenes/MountainRange.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c1bfece2c9dd2544da47dd2771093f0f,
