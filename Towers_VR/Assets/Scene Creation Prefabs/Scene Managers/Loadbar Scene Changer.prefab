@@ -474,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7985610109499676913}
-  - component: {fileID: 8408065023104235089}
+  - component: {fileID: 1898171674177630668}
   m_Layer: 0
   m_Name: Loadbar Scene Changer
   m_TagString: SceneChanger
@@ -497,7 +497,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8408065023104235089
+--- !u!114 &1898171674177630668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -506,16 +506,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7985610109499676919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27451a90e61e5c340b25d77e948c02a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 503a6aa9eb085c048a7f97f927305dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CursorLockState: 0
   BaseCanvas: {fileID: 7985610108554737074}
   LoadBar: {fileID: 7985610110229103907}
   FadeSpeed: 15
   ContinueTextPrompt: {fileID: 7985610109266780371}
   TextPrompt: Press any key to continue
   Camera: {fileID: 3992509541155356195, guid: 487e05ea48456534fa25f84b0720f7c6, type: 3}
-  EnableCursor: 1
 --- !u!1 &7985610109878570240
 GameObject:
   m_ObjectHideFlags: 0

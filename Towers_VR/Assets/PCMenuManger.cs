@@ -9,9 +9,10 @@ public class PCMenuManger : MonoBehaviour
 	[SerializeField] PCLookAround PlayerCamera;
 	[SerializeField] KeyCode MenuOpenKey;
 	bool MenuState = false, Fading = false;
+    Coroutine FadeAction;
 	void Update(){
-		if(Input.GetKeyDown(MenuOpenKey) && !Fading){
-			SetMenu(!MenuState);
+		if(Input.GetKeyDown(MenuOpenKey)){
+			SetMenuState(!MenuState);
 		}
 	}
     IEnumerator FadeCanvas(float Target){ // Fades the canvas to a specified value
@@ -22,21 +23,26 @@ public class PCMenuManger : MonoBehaviour
     	BaseCanvas.alpha = Target;
     	Fading = false;
     }
-    public void SetMenu(bool SetValue){ // Function to either enable or disable the munu
-    	Fading = true;
+    public void SetMenuState(bool SetValue){// Function to either enable or disable the munu
+        if(FadeAction != null){ // if a fade coroutine is already running it will be stopped before the new one is initiated
+            StopCoroutine(FadeAction);
+        }
+        SetMenu(SetValue);
+    }
+    void SetMenu(bool SetValue){ //Don't call this method directly, call SetMenuState instead
     	MenuState = SetValue;
     	if(SetValue){
     		PlayerCamera.SetLookAround(false); // Disabling player camera rotation
     		BaseCanvas.interactable = true; // Enabling menu interaction
 	    	BaseCanvas.blocksRaycasts = true;
 
-	    	StartCoroutine(FadeCanvas(1)); // Fading the menu in
+	    	FadeAction = StartCoroutine(FadeCanvas(1)); // Fading the menu in
     	}
     	else{
     		PlayerCamera.SetLookAround(true); // Enabling player camera rotation
     		BaseCanvas.interactable = false; // Disabling menu interaction
 	    	BaseCanvas.blocksRaycasts = false;
-	    	StartCoroutine(FadeCanvas(0)); // Fading the menu out
+	    	FadeAction = StartCoroutine(FadeCanvas(0)); // Fading the menu out
     	}
     }
 }
