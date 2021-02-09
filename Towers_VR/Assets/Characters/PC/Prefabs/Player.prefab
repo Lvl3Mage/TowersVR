@@ -387,9 +387,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Framerate
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 272b179ce23e8dc4685289d9e76e59ec, type: 2}
-  m_sharedMaterial: {fileID: 8018643125674678474, guid: 272b179ce23e8dc4685289d9e76e59ec,
-    type: 2}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -932,7 +931,6 @@ GameObject:
   - component: {fileID: 9041447695038931245}
   - component: {fileID: 9041447695038931242}
   - component: {fileID: 9041447695038931243}
-  - component: {fileID: 9041447695038931244}
   m_Layer: 9
   m_Name: Cross
   m_TagString: Untagged
@@ -1004,23 +1002,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &9041447695038931244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9041447695038931246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &9041447695066223980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,7 +1477,6 @@ GameObject:
   - component: {fileID: 9041447695252216414}
   - component: {fileID: 9041447695252216411}
   - component: {fileID: 9041447695252216412}
-  - component: {fileID: 9041447695252216413}
   m_Layer: 5
   m_Name: FrameCounter
   m_TagString: Untagged
@@ -1567,23 +1547,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &9041447695252216413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9041447695252216415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &9041447695380118906
 GameObject:
   m_ObjectHideFlags: 0
