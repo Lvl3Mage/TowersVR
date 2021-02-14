@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnCollisionExplosive : ActivatableProjectile // rewrite this to be inherited
+public class ExplosiveProjectile : ImpactActivatedProjectile
 {
 	[SerializeField] Object ExplosionEffect, Explosion, Decal;
 	bool Exploded = false;

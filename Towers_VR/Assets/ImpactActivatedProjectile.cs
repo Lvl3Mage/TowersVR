@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivatableProjectile : Projectile
+public class ImpactActivatedProjectile : Projectile
 {
 	void OnCollisionEnter(Collision collisionInfo){
 		Activate(collisionInfo);
