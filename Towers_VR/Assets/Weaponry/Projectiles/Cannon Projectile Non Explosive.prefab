@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1179885241344485359}
   - component: {fileID: 5128367846641866781}
   - component: {fileID: 2883192680819518493}
-  - component: {fileID: 7799641139682801321}
+  - component: {fileID: 4256547059917388774}
   m_Layer: 16
   m_Name: Cannon Projectile Non Explosive
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2485673250264605158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.553, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,27 +95,27 @@ TrailRenderer:
   m_Time: 2
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.5
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.7931264
-        inSlope: -1.022785
-        outSlope: -1.022785
+        value: 1
+        inSlope: -0.92962444
+        outSlope: -0.92962444
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.14108105
+        outWeight: 0.09172661
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        inSlope: -0.029521052
+        outSlope: -0.10708071
+        tangentMode: 1
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.13129508
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -179,7 +179,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2485673250264605158}
-  m_Mesh: {fileID: 5283261607579422976, guid: 701a1bbc439d9774bb7d6ec177b20138, type: 3}
+  m_Mesh: {fileID: -4922195429043324230, guid: cb96b245c8b50bd4a9c4deb7af88aa21, type: 3}
 --- !u!23 &2883192680819518493
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -198,8 +198,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 500b94ff1c2e98d438b29d49bd5aaff3, type: 2}
-  - {fileID: 2100000, guid: 500b94ff1c2e98d438b29d49bd5aaff3, type: 2}
+  - {fileID: 2100000, guid: 1f85b71291b53f04f8b68aa5e4671c22, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -220,8 +219,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7799641139682801321
-BoxCollider:
+--- !u!136 &4256547059917388774
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -230,6 +229,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7, z: 1.81}
-  m_Center: {x: 0, y: 0, z: 0.3}
+  m_Radius: 0.05
+  m_Height: 1.37
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.02}

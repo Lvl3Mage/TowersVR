@@ -56,7 +56,7 @@ public class Weapon : Activatable
     protected virtual void ShootProjectile(Object bullet,float velocity,float Force, Transform gunPoint){ // Override this method if you want to create a weapon that will shoot the projectile in a different way
         SpawnBullet(bullet, velocity, gunPoint);
         SpawnEffect(gunPoint);
-        PushBack(Force);
+        PushBack(Force, gunPoint);
     }
     GameObject SpawnBullet(Object bullet, float velocity, Transform gunPoint){ // the function for shooting out the projectile
         GameObject Projectile = Object.Instantiate(bullet, gunPoint.position, gunPoint.rotation) as GameObject;
@@ -67,7 +67,8 @@ public class Weapon : Activatable
     void SpawnEffect(Transform gunPoint){
         Object.Instantiate(MuzzleFlash, gunPoint.position, gunPoint.rotation); // spawns muzzleflash
     }
-    void PushBack(float Force){
-        Barrel.velocity -= Barrel.gameObject.transform.TransformDirection(Vector3.forward * Force); // adds recoil
+    void PushBack(float Force, Transform gunPoint){
+        //Barrel.AddForceAtPosition(gunPoint.TransformDirection(Vector3.back) * Force, gunPoint.position); // adds recoil
+        Barrel.velocity -= gunPoint.TransformDirection(Vector3.forward * Force);
     }
 }

@@ -171,7 +171,13 @@ public class InteractionBehaviour : MonoBehaviour
 	}
 	void PickUp(GameObject Obj){
 		Inventory.Grab(Obj);
-		Obj.GetComponent<Collider>().enabled = false;
+		//Disabling all the colliders on the object
+		Collider[] Colliders = Obj.GetComponentsInChildren<Collider>();
+		foreach (Collider col in Colliders) 
+		{
+			col.enabled = false;
+		}
+		
 		Rigidbody RB = Obj.GetComponent<Rigidbody>();
 		Destroy(RB);
 		PCPickedUpObject SlotObj = Inventory.CurrentSlotObj();
@@ -183,7 +189,12 @@ public class InteractionBehaviour : MonoBehaviour
 	void ThrowObject(){
 		PCPickedUpObject SlotObj = Inventory.CurrentSlotObj();
 		HeldObject.parent = SlotObj.Parent;
-		HeldObject.gameObject.GetComponent<Collider>().enabled = true;
+		//Enabling all the colliders on the object
+		Collider[] Colliders = HeldObject.gameObject.GetComponentsInChildren<Collider>();
+		foreach (Collider col in Colliders) 
+		{
+			col.enabled = true;
+		}
 		Rigidbody RB = HeldObject.gameObject.AddComponent<Rigidbody>();
 
 		RB.mass = SlotObj.Mass;

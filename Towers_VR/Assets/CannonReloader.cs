@@ -34,10 +34,11 @@ public class CannonReloader : WeaponReloader
     	StartLerp();
     }
     void RemovePhysics(){
-    	Collider Col = LoadingObj.GetComponent<Collider>();
-    	if(Col){
-    		Destroy(Col);
-    	}
+    	Collider[] Colliders = LoadingObj.GetComponentsInChildren<Collider>();
+        foreach (Collider Col in Colliders) 
+        {
+            Destroy(Col);
+        }
     	Rigidbody RB = LoadingObj.GetComponent<Rigidbody>();
     	if(RB){
     		Destroy(RB);
