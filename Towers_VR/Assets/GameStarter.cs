@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class GameStarter : MonoBehaviour
 {
-	[SerializeField] BaseTeam[] Teams;
-	BaseParticipant[] Participants;
+	protected BaseTeam[] Teams;
+	protected BaseParticipant[] Participants;
 
+	public void SetTeams(BaseTeam[] _Teams){
+		Teams = _Teams;
+	}
     public void SetParticipants(BaseParticipant[] _Participants){
     	Participants = _Participants;
     }
-    public void SpawnParticipants(){
+    void SpawnParticipants(){
     	for (int i = 0; i<Participants.Length; i++) 
     	{
     		BaseParticipant Participant = Participants[i];
     		GameObject Tower = SpawnTower(Participant.spawnPoint, Participant.playerType, Participant.participant, Participant.teamID);
     		ConfigureTower(Tower,i);
     	}
+    }
+    public void StartGame(){
+    	//Some pre-spawn checks
+
+    	SpawnParticipants();
     }
     protected virtual void ConfigureTower(GameObject Tower, int ParticipantID){
 
