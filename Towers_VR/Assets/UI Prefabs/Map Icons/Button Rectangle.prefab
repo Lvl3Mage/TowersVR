@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2819228554560961416}
   - component: {fileID: 2819228554560961417}
   - component: {fileID: 2819228554560961423}
+  - component: {fileID: 8647431996449047513}
   m_Layer: 5
   m_Name: Button Rectangle
   m_TagString: Untagged
@@ -118,3 +119,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8647431996449047513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2819228554560961419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1caea6ec6bd8733418fb9ab2647b7b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultColor: {r: 1, g: 1, b: 1, a: 0.48235294}
+  button: {fileID: 2819228554560961423}
+  transform: {fileID: 2819228554560961418}

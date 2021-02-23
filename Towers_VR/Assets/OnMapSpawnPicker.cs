@@ -3,19 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MapSpawnpoint 
-{
-	public Button button;
-	public RectTransform transform;
-	public int teamID;
-	public ParticipantSettings.PlayerType playerType;
-	public MapSpawnpoint(Button _button, RectTransform _transform, int _teamID, ParticipantSettings.PlayerType _playerType){
-		button = _button;
-		transform = _transform;
-		teamID = _teamID;
-		playerType = _playerType;
-	}
-}
 public class OnMapSpawnPicker : MonoBehaviour
 {
 	[Header("Reference requirements")]
@@ -85,11 +72,11 @@ public class OnMapSpawnPicker : MonoBehaviour
     	DimPos.z = -10;
     	ButtonTrns.anchoredPosition3D = DimPos;
     	//Creates the spawnpoint object to return later on
-    	MapSpawnpoint Point = new MapSpawnpoint(ButtonInstance.GetComponent<Button>(), ButtonTrns, 0, ParticipantSettings.PlayerType.AI);
+    	MapSpawnpoint Point = ButtonInstance.GetComponent<MapSpawnpoint>();
     	Point = ButtonGenerated(Point); // an overridable function that can be used to modify the button before it is returned
 
     	// Recalculates the color for the button using the teams array
-    	RecalculateColor(Teams,Point);
+    	Point.RecalculateColor(Teams);
         return Point;
     }
     void SendParameters(){
@@ -101,13 +88,6 @@ public class OnMapSpawnPicker : MonoBehaviour
     BaseParticipant[] GenerateParticipants(){
     	return null;
     }
-	MapSpawnpoint RecalculateColor(BaseTeam[] teamArray, MapSpawnpoint mapIcon){
-		Graphic IconGraphic = mapIcon.button.targetGraphic;
-		if(IconGraphic){
-			IconGraphic.color = teamArray[mapIcon.teamID].teamColor;
-		}
-		return mapIcon;
-	}
     //Future Overridable methods
     protected virtual MapSpawnpoint ButtonGenerated(MapSpawnpoint generatedButton){
     	return generatedButton;

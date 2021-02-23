@@ -12,7 +12,6 @@ public class PresetTeamsOnMapPicker : OnMapSpawnPicker
     	Teams = DefaultTeams;
     }
 	protected override MapSpawnpoint ButtonGenerated(MapSpawnpoint Button){
-		Button.teamID = DefaultTeam;
 		return Button;
 	}
 }
