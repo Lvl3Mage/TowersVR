@@ -11,7 +11,7 @@ public class PresetTeamsOnMapPicker : OnMapSpawnPicker
     void Awake(){
     	Teams = DefaultTeams;
     }
-	protected override MapSpawnpoint ButtonGenerated(MapSpawnpoint Button){
+	protected override MapSpawnpoint PointGenerated(MapSpawnpoint Button){
 		return Button;
 	}
 }
