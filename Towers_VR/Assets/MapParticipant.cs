@@ -4,6 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+public class MapParticipant : MonoBehaviour
+{
+	[SerializeField] Graphic ColorIndicator;
+
+	public void SetColor(Color newColor){
+		ColorIndicator.color = newColor;
+	}
+}
+/*
 public class MapParticipant : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 	[HideInInspector] public int teamID;
@@ -40,4 +49,4 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
 	public void AttachTo(MapSpawnpoint point){
 		attachedPoint = point;
 	}
-}
+}*/
