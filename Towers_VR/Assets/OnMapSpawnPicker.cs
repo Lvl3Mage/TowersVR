@@ -29,8 +29,8 @@ public class OnMapSpawnPicker : MonoBehaviour
     	MapRendererCamera.targetTexture = RenderTexture;
     	Map.GetComponent<Image>().material = RenderMaterial;
     	RenderMaterial.SetTexture("_UnlitColorMap", RenderTexture);
-    	MapRendererCamera.Render();
-    	MapRendererCamera.enabled = false;
+    	//MapRendererCamera.Render();
+    	//MapRendererCamera.enabled = false;
     }
     void PlacePoints(){ // Places all the spawnpoints in UI
     	UISpawnpoints = new MapSpawnpoint[SpawnPoints.Length];
