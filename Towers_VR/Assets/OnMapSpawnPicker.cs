@@ -16,7 +16,7 @@ public class OnMapSpawnPicker : MonoBehaviour
 	[SerializeField] RenderTexture RenderTexture_Preview;
 
 	protected BaseTeam[] Teams;
-	protected MapSpawnpoint[] UISpawnpoints;                             
+	protected MapSpawnpoint[] UISpawnpoints;                         
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +29,8 @@ public class OnMapSpawnPicker : MonoBehaviour
     	MapRendererCamera.targetTexture = RenderTexture;
     	Map.GetComponent<Image>().material = RenderMaterial;
     	RenderMaterial.SetTexture("_UnlitColorMap", RenderTexture);
-    	//MapRendererCamera.Render();
-    	//MapRendererCamera.enabled = false;
+    	MapRendererCamera.Render();
+    	MapRendererCamera.enabled = false;
     }
     void PlacePoints(){ // Places all the spawnpoints in UI
     	UISpawnpoints = new MapSpawnpoint[SpawnPoints.Length];
@@ -101,6 +101,9 @@ public class OnMapSpawnPicker : MonoBehaviour
     }
 
     //Public methods to be called from elsewhere
+    public MapSpawnpoint[] RequestSpawnpoints(){
+        return UISpawnpoints;
+    }
     public void StartGame(){
     	// Check if the start conditions have been met
     }

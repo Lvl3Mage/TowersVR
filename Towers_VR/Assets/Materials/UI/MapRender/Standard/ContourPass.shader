@@ -2,7 +2,12 @@
 {
     Properties{
         _ContoursAmount("Amount of contour lines", Int) = 0
-        _LineSize("The size of each line", Float) = 0.05
+        _LineSize("The size of each line", Int) = 1
+        _Precision("The precision of the line", Float) = 0.1
+        _BottomColor("Lower Color", Color) = (0,0,0,1)
+        _TopColor("Higher Color", Color) = (0,0,0,1)
+        _BaseColor("No Color", Color) = (0,0,0,1)
+        _LineColour("The color of the lines", Color) = (0,0,0,1)
     }
     HLSLINCLUDE
 
@@ -35,7 +40,13 @@
     // There are also a lot of utility function you can use inside Common.hlsl and Color.hlsl,
     // you can check them out in the source code of the core SRP package.
     int _ContoursAmount;
-    float _LineSize;
+    int _LineSize;
+    float _Precision;
+    float3 _BottomColor;
+    float3 _TopColor;
+    float3 _BaseColor;
+    float3 _LineColour;
+    sampler2D _MainTex;
     float4 FullScreenPass(Varyings varyings) : SV_Target
     {
         UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(varyings);
@@ -48,18 +59,57 @@
         if (_CustomPassInjectionPoint != CUSTOMPASSINJECTIONPOINT_BEFORE_RENDERING)
             color = float4(CustomPassLoadCameraColor(varyings.positionCS.xy, 0), 1);
         // Add your custom pass code here
-        float amount = round(_ContoursAmount);
+        float amount = abs(round(_ContoursAmount));
         float CameraDepth = LoadCameraDepth(posInput.positionSS);
         float lineOffset = 1.0/amount;
         
-        //color.rgb = CameraDepth;
-        
+        int ClosestLine;
+        float ClosestLinedif = 1;
+        color.rgb = lineOffset;
+        //Can be optimized
         for(int i = 1; i < amount; i++)
         {
-            if(abs(lineOffset*i - CameraDepth)<_LineSize){
-                color.rgb = 0;
+            float linedif = abs(CameraDepth-lineOffset*i);
+            if(ClosestLinedif>linedif){
+                ClosestLinedif = linedif;
+                ClosestLine = i;
             }
         }
+        int colorGrade;
+        for(int i = 0; (i*lineOffset-_Precision) <= CameraDepth; i++)
+        {
+            colorGrade = i;
+        }
+        if(colorGrade == 0){
+            color.rgb = _BaseColor;
+        }
+        else{
+            float range = (colorGrade)/amount;
+            color.rgb = lerp(_BottomColor,_TopColor,range);
+        }
+        
+        
+
+        bool Colored = false;
+        if(abs(lineOffset*ClosestLine - CameraDepth)<_Precision){
+            //if CameraDepth belongs to a line zone
+            //color.rgb = 0;
+            for(int i = -_LineSize;i<_LineSize && !Colored;i++){ // this loop will continue while pixels are left to check or a black pixel has been found
+                //every row pixel
+                uint2 offsetVector = uint2(i,0);
+                for(int j = -_LineSize;j<_LineSize && !Colored;j++){ // this loop will continue while pixels are left to check or a black pixel has been found
+                    //every column pixel
+                    offsetVector.y = j;
+                    float CheckedPixelDepth = LoadCameraDepth(posInput.positionSS + offsetVector);
+                    if(CheckedPixelDepth < (lineOffset*ClosestLine-_Precision)){
+                        Colored = true;
+                        color.rgb = _LineColour;
+                    }
+                }
+                
+            }
+        }
+        //color.rgb = ClosestLinedif;
         // Fade value allow you to increase the strength of the effect while the camera gets closer to the custom pass volume
         return color;
     }

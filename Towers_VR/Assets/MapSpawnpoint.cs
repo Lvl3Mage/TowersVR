@@ -16,11 +16,5 @@ public class MapSpawnpoint : MonoBehaviour//, IDropHandler
 			IconGraphic.color = defaultColor;
 		}*/
 	}
-	public void OnDrop(PointerEventData eventData){
-		/*attachedParticipant = eventData.pointerDrag.GetComponent<MapParticipant>();
-		if(attachedParticipant){
-			attachedParticipant.AttachTo(this);
-		}
-		eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;*/
-	}
+
 }

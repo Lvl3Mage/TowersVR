@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wind
   - SceneChanger
+  - BaseMapGenerator
   layers:
   - Default
   - TransparentFX
