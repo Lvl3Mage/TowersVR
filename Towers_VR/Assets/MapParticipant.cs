@@ -14,65 +14,58 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	[Header("Transformation settings")]
 	[SerializeField] float SnappingDistance;
 	[SerializeField] float ColorLerpSpeed;
+	[SerializeField] float SizeLerpSpeed;
 	[SerializeField] float MovementSpeed;
 	[SerializeField] float RotationSize;
+	[SerializeField] Vector2 HoveringScaledDownSize;
+	[SerializeField] Vector2 ScaledDownSize;
+	Vector2 BaseScale;
 	[Header("Self references")]
 	[SerializeField] Graphic ColorIndicator;
 	[SerializeField] Graphic SecondaryColorIndicator;
 	[SerializeField] Animator Animator;
 
 	RectTransform rectTransform;
-	Coroutine ColorLerp;
+	Coroutine ColorLerp, ResizeLerp;
 	Canvas attachedCanvas;
 	RectTransform CanvasRect;
 	bool Drag;
 	Vector2 LerpPos;
 	Transform OrigParent;
+	bool Shortened = false;
 
 	MapSpawnpoint[] SpawnPoints;
 	MapSpawnpoint ConnectedSpawnpoint;
 	void Start(){
+
 		OrigParent = transform.parent;
 		MapGenerator = GameObject.FindGameObjectWithTag("BaseMapGenerator").GetComponent<OnMapSpawnPicker>();
 		rectTransform = GetComponent<RectTransform>();
+		BaseScale = transform.localScale;
 		attachedCanvas = GetComponentInParent<Canvas>();
 		CanvasRect = attachedCanvas.GetComponent<RectTransform>();
 		BaseSecColor = SecondaryColorIndicator.color;
 	}
+	//Interaction methods
 	public void SetColor(Color newColor){
 		TeamColor = newColor;
 		ColorIndicator.color = newColor;
-	}
-	void Shorten(){
-		if(ColorLerp != null){
-			StopCoroutine(ColorLerp);
+		if(Shortened){
+			LerpRecolor(newColor);
 		}
-		ColorLerp = StartCoroutine(LerpGraphicColor(TeamColor));
-		Animator.SetBool("Shortened", true);
+		
 	}
-	void Grow(){
-		if(ColorLerp != null){
-			StopCoroutine(ColorLerp);
-		}
-		ColorLerp = StartCoroutine(LerpGraphicColor(BaseSecColor));
-		Animator.SetBool("Shortened", false);
-	}
-	IEnumerator LerpGraphicColor(Color LerpColor){
-		while (SecondaryColorIndicator.color != LerpColor) 
-		{
-			Debug.Log("Lerping color to ");
-			SecondaryColorIndicator.color = Color.Lerp(SecondaryColorIndicator.color, LerpColor, Time.deltaTime*ColorLerpSpeed);
-			yield return null;
-		}
-	}
+	//Drag Handling
 	public void OnBeginDrag(PointerEventData eventData){
 		if(ConnectedSpawnpoint){
 			ConnectedSpawnpoint.attachedParticipant = null; //disconnects the spawnpoint from self
+			LerpResize(HoveringScaledDownSize); // Lerps the card to hovering size
 		}
 		UpdateSpawnpoints();
 		LerpPos = CalculateCursorPos(eventData); // updates lerp to cursor position
 		Drag = true;
 		transform.parent = attachedCanvas.gameObject.transform;
+		transform.SetAsLastSibling(); // making the object get drawn on top of everything else when dragged
 		Shorten();
 	}
 	public void OnDrag(PointerEventData eventData){
@@ -82,10 +75,17 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 			Vector2 PointPosition = CalculateObjCanvasRelativePos(ClosestPoint.gameObject, eventData.pressEventCamera);
 
 			LerpPos = PointPosition; // updates lerp to the spawnpoint position
-			ConnectedSpawnpoint = ClosestPoint; // sets the lerping to spawnpoint to the closest one
+			if(!ConnectedSpawnpoint){ // in case the spawnpoint is beign newly set (from null)
+				LerpResize(HoveringScaledDownSize); // starts lerping the size to small (but still hovering)
+			}
+			if(!ConnectedSpawnpoint || ClosestPoint != ConnectedSpawnpoint){ // in case the spawnpoint is beign set or reset
+				ConnectedSpawnpoint = ClosestPoint; // connects self to spawnpoint
+			}
+			
 		}
 		else{
 			if(ConnectedSpawnpoint){
+				LerpResize(BaseScale); // Starts lerping size to big again
 				ConnectedSpawnpoint = null;
 			}
 			LerpPos = CursorPos; // updates lerp to the cursor position
@@ -124,27 +124,38 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		}
 		return ClosestPoint;
 	}
-	void ConnectToSpawnpoint(MapSpawnpoint spawnpoint, Camera Camera){
-		spawnpoint.attachedParticipant = this;
-
-		rectTransform.anchoredPosition = CalculateObjCanvasRelativePos(spawnpoint.gameObject, Camera);
-
-	}
 	void ReturnToOrigin(){
 		transform.parent = OrigParent;
 		transform.SetAsFirstSibling();
 		Grow();
 	}
+	//Animation
+	void Shorten(){
+		Shortened = true;
+		LerpRecolor(TeamColor);
+		Animator.SetBool("Shortened", true);
+	}
+	void Grow(){
+		Shortened = false;
+		LerpRecolor(BaseSecColor);
+		Animator.SetBool("Shortened", false);
+	}
+
+	//Connection Handling
+	void ConnectToSpawnpoint(MapSpawnpoint spawnpoint, Camera Camera){
+		spawnpoint.attachedParticipant = this;
+
+		LerpResize(ScaledDownSize);//Lerps to the scaled down size (when the card is static over a point)
+		rectTransform.anchoredPosition = CalculateObjCanvasRelativePos(spawnpoint.gameObject, Camera); // sets the position to the point position
+
+	}
+	
 	void UpdateSpawnpoints(){
 		SpawnPoints = MapGenerator.RequestSpawnpoints();
 	}
-	void LerpToPos(Vector2 pos){
-		float posMag = pos.magnitude;
-		float selfPosMag = rectTransform.anchoredPosition.magnitude;
-		float delta = selfPosMag - posMag;
-		rectTransform.rotation =  Quaternion.EulerAngles(0f, 0f, delta*RotationSize);
-		rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, pos, Time.deltaTime*MovementSpeed);
-	}
+	
+
+	//Math Calculations
 	Vector2 CalculateCursorPos(PointerEventData eventData){
 		Vector2 CursorPos;
 		Vector2 CursorScreenPos = eventData.position;
@@ -164,6 +175,43 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		Input.x += CanvasRect.sizeDelta.x/2;
 		Input.y -= CanvasRect.sizeDelta.y/2;
 		return Input;
+	}
+
+	//Lerps
+	void LerpToPos(Vector2 pos){
+		float posMag = pos.magnitude;
+		float selfPosMag = rectTransform.anchoredPosition.magnitude;
+		float delta = selfPosMag - posMag;
+		rectTransform.rotation =  Quaternion.EulerAngles(0f, 0f, delta*RotationSize);
+		rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, pos, Time.deltaTime*MovementSpeed);
+	}
+	void LerpResize(Vector2 newScale){ // Call this instead of the enumerator
+		if(ResizeLerp != null){
+			StopCoroutine(ResizeLerp);
+		}
+		ResizeLerp = StartCoroutine(LerpSize(newScale));
+	}
+	IEnumerator LerpSize(Vector2 scale){
+		Vector3 newScale = new Vector3(scale.x, scale.y, 1);
+		while (transform.localScale != newScale) 
+		{
+			transform.localScale = Vector2.Lerp(transform.localScale,newScale,SizeLerpSpeed*Time.deltaTime);
+			yield return null;
+		}
+	}
+
+	void LerpRecolor(Color newColor){ // Call this instead of the enumerator
+		if(ColorLerp != null){
+			StopCoroutine(ColorLerp);
+		}
+		ColorLerp = StartCoroutine(LerpGraphicColor(newColor));
+	}
+	IEnumerator LerpGraphicColor(Color LerpColor){
+		while (SecondaryColorIndicator.color != LerpColor) 
+		{
+			SecondaryColorIndicator.color = Color.Lerp(SecondaryColorIndicator.color, LerpColor, Time.deltaTime*ColorLerpSpeed);
+			yield return null;
+		}
 	}
 	void Update(){
 		if(Drag){ // lerps the card if dragging

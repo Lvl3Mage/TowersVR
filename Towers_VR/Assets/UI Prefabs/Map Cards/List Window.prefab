@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 60
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -1048,10 +1048,10 @@ RectTransform:
   m_Father: {fileID: 7088010421601102830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.171, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.49902344, y: 0}
-  m_SizeDelta: {x: -0.9984741, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7088010422125450142
 CanvasRenderer:
@@ -1082,8 +1082,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Players
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9c211292ab9e5f44f90fbb2cbb1e08dd, type: 2}
-  m_sharedMaterial: {fileID: 7537201707286340982, guid: 9c211292ab9e5f44f90fbb2cbb1e08dd,
+  m_fontAsset: {fileID: 11400000, guid: 754b750769c96614db41b36a65c84dee, type: 2}
+  m_sharedMaterial: {fileID: -3705073958211318608, guid: 754b750769c96614db41b36a65c84dee,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

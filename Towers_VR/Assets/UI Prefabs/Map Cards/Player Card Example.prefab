@@ -61,8 +61,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnappingDistance: 100
   ColorLerpSpeed: 7
-  MovementSpeed: 7
+  SizeLerpSpeed: 6
+  MovementSpeed: 10
   RotationSize: 0.003
+  HoveringScaledDownSize: {x: 0.7, y: 0.7}
+  ScaledDownSize: {x: 0.5, y: 0.5}
   ColorIndicator: {fileID: 4632022543488242069}
   SecondaryColorIndicator: {fileID: 4632022543200679850}
   Animator: {fileID: 2179608911109708199}

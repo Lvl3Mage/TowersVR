@@ -24,4 +24,8 @@ public class TeamCard : MonoBehaviour
     public void MovePlayerWindowIn(){
     	relatedPlayersWindow.MoveIn();
     }
+    public void RandomizeColor(){
+    	ChangeTeamColor(new Color(Random.Range(0f, 1f),Random.Range(0f, 1f),Random.Range(0f, 1f)));
+
+    }
 }
