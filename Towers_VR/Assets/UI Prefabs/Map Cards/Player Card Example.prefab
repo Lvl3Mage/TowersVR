@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnappingDistance: 100
   ColorLerpSpeed: 7
-  SizeLerpSpeed: 6
+  SizeLerpSpeed: 10
   MovementSpeed: 10
   RotationSize: 0.003
   HoveringScaledDownSize: {x: 0.7, y: 0.7}

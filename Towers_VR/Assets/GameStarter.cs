@@ -16,9 +16,9 @@ public class GameStarter : MonoBehaviour
     void SpawnParticipants(){
     	for (int i = 0; i<Participants.Length; i++) 
     	{
-    		BaseParticipant Participant = Participants[i];
+    		/*BaseParticipant Participant = Participants[i];
     		GameObject Tower = SpawnTower(Participant.spawnPoint, Participant.playerType, Participant.participant, Participant.teamID);
-    		ConfigureTower(Tower,i);
+    		ConfigureTower(Tower,i);*/
     	}
     }
     public void StartGame(){

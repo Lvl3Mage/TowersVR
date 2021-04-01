@@ -28,4 +28,10 @@ public class TeamCard : MonoBehaviour
     	ChangeTeamColor(new Color(Random.Range(0f, 1f),Random.Range(0f, 1f),Random.Range(0f, 1f)));
 
     }
+    public Color GetTeamColor(){
+        return TeamColor;
+    }
+    public List<MapParticipant> GetParticipants(){
+        return TeamParticipants;
+    }
 }

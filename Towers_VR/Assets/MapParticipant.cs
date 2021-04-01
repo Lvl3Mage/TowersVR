@@ -36,6 +36,9 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
 	MapSpawnpoint[] SpawnPoints;
 	MapSpawnpoint ConnectedSpawnpoint;
+
+	ParticipantSettings.PlayerType playerType = ParticipantSettings.PlayerType.AI; // The type of the player
+
 	void Start(){
 
 		OrigParent = transform.parent;
@@ -58,7 +61,7 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	//Drag Handling
 	public void OnBeginDrag(PointerEventData eventData){
 		if(ConnectedSpawnpoint){
-			ConnectedSpawnpoint.attachedParticipant = null; //disconnects the spawnpoint from self
+			DisconnectFromSpawnpoint(); //disconnects the spawnpoint from self
 			LerpResize(HoveringScaledDownSize); // Lerps the card to hovering size
 		}
 		UpdateSpawnpoints();
@@ -149,6 +152,12 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		rectTransform.anchoredPosition = CalculateObjCanvasRelativePos(spawnpoint.gameObject, Camera); // sets the position to the point position
 
 	}
+	void DisconnectFromSpawnpoint(){
+		if(ConnectedSpawnpoint){
+			ConnectedSpawnpoint.attachedParticipant = null;
+		}
+		
+	}
 	
 	void UpdateSpawnpoints(){
 		SpawnPoints = MapGenerator.RequestSpawnpoints();
@@ -219,5 +228,12 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 				LerpToPos(LerpPos);
 			}
 		}
+	}
+	// Get methods
+	public ParticipantSettings.PlayerType GetPlayerType(){
+		return playerType;
+	}
+	public MapSpawnpoint GetConnectedSpawnPoint(){
+		return ConnectedSpawnpoint;
 	}
 }

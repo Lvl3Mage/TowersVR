@@ -6,15 +6,16 @@ using UnityEngine.UI;
 public class OnMapSpawnPicker : MonoBehaviour
 {
 	[Header("Reference requirements")]
+    [SerializeField] TeamsList TeamsList;
 	[SerializeField] Transform[] SpawnPoints;
 	[SerializeField] RectTransform Map;
 	[SerializeField] Object ExamplePoint;
 	[SerializeField] GameStarter GameStarter;
+    [SerializeField] Button StartGameButton;
 	[Header("Map rendering settings")]
 	[SerializeField] Camera MapRendererCamera;
 	[SerializeField] Material RenderMaterial_Preview;
 	[SerializeField] RenderTexture RenderTexture_Preview;
-
 	protected BaseTeam[] Teams;
 	protected MapSpawnpoint[] UISpawnpoints;                         
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class OnMapSpawnPicker : MonoBehaviour
     {
     	RenderMapPreview();
     	PlacePoints();
+        RevalidateStartConditions();
     }
     void RenderMapPreview(){ // Renders the map preview and then disables the camera to not impact performance
     	Material RenderMaterial = Object.Instantiate(RenderMaterial_Preview);
@@ -40,16 +42,6 @@ public class OnMapSpawnPicker : MonoBehaviour
 			UISpawnpoints[i] = CreateSpawnpoint(ExamplePoint,new Vector2(RelativePos.x,RelativePos.y));
 			//ConfigureButtonPress(UISpawnpoints[i],i);
 		}
-    }
-    /*void ConfigureButtonPress(MapSpawnpoint Button, int ButtonID){
-    	Button.button.onClick.AddListener(
-    		delegate{
-    			SpawnPointButtonPressed(ButtonID);
-    			}
-    		);
-    }*/
-    void SpawnPointButtonPressed(int ButtonID){
-    	IconPressed(ButtonID);
     }
     MapSpawnpoint CreateSpawnpoint(Object Example, Vector2 Position){
     	GameObject PointInstance = Object.Instantiate(Example, Map) as GameObject;
@@ -75,8 +67,6 @@ public class OnMapSpawnPicker : MonoBehaviour
     	MapSpawnpoint Point = PointInstance.GetComponent<MapSpawnpoint>();
     	Point = PointGenerated(Point); // an overridable function that can be used to modify the button before it is returned
 
-    	// Recalculates the color for the button using the teams array
-    	Point.RecalculateColor(Teams);
         return Point;
     }
     void SendParameters(){
@@ -85,16 +75,47 @@ public class OnMapSpawnPicker : MonoBehaviour
     	ModifyParticipants(Participants);
     	GameStarter.SetParticipants(Participants);
     }
-    BaseParticipant[] GenerateParticipants(){
-    	return null;
+    BaseParticipant[] GenerateParticipants(){ // Can in theory generate the teams here as well
+        List<BaseParticipant> CompiledParticipantsList = new List<BaseParticipant>();
+        List<TeamCard> TeamCards = TeamsList.GetTeams();
+        for (int i = 0; i < TeamCards.Count; i++){ // in this case i comes as the team id
+            List<MapParticipant> ParticipantCards = TeamCards[i].GetParticipants();
+            for (int j = 0; j < ParticipantCards.Count; j++){
+                MapParticipant Participant = ParticipantCards[j];
+                MapSpawnpoint MapIcon = Participant.GetConnectedSpawnPoint();
+                if(MapIcon){//if the participant is connected to a spawnpoint
+                    if(MapIcon.attachedParticipant == Participant){ // Check if the spawnpoint is attached to the participant (connection is complete and not still undergoing connection)
+
+                        int SpawnpointIndex = FindSpawnpointIndex(MapIcon); // the index of the spawnpoint in all the related arrays
+                        if(SpawnpointIndex == -1){
+                            Debug.LogError("Given spawnpoint does not exist in this SpawnPicker");
+                        }
+                        Transform SpawnpointLocation = SpawnPoints[SpawnpointIndex];
+
+                        ParticipantSettings.PlayerType playerType = Participant.GetPlayerType(); // Getting the exact participant type
+
+                        // Creating the base participant object and adding it to the list
+                        BaseParticipant CompiledParticipant = new BaseParticipant(SpawnpointLocation, playerType, i);
+                        CompiledParticipantsList.Add(CompiledParticipant);
+                    }
+                }
+                
+            }
+        }
+        BaseParticipant[] CompiledParticipants = CompiledParticipantsList.ToArray();
+        return CompiledParticipants;
+    }
+    int FindSpawnpointIndex(MapSpawnpoint spawnpoint){
+        for(int i = 0; i < UISpawnpoints.Length; i++){
+            if(UISpawnpoints[i] == spawnpoint){
+                return i;
+            }
+        }
+        return -1;
     }
     //Future Overridable methods
     protected virtual MapSpawnpoint PointGenerated(MapSpawnpoint generatedButton){
     	return generatedButton;
-    }
-
-    protected virtual void IconPressed(int ButtonID){
-
     }
     protected virtual BaseParticipant[] ModifyParticipants(BaseParticipant[] Participants){
     	return Participants;
@@ -104,7 +125,26 @@ public class OnMapSpawnPicker : MonoBehaviour
     public MapSpawnpoint[] RequestSpawnpoints(){
         return UISpawnpoints;
     }
+    public void SpawnpointConnected(){
+
+    }
+    protected virtual bool CheckStartingConditions(){ // override this for new starting conditions
+        bool allspawnpointsConnected = true;
+        foreach(MapSpawnpoint spawnpoint in UISpawnpoints){
+            if(spawnpoint.attachedParticipant == null){
+                allspawnpointsConnected = false;
+                break;
+            }
+        }
+        return allspawnpointsConnected;
+    }
     public void StartGame(){
+        if(CheckStartingConditions()){
+
+        }
     	// Check if the start conditions have been met
+    }
+    public void RevalidateStartConditions(){ // Recalculates in case the start conditions have been met
+        StartGameButton.interactable = CheckStartingConditions();
     }
 }

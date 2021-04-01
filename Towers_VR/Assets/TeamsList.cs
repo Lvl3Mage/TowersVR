@@ -47,4 +47,15 @@ public class TeamsList : MonoBehaviour
     	ScrollSize.y -= height;
     	BaseRect.offsetMin = ScrollSize;
 	}
+	public List<TeamCard> GetTeams(){
+		return Teams;
+	}
+	/*public BaseTeam[] CompileTeams(){
+		BaseTeam[] CompiledTeams = new BaseTeam[Teams.Count];
+		for (int i = 0; i < Teams.Count; i++){
+			BaseTeam CompiledTeam = new BaseTeam(Teams[i].GetTeamColor());
+			CompiledTeams[i] = CompiledTeam;
+		}
+		return CompiledTeams;
+	}*/
 }

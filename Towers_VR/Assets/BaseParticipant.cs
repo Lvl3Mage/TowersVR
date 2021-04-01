@@ -6,9 +6,10 @@ public class BaseParticipant
 {
 	public Transform spawnPoint; // the position where to spawn the participant
 	public ParticipantSettings.PlayerType playerType; // The type of the player
-	public Object participant; // the object pf the participant
 	public int teamID; // team id of the participant
-	public BaseParticipant(){
-
+	public BaseParticipant(Transform _spawnPoint, ParticipantSettings.PlayerType _playerType, int _teamID){
+		spawnPoint = _spawnPoint;
+		playerType = _playerType;
+		teamID = _teamID;
 	}
 }
