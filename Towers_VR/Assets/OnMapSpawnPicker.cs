@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -129,20 +129,32 @@ public class OnMapSpawnPicker : MonoBehaviour
 
     }
     protected virtual bool CheckStartingConditions(){ // override this for new starting conditions
-        bool allspawnpointsConnected = true;
-        foreach(MapSpawnpoint spawnpoint in UISpawnpoints){
-            if(spawnpoint.attachedParticipant == null){
-                allspawnpointsConnected = false;
-                break;
+        int Teamtypes = 0;
+        List<TeamCard> Teams = TeamsList.GetTeams();
+        for (int i = 0; i <Teams.Count; i++){
+            TeamCard TeamCard = Teams[i];
+            List<MapParticipant> Participants = TeamCard.GetParticipants();
+            for (int j = 0; j < Participants.Count; j++){
+                MapParticipant Participant = Participants[j];
+                MapSpawnpoint MapIcon = Participant.GetConnectedSpawnPoint();
+                if(MapIcon){//if the participant is connected to a spawnpoint
+                    if(MapIcon.attachedParticipant == Participant){ // Check if the spawnpoint is attached to the participant (connection is complete and not still undergoing connection)
+                        Teamtypes ++;
+                        break; // breaks out of the participant loop
+                    }
+                }
+            }
+            if(Teamtypes >= 2){
+                break; // breaks out of the main loop
             }
         }
-        return allspawnpointsConnected;
+        return Teamtypes >= 2;
     }
     public void StartGame(){
-        if(CheckStartingConditions()){
-
+        if(CheckStartingConditions()){ // Check if the start conditions have been met
+            
         }
-    	// Check if the start conditions have been met
+    	
     }
     public void RevalidateStartConditions(){ // Recalculates in case the start conditions have been met
         StartGameButton.interactable = CheckStartingConditions();

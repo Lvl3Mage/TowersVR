@@ -58,6 +58,9 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		}
 		
 	}
+	public void PlayerTypeDropdownChange(Dropdown change){
+		playerType = (ParticipantSettings.PlayerType)change.value;
+	}
 	//Drag Handling
 	public void OnBeginDrag(PointerEventData eventData){
 		if(ConnectedSpawnpoint){
@@ -235,5 +238,11 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	}
 	public MapSpawnpoint GetConnectedSpawnPoint(){
 		return ConnectedSpawnpoint;
+	}
+	public bool ShortenedState(){
+		return Shortened;
+	}
+	public Color GetTeamColor(){ // returns color the secondary should switch to. If it doesn't then returns null
+		return TeamColor;
 	}
 }
