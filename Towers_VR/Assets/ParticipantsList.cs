@@ -9,6 +9,10 @@ public class ParticipantsList : MonoBehaviour
 	[SerializeField] Transform CardParent, AddPlayerButton;
 	[SerializeField] RectTransform ScrollingRect;
 	[SerializeField] Object PlayerCardExample;
+	OnMapSpawnPicker MapGenerator;
+	void Start(){
+		MapGenerator = GameObject.FindGameObjectWithTag("BaseMapGenerator").GetComponent<OnMapSpawnPicker>();
+	}
 	public void AddPlayer(){
 		GameObject NewPlayerCard = Object.Instantiate(PlayerCardExample, CardParent) as GameObject;
     	MapParticipant participant = NewPlayerCard.GetComponent<MapParticipant>();
@@ -19,6 +23,10 @@ public class ParticipantsList : MonoBehaviour
     	AddRectHeight(ScrollingRect, CardHeight);
     	//Adds the player to the list of team's players and changes his color
     	relatedTeamCard.AddPlayerToList(participant);
+    	ReportPlayerAddition(participant);
+	}
+	void ReportPlayerAddition(MapParticipant Participant){ // reports that a certain type of player has been added
+		MapGenerator.TypeAdded(Participant.GetPlayerType());
 	}
 	public void MoveIn(){
 		Animator.SetBool("PlayerWindow",true);

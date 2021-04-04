@@ -187,6 +187,16 @@ MonoBehaviour:
     type: 2}
   RenderTexture_Preview: {fileID: 8400000, guid: dde51f4140d3a1f4d91bee01a8b63004,
     type: 2}
+  PlayerTypeLimits:
+  - Type: PC
+    MaxPlayersOfType: 1
+    ApplyLimit: 1
+  - Type: VR
+    MaxPlayersOfType: 1
+    ApplyLimit: 1
+  - Type: AI
+    MaxPlayersOfType: 0
+    ApplyLimit: 0
 --- !u!1 &24739271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,7 +2026,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00048828125}
+  m_AnchoredPosition: {x: 0, y: 0.0024719238}
   m_SizeDelta: {x: -0.0000009704381, y: 0.001253128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &542178362
@@ -4331,9 +4341,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1879706053}
     m_Modifications:
+    - target: {fileID: 1433457581654499892, guid: 6422b2ceadbe8a94abfe13c75140229b,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3512401395305040319, guid: 6422b2ceadbe8a94abfe13c75140229b,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4014778199237231106, guid: 6422b2ceadbe8a94abfe13c75140229b,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054706352556069875, guid: 6422b2ceadbe8a94abfe13c75140229b,
+        type: 3}
+      propertyPath: m_CharacterValidation
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4632022543026583426, guid: 6422b2ceadbe8a94abfe13c75140229b,
@@ -4591,6 +4616,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5817411414607822671, guid: 6422b2ceadbe8a94abfe13c75140229b,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5817411414607822671, guid: 6422b2ceadbe8a94abfe13c75140229b,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 5505f8622a7fcc6469a7f1f748672228,
+        type: 3}
     - target: {fileID: 7153534073861986192, guid: 6422b2ceadbe8a94abfe13c75140229b,
         type: 3}
       propertyPath: m_SizeDelta.y

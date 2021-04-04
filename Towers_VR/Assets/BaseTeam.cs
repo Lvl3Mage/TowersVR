@@ -5,9 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class BaseTeam
 {
-	[SerializeField] string TeamName;
+	public string teamName;
 	public Color teamColor;
-	public BaseTeam(Color _teamColor){
+	public BaseTeam(string _teamName, Color _teamColor){
+		teamName = _teamName;
 		teamColor = _teamColor;
 	}
 }

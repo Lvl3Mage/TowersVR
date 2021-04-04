@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class PlayerTypeLimit
+{
+	[SerializeField] string Type = "Write the corresponding type here to not get confused (by index)";
+	public int MaxPlayersOfType;
+	public bool ApplyLimit;
+
+}
 public class OnMapSpawnPicker : MonoBehaviour
 {
 	[Header("Reference requirements")]
@@ -16,11 +24,15 @@ public class OnMapSpawnPicker : MonoBehaviour
 	[SerializeField] Camera MapRendererCamera;
 	[SerializeField] Material RenderMaterial_Preview;
 	[SerializeField] RenderTexture RenderTexture_Preview;
+
+	[SerializeField] PlayerTypeLimit[] PlayerTypeLimits; //Specifies how many players of type are possible
 	protected BaseTeam[] Teams;
-	protected MapSpawnpoint[] UISpawnpoints;                         
+	protected MapSpawnpoint[] UISpawnpoints;
+	int[] PlayerTypeQuantities;                     
     // Start is called before the first frame update
     void Start()
     {
+    	PlayerTypeQuantities = new int[ParticipantSettings.PlayerType.GetNames(typeof(ParticipantSettings.PlayerType)).Length];
     	RenderMapPreview();
     	PlacePoints();
         RevalidateStartConditions();
@@ -74,35 +86,51 @@ public class OnMapSpawnPicker : MonoBehaviour
     	BaseParticipant[] Participants = GenerateParticipants();
     	ModifyParticipants(Participants);
     	GameStarter.SetParticipants(Participants);
+    	GameStarter.SetTeams(GenerateTeams());
     }
-    BaseParticipant[] GenerateParticipants(){ // Can in theory generate the teams here as well
-        List<BaseParticipant> CompiledParticipantsList = new List<BaseParticipant>();
-        List<TeamCard> TeamCards = TeamsList.GetTeams();
+    List<MapParticipant> GetAllParticipants(){
+    	List<MapParticipant> Participants = new List<MapParticipant>();
+    	List<TeamCard> TeamCards = TeamsList.GetTeams();
         for (int i = 0; i < TeamCards.Count; i++){ // in this case i comes as the team id
-            List<MapParticipant> ParticipantCards = TeamCards[i].GetParticipants();
-            for (int j = 0; j < ParticipantCards.Count; j++){
-                MapParticipant Participant = ParticipantCards[j];
-                MapSpawnpoint MapIcon = Participant.GetConnectedSpawnPoint();
-                if(MapIcon){//if the participant is connected to a spawnpoint
-                    if(MapIcon.attachedParticipant == Participant){ // Check if the spawnpoint is attached to the participant (connection is complete and not still undergoing connection)
-
-                        int SpawnpointIndex = FindSpawnpointIndex(MapIcon); // the index of the spawnpoint in all the related arrays
-                        if(SpawnpointIndex == -1){
-                            Debug.LogError("Given spawnpoint does not exist in this SpawnPicker");
-                        }
-                        Transform SpawnpointLocation = SpawnPoints[SpawnpointIndex];
-
-                        ParticipantSettings.PlayerType playerType = Participant.GetPlayerType(); // Getting the exact participant type
-
-                        // Creating the base participant object and adding it to the list
-                        BaseParticipant CompiledParticipant = new BaseParticipant(SpawnpointLocation, playerType, i);
-                        CompiledParticipantsList.Add(CompiledParticipant);
-                    }
-                }
-                
+            List<MapParticipant> TeamParticipants = TeamCards[i].GetParticipants();
+            for (int j = 0; j < TeamParticipants.Count; j++){
+                Participants.Add(TeamParticipants[j]);
             }
         }
-        BaseParticipant[] CompiledParticipants = CompiledParticipantsList.ToArray();
+        return Participants;
+    }
+    BaseTeam[] GenerateTeams(){ // Right now all the teams just get dumped into the generation because all the players are generated with total team index but this should be changed in the future
+    	List<TeamCard> TeamCards = TeamsList.GetTeams();
+    	BaseTeam[] CompiledTeams = new BaseTeam[TeamCards.Count];
+    	for(int i = 0; i< TeamCards.Count; i++){
+    		CompiledTeams[i] = new BaseTeam(TeamCards[i].GetTeamName(), TeamCards[i].GetTeamColor());
+    	}
+    	return CompiledTeams;
+    }
+    BaseParticipant[] GenerateParticipants(){ // Can in theory generate the teams here as well
+        List<MapParticipant> Participants = GetAllParticipants();
+        List<BaseParticipant> CompiledParticipantList = new List<BaseParticipant>();
+        for (int i = 0; i <Participants.Count; i++){
+			MapParticipant Participant = Participants[i];
+            MapSpawnpoint MapIcon = Participant.GetConnectedSpawnPoint();
+            if(MapIcon){//if the participant is connected to a spawnpoint
+                if(MapIcon.attachedParticipant == Participant){ // Check if the spawnpoint is attached to the participant (connection is complete and not still undergoing connection)
+
+                    int SpawnpointIndex = FindSpawnpointIndex(MapIcon); // the index of the spawnpoint in all the related arrays
+                    if(SpawnpointIndex == -1){
+                        Debug.LogError("Given spawnpoint does not exist in this SpawnPicker");
+                    }
+                    Transform SpawnpointLocation = SpawnPoints[SpawnpointIndex];
+
+                    ParticipantSettings.PlayerType playerType = Participant.GetPlayerType(); // Getting the exact participant type
+                    string playerName = Participant.GetPlayerName();
+                    // Creating the base participant object and adding it to the list
+                    BaseParticipant CompiledParticipant = new BaseParticipant(SpawnpointLocation, playerType, i, playerName);
+                    CompiledParticipantList.Add(CompiledParticipant);
+                }
+            }
+        }
+        BaseParticipant[] CompiledParticipants = CompiledParticipantList.ToArray();
         return CompiledParticipants;
     }
     int FindSpawnpointIndex(MapSpawnpoint spawnpoint){
@@ -124,9 +152,6 @@ public class OnMapSpawnPicker : MonoBehaviour
     //Public methods to be called from elsewhere
     public MapSpawnpoint[] RequestSpawnpoints(){
         return UISpawnpoints;
-    }
-    public void SpawnpointConnected(){
-
     }
     protected virtual bool CheckStartingConditions(){ // override this for new starting conditions
         int Teamtypes = 0;
@@ -150,13 +175,39 @@ public class OnMapSpawnPicker : MonoBehaviour
         }
         return Teamtypes >= 2;
     }
+    public bool IsTypeAvailable(ParticipantSettings.PlayerType Type){
+
+    	int TypeIndex = (int)Type;
+
+    	if(PlayerTypeLimits[TypeIndex].ApplyLimit){
+
+	    	int currentPlayersOfType = PlayerTypeQuantities[TypeIndex];
+
+			if(currentPlayersOfType>= PlayerTypeLimits[TypeIndex].MaxPlayersOfType){ 
+				return false;// if the limit has been saturated then return false
+			}
+			else{
+				return true; // if more types can be added
+			}
+    	}
+    	else{
+    		return true; // in case the limit was marked as not to apply simply return true
+    	}
+    	
+    }
     public void StartGame(){
         if(CheckStartingConditions()){ // Check if the start conditions have been met
             
         }
-    	
     }
+    //Inform methods
     public void RevalidateStartConditions(){ // Recalculates in case the start conditions have been met
         StartGameButton.interactable = CheckStartingConditions();
+    }
+    public void TypeAdded(ParticipantSettings.PlayerType PlayerType){
+    	PlayerTypeQuantities[(int)PlayerType]++;
+    }
+    public void TypeRemoved(ParticipantSettings.PlayerType PlayerType){
+		PlayerTypeQuantities[(int)PlayerType]--;
     }
 }

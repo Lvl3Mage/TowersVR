@@ -34,9 +34,12 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	Transform OrigParent;
 	bool Shortened = false;
 
+	
+
 	MapSpawnpoint[] SpawnPoints;
 	MapSpawnpoint ConnectedSpawnpoint;
 
+	string playerName = "Player 1";
 	ParticipantSettings.PlayerType playerType = ParticipantSettings.PlayerType.AI; // The type of the player
 
 	void Start(){
@@ -58,8 +61,15 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		}
 		
 	}
+	public void SetPlayerName(string newName){
+		playerName = newName;
+	}
 	public void PlayerTypeDropdownChange(Dropdown change){
-		playerType = (ParticipantSettings.PlayerType)change.value;
+		MapGenerator.TypeRemoved(playerType); // reports that a player type has been removed (because it is going to be raeplaced by a new one)
+
+		playerType = (ParticipantSettings.PlayerType)change.value; // changing the player type value
+
+		MapGenerator.TypeAdded(playerType); // reports that a player type has been added
 	}
 	//Drag Handling
 	public void OnBeginDrag(PointerEventData eventData){
@@ -118,7 +128,6 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 		foreach(MapSpawnpoint spawnpoint in SpawnPoints){
 			if(spawnpoint.attachedParticipant == null){ // checks the availabuility of the spawnpoint
 				Vector2 spawnpointPos = RectTransformUtility.WorldToScreenPoint(Camera, spawnpoint.gameObject.transform.position);
-				//Debug.Log(spawnpointPos + " and " + screenPointerPosition);
 				float delta = (spawnpointPos - screenPointerPosition).magnitude;
 
 				if(SmallestDistance > delta){ // if delta is smaller than the smallest distance to spawnpoint this value is equal to the maximum snappingDistance by default
@@ -244,5 +253,16 @@ public class MapParticipant : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 	}
 	public Color GetTeamColor(){ // returns color the secondary should switch to. If it doesn't then returns null
 		return TeamColor;
+	}
+	public bool IsTypeAvailable(ParticipantSettings.PlayerType Type){
+		if(Type == playerType){
+			return true; // if the type is equal to the player type there is no point blcoking the button
+		}
+		else{
+			return MapGenerator.IsTypeAvailable(Type);
+		}
+	}
+	public string GetPlayerName(){
+		return playerName;
 	}
 }

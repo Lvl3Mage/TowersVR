@@ -8,7 +8,11 @@ public class TeamCard : MonoBehaviour
 	List<MapParticipant> TeamParticipants = new List<MapParticipant>();
 	[SerializeField] Graphic ColorIndicator;
 	Color TeamColor;
+    string teamName;
     // Start is called before the first frame update
+    public void ChangeName(string newName){
+        teamName = newName;
+    }
     public void ChangeTeamColor(Color newColor){
 		TeamColor = newColor;
 		ColorIndicator.color = TeamColor;
@@ -33,5 +37,8 @@ public class TeamCard : MonoBehaviour
     }
     public List<MapParticipant> GetParticipants(){
         return TeamParticipants;
+    }
+    public string GetTeamName(){
+        return teamName;
     }
 }
