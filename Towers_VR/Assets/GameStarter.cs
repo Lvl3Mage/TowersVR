@@ -6,7 +6,10 @@ public class GameStarter : MonoBehaviour
 {
 	protected BaseTeam[] Teams;
 	protected BaseParticipant[] Participants;
-
+    [SerializeField] Transform[] SpawnPoints;
+    public Transform[] GetSpawnPoints(){
+        return SpawnPoints;
+    }
 	public void SetTeams(BaseTeam[] _Teams){
 		Teams = _Teams;
 	}

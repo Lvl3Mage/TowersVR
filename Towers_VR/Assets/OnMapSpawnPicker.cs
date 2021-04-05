@@ -15,7 +15,7 @@ public class OnMapSpawnPicker : MonoBehaviour
 {
 	[Header("Reference requirements")]
     [SerializeField] TeamsList TeamsList;
-	[SerializeField] Transform[] SpawnPoints;
+	Transform[] SpawnPoints;
 	[SerializeField] RectTransform Map;
 	[SerializeField] Object ExamplePoint;
 	[SerializeField] GameStarter GameStarter;
@@ -32,6 +32,7 @@ public class OnMapSpawnPicker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    	SpawnPoints = GameStarter.GetSpawnPoints();
     	PlayerTypeQuantities = new int[ParticipantSettings.PlayerType.GetNames(typeof(ParticipantSettings.PlayerType)).Length];
     	RenderMapPreview();
     	PlacePoints();

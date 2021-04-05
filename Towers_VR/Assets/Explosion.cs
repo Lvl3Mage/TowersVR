@@ -177,7 +177,7 @@ public class Explosion : MonoBehaviour
     }
 
     Collider[] GetObjectsInRadius(float r, LayerMask Mask){
-    	Collider[] ColliderArray = Physics.OverlapSphere(transform.position, ExplosionRadius, Mask, QueryTriggerInteraction.Ignore);
+    	Collider[] ColliderArray = Physics.OverlapSphere(transform.position, r, Mask, QueryTriggerInteraction.Ignore);
     	return ColliderArray;
     }
     void OnDrawGizmos(){
@@ -185,7 +185,7 @@ public class Explosion : MonoBehaviour
     		Color Color = Color.red;
     		Color.a = Transparency;
 	    	Gizmos.color = Color;
-	    	Gizmos.DrawSphere(transform.position, ExplosionRadius);	
+	    	Gizmos.DrawSphere(transform.position, ExplosionRadius);
     	}
     }
 }
