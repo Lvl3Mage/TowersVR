@@ -4,35 +4,60 @@ using UnityEngine;
 
 public class GameStarter : MonoBehaviour
 {
-	protected BaseTeam[] Teams;
-	protected BaseParticipant[] Participants;
     [SerializeField] Transform[] SpawnPoints;
+    [SerializeField] Object PlayerTower;
+    [SerializeField] Object AITower;
+    [SerializeField] Object PCCharacter;
+    [SerializeField] Object VRCharacter;
     public Transform[] GetSpawnPoints(){
         return SpawnPoints;
     }
-	public void SetTeams(BaseTeam[] _Teams){
-		Teams = _Teams;
-	}
-    public void SetParticipants(BaseParticipant[] _Participants){
-    	Participants = _Participants;
-    }
-    void SpawnParticipants(){
-    	for (int i = 0; i<Participants.Length; i++) 
+    void SpawnParticipants(BaseTeam[] Teams){
+    	foreach(BaseTeam team in Teams)
     	{
-    		/*BaseParticipant Participant = Participants[i];
-    		GameObject Tower = SpawnTower(Participant.spawnPoint, Participant.playerType, Participant.participant, Participant.teamID);
-    		ConfigureTower(Tower,i);*/
+            BaseParticipant[] Participants = team.participants;
+            foreach(BaseParticipant participant in Participants){
+                ParticipantSettings.PlayerType playerType = participant.playerType;
+                Object Tower = null;
+                Object Character = null;
+                switch(playerType){ // this really makes it hard to implement new player types nut I really can't think of a way to simplify this without limiting the player types we can have
+                    case ParticipantSettings.PlayerType.AI:
+                    {
+                        Tower = AITower;
+                        break;
+                    }
+                    case ParticipantSettings.PlayerType.PC:
+                    {
+                        Tower = PlayerTower;
+                        Character = PCCharacter;
+                        break;
+                    }
+                    case ParticipantSettings.PlayerType.VR:
+                    {
+                        Tower = PlayerTower;
+                        Character = VRCharacter;
+                        break; 
+                    }
+                    default: break;
+                }
+                GameObject TowerObject = SpawnTower(participant.spawnPoint, Tower);
+                if(Character){
+                    PlayableTower TowerComponent = TowerObject.GetComponent<PlayableTower>();
+                    Transform TowerSpawnpoint = TowerComponent.GetTowerSpawnPoint();
+                    GameObject player = Object.Instantiate(Character,TowerSpawnpoint.position, Quaternion.identity) as GameObject;
+                    TowerComponent.AssignPlayer(player); //PLACEHOLDER this should really pass an array of base classes of players (that I have yet to create)
+                } 
+                ConfigureTower(TowerObject);
+            }
     	}
     }
-    public void StartGame(){
-    	//Some pre-spawn checks
-
-    	SpawnParticipants();
+    public void StartGame(BaseTeam[] Teams){
+        SpawnParticipants(Teams);
     }
-    protected virtual void ConfigureTower(GameObject Tower, int ParticipantID){
+    protected virtual void ConfigureTower(GameObject Tower){
 
     }
-    GameObject SpawnTower(Transform spawnPoint, ParticipantSettings.PlayerType playerType, Object Tower, int TeamID){
+    GameObject SpawnTower(Transform spawnPoint, Object Tower){
     	GameObject SpawnedTower = Object.Instantiate(Tower,spawnPoint.position,spawnPoint.rotation) as GameObject;
 
     	// Configure the team

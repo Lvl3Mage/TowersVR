@@ -34,9 +34,6 @@ public class TowerKeypoint : MonoBehaviour
 	[SerializeField] float DebugTransparency;
 	[SerializeField] float DebugRadius;
 
-	//REMOVE
-	[SerializeField] string Reason;
-	//REMOVE
 	Transform[] relatedStructures;
 	Vector3 Origin;
 
@@ -106,20 +103,6 @@ public class TowerKeypoint : MonoBehaviour
 
     	float distanceFromOrigin = Vector3.Distance(Origin, transform.position);
     	bool KeypointMovedIntegrity = distanceFromOrigin <= MaxKeypointMoveDistance;
-
-    	//REMOVE
-    	if (!StructureIntegrity && !KeypointMovedIntegrity) 
-    	{
-    		Reason = "The keypoint has been moved and the structures are destoryed";
-    	}
-    	else if(!StructureIntegrity){
-    		Reason = "Too many structures destroyed/too far away";
-    	}
-    	else if(!KeypointMovedIntegrity){
-    		Reason = "The keypoint moved too far away";
-    	}
-    	//REMOVE
-
     	return StructureIntegrity && KeypointMovedIntegrity; // only returns true if the keypoint stays within range of its origin and if more than enough structures are connected
     }
     void RecalculateKeypointPosition(){ // recalculates the keypoint position to be between all the structures

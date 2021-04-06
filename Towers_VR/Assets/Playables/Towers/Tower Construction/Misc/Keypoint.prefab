@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1809d8cf59d4e4d8fb02475ead80c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StructureRadius: 3.75
+  StructureRadius: 3
   StructureLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -80,7 +80,6 @@ MonoBehaviour:
   FirstGizmoTransparency: 0.5
   SecondGizmoTransparency: 0.2
   ThirdGizmoTransparency: 0.1
-  DebugMode: 1
+  DebugMode: 0
   DebugTransparency: 0.5
-  DebugRadius: 3.75
-  Reason: 
+  DebugRadius: 3.5

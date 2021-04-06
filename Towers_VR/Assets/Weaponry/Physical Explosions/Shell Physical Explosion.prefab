@@ -113,5 +113,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   BaseExplosionForce: 150
   BaseDamage: 600
-  DrawGizmos: 1
+  DrawGizmos: 0
   Transparency: 0.621

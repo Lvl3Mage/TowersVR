@@ -58,4 +58,7 @@ public class ScreenCameraOptimizer : MonoBehaviour
     	Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(BoundCamera);
     	return GeometryUtility.TestPlanesAABB(frustumPlanes, Renderer.bounds);
     }
+    public void AssignRenderForCamera(Camera[] Cameras){
+        RenderForCamera = Cameras;
+    }
 }

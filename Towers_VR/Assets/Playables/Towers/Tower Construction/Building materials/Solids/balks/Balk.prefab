@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7123225728728089974}
   - component: {fileID: 7123225728728089973}
   - component: {fileID: 7123225728728089970}
-  - component: {fileID: 9197430863888237362}
   - component: {fileID: 336985470095250305}
   - component: {fileID: 648471963553762063}
   m_Layer: 0
@@ -101,24 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9197430863888237362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7123225728728089969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62f6d4f14c1015344b382e14be86a8ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DestroyedObj: {fileID: 6897048404304005149, guid: 6bdd25664fa06ac408cdf2fb21555859,
-    type: 3}
-  health: 350
-  damagemultipier: 0.07
-  DestroyOnTerrain: 0
-  Terrain: {fileID: 0}
 --- !u!65 &336985470095250305
 BoxCollider:
   m_ObjectHideFlags: 0

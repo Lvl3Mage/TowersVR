@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-	[SerializeField] protected Transform[] _KeyPoints;
-	public Transform[] KeyPoints { 
+	[SerializeField] protected TowerKeypoint[] _KeyPoints;
+	public TowerKeypoint[] KeyPoints { 
 		get{
 			return _KeyPoints;
 		} 
