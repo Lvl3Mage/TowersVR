@@ -9,9 +9,9 @@ public class PCPlayerMovement : Movement
     [SerializeField] float LadderLerpSpeed;
 
     [Header("Reference Requirements")]
-    [SerializeField] Transform CamDirection, Camera;
+    [SerializeField] Transform CamDirection;
+    [SerializeField] Transform Camera;
     [SerializeField] Collider PlayerPhysicalCollider;
-    [SerializeField] Transform PlayerSpawnPoint;
     [Header("Controlls")]
     [SerializeField] KeyCode Front;
     [SerializeField] KeyCode Back;

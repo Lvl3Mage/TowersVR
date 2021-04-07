@@ -418,16 +418,16 @@ MonoBehaviour:
   Walkable:
     serializedVersion: 2
     m_Bits: 4294967295
+  PlayerSpawnPoint: {fileID: 0}
   CamDirection: {fileID: 4934580704358639308}
   Camera: {fileID: 4934580704157515191}
-  PlayerSpawnPoint: {fileID: 0}
   CameraOffseter: {fileID: 4934580704693332197}
   MovementAxis: 1
   Jump: 1
   SnapLeft: 16384
   SnapRight: 32768
   SnapAngle: 45
-  Reset: 121
+  Reset: 512
 --- !u!65 &4934580704301757868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -543,6 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4934580704485539791}
   - component: {fileID: 4934580704485539776}
+  - component: {fileID: -8998151464592269292}
   m_Layer: 10
   m_Name: VR Player
   m_TagString: Untagged
@@ -578,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useRecommendedMSAALevel: 1
-  _monoscopic: 1
+  _monoscopic: 0
   enableAdaptiveResolution: 0
   enableColorGamut: 0
   colorGamut: 0
@@ -622,6 +623,20 @@ MonoBehaviour:
   resetTrackerOnLoad: 0
   AllowRecenter: 1
   LateControllerUpdate: 1
+--- !u!114 &-8998151464592269292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934580704485539790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ece8b9e7f053e84ca53f2d0af6bf311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMovement: {fileID: 4934580704301757869}
+  PlayerCamera: {fileID: 4934580704157515190}
 --- !u!1 &4934580704693332196
 GameObject:
   m_ObjectHideFlags: 0

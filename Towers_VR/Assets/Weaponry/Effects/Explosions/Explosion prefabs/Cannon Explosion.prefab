@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6977910648649149801}
   - component: {fileID: 2061021559729508093}
   m_Layer: 0
-  m_Name: Explosion Effect
+  m_Name: Cannon Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d92ecda53bf269c46bb5155168b435f4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bb3aee25c487a3e4586548ec886456e6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

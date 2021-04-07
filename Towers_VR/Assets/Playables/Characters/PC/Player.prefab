@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9041447693736446344}
   - component: {fileID: 9041447693736446346}
+  - component: {fileID: 1243642370967491761}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -86,6 +87,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &1243642370967491761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9041447693760621573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e914ef0e8db889340af6d954562a64fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMovement: {fileID: 9041447695103865018}
+  PlayerCamera: {fileID: 9041447694998948832}
 --- !u!1 &9041447693903748317
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,10 +810,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25307fd34f45a4d459fed79ad550eb3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  sensitivity: 3
   zoomspeed: 5
   animzoomspeed: 10
-  BaseZoom: 60
+  BaseZoom: 65
   ZoomedIn: 10
 --- !u!114 &9041447694998948847
 MonoBehaviour:
@@ -1116,12 +1131,12 @@ MonoBehaviour:
   Walkable:
     serializedVersion: 2
     m_Bits: 4407
+  PlayerSpawnPoint: {fileID: 0}
   LadderMoveSpeed: 0.5
   LadderLerpSpeed: 5
   CamDirection: {fileID: 9041447693817852401}
   Camera: {fileID: 9041447694693430485}
   PlayerPhysicalCollider: {fileID: 5432048918830741394}
-  PlayerSpawnPoint: {fileID: 0}
   Front: 119
   Back: 115
   Right: 100

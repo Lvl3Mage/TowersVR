@@ -44,8 +44,9 @@ public class GameStarter : MonoBehaviour
                 if(Character){
                     PlayableTower TowerComponent = TowerObject.GetComponent<PlayableTower>();
                     Transform TowerSpawnpoint = TowerComponent.GetTowerSpawnPoint();
-                    GameObject player = Object.Instantiate(Character,TowerSpawnpoint.position, Quaternion.identity) as GameObject;
-                    TowerComponent.AssignPlayer(player); //PLACEHOLDER this should really pass an array of base classes of players (that I have yet to create)
+                    GameObject playerObject = Object.Instantiate(Character,TowerSpawnpoint.position, Quaternion.identity) as GameObject;
+                    Player Player = playerObject.GetComponent<Player>();
+                    TowerComponent.AssignPlayer(Player); //PLACEHOLDER this should really pass an array
                 } 
                 ConfigureTower(TowerObject);
             }

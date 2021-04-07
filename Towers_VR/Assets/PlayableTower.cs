@@ -6,13 +6,15 @@ public class PlayableTower : Tower
 {
     [SerializeField] Transform Spawnpoint;
     [SerializeField] ScreenCameraOptimizer RadarCamera;
-    GameObject Player;
-    public void AssignPlayer(GameObject player){ // PLACEHOLDER this should really be passed an array of player base classes
+    Player Player;
+    public void AssignPlayer(Player player){ // PLACEHOLDER this should reall recieve an array of players
     	AssignRenderForCamera(player);
+    	player.SetSpawnpoint(Spawnpoint);
+    	Player = player;
     }
-    void AssignRenderForCamera(GameObject player){
-    	Camera[] PlayerCameras = new Camera[1]; // PLACEHOLDER this should be rewritten in a way that both players would derrive from the same class and you could simply ask it to give you the player's camera
-    	PlayerCameras[0] = player.GetComponentInChildren<Camera>();
+    void AssignRenderForCamera(Player player){
+    	Camera[] PlayerCameras = new Camera[1]; 
+    	PlayerCameras[0] = player.GetPlayerCamera();// PLACEHOLDER this should really recieve an array of players and iterate through them
     	RadarCamera.AssignRenderForCamera(PlayerCameras);
     }
     public Transform GetTowerSpawnPoint(){

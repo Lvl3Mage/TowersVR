@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
 		public GameObject Object;
 		public Rigidbody Rigidbody;
 	}
+    
 	bool JumpReady = true;
     List<Collider> CurrentCollisions = new List<Collider>();
     [Header("Normal Movement Settings")]
@@ -25,6 +26,11 @@ public class Movement : MonoBehaviour
     [SerializeField] protected Rigidbody Player;
     [SerializeField] Transform MovementCenter,RaycastCenter;
     [SerializeField] protected LayerMask Walkable;
+    [SerializeField] protected Transform PlayerSpawnPoint;
+
+    public void SetSpawnpoint(Transform newSpawnPoint){
+        PlayerSpawnPoint = newSpawnPoint;
+    }
 	int SelectStoodOnObject(){ // Selects the collider with the smallest normal vector difference
     	float MaxAngle = -Mathf.Infinity;
     	int Saved_i = 0;

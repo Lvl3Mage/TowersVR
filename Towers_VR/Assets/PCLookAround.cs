@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PCLookAround : MonoBehaviour
 {
-	[SerializeField] float speed, zoomspeed, animzoomspeed, BaseZoom, ZoomedIn;
+    [Header("Camera rotation settings")]
+    [SerializeField] [Range(1f, 20f)] float sensitivity;
+    [Header("Camera zoom settings")]
+    [SerializeField] [Range(1f, 10f)] float zoomspeed;
+    [SerializeField] [Range(1f, 20f)] float animzoomspeed;
+    [SerializeField] [Range(40f, 100f)] float BaseZoom;
+	[SerializeField] [Range(0.1f, 20f)] float ZoomedIn;
 	float x,y;
     Camera Camera;
     bool zoomed, LookAround;
@@ -41,7 +47,7 @@ public class PCLookAround : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                 }
             }
-            float rspeed = speed*Camera.fieldOfView/BaseZoom;
+            float rspeed = sensitivity*Camera.fieldOfView/BaseZoom;
             x += rspeed*Input.GetAxis("Mouse Y");
             y += rspeed*Input.GetAxis("Mouse X");
             if(!Cursor.visible){

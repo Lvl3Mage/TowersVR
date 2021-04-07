@@ -7,7 +7,6 @@ public class VRPlayerMovement : Movement
     [Header("Reference Requirements")]
     [SerializeField] Transform CamDirection;
     [SerializeField] Transform Camera;
-    [SerializeField] Transform PlayerSpawnPoint;
     [SerializeField] Transform CameraOffseter;
     [Header("Controlls")]
     [SerializeField] OVRInput.RawAxis2D MovementAxis;
@@ -15,10 +14,10 @@ public class VRPlayerMovement : Movement
     [SerializeField] OVRInput.RawButton SnapLeft;
     [SerializeField] OVRInput.RawButton SnapRight;
     [SerializeField] float SnapAngle;
-    [SerializeField] KeyCode Reset;
+    [SerializeField] OVRInput.RawButton Reset;
     void Update(){
         SnapCamera();
-        if(Input.GetKeyDown(Reset)){
+        if(OVRInput.GetDown(Reset)){
             Player.gameObject.transform.position = PlayerSpawnPoint.position;
         }
         ApplyMovement(OVRInput.Get(Jump), GetAxis(),false);   

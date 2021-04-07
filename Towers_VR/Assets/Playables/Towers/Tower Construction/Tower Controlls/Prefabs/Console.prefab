@@ -1577,6 +1577,11 @@ PrefabInstance:
       propertyPath: DefaultValue
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7055905922959316134, guid: 8f24303e1892ac04eb3a045725856a26,
+        type: 3}
+      propertyPath: ClampNum.x
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 7055905923054601636, guid: 8f24303e1892ac04eb3a045725856a26,
         type: 3}
       propertyPath: Change

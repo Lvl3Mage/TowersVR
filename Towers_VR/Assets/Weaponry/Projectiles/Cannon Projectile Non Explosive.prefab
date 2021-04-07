@@ -95,7 +95,7 @@ TrailRenderer:
   m_Time: 2
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -122,7 +122,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.15686275}
+      key0: {r: 1, g: 1, b: 1, a: 0.39215687}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -233,3 +233,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotateToVelocity: 1
   _WindFactor: 1
+  OnContactEffect: {fileID: 2993120601015108234, guid: af07dbb7a8e75bf43a91db65b96cb26f,
+    type: 3}
