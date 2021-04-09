@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4972811403984404372
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1593510285725445722, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: _Health
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445722, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: OutsideDamageMultiplier
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445722, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: VelocityDamageMultiplier
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445722, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: OtherMassDamageMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445722, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: FracturedObject
+      value: 
+      objectReference: {fileID: 4852938286810429481, guid: a6db4a8dcd45c4245bbe58ade9371413,
+        type: 3}
+    - target: {fileID: 1593510285725445724, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_Name
+      value: Armored Big wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae219ba577bdf214891871e4eeb1732b, type: 3}

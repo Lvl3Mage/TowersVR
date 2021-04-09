@@ -98,6 +98,7 @@ public class CannonReloader : WeaponReloader
     void LoadAnimationFinished(){
     	weapon.Reload(LoadingObj.GetComponent<AmmoIdentifier>());
     	Clear();
+        Animator.SetTrigger("Reloaded");
     }
     void Clear(){
     	ShellOffset = null;

@@ -30,19 +30,18 @@ public class TowerJoint : MonoBehaviour
     void Start()
     {
         GameObject Followed = transform.parent.gameObject;
-        GameObject Follower = null;
+        Rigidbody Follower = null;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, Pointer.position-transform.position, out hit, MaxDistance)){
             if(hit.collider.gameObject != Followed){
-                Follower = hit.collider.gameObject;
+                Follower = hit.collider.attachedRigidbody;
             }
         }
         if(Followed && Follower){ // Checks if the conncetion objects exist
-        	Rigidbody followerRB = Follower.GetComponent<Rigidbody>();
         	Rigidbody followedRB = Followed.GetComponent<Rigidbody>();
-        	if(followedRB && followerRB){
+        	if(followedRB && Follower){
 	        	ConfigurableJoint CJ = Followed.AddComponent<ConfigurableJoint>();
-	            CJ.connectedBody = Follower.GetComponent<Rigidbody>();
+	            CJ.connectedBody = Follower;
 	            CJ.autoConfigureConnectedAnchor = false;
 	            CJ.anchor = Followed.transform.InverseTransformPoint(transform.position);
 	            CJ.connectedAnchor = Follower.transform.InverseTransformPoint(transform.position);

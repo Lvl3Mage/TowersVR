@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayableTower : Tower
 {
     [SerializeField] Transform Spawnpoint;
-    [SerializeField] ScreenCameraOptimizer RadarCamera;
+    [SerializeField] OptimizedRenderCamera RadarCamera;
     Player Player;
     public void AssignPlayer(Player player){ // PLACEHOLDER this should reall recieve an array of players
     	AssignRenderForCamera(player);

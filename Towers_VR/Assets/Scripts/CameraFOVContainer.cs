@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraFOVContainer : NumberContainer
 {
 	[SerializeField] float DefaultValue;
-	[SerializeField] Camera Cam;
+	[SerializeField] RenderCamera Cam;
 	void Awake(){
 		_floatValue = DefaultValue;
 	}
 	protected override void ValueChanged(){
-		Cam.fieldOfView = _floatValue;
+		Cam.SetFOV(_floatValue);
 	}
 }
