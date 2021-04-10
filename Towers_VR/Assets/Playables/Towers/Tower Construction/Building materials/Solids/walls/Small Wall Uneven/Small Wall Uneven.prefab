@@ -117,7 +117,7 @@ MonoBehaviour:
   VelocityDamageMultiplier: 0.5
   OtherMassDamageMultiplier: 0.1
   PhysicsDamageThreshold: 50
-  FracturedObject: {fileID: 8945977914399778234, guid: 9ac6c93de10120141be53037fea31b64,
+  FracturedObject: {fileID: 8330513250962457722, guid: 790202aa6a8b67d45bd90d1121e33f51,
     type: 3}
   KeepVelocity: 1
 --- !u!65 &6305083798910671025

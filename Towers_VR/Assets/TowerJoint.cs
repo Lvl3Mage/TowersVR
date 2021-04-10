@@ -26,7 +26,6 @@ public class TowerJoint : MonoBehaviour
 	[SerializeField] float GizmoSize;
 	[SerializeField] Color MainColor;
 	[SerializeField] Color PointerColor;
-    
     void Start()
     {
         GameObject Followed = transform.parent.gameObject;
@@ -58,9 +57,11 @@ public class TowerJoint : MonoBehaviour
 	            CJ.breakForce = BreakForce;
 	            CJ.breakTorque = BreakTorque;
 	            CJ.enableCollision = EnableObjectCollision;
+	            
         	}
         }
         Destroy(gameObject);
+        
     }
     void OnDrawGizmos()
     {

@@ -83,3 +83,4 @@ MonoBehaviour:
   GizmoSize: 0.1
   MainColor: {r: 1, g: 1, b: 0, a: 1}
   PointerColor: {r: 1, g: 1, b: 0, a: 1}
+  DebugMode: 0

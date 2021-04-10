@@ -80,7 +80,6 @@ MonoBehaviour:
   - 1.5
   Targets:
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!65 &2394113000323761358
 BoxCollider:
   m_ObjectHideFlags: 0
