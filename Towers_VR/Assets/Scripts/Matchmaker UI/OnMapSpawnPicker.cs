@@ -83,8 +83,7 @@ public class OnMapSpawnPicker : MonoBehaviour
 
         return Point;
     }
-    void InitiateGameStarter(){
-    	BaseTeam[] Teams = CompileTeams();
+    void InitiateGame(BaseTeam[] Teams){
     	Teams = ModifyResults(Teams);
     	GameStarter.StartGame(Teams);
         HidePicker();
@@ -191,7 +190,8 @@ public class OnMapSpawnPicker : MonoBehaviour
     }
     public void StartGame(){
         if(CheckStartingConditions()){ // Check if the start conditions have been met
-            InitiateGameStarter();
+            BaseTeam[] CompiledTeams = CompileTeams();
+            InitiateGame(CompiledTeams);
         }
     }
     public void SaveConfiguration(){
@@ -205,7 +205,7 @@ public class OnMapSpawnPicker : MonoBehaviour
         string savefileName = GetSceneName();
         BaseTeam[] LoadedTeams = SaveSystem.LoadTeamConfigs(savefileName);
         if(LoadedTeams != null){
-            GameStarter.StartGame(LoadedTeams);
+            InitiateGame(LoadedTeams);
         }
     }
     string GetSceneName(){ // used for save file naming
