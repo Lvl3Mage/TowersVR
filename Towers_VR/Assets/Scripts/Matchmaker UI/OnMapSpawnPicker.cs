@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class PlayerTypeLimit
@@ -19,7 +20,7 @@ public class OnMapSpawnPicker : MonoBehaviour
 	[SerializeField] RectTransform Map;
 	[SerializeField] Object ExamplePoint;
 	[SerializeField] GameStarter GameStarter;
-    [SerializeField] Button StartGameButton;
+    [SerializeField] Button[] ValidatedButtons;
 	[Header("Map rendering settings")]
 	[SerializeField] Camera MapRendererCamera;
 	[SerializeField] Material RenderMaterial_Preview;
@@ -113,7 +114,7 @@ public class OnMapSpawnPicker : MonoBehaviour
                         ParticipantSettings.PlayerType playerType = curParticipant.GetPlayerType(); // Getting the exact participant type
                         string playerName = curParticipant.GetPlayerName();
                         // Creating the base participant object and adding it to the list
-                        BaseParticipant CompiledParticipant = new BaseParticipant(SpawnpointLocation, playerType, playerName);
+                        BaseParticipant CompiledParticipant = new BaseParticipant(SpawnpointLocation.position, SpawnpointLocation.rotation, playerType, playerName);
                         relevantParticipants.Add(CompiledParticipant); // adds the participant to the relevant participants list
                     }
                 }
@@ -193,9 +194,29 @@ public class OnMapSpawnPicker : MonoBehaviour
             InitiateGameStarter();
         }
     }
+    public void SaveConfiguration(){
+        if(CheckStartingConditions()){ // Check if the start conditions have been met
+            BaseTeam[] CompiledTeams = CompileTeams();
+            string savefileName = GetSceneName();
+            SaveSystem.SaveTeamConfigs(CompiledTeams, savefileName);
+        }
+    }
+    public void LoadConfiguration(){
+        string savefileName = GetSceneName();
+        BaseTeam[] LoadedTeams = SaveSystem.LoadTeamConfigs(savefileName);
+        if(LoadedTeams != null){
+            GameStarter.StartGame(LoadedTeams);
+        }
+    }
+    string GetSceneName(){ // used for save file naming
+        return SceneManager.GetActiveScene().name;
+    }
     //Inform methods
     public void RevalidateStartConditions(){ // Recalculates in case the start conditions have been met
-        StartGameButton.interactable = CheckStartingConditions();
+        bool Validated = CheckStartingConditions();
+        foreach(Button ValidatedButton in ValidatedButtons){
+            ValidatedButton.interactable = Validated;
+        }
     }
     public void TypeAdded(ParticipantSettings.PlayerType PlayerType){
     	PlayerTypeQuantities[(int)PlayerType]++;

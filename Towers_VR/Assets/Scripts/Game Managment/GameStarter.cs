@@ -40,7 +40,7 @@ public class GameStarter : MonoBehaviour
                     }
                     default: break;
                 }
-                GameObject TowerObject = SpawnTower(participant.spawnPoint, Tower);
+                GameObject TowerObject = SpawnTower(participant.spawnPosition, participant.spawnRotation, Tower);
                 if(Character){
                     PlayableTower TowerComponent = TowerObject.GetComponent<PlayableTower>();
                     Transform TowerSpawnpoint = TowerComponent.GetTowerSpawnPoint();
@@ -58,8 +58,8 @@ public class GameStarter : MonoBehaviour
     protected virtual void ConfigureTower(GameObject Tower){
 
     }
-    GameObject SpawnTower(Transform spawnPoint, Object Tower){
-    	GameObject SpawnedTower = Object.Instantiate(Tower,spawnPoint.position,spawnPoint.rotation) as GameObject;
+    GameObject SpawnTower(Vector3 spawnPosition, Quaternion spawnRotation, Object Tower){
+    	GameObject SpawnedTower = Object.Instantiate(Tower,spawnPosition,spawnRotation) as GameObject;
     	// Configure the team
 
     	return SpawnedTower;
