@@ -234,12 +234,16 @@ MonoBehaviour:
     enabled: 0
     recolorMaterialID: 1
     attractedTo: 1
+    DisableOutOfRange: 0
+    FloorNullValues: 1
   - value: 0
     transform: {fileID: 5787632871676110566}
     meshRenderer: {fileID: 1852354559446936264}
     enabled: 0
     recolorMaterialID: 1
     attractedTo: -1
+    DisableOutOfRange: 1
+    FloorNullValues: 0
   valueRange: {x: 500, y: 2000}
   positionRange: {x: -0.15, y: 0.4}
   ArrowAtractionGradient:
@@ -272,7 +276,6 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   attractionValueRadius: 300
-  DisableNegativeArrows: 1
 --- !u!1 &7156177115113152365
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class SingleFireWeapon : Weapon
 	protected override void FireWeapon(){
 		Fire();
 	}
+	[ContextMenu("Fire")]
 	void Fire(){ // the function for shooting out the projectile
 		if(Clip.count>0){
 			Clip.count -= 1; 

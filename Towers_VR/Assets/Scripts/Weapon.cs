@@ -26,6 +26,7 @@ public class Weapon : Activatable
     public bool Loaded(){
     	return State;
     }
+    [ContextMenu("Fire")]
     protected override void OnActivate(bool toggleValue){
     	TriggerPressed(toggleValue);
     	if(State){
@@ -60,7 +61,7 @@ public class Weapon : Activatable
     }
     GameObject SpawnBullet(Object bullet, float velocity, Transform gunPoint){ // the function for shooting out the projectile
         GameObject Projectile = Object.Instantiate(bullet, gunPoint.position, gunPoint.rotation) as GameObject;
-        Vector3 RandomInaccuracy = new Vector3(Random.Range(-Inaccuracy.x, Inaccuracy.x),Random.Range(-Inaccuracy.y, Inaccuracy.y),0);
+        //Vector3 RandomInaccuracy = new Vector3(Random.Range(-Inaccuracy.x, Inaccuracy.x),Random.Range(-Inaccuracy.y, Inaccuracy.y),0);
         Projectile.GetComponent<Rigidbody>().velocity = Projectile.transform.TransformDirection(Vector3.forward * velocity /*RandomInaccuracy * velocity*/);
         return Projectile;
     }

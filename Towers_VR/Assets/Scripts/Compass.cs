@@ -6,7 +6,9 @@ public class Compass : MonoBehaviour
 {
 	Wind Wind;
 	[SerializeField] NumberContainer WindVelocity;
-    [SerializeField] Transform Arrow, CompassPlane, RotationNullifier;
+    [Tooltip("The object that will indicate the local north direction of the compass (Should be placed flat and rotate with the tower)")]
+    [SerializeField] Transform RotationDirectioner;
+    [SerializeField] Transform Arrow, CompassPlane;
     //[SerializeField] Transform one,two,three;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,7 @@ public class Compass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotationNullifier.eulerAngles -= new Vector3(RotationNullifier.eulerAngles.x,0,RotationNullifier.eulerAngles.z); // This object will serve as a 0 x and z rotation reference to correctly transform vectors to local coordinates
+        //RotationDirectioner.eulerAngles -= new Vector3(RotationDirectioner.eulerAngles.x,0,RotationDirectioner.eulerAngles.z); // This object will serve as a 0 x and z rotation reference to correctly transform vectors to local coordinates
         Vector3 NorthVector = new Vector3(0,0,1);
         Vector3 LocalNorth = TransformVectorToLocal(NorthVector);
         Vector3 LocalWind = TransformVectorToLocal(new Vector3(Wind.WindVector.x,0,Wind.WindVector.y)); // transforming the wind to local coordinates which will be independant of the x and z rotation of the sensor
@@ -26,6 +28,6 @@ public class Compass : MonoBehaviour
         WindVelocity.floatValue = Wind.WindVector.magnitude;
     }
     Vector3 TransformVectorToLocal(Vector3 Input){
-    	return RotationNullifier.InverseTransformDirection(Input); // transforming the Vector to local coordinates which will be independant of the x and z rotation of the sensor
+    	return RotationDirectioner.InverseTransformDirection(Input); // transforming the Vector to local coordinates which will be independant of the x and z rotation of the sensor
     }
 }

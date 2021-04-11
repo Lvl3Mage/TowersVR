@@ -60,7 +60,6 @@ public class GameStarter : MonoBehaviour
     }
     GameObject SpawnTower(Transform spawnPoint, Object Tower){
     	GameObject SpawnedTower = Object.Instantiate(Tower,spawnPoint.position,spawnPoint.rotation) as GameObject;
-
     	// Configure the team
 
     	return SpawnedTower;

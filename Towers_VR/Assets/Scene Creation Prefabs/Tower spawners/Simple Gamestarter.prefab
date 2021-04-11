@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPoints: []
-  PlayerTower: {fileID: 3386757865218682475, guid: f3b2e41ee7809af48aca92d409b5e537,
+  PlayerTower: {fileID: 4809046472952912623, guid: f3b2e41ee7809af48aca92d409b5e537,
     type: 3}
   AITower: {fileID: 7707293310440140133, guid: b1921e4c6b6ea9844a03bee3ef9159af, type: 3}
   PCCharacter: {fileID: 9041447693760621573, guid: 50415ac5ab3e50a4e80176fb6c76d6f1,

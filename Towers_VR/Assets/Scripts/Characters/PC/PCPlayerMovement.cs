@@ -7,6 +7,8 @@ public class PCPlayerMovement : Movement
     [Header("Ladder Movement Settings")]
     [SerializeField] float LadderMoveSpeed;
     [SerializeField] float LadderLerpSpeed;
+    [Tooltip("The downwards oriented cone angle where the player has to point to invert the ladder movement")]
+    [SerializeField] [Range(0f,90f)] float InverseMovementConeAngle;
 
     [Header("Reference Requirements")]
     [SerializeField] Transform CamDirection;
@@ -65,8 +67,15 @@ public class PCPlayerMovement : Movement
 	        else if (Input.GetKey(Back)) {
 	            MovementAxis = -1;
 	        }
-	        Transform LadderTransform = Ladder.gameObject.transform;
+	        Transform LadderTransform = Ladder.gameObject.transform; // this is supposed to be the climb area transform and not the ladder transform
 	        Transform PlayerTransform = Player.gameObject.transform;
+
+            float LadderAngle = GetAngleToLadderClimbDirection(LadderTransform);
+            if(LadderAngle>(180-InverseMovementConeAngle)){ // if the camera is pointing against the ladder climb direction
+                MovementAxis *= -1; // inverts movement
+            }
+
+
             // Use Vector3.Up to add an offset to the ladder. I chose to use the position of the climb area for this
             Vector3 RelativeLerpTarget = Vector3.forward * (LadderTransform.InverseTransformPoint(PlayerTransform.position).z + MovementAxis*LadderMoveSpeed);
 	        Vector3 LerpTarget = LadderTransform.TransformPoint(RelativeLerpTarget); // sets the horizontal position relative to the ladder
@@ -76,6 +85,13 @@ public class PCPlayerMovement : Movement
             PastLadderPos = LadderTransform.position; // Sets the ladder past position for calculating next frame delta
         }
     	
+    }
+    float GetAngleToLadderClimbDirection(Transform Ladder){
+        Vector3 PlayerLookDirection = Camera.forward; // Camera rotation vector
+
+        Vector3 LadderLookDirection = Ladder.TransformDirection(Vector3.forward); // The climb direction of the ladder
+        float LookAngle = Vector3.Angle(PlayerLookDirection, LadderLookDirection);// teh angle between the climb direction of the ladder and the player look direction
+        return LookAngle;
     }
     void SetLadder(Collider LadderCol){
         Debug.Log("New Ladder Set - " + LadderCol.gameObject.name);
@@ -148,6 +164,5 @@ public class PCPlayerMovement : Movement
         else{
             RemoveFromArray(other);       	
         }
-
     }
 }

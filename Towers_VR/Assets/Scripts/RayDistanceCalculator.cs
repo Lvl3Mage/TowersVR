@@ -35,7 +35,7 @@ public class RayDistanceCalculator : NumberContainer
     		return (hit.point - transform.position).magnitude;
     	}
     	else{
-    		return -1;
+    		return Mathf.Infinity;
     	}
     }
 }

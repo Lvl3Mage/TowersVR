@@ -91,7 +91,7 @@ PrefabInstance:
         type: 3}
       propertyPath: FracturedObject
       value: 
-      objectReference: {fileID: 4852938286810429481, guid: a6db4a8dcd45c4245bbe58ade9371413,
+      objectReference: {fileID: 4062395496317215751, guid: 00f6fb26caee2994dbc2029f5780fc3e,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1628a8871e6cfdb449a7647ea3da6263, type: 3}

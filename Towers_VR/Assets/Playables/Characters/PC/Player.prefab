@@ -1134,6 +1134,7 @@ MonoBehaviour:
   PlayerSpawnPoint: {fileID: 0}
   LadderMoveSpeed: 0.5
   LadderLerpSpeed: 5
+  InverseMovementConeAngle: 55
   CamDirection: {fileID: 9041447693817852401}
   Camera: {fileID: 9041447694693430485}
   PlayerPhysicalCollider: {fileID: 5432048918830741394}

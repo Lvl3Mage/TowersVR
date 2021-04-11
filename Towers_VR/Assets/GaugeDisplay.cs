@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class GaugeArrow{
-	[HideInInspector] public float value;
+	public float value;
 
 	public Transform transform;
 	public MeshRenderer meshRenderer;
@@ -13,12 +13,14 @@ public class GaugeArrow{
 	[SerializeField] int recolorMaterialID;
 	[Tooltip("The index of the other arrow this one will be attracted to (set to -1 if none)")]
 	[SerializeField] int attractedTo;
-	public void ReEvaluateColor(Gradient ColorGradient, GaugeArrow[] Arrows, float valRadius, bool DisableNegative){
-		if(enabled){
+	public bool DisableOutOfRange;
+	public bool FloorNullValues;
+	public void ReEvaluateColor(Gradient ColorGradient, GaugeArrow[] Arrows, float valRadius){
+		if(enabled){ // only if this arrow is enabled
 			if(attractedTo > 0){
 				GaugeArrow AtractedToArrow = Arrows[attractedTo];
 				float EvaluationValue;
-				if(AtractedToArrow.enabled){
+				if(AtractedToArrow.enabled){ // chack if the other arrow is enabled
 					float AttractedValue = AtractedToArrow.value;
 					float difference = Mathf.Abs(value - AttractedValue);
 					EvaluationValue = difference/valRadius;
@@ -53,46 +55,60 @@ public class GaugeDisplay : MultipleNumberContainer
 	[SerializeField] Gradient ArrowAtractionGradient;
 	[Tooltip("Defines the outer radius of the attraction gradient")]
 	[SerializeField] float attractionValueRadius;
-
-	[SerializeField] bool DisableNegativeArrows;
     protected override void OnListChange(int id){
     	GaugeArrow ChangedArrow = Arrows[id];
+    	bool DisableOutOfRange = ChangedArrow.DisableOutOfRange;
+    	bool FloorNullValues = ChangedArrow.FloorNullValues;
+    	
 
     	float newValue = NumberList[id].value; // the value of the base arrow
+    	ChangedArrow.value = newValue;
 
-    	ChangedArrow.value = newValue; // updates the value of the arrow no matter what
-
-    	if((DisableNegativeArrows && (newValue < 0)) || (newValue != newValue)){ // if the value is null or if it is negative and disable negative is set to true
-			//Disables the mesh renderer if needed
-	    	if(ChangedArrow.enabled || ChangedArrow.meshRenderer.enabled){
-	    		ChangedArrow.enabled = false;
-	    		ChangedArrow.meshRenderer.enabled = false;
+    	if(newValue != newValue && !FloorNullValues){
+			
+    		ChangedArrow.enabled = false;
+    		ChangedArrow.meshRenderer.enabled = false;
+    	}
+    	else if(!CheckRange(newValue, valueRange) && DisableOutOfRange){
+    		
+			ChangedArrow.enabled = false;
+			ChangedArrow.meshRenderer.enabled = false;
 	    		
-	    	}
     	}
     	else{
-    		if(!ChangedArrow.enabled || !ChangedArrow.meshRenderer.enabled){
-    			ChangedArrow.enabled = true;
-		    	ChangedArrow.meshRenderer.enabled = true;
-		    }
+    		if(newValue != newValue){ // if the value is null then it means that we should floor it (because otherwise it would have been disabled)
+    			newValue = valueRange.x;
+    			ChangedArrow.enabled = false; // we also disable the arrow
+    			ChangedArrow.meshRenderer.enabled = true; //but we enable it's mesh renderer because it needs to be shown in this case
+    		}
+    		else if(!ChangedArrow.enabled || !ChangedArrow.meshRenderer.enabled){ // in case the value isn't null then that means the arrow is ready to be used so we enable it if needed
+	    		ChangedArrow.enabled = true;
+	    		ChangedArrow.meshRenderer.enabled = true;
+	    		
+	    	}
+
 	    	//Updates arrow's position
 	    	Vector3 newPosition = ChangedArrow.transform.localPosition; // sets the new position to the old one
 		    newPosition.x = ChangeRange(newValue, valueRange, positionRange); // modifies the x coordinate with the new range
 		    newPosition.x = Mathf.Clamp(newPosition.x, positionRange.x, positionRange.y); // clams it to the new range
 		    ChangedArrow.transform.localPosition = newPosition;
-	    	
-	    	
     	}
+
+	    	
+
 
     	ReEvaluateAllArrowColor();
     }
     void ReEvaluateAllArrowColor(){ // ReEvaluates all the arrow's color
     	foreach(GaugeArrow Arrow in Arrows){
-    		Arrow.ReEvaluateColor(ArrowAtractionGradient, Arrows, attractionValueRadius, DisableNegativeArrows);
+    		Arrow.ReEvaluateColor(ArrowAtractionGradient, Arrows, attractionValueRadius);
     	}
     }
     float ChangeRange(float value, Vector2 OldRange, Vector2 NewRange){
 		float NewValue = (((value - OldRange.x) * (NewRange.y - NewRange.x)) / (OldRange.y - OldRange.x)) + NewRange.x;
 		return NewValue;
+	}
+	bool CheckRange(float value, Vector2 Range){
+		return (value>=Range.x && value<=Range.y);
 	}
 }

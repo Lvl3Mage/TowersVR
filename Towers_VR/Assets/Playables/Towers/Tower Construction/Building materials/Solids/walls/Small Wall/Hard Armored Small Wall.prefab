@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3145888297145863823
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1836524800066029636, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f49d2e142aee6454c87f04692ad95a5f, type: 2}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192820796187413645, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: _Health
+      value: 4800
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: OutsideDamageMultiplier
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: VelocityDamageMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: OtherMassDamageMultiplier
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: FracturedObject
+      value: 
+      objectReference: {fileID: 7489609228363544142, guid: 3830e1bfb0135054386606c99137760c,
+        type: 3}
+    - target: {fileID: 6426751945039809008, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: m_Name
+      value: Hard Armored Small Wall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da61a42ad31459e4aa9bfe4314799530, type: 3}
