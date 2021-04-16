@@ -37,18 +37,18 @@ public class TowerKeypoint : MonoBehaviour
 	Transform[] relatedStructures;
 	Vector3 Origin;
 
-	private bool _active;
+	private bool _intact;
 
-	public bool active{ // determines whether the keypoint is still active (if it should be targeted)
+	public bool intact{ // determines whether the keypoint is still intact (if it should be targeted)
 		get { 
-			return _active;;
+			return _intact;;
 		}
 		private set { 
-			_active = value; 
+			_intact = value; 
 		}
 	}
 	void Awake (){
-		active = true;
+		intact = true;
 	}
 	void Start(){
 		Origin = transform.position;
@@ -122,7 +122,7 @@ public class TowerKeypoint : MonoBehaviour
     public void RecalculateKeypoint(){
     	RecalculateKeypointPosition(); // first recalculates the keypoint position
 
-    	active = CalculateKeypointState();//then checks if the keypoint is still active
+    	intact = CalculateKeypointState();//then checks if the keypoint is still active
     }
     void OnDrawGizmos(){
     	if(DrawGizmos){
@@ -147,7 +147,7 @@ public class TowerKeypoint : MonoBehaviour
     	}
     	if(DebugMode){
     		Color Color;
-    		if(active){
+    		if(intact){
     			Color = Color.green;
     		}
     		else{

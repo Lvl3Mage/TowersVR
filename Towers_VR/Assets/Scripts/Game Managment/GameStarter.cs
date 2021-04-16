@@ -9,14 +9,23 @@ public class GameStarter : MonoBehaviour
     [SerializeField] Object AITower;
     [SerializeField] Object PCCharacter;
     [SerializeField] Object VRCharacter;
+    [SerializeField] GameManager GameManager;
     public Transform[] GetSpawnPoints(){
         return SpawnPoints;
     }
     void SpawnParticipants(BaseTeam[] Teams){
-    	foreach(BaseTeam team in Teams)
+        TeamInstance[] instancedTeams = new TeamInstance[Teams.Length];
+
+    	for(int i = 0; i < Teams.Length; i++)
     	{
-            BaseParticipant[] Participants = team.participants;
-            foreach(BaseParticipant participant in Participants){
+            BaseTeam team = Teams[i];
+
+            BaseParticipant[] participants = team.participants;
+            Tower[] instancedTowers = new Tower[participants.Length];
+
+            for(int j = 0; j < participants.Length; j++){
+                BaseParticipant participant = participants[j];
+
                 ParticipantSettings.PlayerType playerType = participant.playerType;
                 Object Tower = null;
                 Object Character = null;
@@ -40,7 +49,15 @@ public class GameStarter : MonoBehaviour
                     }
                     default: break;
                 }
-                GameObject TowerObject = SpawnTower(participant.spawnPosition, participant.spawnRotation, Tower);
+                GameObject TowerObject = SpawnTower(participant.spawnPosition, participant.spawnRotation, Tower); // spanws the actual Tower
+
+                // add the tower to the instanced list 
+                Tower tower = TowerObject.GetComponent<Tower>();
+                if(tower){
+                    instancedTowers[j] = tower;
+                }
+
+                // spawns player character if needed
                 if(Character){
                     PlayableTower TowerComponent = TowerObject.GetComponent<PlayableTower>();
                     Transform TowerSpawnpoint = TowerComponent.GetTowerSpawnPoint();
@@ -50,7 +67,11 @@ public class GameStarter : MonoBehaviour
                 } 
                 ConfigureTower(TowerObject);
             }
+
+            instancedTeams[i] = new TeamInstance(instancedTowers, team);
     	}
+
+        GameManager.StartManagment(instancedTeams);
     }
     public void StartGame(BaseTeam[] Teams){
         SpawnParticipants(Teams);
@@ -64,4 +85,19 @@ public class GameStarter : MonoBehaviour
 
     	return SpawnedTower;
     }
+}
+
+
+public class TeamInstance
+{
+    public TeamInstance(Tower[] _towers, BaseTeam baseTeam){
+        name = baseTeam.teamName;
+        color = baseTeam.teamColor;
+        towers = _towers;
+        active = true;
+    }
+    public Tower[] towers;
+    public string name;
+    public Color color;
+    public bool active;
 }
