@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class Weapon : Activatable
 {
-	[SerializeField] protected Object MuzzleFlash;
-	[SerializeField] protected Rigidbody Barrel;
+	[SerializeField] protected Object MuzzleFlash; // the muzzleflash of the weapon's
+	[SerializeField] protected Rigidbody Barrel; // a reference to the barrel of the weapon's
 	[SerializeField] protected float Recoil, ReloadDelay;
-    [Tooltip("Horizontal and vertical inaccuracy multiplied by the shell velocity")]
-    [SerializeField] protected Vector2 Inaccuracy;
-	[SerializeField] protected IntContainer[] CallBackLoaded; // a callback array which identifies the object that are in need of informing about the cannon loaded state
+    [Tooltip("A callback array which identifies the objects that receive the weapon's loading state")]
+	[SerializeField] protected IntContainer[] CallBackLoaded;
+    [Tooltip("A callback array which identifies the objects that receive the weapon's projectile speed")]
 	[SerializeField] protected NumberContainer[] CallBackProjectileSpeed;
-    protected AmmoIdentifier Clip; // The ammo clip loaded into the weapon
+    protected Ammunition Clip; // The ammo clip loaded into the weapon
 	protected bool State = false;
-    public void Reload(AmmoIdentifier Object){ // Call this to reload 
-    	StartCoroutine(Delay(Object));
+    GameObject LastFiredProjectile; // contains the last fired projectile
+    public void Reload(Ammunition Ammo){ // Call this to reload 
+    	StartCoroutine(Delay(Ammo));
     }
-    IEnumerator Delay(AmmoIdentifier Object){
+    IEnumerator Delay(Ammunition Ammo){
     	yield return new WaitForSeconds(ReloadDelay);
-    	Clip = Object;
+    	Clip = Ammo;
     	State = true;
         CallBackLoadedState(0);
         CallBackProjVel();
@@ -26,7 +27,6 @@ public class Weapon : Activatable
     public bool Loaded(){
     	return State;
     }
-    [ContextMenu("Fire")]
     protected override void OnActivate(bool toggleValue){
     	TriggerPressed(toggleValue);
     	if(State){
@@ -41,13 +41,13 @@ public class Weapon : Activatable
     protected virtual void TriggerPressed(bool toggleValue){
 
     }
-    protected void CallBackLoadedState(int Val){
+    protected void CallBackLoadedState(int Val){ // reports weapon's loaded state to all
         foreach (IntContainer Cont in CallBackLoaded) 
         {
             Cont.intValue = Val;
         }
     }
-    void CallBackProjVel(){
+    void CallBackProjVel(){ // reports weapon's projectile velocity to all
         foreach (NumberContainer Cont in CallBackProjectileSpeed) 
         {
             Cont.floatValue = Clip.velocity;
@@ -55,13 +55,12 @@ public class Weapon : Activatable
         
     }
     protected virtual void ShootProjectile(Object bullet,float velocity,float Force, Transform gunPoint){ // Override this method if you want to create a weapon that will shoot the projectile in a different way
-        SpawnBullet(bullet, velocity, gunPoint);
+        LastFiredProjectile = SpawnBullet(bullet, velocity, gunPoint);
         SpawnEffect(gunPoint);
         PushBack(Force, gunPoint);
     }
     GameObject SpawnBullet(Object bullet, float velocity, Transform gunPoint){ // the function for shooting out the projectile
         GameObject Projectile = Object.Instantiate(bullet, gunPoint.position, gunPoint.rotation) as GameObject;
-        //Vector3 RandomInaccuracy = new Vector3(Random.Range(-Inaccuracy.x, Inaccuracy.x),Random.Range(-Inaccuracy.y, Inaccuracy.y),0);
         Projectile.GetComponent<Rigidbody>().velocity = Projectile.transform.TransformDirection(Vector3.forward * velocity /*RandomInaccuracy * velocity*/);
         return Projectile;
     }
@@ -71,5 +70,17 @@ public class Weapon : Activatable
     void PushBack(float Force, Transform gunPoint){
         //Barrel.AddForceAtPosition(gunPoint.TransformDirection(Vector3.back) * Force, gunPoint.position); // adds recoil
         Barrel.velocity -= gunPoint.TransformDirection(Vector3.forward * Force);
+    }
+
+    public GameObject GetLastProjectile(){
+        return LastFiredProjectile;
+    }
+    public float GetProjectileSpeed(){
+        if(Clip != null){
+            return Clip.velocity;
+        }
+        else{
+            return 0;
+        }
     }
 }

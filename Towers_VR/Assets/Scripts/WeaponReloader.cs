@@ -6,30 +6,40 @@ public class WeaponReloader : MonoBehaviour
 {
 	[SerializeField] protected Weapon weapon;
 	[SerializeField] IntContainer[] Callback; // Calls back to an int container (The states of the said container are 1 for loaded, 2 for loading, 3 for unloaded)
-	[SerializeField] int AmmoType; // 0 for cannon 
+	[SerializeField] AmmoCaliber WeaponCaliber;
 	protected bool Loading = false; // determines when the weapon can be loaded
 
     void OnTriggerEnter(Collider other)
     {
-    	AmmoIdentifier Shell = other.gameObject.GetComponent<AmmoIdentifier>();
-    	if(Shell != null){
-    		if(Loadable(Shell)){
-				LoadWeapon(Shell);
+    	AmmoObjectIdentifier Ammo = other.gameObject.GetComponent<AmmoObjectIdentifier>();
+    	if(Ammo != null){
+    		if(Loadable(Ammo.caliber)){
+				LoadAmmunitionObject(Ammo);
 	    	}
     	}
     }
-    public bool LoadShell(AmmoIdentifier Shell){ // Should load a shell
-    	bool _Loadable = Loadable(Shell);
+    public bool LoadAmmo(AmmoObjectIdentifier Ammo){ // Call to load an ammo object
+    	bool _Loadable = Loadable(Ammo.caliber);
     	if(_Loadable){
-    		LoadWeapon(Shell);
+    		LoadAmmunitionObject(Ammo);
     	}
     	return _Loadable;
     }
-    bool Loadable(AmmoIdentifier Shell){
-    	return !weapon.Loaded() && (Shell.type == AmmoType) && !Loading;
+    public bool LoadAmmo(Ammunition Ammo){ // Call to load ammo
+        bool _Loadable = Loadable(Ammo.caliber);
+        if(_Loadable){
+            LoadAmmunition(Ammo);
+        }
+        return _Loadable;
     }
-    protected virtual void LoadWeapon(AmmoIdentifier Shell){} // Called when weapon is being reloaded
-    
+    bool Loadable(AmmoCaliber AmmoCaliber){
+    	return !weapon.Loaded() && (AmmoCaliber == WeaponCaliber) && !Loading;
+    }
+    protected virtual void LoadAmmunitionObject(AmmoObjectIdentifier Ammo){} // Called when weapon is being reloaded
+    protected void LoadAmmunition(Ammunition Ammo){
+        weapon.Reload(Ammo);
+    } // Loads an Ammunition class object into the cannon
+
     protected void LoadingCallback(int val){
     	foreach (IntContainer Cont in Callback) 
     	{

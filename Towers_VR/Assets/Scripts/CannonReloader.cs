@@ -1,62 +1,100 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+    HELP
+    To use this class you will need to:
 
+        >> create an object that will serve as a loading point (where the loading will start) and give its reference to the loader
+
+        >> create an animator on this object that will have:
+
+            >>a loading animation called "Load" (that will move a loading point along the desired loading path) and that calls 
+            the "LoadAnimationFinished" function at the end
+
+            >>a reset animation (that will have a transition from the Load animation with a trigger called "Reloaded") which will reset 
+            the loading point to its original position
+
+*/
 public class CannonReloader : WeaponReloader
 {
 	[SerializeField] Transform ReloadPoint;
 	[SerializeField] float LerpRotationSpeed, LerpMovementSpeed;
-	bool LerpShell;
 	Animator Animator;
-	GameObject LoadingObj;
+    AmmoObjectIdentifier LoadingObject;
 	Transform ShellOffset;
+    Coroutine AmmoObjectLerp;
     // Start is called before the first frame update
     void Start()
     {
         Animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(LerpShell){
-        	bool Finished = Lerp(LoadingObj.transform, ShellOffset,ReloadPoint,LerpMovementSpeed,LerpRotationSpeed);
-        	if(Finished){
-        		FinishLerp();
-        	}
-        }
-    }
-    protected override void LoadWeapon(AmmoIdentifier Shell){
+    protected override void LoadAmmunitionObject(AmmoObjectIdentifier Ammo){
+        Loading = true;
+        LoadingObject = Ammo;
     	LoadingCallback(1);
-    	LoadingObj = Shell.gameObject;
-    	Loading = true;
-    	RemovePhysics();
-    	StartLerp();
+    	RemovePhysics(Ammo.gameObject);
+        if(AmmoObjectLerp != null){ // for now just stopping the coroutine but in the future I should delete the actual object aswell (btw this situation is not possible cause it won't load an object while loading)
+            StopCoroutine(AmmoObjectLerp);
+        }
+
+    	AmmoObjectLerp = StartCoroutine(AmmoLerp(Ammo.gameObject));
     }
-    void RemovePhysics(){
-    	Collider[] Colliders = LoadingObj.GetComponentsInChildren<Collider>();
+    void RemovePhysics(GameObject obj){
+    	Collider[] Colliders = obj.GetComponentsInChildren<Collider>();
         foreach (Collider Col in Colliders) 
         {
             Destroy(Col);
         }
-    	Rigidbody RB = LoadingObj.GetComponent<Rigidbody>();
+    	Rigidbody RB = obj.GetComponent<Rigidbody>();
     	if(RB){
     		Destroy(RB);
     	}
     }
-    void StartLerp(){
-    	AdvancedGrabable LoadSettings = LoadingObj.GetComponent<AdvancedGrabable>();
-    	if(LoadSettings){
-    		ShellOffset = LoadSettings.HoldOffset;
-    	}
-    	else{
-    		ShellOffset = null;
-    	}
-    	LoadingObj.transform.parent = ReloadPoint;
-    	LerpShell = true;
+    IEnumerator AmmoLerp(GameObject AmmoObject){
+        AdvancedGrabable LoadSettings = AmmoObject.GetComponent<AdvancedGrabable>();
+        Transform ShellOffset;
+        if(LoadSettings){
+            ShellOffset = LoadSettings.HoldOffset;
+        }
+        else{
+            ShellOffset = null;
+        }
+        AmmoObject.transform.parent = ReloadPoint;
 
+        bool Finished = false;
+        while(!Finished){
+            Finished = Lerp(AmmoObject.transform, ShellOffset,ReloadPoint,LerpMovementSpeed,LerpRotationSpeed);
+            yield return null;
+        }
+
+        Vector3 PosOffset = Vector3.zero;
+        Quaternion RotationOffset = Quaternion.identity;
+        if(ShellOffset){
+            PosOffset = AmmoObject.transform.TransformDirection(ShellOffset.localPosition);
+            RotationOffset = Quaternion.Inverse(ShellOffset.localRotation);
+        }
+        AmmoObject.transform.localPosition = PosOffset;
+        AmmoObject.transform.localRotation = RotationOffset;
+        LerpFinished();
+        
     }
-    bool Lerp(Transform Moved,Transform Offset, Transform B, float SpeedPos, float SpeedRot){
+    void LerpFinished(){
+        Animator.Play("Load");
+    }
+    void LoadAnimationFinished(){ //called by the animator
+        weapon.Reload(new Ammunition(LoadingObject)); // loading the cannon with a new ammunition object (that does not derrive from monobehavior)
+        Clear(); // clears the loading process and resets it
+        Animator.SetTrigger("Reloaded"); // sends a signal to the animator for it to be restarted
+    }
+    void Clear(){
+        Destroy(LoadingObject.gameObject);
+        LoadingObject = null;
+    }
+    void AnimationReset(){ // called by the animator
+        Loading = false;
+    }
+    bool Lerp(Transform Moved,Transform Offset, Transform B, float SpeedPos, float SpeedRot){ // Lerps an object with a given offset to a target and returns true if the lerp is complete
     	bool PositionLerped, RotationLerped;
     	Vector3 PosOffset;
     	Quaternion TargetRotation;
@@ -78,33 +116,5 @@ public class CannonReloader : WeaponReloader
 		return PositionLerped && RotationLerped;
 
 	}
-    void FinishLerp(){
-    	LerpShell = false;
-    	Vector3 PosOffset = Vector3.zero;
-    	Quaternion RotationOffset = Quaternion.identity;
-    	if(ShellOffset){
-			PosOffset = LoadingObj.transform.TransformDirection(ShellOffset.localPosition);
-			RotationOffset = Quaternion.Inverse(ShellOffset.localRotation);
-		}
-		LoadingObj.transform.localPosition = PosOffset;
-		LoadingObj.transform.localRotation = RotationOffset;
-		Animate();
-		
-
-    }
-    void Animate(){
-    	Animator.Play("Load");
-    }
-    void LoadAnimationFinished(){
-    	weapon.Reload(LoadingObj.GetComponent<AmmoIdentifier>());
-    	Clear();
-        Animator.SetTrigger("Reloaded");
-    }
-    void Clear(){
-    	ShellOffset = null;
-    	Destroy(LoadingObj);
-    }
-    void AnimationReset(){
-    	Loading = false;
-    }
+    
 }

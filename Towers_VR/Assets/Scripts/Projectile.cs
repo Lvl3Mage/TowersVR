@@ -12,6 +12,10 @@ public class Projectile : MonoBehaviour
             return _WindFactor;
         }
     }
+    public bool HasCollided(){
+        return Impact;
+    }
+    bool Impact = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +28,12 @@ public class Projectile : MonoBehaviour
     	if(RotateToVelocity){
     		transform.rotation = Quaternion.LookRotation(RB.velocity, Vector3.up);
     	}   
+    }
+    void OnCollisionEnter(Collision collisionInfo){
+        Activate(collisionInfo);
+        Impact = true;
+    }
+    protected virtual void Activate(Collision collisionInfo){
+
     }
 }

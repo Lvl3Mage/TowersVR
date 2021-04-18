@@ -166,10 +166,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.925
       objectReference: {fileID: 0}
+    - target: {fileID: 817949949006963773, guid: 05e562b5ea655a6439876a8801ab2f21,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 817949949006963774, guid: 05e562b5ea655a6439876a8801ab2f21,
         type: 3}
       propertyPath: m_Name
-      value: Balk Extrasmall
+      value: Balk Extrasmall Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4592598830509222116, guid: 05e562b5ea655a6439876a8801ab2f21,
         type: 3}

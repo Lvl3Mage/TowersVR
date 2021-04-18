@@ -17,9 +17,9 @@ public class AutomaticWeapon : Weapon
 		triggerActive = toggleValue; // sets the trigger state
 	}
 	void Fire(){
-		if(Clip.count>0){
-			Clip.count -= 1; 
-			if(Clip.count == 0){
+		if(Clip.ammoCount>0){
+			Clip.ammoCount -= 1; 
+			if(Clip.ammoCount == 0){
 				CallBackLoadedState(2);
 				State = false; // sets the state to false so the weapon can be reloaded (this will be reworked in the future cause you should obviously be able to reload your weapon without emptying it)
 			}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ImpactDestroyedProjectile : ImpactActivatedProjectile
+public class ImpactDestroyedProjectile : Projectile
 {
 	[SerializeField] Object OnContactEffect;
 	protected override void Activate(Collision collisionInfo){

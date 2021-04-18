@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosiveProjectile : ImpactActivatedProjectile
+public class ExplosiveProjectile : Projectile
 {
 	[SerializeField] Object ExplosionEffect, Explosion, Decal;
 	bool Exploded = false;

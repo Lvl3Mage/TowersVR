@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 8849989772437203718}
   - component: {fileID: 5584077997213394083}
   - component: {fileID: 7681546756855320681}
-  - component: {fileID: 1835716887176638094}
+  - component: {fileID: 4282063369582472590}
   - component: {fileID: 3557193940566594627}
   - component: {fileID: 2250678422364894318}
   - component: {fileID: 6558098460970264479}
@@ -118,7 +118,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1835716887176638094
+--- !u!114 &4282063369582472590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,14 +127,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8186042617315062204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a02ad1e41e01e4b81fc87d8ac747b0, type: 3}
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _self: {fileID: 8186042617315062204}
   _bullet: {fileID: 685619737413003781, guid: 8fdc7ebfe12268a44a0f55e1687e64a6, type: 3}
   _velocity: 250
-  _type: 0
-  _count: 1
+  _caliber: 0
+  _ammoCount: 1
 --- !u!64 &3557193940566594627
 MeshCollider:
   m_ObjectHideFlags: 0

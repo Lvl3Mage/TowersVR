@@ -391,7 +391,7 @@ MonoBehaviour:
   maxVelocity: 10
   slowdownAngle: 1
   baseOffset: 90
-  angleOffset: 89.5
+  angleOffset: 89.56
   DebugSlowdown:
     serializedVersion: 2
     key0: {r: 1, g: 0.02821736, b: 0, a: 1}
@@ -439,7 +439,6 @@ MonoBehaviour:
   Barrel: {fileID: 5287335310278544982}
   Recoil: 10
   ReloadDelay: 0
-  Inaccuracy: {x: 0, y: 0}
   CallBackLoaded: []
   CallBackProjectileSpeed: []
   gunPoint: {fileID: 5287335311515921643}

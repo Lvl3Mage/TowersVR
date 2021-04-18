@@ -13,19 +13,24 @@ public class GameManager : MonoBehaviour
 	[SerializeField] [Range(0.2f, 5f)] float IntactCheckRate;
 	[SerializeField] WinConditions WinCondition;
 	TeamInstance[] teams;
+    bool gameRunning = false;
     public void StartManagment(TeamInstance[] instancedTeams){
     	teams = instancedTeams;
+        gameRunning = true;
     	StartCoroutine(TeamIntactChecker());
     }
     public TeamInstance[] RequestEnemyTeams(Tower requesterTower){
     	List<TeamInstance> enemyTeams = new List<TeamInstance>();
     	TeamInstance requesterTeam = FindTowersTeam(requesterTower);
     	foreach(TeamInstance team in teams){
-    		if(team != requesterTeam){
+    		if(team != requesterTeam && team.active){
 				enemyTeams.Add(team);
     		}
     	}
     	return enemyTeams.ToArray();
+    }
+    public bool GameRunning(){
+        return gameRunning;
     }
     TeamInstance FindTowersTeam(Tower searchTower){
     	TeamInstance towersTeam = null;
@@ -41,7 +46,7 @@ public class GameManager : MonoBehaviour
     		}
     	}
     	if(towersTeam == null){
-    		Debug.LogError("requested tower does not belongto any team");
+    		Debug.LogError("requested tower does not belong to any team");
     		return null;
     	}
     	else{
@@ -49,6 +54,7 @@ public class GameManager : MonoBehaviour
     	}
     }
     void WinConditionReached(){
+        gameRunning = false;
     	List<TeamInstance> aliveTeams = new List<TeamInstance>();
     	for(int i = 0; i < teams.Length; i++){
     		if(teams[i].active){
@@ -110,7 +116,6 @@ public class GameManager : MonoBehaviour
 
     		default:
     			return false;
-    			break;
     	}
     }
 }

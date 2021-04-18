@@ -128,7 +128,13 @@ public class TowerKeypoint : MonoBehaviour
     	if(DrawGizmos){
     		Color Color;
     		//Draws the inner circle
-    		Color = Color.red;
+    		if(intact){
+    			Color = Color.green;
+    		}
+    		else{
+    			Color = Color.red;
+    		}
+    		
     		Color.a = FirstGizmoTransparency;
 	    	Gizmos.color = Color;
 	    	Gizmos.DrawSphere(transform.position, StructureRadius);

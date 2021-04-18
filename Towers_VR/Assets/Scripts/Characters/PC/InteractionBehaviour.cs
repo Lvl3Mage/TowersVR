@@ -98,12 +98,12 @@ public class InteractionBehaviour : MonoBehaviour
 			}
 			else{
 				WeaponReloader Reload = Obj.GetComponent<WeaponReloader>();
-				AmmoIdentifier Ammo = null;
+				AmmoObjectIdentifier Ammo = null;
 				if(HeldObject){
-					Ammo = HeldObject.GetComponent<AmmoIdentifier>();
+					Ammo = HeldObject.GetComponent<AmmoObjectIdentifier>();
 				}
 				if(Reload && Ammo){ // Checks if the target is an ammo reciever and the player is holding ammo 
-					if(Reload.LoadShell(Ammo)){ // Initiates player loading sequence
+					if(Reload.LoadAmmo(Ammo)){ // Initiates player loading sequence
 						HeldObject = null;
 						HeldObjectOffset = null;
 						Inventory.Remove();
