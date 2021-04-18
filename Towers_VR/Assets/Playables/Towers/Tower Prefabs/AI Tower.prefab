@@ -58,7 +58,7 @@ MonoBehaviour:
     _ammoCount: 1
   PerRotationDegreeWait: 0.2
   PerRotationWait: 0.5
-  AmmoLoadTime: 2
+  AmmoLoadTimeRange: {x: 1.5, y: 3}
   FirstShotInnacuracy: {x: 0.3, y: 0.7}
   CorrectionVariations:
   - CorrectionChance: 2

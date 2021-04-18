@@ -12,7 +12,7 @@ public class AITowerController : TowerController
 	[Tooltip("The time ")]
 	[SerializeField] float PerRotationDegreeWait;
 	[SerializeField] float PerRotationWait;
-	[SerializeField] float AmmoLoadTime;
+	[SerializeField] Vector2 AmmoLoadTimeRange;
 	[Tooltip("The cannon innacuracy during the first shot. The x value represents the vertical innacuracy and the y represents the horizontal innacuracy")]
 	[SerializeField] Vector2 FirstShotInnacuracy;
 	[SerializeField] CorrectionVariation[] CorrectionVariations; 
@@ -68,7 +68,7 @@ public class AITowerController : TowerController
 
 				yield return null;
 			}
-			
+
 			Vector3 impactPoint;
 			if(Projectile.HasCollided()){
 				impactPoint = ProjectileObject.transform.position; // the impact point will be the position of the projectile if it has collided
@@ -127,7 +127,7 @@ public class AITowerController : TowerController
     IEnumerator LoadAmmunition(int id){
     	Ammunition ExampleAmmo = AIExampleAmmo[0];
 		LoadCannon(new Ammunition(ExampleAmmo.bullet, ExampleAmmo.velocity, ExampleAmmo.caliber, ExampleAmmo.ammoCount));
-		yield return new WaitForSeconds(AmmoLoadTime); // loading wait
+		yield return new WaitForSeconds(Random.Range(AmmoLoadTimeRange.x, AmmoLoadTimeRange.y)); // loading wait
     }
     CorrectionVariation ChooseCorrection(){
     	int totalChances = 0;
