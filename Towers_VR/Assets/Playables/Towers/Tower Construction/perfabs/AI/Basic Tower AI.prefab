@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2893792970886165416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8839274511032393198}
+  - component: {fileID: 43435139579141354}
+  m_Layer: 0
+  m_Name: Basic Tower AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8839274511032393198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893792970886165416}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 786.4338, y: 978.54297, z: 1125.6613}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &43435139579141354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893792970886165416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc88dae801c7fa04aaba7f8812b9a188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CannonRotation: {fileID: 0}
+  TowerRotation: {fileID: 0}
+  Cannon: {fileID: 0}
+  CannonReloader: {fileID: 0}
+  SelfTower: {fileID: 0}
+  gunPoint: {fileID: 0}
+  AIExampleAmmo:
+  - _bullet: {fileID: 685619737413003781, guid: 8fdc7ebfe12268a44a0f55e1687e64a6,
+      type: 3}
+    _velocity: 250
+    _caliber: 0
+    _ammoCount: 1
+  PerRotationDegreeWait: 0.2
+  PerRotationWait: 0.5
+  AmmoLoadTimeRange: {x: 1.5, y: 3}
+  FirstShotInnacuracy: {x: 0.3, y: 0.7}
+  CorrectionVariations:
+  - CorrectionChance: 2
+    Range: {x: -0.6, y: 0}
+  - CorrectionChance: 6
+    Range: {x: 0, y: 0.5}
+  - CorrectionChance: 3
+    Range: {x: 0.5, y: 0.8}
+  - CorrectionChance: 4
+    Range: {x: 1.2, y: 1.5}
+  - CorrectionChance: 1
+    Range: {x: 1.5, y: 2}
+  - CorrectionChance: 1
+    Range: {x: 2, y: 2.6}
+  - CorrectionChance: 1
+    Range: {x: 1, y: 1}

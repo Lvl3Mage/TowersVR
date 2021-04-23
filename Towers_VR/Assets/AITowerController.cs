@@ -5,7 +5,7 @@ using UnityEngine;
 public class AITowerController : TowerController
 {
 	
-	[SerializeField] AITower SelfTower;
+	[SerializeField] PlayableTower SelfTower;
 	[SerializeField] Transform gunPoint;
 	[SerializeField] Ammunition[] AIExampleAmmo;
 	[Header("Aim Settings")]
@@ -15,14 +15,31 @@ public class AITowerController : TowerController
 	[SerializeField] Vector2 AmmoLoadTimeRange;
 	[Tooltip("The cannon innacuracy during the first shot. The x value represents the vertical innacuracy and the y represents the horizontal innacuracy")]
 	[SerializeField] Vector2 FirstShotInnacuracy;
-	[SerializeField] CorrectionVariation[] CorrectionVariations; 
-    void Start()
-    {
-    	StartCoroutine(AICycle());	
+	[SerializeField] CorrectionVariation[] CorrectionVariations;
+	Coroutine AIRoutineCycle = null;
+
+	private bool _active = false;
+	public bool active{
+		get{
+			return _active;
+		}
+		set{
+			_active = value;
+			AIToggled();
+		}
+	}
+
+    void AIToggled(){
+    	if(_active){
+    		if(AIRoutineCycle == null){
+    			AIRoutineCycle = StartCoroutine(AICycle());	
+    		}
+    	}
+    	// in the opposite case all the other cycles will stop by themselves
     }
     IEnumerator AICycle(){
     	yield return null; // waits till initialization
-    	while(SelfTower.TowerIntact() || SelfTower.GameRunning()){
+    	while(SelfTower.TowerIntact() && SelfTower.GameRunning() && _active){
     		Tower TargetTower = GetClosestTower();
     		TowerKeypoint TargetKeypoint = SelectTowerKeypoint(TargetTower);
     		yield return StartCoroutine(ShootKeypoint(TargetKeypoint,TargetTower));
@@ -48,7 +65,7 @@ public class AITowerController : TowerController
 		yield return StartCoroutine(AimAtAngles(Aim)); // waits for the tower to aim
 		
 		//Following adjustment aiming
-		while(SelfTower.TowerIntact() && TargetTower.TowerIntact() && keypoint.intact){ // will stop if the tower breaks / enemy tower breaks / keypoint breaks
+		while(SelfTower.TowerIntact() && TargetTower.TowerIntact() && keypoint.intact && _active){ // will stop if the tower breaks / enemy tower breaks / keypoint breaks / the ai is deactivated
 			FireCannon();
 			GameObject ProjectileObject = GetLastProjectile();
 			Projectile Projectile = ProjectileObject.GetComponent<Projectile>();
@@ -112,22 +129,35 @@ public class AITowerController : TowerController
     	}
     }
     IEnumerator AimAtAngles(Vector2 Aim){
-    	Vector2 PastAim = GetCurrentRotation();
+    	if(_active){
+	    	Vector2 PastAim = GetCurrentRotation();
 
-    	if(float.IsNaN(Aim.x)){
-			Debug.LogError("The selected tower is unreachable", gameObject);
-		}
-		else{
-			SetXAngle(Aim.x);
-			SetYAngle(Aim.y);
-		}
-		float rotationDelta = Mathf.Abs(PastAim.x-Aim.x) + Mathf.Abs(PastAim.y-Aim.y);//Should actually wait till the tower aims in the correct direction but for now this works
-		yield return new WaitForSeconds(rotationDelta*PerRotationDegreeWait); // waits directly proportional to the delta of the turn
+	    	if(float.IsNaN(Aim.x)){
+				Debug.LogError("The selected tower is unreachable", gameObject);
+			}
+			else{
+				SetXAngle(Aim.x);
+				SetYAngle(Aim.y);
+			}
+			float rotationDelta = Mathf.Abs(PastAim.x-Aim.x) + Mathf.Abs(PastAim.y-Aim.y);//Should actually wait till the tower aims in the correct direction but for now this works
+			yield return new WaitForSeconds(rotationDelta*PerRotationDegreeWait); // waits directly proportional to the delta of the turn
+    	}
+    	else{ // if inactive
+    		yield return null;
+    	}
+    	
+    	
     }
     IEnumerator LoadAmmunition(int id){
-    	Ammunition ExampleAmmo = AIExampleAmmo[0];
-		LoadCannon(new Ammunition(ExampleAmmo.bullet, ExampleAmmo.velocity, ExampleAmmo.caliber, ExampleAmmo.ammoCount));
-		yield return new WaitForSeconds(Random.Range(AmmoLoadTimeRange.x, AmmoLoadTimeRange.y)); // loading wait
+    	if(_active){
+	    	Ammunition ExampleAmmo = AIExampleAmmo[0];
+			LoadCannon(new Ammunition(ExampleAmmo.bullet, ExampleAmmo.velocity, ExampleAmmo.caliber, ExampleAmmo.ammoCount));
+			yield return new WaitForSeconds(Random.Range(AmmoLoadTimeRange.x, AmmoLoadTimeRange.y)); // loading wait
+    	}
+    	else{
+    		yield return null;
+    	}
+    	
     }
     CorrectionVariation ChooseCorrection(){
     	int totalChances = 0;

@@ -6,6 +6,7 @@ public class OptimizedRenderCamera : RenderCamera
 {
 	[SerializeField] int Framerate;
 	[SerializeField] Camera[] RenderForCamera;
+    bool Rendering = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +14,12 @@ public class OptimizedRenderCamera : RenderCamera
     }
     IEnumerator RenderLoop(){
     	while(true){
-    		if(CheckRenderReqirement()){
-    			Render();
-    		}
+            if(Rendering){
+                if(CheckRenderReqirement()){
+                    Render();
+                }    
+            }
+    		
     		yield return new WaitForSeconds(1f/Framerate);
     	}
     }
@@ -46,5 +50,8 @@ public class OptimizedRenderCamera : RenderCamera
     }
     public void AssignRenderForCamera(Camera[] Cameras){
         RenderForCamera = Cameras;
+    }
+    public void SetRendering(bool value){
+        Rendering = value;
     }
 }

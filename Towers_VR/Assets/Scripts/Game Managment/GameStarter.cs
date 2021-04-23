@@ -5,8 +5,7 @@ using UnityEngine;
 public class GameStarter : MonoBehaviour
 {
     [SerializeField] Transform[] SpawnPoints;
-    [SerializeField] Object PlayerTower;
-    [SerializeField] Object AITower;
+    [SerializeField] Object Tower;
     [SerializeField] Object PCCharacter;
     [SerializeField] Object VRCharacter;
     [SerializeField] GameManager GameManager;
@@ -26,45 +25,35 @@ public class GameStarter : MonoBehaviour
             for(int j = 0; j < participants.Length; j++){
                 BaseParticipant participant = participants[j];
 
-                ParticipantSettings.PlayerType playerType = participant.playerType;
-                Object Tower = null;
-                Object Character = null;
-                switch(playerType){ // this really makes it hard to implement new player types nut I really can't think of a way to simplify this without limiting the player types we can have
-                    case ParticipantSettings.PlayerType.AI:
-                    {
-                        Tower = AITower;
-                        break;
-                    }
-                    case ParticipantSettings.PlayerType.PC:
-                    {
-                        Tower = PlayerTower;
-                        Character = PCCharacter;
-                        break;
-                    }
-                    case ParticipantSettings.PlayerType.VR:
-                    {
-                        Tower = PlayerTower;
-                        Character = VRCharacter;
-                        break; 
-                    }
-                    default: break;
-                }
-                GameObject TowerObject = SpawnTower(participant.spawnPosition, participant.spawnRotation, Tower); // spanws the actual Tower
+                GameObject TowerObject = SpawnTower(participant.spawnPosition, participant.spawnRotation, Tower); // spawns the actual Tower
+                PlayableTower PlayableTower = TowerObject.GetComponent<PlayableTower>();
+                if(PlayableTower){
+                    instancedTowers[j] = PlayableTower;// add the PlayableTower to the instanced list
 
-                // add the tower to the instanced list 
-                Tower tower = TowerObject.GetComponent<Tower>();
-                if(tower){
-                    instancedTowers[j] = tower;
+                    ParticipantSettings.PlayerType playerType = participant.playerType;
+                    List<Player> TowerPlayers = new List<Player>(); // the list that will contain all the tower's players
+                    switch(playerType){ // this really makes it hard to implement new player types nut I really can't think of a way to simplify this without limiting the player types we can have
+                        case ParticipantSettings.PlayerType.AI:
+                        {
+                            break;
+                        }
+                        case ParticipantSettings.PlayerType.PC:
+                        {
+                            Player SpawnedPlayer = SpawnPlayer(PlayableTower.GetTowerSpawnPoint().position, PCCharacter);
+                            TowerPlayers.Add(SpawnedPlayer);
+                            break;
+                        }
+                        case ParticipantSettings.PlayerType.VR:
+                        {
+                            Player SpawnedPlayer = SpawnPlayer(PlayableTower.GetTowerSpawnPoint().position, VRCharacter);
+                            TowerPlayers.Add(SpawnedPlayer);
+                            break; 
+                        }
+                        default: break;
+                    }
+                    PlayableTower.Players = TowerPlayers; // if it's a playable tower we will set the players
                 }
-
-                // spawns player character if needed
-                if(Character){
-                    PlayableTower TowerComponent = TowerObject.GetComponent<PlayableTower>();
-                    Transform TowerSpawnpoint = TowerComponent.GetTowerSpawnPoint();
-                    GameObject playerObject = Object.Instantiate(Character,TowerSpawnpoint.position, Quaternion.identity) as GameObject;
-                    Player Player = playerObject.GetComponent<Player>();
-                    TowerComponent.AssignPlayer(Player); //PLACEHOLDER this should really pass an array
-                } 
+                
                 ConfigureTower(TowerObject);
             }
 
@@ -78,6 +67,10 @@ public class GameStarter : MonoBehaviour
     }
     protected virtual void ConfigureTower(GameObject Tower){
 
+    }
+    Player SpawnPlayer(Vector3 Position, Object Player){
+        GameObject playerObject = Object.Instantiate(Player, Position, Quaternion.identity) as GameObject;
+        return playerObject.GetComponent<Player>();
     }
     GameObject SpawnTower(Vector3 spawnPosition, Quaternion spawnRotation, Object Tower){
     	GameObject SpawnedTower = Object.Instantiate(Tower,spawnPosition,spawnRotation) as GameObject;
