@@ -7,6 +7,9 @@ public class PlayableTower : Tower
     [SerializeField] Transform Spawnpoint;
     [SerializeField] OptimizedRenderCamera RadarCamera;
     [SerializeField] AITowerController AI;
+    [Header("Color Marker Settings")]
+    [SerializeField] Renderer[] ColorMarkers;
+    [SerializeField] Color DisabledColor;
     private List<Player> _Players;
     public List<Player> Players{
         get { 
@@ -16,6 +19,11 @@ public class PlayableTower : Tower
             _Players = value;
             PlayersChanged();
 
+        }
+    }
+    protected override void OnTowerDestroyed(){
+        foreach(Renderer Marker in ColorMarkers){
+            Marker.material.SetColor("_UnlitColor",DisabledColor);
         }
     }
     public void PlayersChanged(){
@@ -33,6 +41,14 @@ public class PlayableTower : Tower
         else{
             RadarCamera.SetRendering(false); // disabling the render camera
             AI.active = true; // enabling the AI
+        }
+        
+    }
+    public void SetColor(Color color){
+        if(intact){
+            foreach(Renderer Marker in ColorMarkers){
+                Marker.material.SetColor("_UnlitColor",color);
+            }
         }
         
     }

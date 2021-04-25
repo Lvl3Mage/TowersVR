@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower : MonoBehaviour // manages integrity and structure
 {
 	[Tooltip("Keypoints that indicate structuraly important pounts of the tower")]
 	[SerializeField] protected TowerKeypoint[] StructuralKeypoints;
@@ -12,6 +12,7 @@ public class Tower : MonoBehaviour
 	[SerializeField] [Range(0f, 1f)] float MinIntactPercentage;
 	protected GameManager GameManager;
 	protected bool intact = true;
+
 	void Start(){
 		GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 	}
@@ -19,11 +20,14 @@ public class Tower : MonoBehaviour
 		int intactPoints = RecalculateKeypoints(IntactKeypoints);
 
 		float intactPercent = ((float)intactPoints)/((float)IntactKeypoints.Length);
+
+		bool pastIntact = intact;
 		intact = intactPercent>MinIntactPercentage;
+
+		if(pastIntact && !intact){ // if changed
+			OnTowerDestroyed();
+		}
 	}
-	/*public void RecalculateStructure(){
-		RecalculateKeypoints(StructuralKeypoints);
-	}*/
 	public TowerKeypoint[] GetStructureKeypoints(){
 		RecalculateKeypoints(StructuralKeypoints);
 		List<TowerKeypoint> ActiveKeypoints = new List<TowerKeypoint>();
@@ -44,7 +48,11 @@ public class Tower : MonoBehaviour
 		}
 		return intactkeypoints;
 	}
+	
 	public bool TowerIntact(){
 		return intact;
-	}    
+	}
+	protected virtual void OnTowerDestroyed(){
+
+	}  
 }

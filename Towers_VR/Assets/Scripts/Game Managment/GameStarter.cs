@@ -29,6 +29,7 @@ public class GameStarter : MonoBehaviour
                 PlayableTower PlayableTower = TowerObject.GetComponent<PlayableTower>();
                 if(PlayableTower){
                     instancedTowers[j] = PlayableTower;// add the PlayableTower to the instanced list
+                    PlayableTower.SetColor(team.teamColor);
 
                     ParticipantSettings.PlayerType playerType = participant.playerType;
                     List<Player> TowerPlayers = new List<Player>(); // the list that will contain all the tower's players
@@ -53,8 +54,6 @@ public class GameStarter : MonoBehaviour
                     }
                     PlayableTower.Players = TowerPlayers; // if it's a playable tower we will set the players
                 }
-                
-                ConfigureTower(TowerObject);
             }
 
             instancedTeams[i] = new TeamInstance(instancedTowers, team);
@@ -64,9 +63,6 @@ public class GameStarter : MonoBehaviour
     }
     public void StartGame(BaseTeam[] Teams){
         SpawnParticipants(Teams);
-    }
-    protected virtual void ConfigureTower(GameObject Tower){
-
     }
     Player SpawnPlayer(Vector3 Position, Object Player){
         GameObject playerObject = Object.Instantiate(Player, Position, Quaternion.identity) as GameObject;
