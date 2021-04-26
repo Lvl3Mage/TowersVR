@@ -21,12 +21,7 @@ public class Tower : MonoBehaviour // manages integrity and structure
 
 		float intactPercent = ((float)intactPoints)/((float)IntactKeypoints.Length);
 
-		bool pastIntact = intact;
 		intact = intactPercent>MinIntactPercentage;
-
-		if(pastIntact && !intact){ // if changed
-			OnTowerDestroyed();
-		}
 	}
 	public TowerKeypoint[] GetStructureKeypoints(){
 		RecalculateKeypoints(StructuralKeypoints);
@@ -52,7 +47,4 @@ public class Tower : MonoBehaviour // manages integrity and structure
 	public bool TowerIntact(){
 		return intact;
 	}
-	protected virtual void OnTowerDestroyed(){
-
-	}  
 }

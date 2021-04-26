@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     	}
     	return enemyTeams.ToArray();
     }
+    public TeamInstance[] RequestTeams(){
+        return teams;
+    }
     public bool GameRunning(){
         return gameRunning;
     }

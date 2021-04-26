@@ -406,12 +406,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AxisSpeed: 6
   Acceleration: 7.68
-  AirAccelerate: 1.65
-  AirSpeed: 2
+  AirAccelerate: 2
+  AirSpeed: 3
   WalkDifficulty: 2
-  JumpSpeed: 1.6
+  JumpSpeed: 3
   DirectionalJump: 0.441
-  WalkSteepnessMax: 0.677
+  WalkSteepnessMax: 0.7
   Player: {fileID: 4934580704693332198}
   MovementCenter: {fileID: 4934580705059795753}
   RaycastCenter: {fileID: 4934580705676763275}

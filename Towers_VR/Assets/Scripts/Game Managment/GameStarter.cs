@@ -14,7 +14,8 @@ public class GameStarter : MonoBehaviour
     }
     void SpawnParticipants(BaseTeam[] Teams){
         TeamInstance[] instancedTeams = new TeamInstance[Teams.Length];
-
+        List<PlayableTower> PlayableTowers = new List<PlayableTower>();
+        List<List<Player>> GamePlayers = new List<List<Player>>(); // a 2D list of all players in all towers
     	for(int i = 0; i < Teams.Length; i++)
     	{
             BaseTeam team = Teams[i];
@@ -29,7 +30,6 @@ public class GameStarter : MonoBehaviour
                 PlayableTower PlayableTower = TowerObject.GetComponent<PlayableTower>();
                 if(PlayableTower){
                     instancedTowers[j] = PlayableTower;// add the PlayableTower to the instanced list
-                    PlayableTower.SetColor(team.teamColor);
 
                     ParticipantSettings.PlayerType playerType = participant.playerType;
                     List<Player> TowerPlayers = new List<Player>(); // the list that will contain all the tower's players
@@ -52,14 +52,20 @@ public class GameStarter : MonoBehaviour
                         }
                         default: break;
                     }
-                    PlayableTower.Players = TowerPlayers; // if it's a playable tower we will set the players
+                    GamePlayers.Add(TowerPlayers); // adds the created players to the GamePlayers
+                    PlayableTowers.Add(PlayableTower); // adds the playable tower to the towers array for later initialization
                 }
             }
-
             instancedTeams[i] = new TeamInstance(instancedTowers, team);
     	}
-
         GameManager.StartManagment(instancedTeams);
+
+        for(int i = 0; i < PlayableTowers.Count; i++){
+            PlayableTower currentPlayableTower = PlayableTowers[i];
+            currentPlayableTower.Players = GamePlayers[i]; // setting the players to the tower for initialization
+
+        }
+        
     }
     public void StartGame(BaseTeam[] Teams){
         SpawnParticipants(Teams);

@@ -55,22 +55,29 @@ MonoBehaviour:
     _velocity: 250
     _caliber: 0
     _ammoCount: 1
-  PerRotationDegreeWait: 0.2
-  PerRotationWait: 0.5
-  AmmoLoadTimeRange: {x: 1.5, y: 3}
-  FirstShotInnacuracy: {x: 0.3, y: 0.7}
+  PerRotationDegreeWait: 0.4
+  PerRotationWait: 8
+  AmmoLoadTimeRange: {x: 1.5, y: 4}
+  FirstShotInnacuracy: {x: 1, y: 2.5}
   CorrectionVariations:
-  - CorrectionChance: 2
+  - CorrectionName: Opposite Correction
+    CorrectionChance: 2
     Range: {x: -0.6, y: 0}
-  - CorrectionChance: 6
+  - CorrectionName: 
+    CorrectionChance: 6
     Range: {x: 0, y: 0.5}
-  - CorrectionChance: 3
+  - CorrectionName: 
+    CorrectionChance: 3
     Range: {x: 0.5, y: 0.8}
-  - CorrectionChance: 4
+  - CorrectionName: 
+    CorrectionChance: 4
     Range: {x: 1.2, y: 1.5}
-  - CorrectionChance: 1
+  - CorrectionName: 
+    CorrectionChance: 1
     Range: {x: 1.5, y: 2}
-  - CorrectionChance: 1
+  - CorrectionName: 
+    CorrectionChance: 1
     Range: {x: 2, y: 2.6}
-  - CorrectionChance: 1
+  - CorrectionName: 
+    CorrectionChance: 1
     Range: {x: 1, y: 1}

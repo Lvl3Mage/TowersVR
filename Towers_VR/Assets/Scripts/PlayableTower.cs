@@ -6,10 +6,8 @@ public class PlayableTower : Tower
 {
     [SerializeField] Transform Spawnpoint;
     [SerializeField] OptimizedRenderCamera RadarCamera;
+    [SerializeField] RadarScreen RadarScreen;
     [SerializeField] AITowerController AI;
-    [Header("Color Marker Settings")]
-    [SerializeField] Renderer[] ColorMarkers;
-    [SerializeField] Color DisabledColor;
     private List<Player> _Players;
     public List<Player> Players{
         get { 
@@ -21,14 +19,8 @@ public class PlayableTower : Tower
 
         }
     }
-    protected override void OnTowerDestroyed(){
-        foreach(Renderer Marker in ColorMarkers){
-            Marker.material.SetColor("_UnlitColor",DisabledColor);
-        }
-    }
     public void PlayersChanged(){
         if(_Players.Count > 0){
-            RadarCamera.SetRendering(true); // enabling the render camera
             AI.active = false; // disabling the AI
             List<Camera> PlayerCameras = new List<Camera>();
             for(int i = 0; i < _Players.Count; i++){
@@ -37,18 +29,13 @@ public class PlayableTower : Tower
                 _Players[i].SetSpawnpoint(Spawnpoint);
             }
             RadarCamera.AssignRenderForCamera(PlayerCameras.ToArray()); // assigning the new cameras
+            RadarScreen.ToggleRendering(true); //enabling the radar
+            RadarCamera.ToggleRendering(true); // enabling the render camera
         }
         else{
-            RadarCamera.SetRendering(false); // disabling the render camera
+            RadarScreen.ToggleRendering(false);
+            RadarCamera.ToggleRendering(false); // disabling the render camera
             AI.active = true; // enabling the AI
-        }
-        
-    }
-    public void SetColor(Color color){
-        if(intact){
-            foreach(Renderer Marker in ColorMarkers){
-                Marker.material.SetColor("_UnlitColor",color);
-            }
         }
         
     }

@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7628457280901780598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7103981831524241100}
+  - component: {fileID: 6141135568011772265}
+  - component: {fileID: 8276847603636450723}
+  - component: {fileID: 3884480266314362025}
+  m_Layer: 0
+  m_Name: Radar Screen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7103981831524241100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7628457280901780598}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.222, y: 0.117, z: 0.008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6141135568011772265
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7628457280901780598}
+  m_Mesh: {fileID: -5495902117074765545, guid: 8b0e8642798cb20429e515ba5a406117, type: 3}
+--- !u!23 &8276847603636450723
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7628457280901780598}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: fc2638940706fea488b0caab902f9fe5, type: 2}
+  - {fileID: 2100000, guid: 1e7c6e3714e781b4e87275f750de12c3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &3884480266314362025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7628457280901780598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efde330887c6df429a17d2c0e474068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updatePeriod: 0.2
+  TowerMarker: {fileID: 6367459314389935496, guid: cf9f083c0710dc44f95c9e6569a516ea,
+    type: 3}
+  ViewConeObject: {fileID: 4510500688438411338, guid: 647f27befd5181546854b03775413079,
+    type: 3}
+  DestroyedColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0.6117647}
+  TowerRotationIndicator: {fileID: 0}
+  GlobalRangeX: {x: -2000, y: 2000}
+  GlobalRangeY: {x: -2000, y: 2000}
+  LocalRangeX: {x: -0.25, y: 0.25}
+  LocalRangeY: {x: -0.25, y: 0.25}
+  LocalRadarScale: {x: -1, y: 1}
+  MarkerDepthOffset: 0.05
+  ViewConeDepthOffset: 0.05

@@ -37,13 +37,20 @@ public class AITowerController : TowerController
     	}
     	// in the opposite case all the other cycles will stop by themselves
     }
+    bool CanShoot(){
+    	return SelfTower.TowerIntact() && SelfTower.GameRunning() && _active;
+    }
     IEnumerator AICycle(){
     	yield return null; // waits till initialization
-    	while(SelfTower.TowerIntact() && SelfTower.GameRunning() && _active){
+    	while(CanShoot()){
     		Tower TargetTower = GetClosestTower();
+    		yield return StartCoroutine(DestroyTower(TargetTower));
+    	}
+    }
+    IEnumerator DestroyTower(Tower TargetTower){
+    	while(CanShoot() && TargetTower.TowerIntact()){
     		TowerKeypoint TargetKeypoint = SelectTowerKeypoint(TargetTower);
     		yield return StartCoroutine(ShootKeypoint(TargetKeypoint,TargetTower));
-
     	}
     }
     IEnumerator ShootKeypoint(TowerKeypoint keypoint, Tower TargetTower){
@@ -63,9 +70,10 @@ public class AITowerController : TowerController
     	Aim += innacuracy;
 
 		yield return StartCoroutine(AimAtAngles(Aim)); // waits for the tower to aim
+		yield return new WaitForSeconds(PerRotationWait);
 		
 		//Following adjustment aiming
-		while(SelfTower.TowerIntact() && TargetTower.TowerIntact() && keypoint.intact && _active){ // will stop if the tower breaks / enemy tower breaks / keypoint breaks / the ai is deactivated
+		while(CanShoot() && TargetTower.TowerIntact() && keypoint.intact){ // will stop if the tower breaks / enemy tower breaks / keypoint breaks / the ai is deactivated / game is stopped
 			FireCannon();
 			GameObject ProjectileObject = GetLastProjectile();
 			Projectile Projectile = ProjectileObject.GetComponent<Projectile>();
@@ -176,7 +184,18 @@ public class AITowerController : TowerController
     }
     Tower GetClosestTower(){ // returns the closest tower (by angle to turn towards it)
     	TeamInstance[] EnemyTeams = SelfTower.GetEnemyTeams();
-		float smallestAngle = 181f;
+
+    	//Selects a random team
+    	TeamInstance SelectedTeam = EnemyTeams[Random.Range(0, EnemyTeams.Length)];
+    	//Selects a random tower
+    	Tower[] TeamTowers = SelectedTeam.towers;
+    	Tower SelectedTower = TeamTowers[Random.Range(0,TeamTowers.Length)];
+
+
+		// Removed for now - too predictable //
+
+    	//Selects the closest tower by angle 
+		/*float smallestAngle = 181f;
 		Tower ClosestTower = null;
 		foreach(TeamInstance EnemyTeam in EnemyTeams){
 			Tower[] enemyTowers = EnemyTeam.towers;
@@ -189,8 +208,8 @@ public class AITowerController : TowerController
 					}
 				}
 			}
-		}
-		return ClosestTower;
+		}*/
+		return SelectedTower;
 
     }
     float RotationAngleTo(Transform aimObj){ // calculates the angle that the tower has to move to reach a target
@@ -242,6 +261,7 @@ public class AITowerController : TowerController
 }
 [System.Serializable]
 public class CorrectionVariation{
+	[SerializeField] string CorrectionName;
 	[SerializeField] int CorrectionChance;
 	public int GetChance(){
 		return CorrectionChance;

@@ -1121,7 +1121,7 @@ MonoBehaviour:
   Acceleration: 9
   AirAccelerate: 2
   AirSpeed: 4
-  WalkDifficulty: 6
+  WalkDifficulty: 2
   JumpSpeed: 6
   DirectionalJump: 0.5
   WalkSteepnessMax: 0.229
