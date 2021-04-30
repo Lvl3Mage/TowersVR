@@ -23,4 +23,31 @@ public static class ProjectileMotion
 		float height = v.y*t - g*Mathf.Pow(t,2)/2;
 		return height;
 	}
+	public static Vector2 ResolveParabolaForX(float alpha, float TotalVel, float y){
+		Vector2 v = new Vector2(Mathf.Cos(alpha*Mathf.Deg2Rad)*TotalVel,Mathf.Sin(alpha*Mathf.Deg2Rad)*TotalVel);
+		float a = -g/(2 * Mathf.Pow(v.x,2));
+		float b = v.y/v.x;
+		float c = -y;
+		float Root = Mathf.Sqrt(Mathf.Pow(b,2)-4*a*c);
+		if(float.IsNaN(Root)){
+			return new Vector2(Root,Root);
+		}
+		else{
+			Vector2 Dist;
+			Dist.x = (-b-Root)/(2*a);
+			Dist.y = (-b+Root)/(2*a);
+			return Dist;
+		}
+		/*float Root = Mathf.Pow(v.y,2)-y*g;
+		Root = Mathf.Sqrt(Root);
+		if(float.IsNaN(Root)){
+			return Root; // if root is nan no thurther calculation are needed
+		}
+		else{
+			float x = 2*v.x*(v.y+Root);
+			x /= g;
+			return x;
+		}*/
+		
+	}
 }

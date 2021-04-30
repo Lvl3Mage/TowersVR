@@ -26,7 +26,7 @@ public class HeightDistanceCalculator : MultipleNumberContainer
     	float xangle = 90-NumberList[0].value; // converting the angle to triangle angles
     	float distancex = Mathf.Sin(xangle*Mathf.Deg2Rad)*NumberList[1].value; // calculating the horizontal distance to the point using the formula sin(alfa) = o/h
     	float relheight = Mathf.Cos(xangle*Mathf.Deg2Rad)*NumberList[1].value;// calculating the relative height to the point using the formula cos(alfa) = a/h
-    	foreach (NumberContainer Container in TargetsForDistance) 
+        foreach (NumberContainer Container in TargetsForDistance) 
     	{
     		Container.floatValue = distancex; // outputing the horizontal distance
     	}

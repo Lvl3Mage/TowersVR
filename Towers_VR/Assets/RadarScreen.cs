@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,9 +38,9 @@ public class RadarScreen : MonoBehaviour
 	IEnumerator RadarUpdateCycle(){
 		SetUpViewCone();
 		while (Rendering){ // will exit when rendering stops
-			yield return new WaitForSeconds(updatePeriod);
 			SetUpMarkers();
 			RecalculateViewCone();
+			yield return new WaitForSeconds(updatePeriod);
 		}
 	}
 	void SetUpMarkers(){

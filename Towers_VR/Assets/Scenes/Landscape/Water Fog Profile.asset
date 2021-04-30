@@ -28,7 +28,7 @@ MonoBehaviour:
     showEyeDropper: 1
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.22677112, g: 0.7450346, b: 0.9811321, a: 1}
+    m_Value: {r: 0.056069765, g: 0.15251298, b: 0.18867922, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -51,12 +51,12 @@ MonoBehaviour:
     min: 0
   baseHeight:
     m_OverrideState: 1
-    m_Value: -162.32
+    m_Value: -1
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 26.5
+    m_Value: 0.1
   albedo:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 1
@@ -67,15 +67,15 @@ MonoBehaviour:
     min: 1
   enableVolumetricFog:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   anisotropy:
-    m_OverrideState: 1
-    m_Value: 0
+    m_OverrideState: 0
+    m_Value: 0.951
     min: -1
     max: 1
   globalLightProbeDimmer:
-    m_OverrideState: 1
-    m_Value: 1
+    m_OverrideState: 0
+    m_Value: 0.997
     min: 0
     max: 1
   depthExtent:

@@ -35,7 +35,11 @@ Material:
   - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - Texture2D_61EB9683:
+        m_Texture: {fileID: 2800000, guid: 81bc5012c19ea0e41bb45faade8c6c2a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_2F585882: 2
     - Vector1_36DD44D7: 1
@@ -82,9 +86,10 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_41E06EA3: {r: 0.49792066, g: 0.7169812, b: 0.39569244, a: 1}
-    - Color_65DEDDB3: {r: 0.4433962, g: 0.36118695, b: 0.2488875, a: 1}
+    - Color_41E06EA3: {r: 0.5079847, g: 0.5372549, b: 0.1490196, a: 1}
+    - Color_65DEDDB3: {r: 0.3773585, g: 0.29736564, b: 0.18689924, a: 1}
     - Color_9DFB13C6: {r: 1, g: 1, b: 1, a: 0}
     - Color_F9D31674: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_38C2BA31: {r: 4, g: 4, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
