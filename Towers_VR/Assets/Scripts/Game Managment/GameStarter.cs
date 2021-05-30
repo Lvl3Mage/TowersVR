@@ -8,7 +8,13 @@ public class GameStarter : MonoBehaviour
     [SerializeField] Object Tower;
     [SerializeField] Object PCCharacter;
     [SerializeField] Object VRCharacter;
-    [SerializeField] GameManager GameManager;
+    GameManager GameManager;
+    void Start(){
+        GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        if(!GameManager){
+            Debug.LogError("No GameManager found in scene");
+        }
+    }
     public Transform[] GetSpawnPoints(){
         return SpawnPoints;
     }

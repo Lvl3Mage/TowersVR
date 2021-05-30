@@ -14,6 +14,9 @@ public class Compass : MonoBehaviour
     void Start()
     {
         Wind = GameObject.FindGameObjectWithTag("Wind").GetComponent<Wind>();
+        if(!Wind){
+            Debug.LogError("No Wind found in scene");
+        }
     }
 
     // Update is called once per frame

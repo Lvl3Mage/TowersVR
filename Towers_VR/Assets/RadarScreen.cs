@@ -24,13 +24,19 @@ public class RadarScreen : MonoBehaviour
 	List<SpriteRenderer> Markers = new List<SpriteRenderer>();
 	Transform ViewCone;
 	GameManager GameManager;
-	void Start(){
-		GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+	void Iniitalize(){
+		if(!GameManager){
+			GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+			if(!GameManager){
+				Debug.LogError("No GameManager found in scene");
+			}
+		}
 	}
 	public void ToggleRendering(bool value){
 		Rendering = value;
 		if(value){ // if the rendering has started
 			if(RadarCycle == null){ // if the radar cycle has not been started
+				Iniitalize();
 				RadarCycle = StartCoroutine(RadarUpdateCycle()); // start a radar cycle
 			}
 		}

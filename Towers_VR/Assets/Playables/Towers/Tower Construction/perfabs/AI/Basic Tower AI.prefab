@@ -55,29 +55,30 @@ MonoBehaviour:
     _velocity: 250
     _caliber: 0
     _ammoCount: 1
-  PerRotationDegreeWait: 0.4
-  PerRotationWait: 8
+  PerRotationDegreeWait: 0.1
+  PerRotationWait: 12
   AmmoLoadTimeRange: {x: 1.5, y: 4}
   FirstShotInnacuracy: {x: 1, y: 2.5}
   CorrectionVariations:
   - CorrectionName: Opposite Correction
     CorrectionChance: 2
     Range: {x: -0.6, y: 0}
-  - CorrectionName: 
+  - CorrectionName: Halfway Correction
     CorrectionChance: 6
     Range: {x: 0, y: 0.5}
-  - CorrectionName: 
+  - CorrectionName: Allway correction
     CorrectionChance: 3
     Range: {x: 0.5, y: 0.8}
-  - CorrectionName: 
+  - CorrectionName: Small Overcompensation
     CorrectionChance: 4
     Range: {x: 1.2, y: 1.5}
-  - CorrectionName: 
+  - CorrectionName: Large Overcompensation
     CorrectionChance: 1
     Range: {x: 1.5, y: 2}
-  - CorrectionName: 
+  - CorrectionName: Worsening Overcompensation
     CorrectionChance: 1
     Range: {x: 2, y: 2.6}
-  - CorrectionName: 
+  - CorrectionName: Perfect Aim
     CorrectionChance: 1
     Range: {x: 1, y: 1}
+  DebugTarget: {fileID: 0}

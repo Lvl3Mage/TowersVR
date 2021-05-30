@@ -45,6 +45,7 @@ public class AITowerController : TowerController
     	while(CanShoot()){
     		Tower TargetTower = GetClosestTower();
     		yield return StartCoroutine(DestroyTower(TargetTower));
+    		
     	}
     }
     IEnumerator DestroyTower(Tower TargetTower){
@@ -68,7 +69,6 @@ public class AITowerController : TowerController
     	innacuracy.x = Random.Range(-FirstShotInnacuracy.x, FirstShotInnacuracy.x);
     	innacuracy.y = Random.Range(-FirstShotInnacuracy.y, FirstShotInnacuracy.y);
     	Aim += innacuracy;
-
 		yield return StartCoroutine(AimAtAngles(Aim)); // waits for the tower to aim
 		yield return new WaitForSeconds(PerRotationWait);
 		

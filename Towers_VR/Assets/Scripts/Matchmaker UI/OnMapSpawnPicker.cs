@@ -7,9 +7,8 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class PlayerTypeLimit
 {
-	[SerializeField] string Type = "Write the corresponding type here to not get confused (by index)";
+    public ParticipantSettings.PlayerType Type;
 	public int MaxPlayersOfType;
-	public bool ApplyLimit;
 
 }
 public class OnMapSpawnPicker : MonoBehaviour
@@ -26,15 +25,15 @@ public class OnMapSpawnPicker : MonoBehaviour
 	[SerializeField] Material RenderMaterial_Preview;
 	[SerializeField] RenderTexture RenderTexture_Preview;
 
-	[SerializeField] PlayerTypeLimit[] PlayerTypeLimits; //Specifies how many players of type are possible
+	[SerializeField] PlayerTypeLimit[] PlayerTypeLimits; //Specifies how many players of type are possible (Use the same order as the enum + all types need to be present) 
 	protected BaseTeam[] Teams;
 	protected MapSpawnpoint[] UISpawnpoints;
-	int[] PlayerTypeQuantities;                     
+	int[] PlayerTypeQuantities; // an array that counts how many players of type have been added  
     // Start is called before the first frame update
     void Start()
     {
     	SpawnPoints = GameStarter.GetSpawnPoints();
-    	PlayerTypeQuantities = new int[ParticipantSettings.PlayerType.GetNames(typeof(ParticipantSettings.PlayerType)).Length];
+    	PlayerTypeQuantities = new int[ParticipantSettings.PlayerType.GetNames(typeof(ParticipantSettings.PlayerType)).Length]; // sets the array to have the length of the player type enum
     	RenderMapPreview();
     	PlacePoints();
         RevalidateStartConditions();
@@ -170,23 +169,27 @@ public class OnMapSpawnPicker : MonoBehaviour
     }
     public bool IsTypeAvailable(ParticipantSettings.PlayerType Type){
 
-    	int TypeIndex = (int)Type;
+    	int TypeIndex = (int)Type; // the index of the type
 
-    	if(PlayerTypeLimits[TypeIndex].ApplyLimit){
-
-	    	int currentPlayersOfType = PlayerTypeQuantities[TypeIndex];
-
-			if(currentPlayersOfType>= PlayerTypeLimits[TypeIndex].MaxPlayersOfType){ 
-				return false;// if the limit has been saturated then return false
-			}
-			else{
-				return true; // if more types can be added
-			}
-    	}
-    	else{
-    		return true; // in case the limit was marked as not to apply simply return true
-    	}
-    	
+        PlayerTypeLimit selectedLimit = null;
+        foreach(PlayerTypeLimit limit in PlayerTypeLimits){
+            if(limit.Type == Type){
+                selectedLimit = limit;
+                break;
+            }
+        }
+        if(selectedLimit != null){ // if the limit was created
+            int currentPlayersOfType = PlayerTypeQuantities[TypeIndex];
+            if(currentPlayersOfType >= selectedLimit.MaxPlayersOfType){ 
+                return false;// if the limit has been saturated then return false
+            }
+            else{
+                return true; // if more types can be added
+            }
+        }
+        else{ // if the limit was not created
+            return true;
+        }
     }
     public void StartGame(){
         if(CheckStartingConditions()){ // Check if the start conditions have been met

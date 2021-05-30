@@ -11,6 +11,7 @@ public class BoolSwitch : Switch
 
 	void Awake(){
 		boolState = InitialState;
+		ValueChanged();
 	}
 	protected override void Switched(){
 		boolState = !boolState;

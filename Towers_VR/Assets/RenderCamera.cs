@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +24,7 @@ public class RenderCamera : MonoBehaviour
     {
     	FOV = 60f;
     	CameraRenderTexture = Instantiate(RenderTexturePreview);
-    	Material clonedMat = Instantiate(MaterialPreview);
+    	Material clonedMat = Instantiate(MaterialPreview); 
 
     	clonedMat.SetTexture("_UnlitColorMap", CameraRenderTexture);
 
@@ -37,11 +37,10 @@ public class RenderCamera : MonoBehaviour
 
     	GlobalCam = GameObject.FindGameObjectWithTag("GlobalRenderCamera").GetComponent<GlobalRenderCamera>();
 	}
-
 	protected void Render(){
 		GlobalCam.RenderToTexture(transform, CameraRenderTexture, FOV);
 	}
 	public void SetFOV(float fov){
-		FOV = fov;
+		FOV = fov; 
 	}
 }
