@@ -155,7 +155,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 1
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
@@ -183,13 +183,13 @@ MonoBehaviour:
       data2: 4539628425462874112
     lodBias: 1
     lodBiasMode: 0
-    lodBiasQualityLevel: 0
+    lodBiasQualityLevel: 2
     maximumLODLevel: 0
     maximumLODLevelMode: 0
     maximumLODLevelQualityLevel: 0
-    materialQuality: 0
+    materialQuality: 4
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 25600
-      data2: 262144
+      data1: 1152921504606872576
+      data2: 262149
   defaultFrameSettings: 0

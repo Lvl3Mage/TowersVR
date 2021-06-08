@@ -19,6 +19,9 @@ public class PlayableTower : Tower
 
         }
     }
+    protected override void OnDestroy(){
+        ToggleRendering(false);
+    }
     public void PlayersChanged(){
         if(_Players.Count > 0){
             AI.active = false; // disabling the AI
@@ -29,15 +32,17 @@ public class PlayableTower : Tower
                 _Players[i].SetSpawnpoint(Spawnpoint);
             }
             RadarCamera.AssignRenderForCamera(PlayerCameras.ToArray()); // assigning the new cameras
-            RadarScreen.ToggleRendering(true); //enabling the radar
-            RadarCamera.ToggleRendering(true); // enabling the render camera
+            ToggleRendering(true); // enabling the render camera
         }
         else{
-            RadarScreen.ToggleRendering(false);
-            RadarCamera.ToggleRendering(false); // disabling the render camera
+            ToggleRendering(false); // disabling the render camera
             AI.active = true; // enabling the AI
         }
         
+    }
+    void ToggleRendering(bool toggle){
+        RadarScreen.ToggleRendering(toggle);
+        RadarCamera.ToggleRendering(toggle);
     }
     public Transform GetTowerSpawnPoint(){
     	return Spawnpoint;

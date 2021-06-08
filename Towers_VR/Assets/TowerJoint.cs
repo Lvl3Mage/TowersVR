@@ -28,37 +28,45 @@ public class TowerJoint : MonoBehaviour
 	[SerializeField] Color PointerColor;
     void Start()
     {
-        GameObject Followed = transform.parent.gameObject;
-        Rigidbody Follower = null;
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position, Pointer.position-transform.position, out hit, MaxDistance)){
-            if(hit.collider.gameObject != Followed){
-                Follower = hit.collider.attachedRigidbody;
-            }
-        }
-        if(Followed && Follower){ // Checks if the conncetion objects exist
-        	Rigidbody followedRB = Followed.GetComponent<Rigidbody>();
-        	if(followedRB && Follower){
-	        	ConfigurableJoint CJ = Followed.AddComponent<ConfigurableJoint>();
-	            CJ.connectedBody = Follower;
-	            CJ.autoConfigureConnectedAnchor = false;
-	            CJ.anchor = Followed.transform.InverseTransformPoint(transform.position);
-	            CJ.connectedAnchor = Follower.transform.InverseTransformPoint(transform.position);
+        GameObject Followed = transform.parent.gameObject; //Main Object
+        RaycastHit RaycastHit;
+        bool Hit;
+        if(Physics.Raycast(transform.position, Pointer.position-transform.position, out RaycastHit, MaxDistance)){
+        	Rigidbody Follower = RaycastHit.collider.attachedRigidbody;
+
+		    if(Followed){ // Checks if the base conncetion object exist
+		    	Rigidbody followedRB = Followed.GetComponent<Rigidbody>();
+		    	if(followedRB){ // checks if it has a rigidbody
+					ConfigurableJoint CJ = Followed.AddComponent<ConfigurableJoint>();
+					CJ.autoConfigureConnectedAnchor = false;
+
+					if(Follower){
+						CJ.connectedBody = Follower;
+						CJ.connectedAnchor = Follower.transform.InverseTransformPoint(transform.position);
+					}
+					else{
+						CJ.connectedAnchor = transform.position;
+					}
+
+					CJ.anchor = Followed.transform.InverseTransformPoint(transform.position);
+		            
 
 
-	            CJ.xMotion = ConfigurableJointMotion.Limited;
-	            CJ.yMotion = ConfigurableJointMotion.Limited;
-	            CJ.zMotion = ConfigurableJointMotion.Limited;
-	            CJ.angularXMotion = ConfigurableJointMotion.Limited;
-	            CJ.angularYMotion = ConfigurableJointMotion.Limited;
-	            CJ.angularZMotion = ConfigurableJointMotion.Limited;
+		            CJ.xMotion = ConfigurableJointMotion.Limited;
+		            CJ.yMotion = ConfigurableJointMotion.Limited;
+		            CJ.zMotion = ConfigurableJointMotion.Limited;
+		            CJ.angularXMotion = ConfigurableJointMotion.Limited;
+		            CJ.angularYMotion = ConfigurableJointMotion.Limited;
+		            CJ.angularZMotion = ConfigurableJointMotion.Limited;
 
 
-	            CJ.breakForce = BreakForce;
-	            CJ.breakTorque = BreakTorque;
-	            CJ.enableCollision = EnableObjectCollision;
-	            
-        	}
+		            CJ.breakForce = BreakForce;
+		            CJ.breakTorque = BreakTorque;
+		            CJ.enableCollision = EnableObjectCollision;
+		        	
+		            
+		    	}
+		    }
         }
         Destroy(gameObject);
         

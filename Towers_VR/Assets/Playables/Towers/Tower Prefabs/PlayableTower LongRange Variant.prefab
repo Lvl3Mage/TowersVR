@@ -12,6 +12,12 @@ PrefabInstance:
       propertyPath: valueRange.y
       value: 4000
       objectReference: {fileID: 0}
+    - target: {fileID: 523630608343709702, guid: e323a38ef1241a34491c13f4579d965e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7438582360176662271, guid: 0915abf732ecdcf46b3d79a1cea92b17,
+        type: 3}
     - target: {fileID: 523630609536182774, guid: e323a38ef1241a34491c13f4579d965e,
         type: 3}
       propertyPath: m_Name

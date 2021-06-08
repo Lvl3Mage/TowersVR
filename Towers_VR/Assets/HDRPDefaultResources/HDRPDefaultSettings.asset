@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9008a067f4d626c4d8bc4bc48f04bb89, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   quality:
     m_OverrideState: 0
@@ -551,13 +551,13 @@ MonoBehaviour:
     m_Value: 0.3
   cascadeShadowBorder0:
     m_OverrideState: 1
-    m_Value: 0.09746592
+    m_Value: 0.47866666
   cascadeShadowBorder1:
     m_OverrideState: 1
-    m_Value: 0.06666666
+    m_Value: 0.4333333
   cascadeShadowBorder2:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.51555556
   cascadeShadowBorder3:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.5181406

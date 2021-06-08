@@ -7,7 +7,7 @@
         _BottomColor("Lower Color", Color) = (0,0,0,1)
         _TopColor("Higher Color", Color) = (0,0,0,1)
         _BaseColor("No Color", Color) = (0,0,0,1)
-        _LineColour("The color of the lines", Color) = (0,0,0,1)
+        _LineColour("Line Color", Color) = (0,0,0,1)
     }
     HLSLINCLUDE
 
