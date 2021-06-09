@@ -51,7 +51,7 @@ MonoBehaviour:
   UnderwaterDrag: 2
   UnderwaterAngularDrag: 2
   rotationSmoothness: 0.871
-  SurfaceBuoyancyForce: 8
+  SurfaceBuoyancyForce: 10
   LocalSurfaceHeight: 0
   MaximumBuoyancyForce: 30
   MaximumForceDepth: 20

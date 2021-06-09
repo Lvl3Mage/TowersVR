@@ -93,5 +93,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4062395496317215751, guid: 00f6fb26caee2994dbc2029f5780fc3e,
         type: 3}
+    - target: {fileID: 3814577781724319672, guid: 1628a8871e6cfdb449a7647ea3da6263,
+        type: 3}
+      propertyPath: MaximumMassDamageMultiplier
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1628a8871e6cfdb449a7647ea3da6263, type: 3}

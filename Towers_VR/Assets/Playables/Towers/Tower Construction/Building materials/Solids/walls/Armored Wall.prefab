@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7498599216628661156}
   - component: {fileID: 3570754792176805961}
   m_Layer: 0
-  m_Name: Big Wall
+  m_Name: Armored Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,8 @@ MonoBehaviour:
   OutsideDamageMultiplier: 0.05
   PhysicsDamage: 1
   VelocityDamageMultiplier: 0.9
-  OtherMassDamageMultiplier: 0.3
+  MaximumMassDamageMultiplier: 130
+  MassDamageDecay: 90
   PhysicsDamageThreshold: 50
   FracturedObject: {fileID: 4852938286810429481, guid: a6db4a8dcd45c4245bbe58ade9371413,
     type: 3}

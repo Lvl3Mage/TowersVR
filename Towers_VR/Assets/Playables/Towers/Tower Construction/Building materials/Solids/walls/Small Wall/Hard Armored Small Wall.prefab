@@ -93,6 +93,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7489609228363544142, guid: 3830e1bfb0135054386606c99137760c,
         type: 3}
+    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: MaximumMassDamageMultiplier
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6426751945039809008, guid: da61a42ad31459e4aa9bfe4314799530,
         type: 3}
       propertyPath: m_Name

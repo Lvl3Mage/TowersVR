@@ -130,7 +130,8 @@ MonoBehaviour:
   OutsideDamageMultiplier: 0.7
   PhysicsDamage: 1
   VelocityDamageMultiplier: 0.3
-  OtherMassDamageMultiplier: 0.1
+  MaximumMassDamageMultiplier: 50
+  MassDamageDecay: 90
   PhysicsDamageThreshold: 15
   FracturedObject: {fileID: 8800990908623215071, guid: 277bb8f89ca7c124292643cb24d9e500,
     type: 3}

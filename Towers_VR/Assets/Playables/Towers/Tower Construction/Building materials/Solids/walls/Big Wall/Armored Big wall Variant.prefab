@@ -33,10 +33,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4852938286810429481, guid: a6db4a8dcd45c4245bbe58ade9371413,
         type: 3}
+    - target: {fileID: 1593510285725445722, guid: ae219ba577bdf214891871e4eeb1732b,
+        type: 3}
+      propertyPath: MaximumMassDamageMultiplier
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1593510285725445724, guid: ae219ba577bdf214891871e4eeb1732b,
         type: 3}
       propertyPath: m_Name
-      value: Armored Big wall
+      value: Armored Big wall Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1593510285725445725, guid: ae219ba577bdf214891871e4eeb1732b,
         type: 3}

@@ -190,15 +190,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d38ff081ec6e540b4739f9914c4b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Health: 0
+  _Health: 300
   OutsideDamage: 1
   OutsideDamageMultiplier: 1
   PhysicsDamage: 1
-  VelocityDamageMultiplier: 1
-  OtherMassDamageMultiplier: 1
+  VelocityDamageMultiplier: 0.2
+  MaximumMassDamageMultiplier: 30
+  MassDamageDecay: 90
   PhysicsDamageThreshold: 0
-  ExplosionEffect: {fileID: 0}
-  Explosion: {fileID: 0}
+  ExplosionEffect: {fileID: 6148722893286596007, guid: 4dc884fb9c08f0c4da8608f54044bfe4,
+    type: 3}
+  Explosion: {fileID: 8200426983165899535, guid: 2f7d64706d0a6c949b5df480b601d0ae,
+    type: 3}
+  DebrisObject: {fileID: 0}
 --- !u!1 &8985130889196690977
 GameObject:
   m_ObjectHideFlags: 0

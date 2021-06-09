@@ -190,6 +190,6 @@ MonoBehaviour:
     materialQuality: 4
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 1152921504606872576
-      data2: 262149
+      data1: 25600
+      data2: 262144
   defaultFrameSettings: 0
