@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cliffs.unity
     guid: d33f3fb7f4108644aa9bb66abd129878
+  - enabled: 1
+    path: Assets/Scenes/Riverside 2.unity
+    guid: 612665bb3a5e7584baaa9c5428b1d1d9
+  - enabled: 1
+    path: Assets/Scenes/Canyon.unity
+    guid: 93623f528a7c85341b17e207f2913062
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c1bfece2c9dd2544da47dd2771093f0f,
       type: 2}

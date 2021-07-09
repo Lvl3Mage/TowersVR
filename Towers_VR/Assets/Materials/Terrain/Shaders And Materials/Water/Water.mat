@@ -71,7 +71,7 @@ Material:
     - _CullMode: 0
     - _CullModeForward: 0
     - _DoubleSidedEnable: 1
-    - _DoubleSidedNormalMode: 2
+    - _DoubleSidedNormalMode: 1
     - _DstBlend: 10
     - _EnableFogOnTransparent: 1
     - _ReceivesSSR: 1
@@ -104,7 +104,7 @@ Material:
     - Color_7624571B: {r: 0.082352914, g: 0.29326156, b: 0.490196, a: 1}
     - Vector2_445C8FB4: {r: 0, g: 1, b: 0, a: 0}
     - Vector2_9CBA4BDA: {r: 1, g: -1, b: 0, a: 0}
-    - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &8719368032138222922
 MonoBehaviour:

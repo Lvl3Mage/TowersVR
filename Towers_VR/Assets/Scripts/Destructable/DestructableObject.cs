@@ -26,7 +26,9 @@ public class DestructableObject : MonoBehaviour
     		Rigidbody ColidedRigidbody = collisionInfo.rigidbody; // refers to the rigidbody we've collided with
     		float VelocityDamage = collisionInfo.relativeVelocity.magnitude* VelocityDamageMultiplier;
     		float MassDamage;
-    		if(ColidedRigidbody){ // if colided with a rigidbody then it calculates the mass damage, but if the cillision occured with a static object the mass famage is set to 1 (it doesn't depend on mass in this case)
+
+    		//rewrite with impulse
+    		if(ColidedRigidbody){ // if colided with a rigidbody then it calculates the mass damage, but if the collision occured with a static object the mass damage is set to 1 (it doesn't depend on mass in this case)
     			MassDamage = ColidedRigidbody.mass;
     			MassDamage = (MassDamage/(MassDamageDecay+MassDamage)) * MaximumMassDamageMultiplier; // recalculating using the hyperbolic formula
     		}

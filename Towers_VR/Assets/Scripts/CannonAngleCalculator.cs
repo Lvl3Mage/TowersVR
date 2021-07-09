@@ -20,7 +20,6 @@ public class CannonAngleCalculator : MultipleNumberContainer
 
 		// Setting the value
 		Vector2 Dist = ProjectileMotion.ResolveParabolaForX(alpha,LinearV,y); // calculates the two distances (x is the far away and y is the close one)
-		Debug.Log(Dist);
 
 		if(OutputDistanceType){ // in case the switch is pulled then we need to return the close distance
 			OutputDistance.floatValue = Dist.y;

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HighRes Mountains
+  m_Shader: {fileID: -6465566751694194690, guid: a99e07a37a5317a48bd64876fe651511,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_16422BF5:
+        m_Texture: {fileID: 2800000, guid: 53a86eefc05ae934db7a3f5227f25cb2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_6E405A7B:
+        m_Texture: {fileID: 2800000, guid: d5d60a34b56e1b445ac027953cc9b61a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_6F33D530:
+        m_Texture: {fileID: 2800000, guid: df3c4c5f10919bb46b6b142d50bffb29, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_74C0651C:
+        m_Texture: {fileID: 2800000, guid: 9c5659acefa34914daeffc380e996759, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_820A748:
+        m_Texture: {fileID: 2800000, guid: bbe80b3e48ca11e4389e4cab87f29717, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_5DB1DC22: 0.509
+    - Vector1_7E9D5E75: 5.68
+    - Vector1_A060A015: 31
+    - Vector1_BE272379: 1
+    - Vector1_E4152111: 0
+    - Vector1_FF0B8ED1: 0.49
+    m_Colors:
+    - Color_19B07CD6: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+    - Color_1F314850: {r: 0, g: 0, b: 0, a: 1}
+    - Vector2_4968F848: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_AA0B6A3B: {r: 50, g: 50, b: 0, a: 0}
