@@ -69,13 +69,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
         type: 3}
-      propertyPath: _Health
-      value: 4800
-      objectReference: {fileID: 0}
-    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
-        type: 3}
       propertyPath: OutsideDamageMultiplier
-      value: 0.03
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
         type: 3}
@@ -97,6 +92,16 @@ PrefabInstance:
         type: 3}
       propertyPath: MaximumMassDamageMultiplier
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: PhysicsDamageMultiplier
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198130888725792633, guid: da61a42ad31459e4aa9bfe4314799530,
+        type: 3}
+      propertyPath: _Health
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 6426751945039809008, guid: da61a42ad31459e4aa9bfe4314799530,
         type: 3}

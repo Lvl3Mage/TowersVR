@@ -112,11 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Health: 300
   OutsideDamage: 1
-  OutsideDamageMultiplier: 0.7
+  OutsideDamageMultiplier: 0.6
   PhysicsDamage: 1
-  VelocityDamageMultiplier: 0.5
-  MaximumMassDamageMultiplier: 50
-  MassDamageDecay: 90
+  PhysicsDamageMultiplier: 0.1
   PhysicsDamageThreshold: 50
   FracturedObject: {fileID: 4062395496317215751, guid: 00f6fb26caee2994dbc2029f5780fc3e,
     type: 3}

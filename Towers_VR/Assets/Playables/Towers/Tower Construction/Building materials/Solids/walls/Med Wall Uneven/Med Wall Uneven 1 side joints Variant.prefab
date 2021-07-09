@@ -314,7 +314,7 @@ PrefabInstance:
     - target: {fileID: 2063550530882491019, guid: 312e740aab49c2747ad9604724b3f8fb,
         type: 3}
       propertyPath: m_Name
-      value: Med Wall Uneven 1 side joints
+      value: Med Wall Uneven 1 side joints Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 312e740aab49c2747ad9604724b3f8fb, type: 3}

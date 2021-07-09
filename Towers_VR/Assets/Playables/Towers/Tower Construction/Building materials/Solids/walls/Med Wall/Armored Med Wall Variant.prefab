@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 735139951622398011, guid: aa92c1d14047cbb4186fcf2253a46919,
         type: 3}
       propertyPath: OutsideDamageMultiplier
-      value: 0.05
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 735139951622398011, guid: aa92c1d14047cbb4186fcf2253a46919,
         type: 3}
@@ -91,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 1954753224560619186, guid: aa92c1d14047cbb4186fcf2253a46919,
         type: 3}
       propertyPath: m_Name
-      value: Armored Med Wall
+      value: Armored Med Wall Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa92c1d14047cbb4186fcf2253a46919, type: 3}

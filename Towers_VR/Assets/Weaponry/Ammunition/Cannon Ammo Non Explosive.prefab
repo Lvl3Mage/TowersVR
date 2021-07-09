@@ -182,10 +182,8 @@ MonoBehaviour:
   OutsideDamage: 1
   OutsideDamageMultiplier: 1
   PhysicsDamage: 1
-  VelocityDamageMultiplier: 0.1
-  MaximumMassDamageMultiplier: 30
-  MassDamageDecay: 90
-  PhysicsDamageThreshold: 0
+  PhysicsDamageMultiplier: 0.7
+  PhysicsDamageThreshold: 100
   ExplosionEffect: {fileID: 6148722893286596007, guid: 4dc884fb9c08f0c4da8608f54044bfe4,
     type: 3}
   Explosion: {fileID: 8200426983165899535, guid: 5bb9e1b3e6535bd47b3dd73ea0fc6c73,

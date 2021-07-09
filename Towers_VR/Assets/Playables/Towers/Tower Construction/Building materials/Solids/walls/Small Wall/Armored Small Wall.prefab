@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 3814577781724319672, guid: 1628a8871e6cfdb449a7647ea3da6263,
         type: 3}
       propertyPath: OutsideDamageMultiplier
-      value: 0.05
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3814577781724319672, guid: 1628a8871e6cfdb449a7647ea3da6263,
         type: 3}
@@ -97,6 +97,11 @@ PrefabInstance:
         type: 3}
       propertyPath: MaximumMassDamageMultiplier
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3814577781724319672, guid: 1628a8871e6cfdb449a7647ea3da6263,
+        type: 3}
+      propertyPath: PhysicsDamageMultiplier
+      value: 0.07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1628a8871e6cfdb449a7647ea3da6263, type: 3}
