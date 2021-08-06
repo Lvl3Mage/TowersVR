@@ -7,13 +7,13 @@ using TMPro;
 
 public class LoadbarSceneChanger : SceneChanger
 {
-	[SerializeField] CanvasGroup BaseCanvas;
+	[SerializeField] CanvasGroup BaseCanvas; // the canvas that blocks the screen (and in this case also holds the loadbar)
 	[SerializeField] Slider LoadBar;
 	[SerializeField] float FadeSpeed;
-	[SerializeField] TextMeshProUGUI ContinueTextPrompt;
+	[SerializeField] TextMeshProUGUI ContinueTextPrompt; // the textprompt that appears when the scene is ready to load
 	[SerializeField] string TextPrompt = "Press any key to continue";
 	[Header("ReloaderSettings")]
-	[SerializeField] Object Camera;
+	[SerializeField] Object Camera; // the camera that is used to reload a scene
 	bool LoadingScene;
 	void Start(){
 		LoadingScene = false;
@@ -42,7 +42,7 @@ public class LoadbarSceneChanger : SceneChanger
     	}
     	BaseCanvas.alpha = Target;
     }
-    IEnumerator AsyncLoad(int LoadSceneIndex){ // Method takes in an int as the scene does not exist yet
+    IEnumerator AsyncLoad(int LoadSceneIndex){ // Method takes in an int as the scene which will be loaded does not exist yet
     	PreSceneLoad();
     	Scene CurrentScene = gameObject.scene; // Getting the current scene
     	LoadBar.value = 0;
@@ -71,7 +71,7 @@ public class LoadbarSceneChanger : SceneChanger
 	   	yield return StartCoroutine(UnloadAsync(CurrentScene)); // Unloads the current scene
 		LoadingScene = false;
     }
-    IEnumerator AsyncReload(){
+    IEnumerator AsyncReload(){ // reloads the same scene
     	PreSceneLoad();
     	Scene CurrentScene = gameObject.scene; // Getting the current scene index for later reloading it by build index
         int ReloadSceneIndex = CurrentScene.buildIndex; // Saving the build index of the current scene before it's unloaded to load it up later
@@ -84,7 +84,7 @@ public class LoadbarSceneChanger : SceneChanger
 	   	yield return StartCoroutine(UnloadAsync(CurrentScene)); // Unloads the scene the object was previously in
 	   	LoadScene(ReloadSceneIndex); // loads the scene the object was previously in by the saved index
     }
-    IEnumerator UnloadAsync(Scene UnloadScene){
+    IEnumerator UnloadAsync(Scene UnloadScene){ // unloads the current scene
     	AsyncOperation UnloadOperation = SceneManager.UnloadSceneAsync(UnloadScene);
     	while (!UnloadOperation.isDone)
     	{

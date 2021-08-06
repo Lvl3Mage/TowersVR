@@ -69,6 +69,7 @@ public class GameStarter : MonoBehaviour
         for(int i = 0; i < PlayableTowers.Count; i++){
             PlayableTower currentPlayableTower = PlayableTowers[i];
             currentPlayableTower.Players = GamePlayers[i]; // setting the players to the tower for initialization
+            currentPlayableTower.Initialize();
 
         }
         

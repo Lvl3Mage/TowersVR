@@ -3,7 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayableTower : Tower
-{
+{   
+
+    //Rooms
+    CannonRoom CannonRoom;
+    ControlRoom ControlRoom;
+    LoadingRoom LoadingRoom;
+    //AmmoRoom AmmoRoom;
+
+
+
+    //
     [SerializeField] Transform Spawnpoint;
     [SerializeField] OptimizedRenderCamera RadarCamera;
     [SerializeField] RadarScreen RadarScreen;
@@ -21,6 +31,21 @@ public class PlayableTower : Tower
     }
     protected override void OnDestroy(){
         ToggleRendering(false);
+    }
+    public void Initialize(){
+        foreach(KeyValuePair<string, DataContainer[]> entry in ReferenceData){
+            List<DataContainer> containers = new List<DataContainer>();
+            if(CannonRoom.ContainsReference(entry.Key, this)){
+                containers.Add(CannonRoom);
+            }
+            if(ControlRoom.ContainsReference(entry.Key, this)){
+                containers.Add(ControlRoom);
+            }
+            if(LoadingRoom.ContainsReference(entry.Key, this)){
+                containers.Add(LoadingRoom);
+            }
+            ReferenceData[entry.Key] = containers.ToArray();
+        }
     }
     public void PlayersChanged(){
         if(_Players.Count > 0){

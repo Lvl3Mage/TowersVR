@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BoolTextContainer : BoolContainer
+public class BoolTextContainer : DataContainer
 {
 	[SerializeField] string OnTrue, OnFalse;
 	[SerializeField] Color OnColor, OffColor;
 	[SerializeField] TextMeshProUGUI TextField;
 	[SerializeField] bool defaultValue;
+	bool BoolValue;
 	void Awake(){
-		boolValue = defaultValue;
+		BoolValue = defaultValue;
 	}
-	protected override void ValueChanged(){
+	protected override void ChangeValue(string varName, float value){
+		BoolValue = value != 0;
 		string SetValue;
 		Color SetColor;
-		if(_boolValue){
+		if(BoolValue){
 			SetColor = OnColor;
 			SetValue = OnTrue;
 		}

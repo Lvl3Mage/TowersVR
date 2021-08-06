@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NonPhysicsSpiningJoint : NumberContainer
+public class NonPhysicsSpiningJoint : DataContainer
 {
 	[SerializeField] Transform ConnectedBody;
 	[SerializeField] bool Invert;
 	[SerializeField] float Offset;
-	protected override void ValueChanged(){
+	float rotation;
+	protected override void ChangeValue(string varName, float value){
+		rotation = value;
 		int inv;
 		if(Invert){
 			inv = -1;
@@ -15,6 +17,6 @@ public class NonPhysicsSpiningJoint : NumberContainer
 		else {
 			inv = 1;
 		}
-		ConnectedBody.localEulerAngles = new Vector3(ConnectedBody.localEulerAngles.x, (_floatValue + Offset)*inv, ConnectedBody.localEulerAngles.z);
+		ConnectedBody.localEulerAngles = new Vector3(ConnectedBody.localEulerAngles.x, (rotation + Offset)*inv, ConnectedBody.localEulerAngles.z);
 	}
 }

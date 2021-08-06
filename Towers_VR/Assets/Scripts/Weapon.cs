@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Weapon : Activatable
 {
-	[SerializeField] protected Object MuzzleFlash; // the muzzleflash of the weapon's
+    [SerializeField] protected Object MuzzleFlash; // the muzzleflash of the weapon's
 	[SerializeField] protected Rigidbody Barrel; // a reference to the barrel of the weapon's
 	[SerializeField] protected float Recoil, ReloadDelay;
     [Tooltip("A callback array which identifies the objects that receive the weapon's loading state")]
-	[SerializeField] protected IntContainer[] CallBackLoaded;
+	[SerializeField] protected DataContainer[] CallBackLoaded;
+    [SerializeField] string CallbackLoadedVarName;
     [Tooltip("A callback array which identifies the objects that receive the weapon's projectile speed")]
-	[SerializeField] protected NumberContainer[] CallBackProjectileSpeed;
+	[SerializeField] protected DataContainer[] CallBackProjectileSpeed;
+    [SerializeField] string CallBackProjectileSpeedVarName;
     protected Ammunition Clip; // The ammo clip loaded into the weapon
 	protected bool State = false;
     GameObject LastFiredProjectile; // contains the last fired projectile
+
     public void Reload(Ammunition Ammo){ // Call this to reload 
     	StartCoroutine(Delay(Ammo));
     }
@@ -42,15 +45,15 @@ public class Weapon : Activatable
 
     }
     protected void CallBackLoadedState(int Val){ // reports weapon's loaded state to all
-        foreach (IntContainer Cont in CallBackLoaded) 
+        foreach (DataContainer Cont in CallBackLoaded) 
         {
-            Cont.intValue = Val;
+            Cont.SetValue(CallbackLoadedVarName, Val);
         }
     }
     void CallBackProjVel(){ // reports weapon's projectile velocity to all
-        foreach (NumberContainer Cont in CallBackProjectileSpeed) 
+        foreach (DataContainer Cont in CallBackProjectileSpeed) 
         {
-            Cont.floatValue = Clip.velocity;
+            Cont.SetValue(CallBackProjectileSpeedVarName, Clip.velocity);
         }
         
     }

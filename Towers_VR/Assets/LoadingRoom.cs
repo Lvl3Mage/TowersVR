@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoolOutputTypeWriter : BoolContainer
+public class LoadingRoom : RoomRelay
 {
-	[SerializeField] CannonAngleCalculator AngularCalculator;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +15,4 @@ public class BoolOutputTypeWriter : BoolContainer
     {
         
     }
-    protected override void ValueChanged(){
-    	AngularCalculator.WriteOutputType(_boolValue);
-	}
 }

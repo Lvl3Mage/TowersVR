@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BoolSwitch_BoolValueWriter : BoolSwitch
 {
-	[SerializeField] BoolContainer BoolContainer;
 	protected override void ValueChanged(){
-		BoolContainer.boolValue = boolState; 
+		InvokeAllReferences(boolState ? 1 : 0);
 	}
 }

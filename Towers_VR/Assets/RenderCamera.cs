@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RenderCamera : MonoBehaviour
+public class RenderCamera : DataContainer
 {
 
     [System.Serializable]
@@ -11,6 +11,9 @@ public class RenderCamera : MonoBehaviour
 		public MeshRenderer MeshRenderer;
 		[Tooltip("The id of the desired material location in the mesh renderer materials array")]
 		public int id;
+	}
+	protected override void ChangeValue(string varName, float value){
+		FOV = value;
 	}
 	[SerializeField] RenderTexture RenderTexturePreview;
 	[SerializeField] Material MaterialPreview;
@@ -39,8 +42,5 @@ public class RenderCamera : MonoBehaviour
 	}
 	protected void Render(){
 		GlobalCam.RenderToTexture(transform, CameraRenderTexture, FOV);
-	}
-	public void SetFOV(float fov){
-		FOV = fov; 
 	}
 }

@@ -4,36 +4,38 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
-	[SerializeField] NumberContainer CannonRotation;
+	/*[SerializeField] NumberContainer CannonRotation;
 	[SerializeField] NumberContainer TowerRotation;
 	[SerializeField] Weapon Cannon;
-	[SerializeField] WeaponReloader CannonReloader;
+	[SerializeField] WeaponReloader CannonReloader;*/
 
 	protected void SetYAngle(float angle){
-		TowerRotation.floatValue = angle;
+		//TowerRotation.floatValue = angle;
 	}
 	protected void SetXAngle(float angle){
-		CannonRotation.floatValue = angle;
+		//CannonRotation.floatValue = angle;
 	}
 	protected void LoadCannon(Ammunition ammo){
-		if(!CannonReloader.LoadAmmo(ammo)){
+		/*if(!CannonReloader.LoadAmmo(ammo)){
 			Debug.LogWarning("Unable to load cannon!", gameObject);
-		}
+		}*/
 	}
 	protected void FireCannon(){
-		Cannon.Activate(true);
+		//Cannon.Activate(true);
 	}
 	protected GameObject GetLastProjectile(){
-		return Cannon.GetLastProjectile();
+		return gameObject/*Cannon.GetLastProjectile()*/;
 	}
 	protected float GetExitVelocity(){
-		float velocity = Cannon.GetProjectileSpeed();
+		/*float velocity = Cannon.GetProjectileSpeed();
 		if(velocity <= 0){
 			Debug.LogError("The exit velocity is 0 or the cannon has not been loaded!", gameObject);
 		}
-		return velocity;
+		return velocity;*/
+		return 0;
 	}
 	protected Vector2 GetCurrentRotation(){
-		return new Vector2(CannonRotation.floatValue,TowerRotation.floatValue);
+		return Vector2.zero;
+		//return new Vector2(CannonRotation.floatValue,TowerRotation.floatValue);
 	}
 }

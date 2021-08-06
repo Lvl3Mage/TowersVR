@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhysicsJoint : NumberContainer
+public class PhysicsJoint : DataContainer
 {
 	[SerializeField] HingeJoint HJ;
-	[SerializeField] float baseOffset, angleOffset, slowdownAngle, maxVelocity, value;
+	[SerializeField] float baseOffset, angleOffset, slowdownAngle, maxVelocity, rotation;
 	[SerializeField] Gradient DebugSlowdown;
 	[SerializeField] bool Invert, DebugRotation;
 	Rigidbody connectedRB, baseRB;
@@ -16,7 +16,7 @@ public class PhysicsJoint : NumberContainer
 
 	}
 	void Update(){
-		float value = _floatValue+angleOffset;
+		float value = rotation+angleOffset;
 		if(Invert){
 			value *= -1;
 		}

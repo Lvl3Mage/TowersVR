@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour // manages integrity and structure
+public class Tower : RoomRelay // manages integrity and structure
 {
 	[Tooltip("Keypoints that indicate structuraly important pounts of the tower")]
 	[SerializeField] protected TowerKeypoint[] StructuralKeypoints;
