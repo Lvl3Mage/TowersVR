@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonRoom : RoomRelay
+public class CannonRoom : Room
 {
-    [SerializeField] Activatable Cannon;
-    public Activatable GetCannon(){
+    [SerializeField] Weapon Cannon;
+    public Weapon GetCannon(){
         return Cannon;
     }
 }

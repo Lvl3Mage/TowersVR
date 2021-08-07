@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RadarRoom : RoomRelay
+public class RadarRoom : Room
 {
     [SerializeField] OptimizedRenderCamera Camera;
     public OptimizedRenderCamera GetCamera(){
         return Camera;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public MeshMaterial[] GetCamRenderObjects(){
+        return ParentTower.GetCamRenderObjects();
     }
 
     // Update is called once per frame

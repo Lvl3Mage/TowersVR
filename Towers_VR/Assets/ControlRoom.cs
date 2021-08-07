@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlRoom : RoomRelay
+public class ControlRoom : Room
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [SerializeField] MeshMaterial[] RenderScreens;
+    public MeshMaterial[] GetCamRenderObjects(){
+        return RenderScreens;
     }
 }

@@ -7,12 +7,13 @@ public class PlayableTower : Tower
 
     //Rooms
     CannonRoom CannonRoom;
+    Transform CannonRoomPoint;
     ControlRoom ControlRoom;
+    Transform ControlRoomPoint;
     LoadingRoom LoadingRoom;
+    Transform LoadingRoomPoint;
     //AmmoRoom AmmoRoom;
-
-
-
+    Transform AmmoRoomPoint;
     //
     [SerializeField] Transform Spawnpoint;
     [SerializeField] OptimizedRenderCamera RadarCamera;
@@ -32,20 +33,38 @@ public class PlayableTower : Tower
     protected override void OnDestroy(){
         ToggleRendering(false);
     }
-    public void Initialize(){
-        foreach(KeyValuePair<string, DataContainer[]> entry in ReferenceData){
-            List<DataContainer> containers = new List<DataContainer>();
-            if(CannonRoom.ContainsReference(entry.Key, this)){
-                containers.Add(CannonRoom);
-            }
-            if(ControlRoom.ContainsReference(entry.Key, this)){
-                containers.Add(ControlRoom);
-            }
-            if(LoadingRoom.ContainsReference(entry.Key, this)){
-                containers.Add(LoadingRoom);
-            }
-            ReferenceData[entry.Key] = containers.ToArray();
+    public void Initialize(ConfiguredTower ConfiguredTower){ // initializing all the references to the rooms
+        CannonRoom = (Instantiate(ConfiguredTower.CannonRoom, CannonRoomPoint.position, CannonRoomPoint.rotation, CannonRoomPoint) as GameObject).GetComponent<CannonRoom>();
+        ControlRoom = (Instantiate(ConfiguredTower.ControlRoom, ControlRoomPoint.position, ControlRoomPoint.rotation, ControlRoomPoint) as GameObject).GetComponent<ControlRoom>();
+        LoadingRoom = (Instantiate(ConfiguredTower.LoadingRoom, LoadingRoomPoint.position, LoadingRoomPoint.rotation, LoadingRoomPoint) as GameObject).GetComponent<LoadingRoom>();
+        Instantiate(ConfiguredTower.AmmoRoom, AmmoRoomPoint.position, AmmoRoomPoint.rotation, AmmoRoomPoint);
+        // create rooms
+        Room[] Rooms = new Room[] {CannonRoom, ControlRoom, LoadingRoom};
+        foreach(Room room in Rooms){
+            room.SetTower(this);
         }
+        foreach(Room room in Rooms){
+            InitializeRelayForRoom(room, Rooms);
+        }
+    }
+    void InitializeRelayForRoom(Room OrigRoom, Room[] Rooms){
+        Dictionary<string, DataContainer[]> RoomRefData = OrigRoom.GetReferenceData();
+        foreach(KeyValuePair<string, DataContainer[]> entry in RoomRefData){ // for each reference in the room
+            if(System.Array.IndexOf(entry.Value, this) != -1){ // if the room  contains reference to tower
+                if(!ReferenceData.ContainsKey(entry.Key)){ // if the reference doesn't exist yet
+                    ReferenceData.Add(entry.Key,FindDestRoomsFor(entry.Key, Rooms));
+                }
+            }
+        }
+    }
+    DataContainer[] FindDestRoomsFor(string varName, Room[] Rooms){
+        List<DataContainer> DestRooms = new List<DataContainer>();
+        foreach(Room room in Rooms){
+            if(!room.ContainsReferenceTo(varName,this)){
+                DestRooms.Add(room);
+            }
+        }
+        return DestRooms.ToArray();
     }
     public void PlayersChanged(){
         if(_Players.Count > 0){
@@ -78,5 +97,12 @@ public class PlayableTower : Tower
     }
     public bool GameRunning(){
         return GameManager.GameRunning();
+    }
+    // Room Coms
+    public MeshMaterial[] GetCamRenderObjects(){
+        return ControlRoom.GetCamRenderObjects();
+    }
+    public Weapon GetCannon(){
+        return CannonRoom.GetCannon();
     }
 }

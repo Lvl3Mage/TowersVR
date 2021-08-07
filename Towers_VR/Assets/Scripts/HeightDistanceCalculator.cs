@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeightDistanceCalculator : ReferenceContainer
+public class HeightDistanceCalculator : DataContainer
 {
     Dictionary<string,float> NamedData = new Dictionary<string,float>(){
         {"CannonAngle",0},
         {"DirectDistance",0}
     };
+    [Tooltip("A callback array which identifies the objects that receive the jorizontal distance")]
+    [SerializeField] protected DataContainer[] CallBackHorizDistance;
+    [SerializeField] string HorizDistanceVarName;
+    [Tooltip("A callback array which identifies the objects that receive the height")]
+    [SerializeField] protected DataContainer[] CallBackHeight;
+    [SerializeField] string HeightVarName; 
+
     protected override void ChangeValue(string varName, float value){
         NamedData[varName] = value;
     }
@@ -20,8 +27,14 @@ public class HeightDistanceCalculator : ReferenceContainer
     	float xangle = 90-NamedData["CannonAngle"]; // converting the angle to triangle angles
     	float distancex = Mathf.Sin(xangle*Mathf.Deg2Rad)*NamedData["DirectDistance"]; // calculating the horizontal distance to the point using the formula sin(alfa) = o/h
     	float relheight = Mathf.Cos(xangle*Mathf.Deg2Rad)*NamedData["DirectDistance"];// calculating the relative height to the point using the formula cos(alfa) = a/h
-        InvokeReference("HorizontalDistance",distancex);
-        InvokeReference("Height",relheight);
+
+        //invoking callback
+        foreach(DataContainer cont in CallBackHorizDistance){
+            cont.SetValue(HorizDistanceVarName,distancex);
+        }
+        foreach(DataContainer cont in CallBackHeight){
+            cont.SetValue(HeightVarName,relheight);
+        }
 
     }
 }

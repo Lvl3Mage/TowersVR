@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadingRoom : RoomRelay
+public class LoadingRoom : Room
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public Weapon GetCannon(){
+        return ParentTower.GetCannon();
     }
 }

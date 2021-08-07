@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : Activatable
+public class Weapon : DataContainer
 {
     [SerializeField] protected Object MuzzleFlash; // the muzzleflash of the weapon's
 	[SerializeField] protected Rigidbody Barrel; // a reference to the barrel of the weapon's
@@ -30,10 +30,10 @@ public class Weapon : Activatable
     public bool Loaded(){
     	return State;
     }
-    protected override void OnActivate(bool toggleValue){
-    	TriggerPressed(toggleValue);
+    protected override void ChangeValue(string varName, float value){
+    	TriggerPressed(value == 1);
     	if(State){
-    		if(toggleValue){ // checks if the trigger is pulled
+    		if(value == 1){ // checks if the trigger is pulled
 				FireWeapon();
     		}
     	}
