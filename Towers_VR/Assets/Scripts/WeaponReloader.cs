@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WeaponReloader : MonoBehaviour
 {
-	[SerializeField] protected Weapon weapon;
-	[SerializeField] IntContainer[] Callback; // Calls back to an int container (The states of the said container are 1 for loaded, 2 for loading, 3 for unloaded)
+	protected Weapon weapon;
+	[SerializeField] DataContainer[] Callback; // Calls back to an int container (The states of the said container are 1 for loaded, 2 for loading, 3 for unloaded)
 	[SerializeField] AmmoCaliber WeaponCaliber;
 	protected bool Loading = false; // determines when the weapon can be loaded
 
@@ -17,6 +17,9 @@ public class WeaponReloader : MonoBehaviour
 				LoadAmmunitionObject(Ammo);
 	    	}
     	}
+    }
+    public void SetWeapon(Weapon newWeapon){
+        weapon = newWeapon;
     }
     public bool LoadAmmo(AmmoObjectIdentifier Ammo){ // Call to load an ammo object
     	bool _Loadable = Loadable(Ammo.caliber);
@@ -32,8 +35,8 @@ public class WeaponReloader : MonoBehaviour
         }
         return _Loadable;
     }
-    bool Loadable(AmmoCaliber AmmoCaliber){
-    	return !weapon.Loaded() && (AmmoCaliber == WeaponCaliber) && !Loading;
+    bool Loadable(AmmoCaliber Caliber){
+    	return !weapon.Loaded() && weapon.Loadable(Caliber) && !Loading;
     }
     protected virtual void LoadAmmunitionObject(AmmoObjectIdentifier Ammo){} // Called when weapon is being reloaded
     protected void LoadAmmunition(Ammunition Ammo){
@@ -41,9 +44,9 @@ public class WeaponReloader : MonoBehaviour
     } // Loads an Ammunition class object into the cannon
 
     protected void LoadingCallback(int val){
-    	foreach (IntContainer Cont in Callback) 
+    	foreach (DataContainer Cont in Callback) 
     	{
-    		Cont.intValue = val;
+    		Cont.SetValue(DataType.CannonLoadState, val);
     	}
     }
 }

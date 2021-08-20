@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 2485673250264605158, guid: 87058b4893cf5a844a9aaf28dd2fdba5, type: 3}
   _velocity: 320
-  _caliber: 0
+  _caliber: 1
   _ammoCount: 1
 --- !u!54 &5944592700094184418
 Rigidbody:

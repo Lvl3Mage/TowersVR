@@ -5,8 +5,10 @@ using UnityEngine.Events;
 
 public class ActivatorButton : SingleActivatedButton
 {
-	[SerializeField] Activatable Target;
+	[SerializeField] OutputDataContainer[] Outputs;
 	protected override void SingleActivation(){
-		Target.Activate(true);
+		foreach(OutputDataContainer Output in Outputs){
+			Output.InvokeOutput(true);
+		}
 	}
 }

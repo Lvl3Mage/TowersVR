@@ -80,98 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &4020670429571639116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4020670429571639118}
-  - component: {fileID: 4020670429571639117}
-  m_Layer: 0
-  m_Name: Right arrow value
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4020670429571639118
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4020670429571639116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3478734984298525834}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4020670429571639117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4020670429571639116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff453db68796d724f939768e4f7faf55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WriteToFields:
-  - MultNumberRef: {fileID: 4255096418343464497}
-    WriteValueID: 1
---- !u!1 &4020670431407808574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4020670431407808544}
-  - component: {fileID: 4020670431407808575}
-  m_Layer: 0
-  m_Name: Left arrow value
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4020670431407808544
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4020670431407808574}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3478734984298525834}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4020670431407808575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4020670431407808574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff453db68796d724f939768e4f7faf55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WriteToFields:
-  - MultNumberRef: {fileID: 4255096418343464497}
-    WriteValueID: 0
 --- !u!1 &4255096418343464496
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,8 +113,6 @@ Transform:
   - {fileID: 3506617676915708260}
   - {fileID: 7180261784443280678}
   - {fileID: 2254307301100938600}
-  - {fileID: 4020670429571639118}
-  - {fileID: 4020670431407808544}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
@@ -222,13 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8427d7b41a0a9f4885f369b4e89946d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberList:
-  - value: 0
-    ValueDescription: Left Arrow
-  - value: 0
-    ValueDescription: Right arrow
   Arrows:
   - value: 0
+    AssignedDataType: 0
     transform: {fileID: 3385772069271181507}
     meshRenderer: {fileID: 3270482050953084140}
     enabled: 0
@@ -237,6 +139,7 @@ MonoBehaviour:
     DisableOutOfRange: 0
     FloorNullValues: 1
   - value: 0
+    AssignedDataType: 0
     transform: {fileID: 5787632871676110566}
     meshRenderer: {fileID: 1852354559446936264}
     enabled: 0

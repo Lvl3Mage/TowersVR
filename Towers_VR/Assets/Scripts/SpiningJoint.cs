@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpiningJoint : NumberContainer
+public class SpiningJoint : FloatContainer
 {
     [SerializeField] HingeJoint HJ;
     [SerializeField] bool InvertAngle;	
@@ -10,16 +10,14 @@ public class SpiningJoint : NumberContainer
     [SerializeField] float slowdownAngle, baseOffset, angleOffset;
     [SerializeField] Gradient DebugSlowdown;
     [SerializeField] bool DebugRotation;
+    float targetRotation;
     // Start is called before the first frame update
-    void Start()
-    {
+    protected override void SetFloat(DataType type, float value){
+        targetRotation = value;
     }
-
-    // Update is called once per frame
     void Update()
     {
         float ownRotation = HJ.connectedBody.gameObject.transform.localEulerAngles.y + baseOffset;
-        float targetRotation = floatValue;
         if(InvertAngle){
             targetRotation *= -1;
         }

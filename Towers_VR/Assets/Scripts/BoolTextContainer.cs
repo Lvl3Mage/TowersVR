@@ -10,12 +10,12 @@ public class BoolTextContainer : BoolContainer
 	[SerializeField] TextMeshProUGUI TextField;
 	[SerializeField] bool defaultValue;
 	void Awake(){
-		boolValue = defaultValue;
+		SetBool(DataType.NULL, defaultValue);
 	}
-	protected override void ValueChanged(){
+	protected override void SetBool(DataType dataType, bool value){
 		string SetValue;
 		Color SetColor;
-		if(_boolValue){
+		if(value){
 			SetColor = OnColor;
 			SetValue = OnTrue;
 		}

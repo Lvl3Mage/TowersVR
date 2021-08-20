@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoolSwitch_BoolValueWriter : BoolSwitch
+public class BoolSwitch_BoolValueWriter : BoolSwitch //should be renamed to output type writer
 {
-	[SerializeField] BoolContainer BoolContainer;
+	[SerializeField] CannonAngleCalculator outputTypeTarget; // so far this serves only to change the output type
 	protected override void ValueChanged(){
-		BoolContainer.boolValue = boolState; 
+		outputTypeTarget.WriteOutputType(boolState); 
 	}
 }

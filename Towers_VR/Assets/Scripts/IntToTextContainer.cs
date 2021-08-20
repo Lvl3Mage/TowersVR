@@ -27,10 +27,13 @@ public class IntToTextContainer : IntContainer
 	[SerializeField] TextMeshProUGUI TextField;
 	[SerializeField] int defaultValue;
 	void Awake(){
-		intValue = defaultValue;
+		DisplayText(defaultValue);
 	}
-	protected override void ValueChanged(){
-		IntToTextField SetValue = Values[intValue];
+	protected override void SetInt(DataType dataType, int value){
+		DisplayText(value);
+	}
+	void DisplayText(int value){
+		IntToTextField SetValue = Values[value];
 
 		TextField.color = SetValue.ColorValue;
 		TextField.text = SetValue.TextValue;

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFOVContainer : NumberContainer
+public class CameraFOVContainer : FloatContainer
 {
 	[SerializeField] float DefaultValue;
 	[SerializeField] RenderCamera Cam;
 	void Awake(){
-		_floatValue = DefaultValue;
+		Cam.SetFOV(DefaultValue);
 	}
-	protected override void ValueChanged(){
-		Cam.SetFOV(_floatValue);
+	protected override void SetFloat(DataType type, float value){
+		Cam.SetFOV(value);
 	}
 }

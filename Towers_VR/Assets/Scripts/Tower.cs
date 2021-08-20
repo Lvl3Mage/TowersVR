@@ -23,7 +23,15 @@ public class Tower : MonoBehaviour // manages integrity and structure
 
 		intact = intactPercent>MinIntactPercentage;
 		if(!intact){
-
+			OnDestroy();
+		}
+	}
+	protected void InitializeKeypoints(){
+		foreach(TowerKeypoint keypoint in IntactKeypoints){
+			keypoint.Initialize();
+		}
+		foreach(TowerKeypoint keypoint in StructuralKeypoints){
+			keypoint.Initialize();
 		}
 	}
 	protected virtual void OnDestroy(){ // called when the tower is destroyed

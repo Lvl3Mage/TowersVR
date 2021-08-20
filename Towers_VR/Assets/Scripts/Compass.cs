@@ -5,14 +5,16 @@ using UnityEngine;
 public class Compass : MonoBehaviour
 {
 	Wind Wind;
-	[SerializeField] NumberContainer WindVelocity;
+	[SerializeField] DataContainer WindVelocity;
+    [SerializeField] ControlRoom controlRoom;
     [Tooltip("The object that will indicate the local north direction of the compass (Should be placed flat and rotate with the tower)")]
-    [SerializeField] Transform RotationDirectioner;
+    Transform RotationDirectioner;
     [SerializeField] Transform Arrow, CompassPlane;
     //[SerializeField] Transform one,two,three;
     // Start is called before the first frame update
     void Start()
     {
+        RotationDirectioner = controlRoom.GetRotationIndicator();
         Wind = GameObject.FindGameObjectWithTag("Wind").GetComponent<Wind>();
         if(!Wind){
             Debug.LogError("No Wind found in scene");
@@ -28,7 +30,7 @@ public class Compass : MonoBehaviour
         Vector3 LocalWind = TransformVectorToLocal(new Vector3(Wind.WindVector.x,0,Wind.WindVector.y)); // transforming the wind to local coordinates which will be independant of the x and z rotation of the sensor
         CompassPlane.localRotation = Quaternion.LookRotation(LocalNorth, Vector3.up);
         Arrow.localRotation = Quaternion.LookRotation(LocalWind, Vector3.up); // rotating the arrow local rotation toward the local wind vector
-        WindVelocity.floatValue = Wind.WindVector.magnitude;
+        WindVelocity.SetValue(DataType.NULL, Wind.WindVector.magnitude);
     }
     Vector3 TransformVectorToLocal(Vector3 Input){
     	return RotationDirectioner.InverseTransformDirection(Input); // transforming the Vector to local coordinates which will be independant of the x and z rotation of the sensor

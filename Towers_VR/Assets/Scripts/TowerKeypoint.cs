@@ -47,10 +47,8 @@ public class TowerKeypoint : MonoBehaviour
 			_intact = value; 
 		}
 	}
-	void Awake (){
+	public void Initialize(){
 		intact = true;
-	}
-	void Start(){
 		Origin = transform.position;
 		//Gets all physics objects in radius
 		Collider[] RelatedColliders = GetObjectsInRadius(StructureRadius, StructureLayerMask);

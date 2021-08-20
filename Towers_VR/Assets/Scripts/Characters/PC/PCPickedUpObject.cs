@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PCPickedUpObject //: MonoBehaviour
+public class PCPickedUpObject
 {
 	public Transform Obj, Offset;
 	public Transform Parent;
