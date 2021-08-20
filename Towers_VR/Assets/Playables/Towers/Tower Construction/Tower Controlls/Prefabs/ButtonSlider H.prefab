@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7055905922959316129}
   - component: {fileID: 7055905922959316135}
-  - component: {fileID: 7055905922959316134}
+  - component: {fileID: 8290108676029395538}
   m_Layer: 13
   m_Name: ButtonSlider H
   m_TagString: Untagged
@@ -132,7 +132,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &7055905922959316134
+--- !u!114 &8290108676029395538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,14 +141,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7055905922959316128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5e977b8652474446b2a9e2d4d3df7e9, type: 3}
+  m_Script: {fileID: 11500000, guid: d7f195a239f405d4980d638ac8212321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AngleTarget:
-  - {fileID: 6169856669878140382}
+  Outputs: []
   Clamp: 0
-  ClampNum: {x: 0, y: 0}
-  DefaultValue: 3
+  ClampValue: {x: 0, y: 0}
+  DefaultValue: 0
 --- !u!1 &7055905923054601638
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610cd7d0c3dafed4e825808aae63ca1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberTarget: {fileID: 7055905922959316134}
+  NumberTarget: {fileID: 8290108676029395538}
   Change: 1
   Acceleration: 1
 --- !u!65 &3718082065368974927
@@ -421,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610cd7d0c3dafed4e825808aae63ca1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberTarget: {fileID: 7055905922959316134}
+  NumberTarget: {fileID: 8290108676029395538}
   Change: -1
   Acceleration: -1
 --- !u!65 &7857047176453863055

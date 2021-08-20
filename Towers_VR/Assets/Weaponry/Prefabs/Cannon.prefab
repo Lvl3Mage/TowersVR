@@ -437,10 +437,12 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 8415709790423244298, guid: 25175ab77a092294d83afad6a7da7989,
     type: 3}
   Barrel: {fileID: 5287335310278544982}
+  WeaponCaliber: 1
   Recoil: 10
   ReloadDelay: 0
   CallBackLoaded: []
   CallBackProjectileSpeed: []
+  CallBackLastProjectile: []
   gunPoint: {fileID: 5287335311515921643}
 --- !u!1 &5287335311515921642
 GameObject:

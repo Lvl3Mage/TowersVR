@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 685619737413003781, guid: 8fdc7ebfe12268a44a0f55e1687e64a6, type: 3}
   _velocity: 250
-  _caliber: 0
+  _caliber: 1
   _ammoCount: 1
 --- !u!64 &3557193940566594627
 MeshCollider:

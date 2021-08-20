@@ -5,11 +5,11 @@ using UnityEngine;
 public class FloatWriter_IntSwitch : AnimatedIntSwitch
 {
 	[SerializeField] float[] NumberValues;
-	[SerializeField] NumberContainer[] Targets;
+	[SerializeField] OutputDataContainer[] Outputs;
 	protected override void Animated(){
-		foreach (NumberContainer Target in Targets) 
+		foreach (OutputDataContainer Output in Outputs) 
 		{
-			Target.floatValue = NumberValues[State];
+			Output.InvokeOutput(NumberValues[State]);
 		}
     }
 }

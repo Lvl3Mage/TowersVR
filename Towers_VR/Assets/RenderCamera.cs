@@ -5,16 +5,11 @@ using UnityEngine;
 public class RenderCamera : MonoBehaviour
 {
 
-    [System.Serializable]
-	public class MeshMaterial{
-		[Tooltip("The mesh renderer of the render-to object")]
-		public MeshRenderer MeshRenderer;
-		[Tooltip("The id of the desired material location in the mesh renderer materials array")]
-		public int id;
-	}
+    
 	[SerializeField] RenderTexture RenderTexturePreview;
 	[SerializeField] Material MaterialPreview;
-	[SerializeField] protected MeshMaterial[] renderToObjects;
+	[SerializeField] RadarRoom RadarRoom;
+	protected MeshMaterial[] renderToObjects;
 	// the render texture the camera should render to
 	RenderTexture CameraRenderTexture;
 	GlobalRenderCamera GlobalCam;
@@ -22,6 +17,7 @@ public class RenderCamera : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+    	renderToObjects = RadarRoom.GetRenderObjects();
     	FOV = 60f;
     	CameraRenderTexture = Instantiate(RenderTexturePreview);
     	Material clonedMat = Instantiate(MaterialPreview); 
@@ -43,4 +39,11 @@ public class RenderCamera : MonoBehaviour
 	public void SetFOV(float fov){
 		FOV = fov; 
 	}
+}
+[System.Serializable]
+public class MeshMaterial{
+	[Tooltip("The mesh renderer of the render-to object")]
+	public MeshRenderer MeshRenderer;
+	[Tooltip("The id of the desired material location in the mesh renderer materials array")]
+	public int id;
 }

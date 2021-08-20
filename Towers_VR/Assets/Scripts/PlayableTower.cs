@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class PlayableTower : Tower
 {
+    [SerializeField] Transform ControlRoomSpawnpoint;
+    [SerializeField] Transform AmmoRoomSpawnpoint;
+    [SerializeField] Transform CannonRoomSpawnpoint;
+    [SerializeField] Transform RadarRoomSpawnpoint;
+    [SerializeField] Transform LoadingRoomSpawnpoint;
+    [SerializeField] Transform RoomParent;
+
     [SerializeField] Transform Spawnpoint;
-    [SerializeField] OptimizedRenderCamera RadarCamera;
-    [SerializeField] RadarScreen RadarScreen;
+    OptimizedRenderCamera RadarCamera;
+    RadarScreen RadarScreen;
     [SerializeField] AITowerController AI;
+    [SerializeField] TowerRelay TowerRelay;
     private List<Player> _Players;
     public List<Player> Players{
         get { 
@@ -22,7 +30,20 @@ public class PlayableTower : Tower
     protected override void OnDestroy(){
         ToggleRendering(false);
     }
-    public void PlayersChanged(){
+    public void Initialize(List<Player> players, ConfiguredTower configuredTower){
+        //Spawning all the rooms
+        RadarRoom RadarRoom = (Instantiate(configuredTower.RadarRoom, RadarRoomSpawnpoint.position, RadarRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<RadarRoom>();
+        CannonRoom CannonRoom = (Instantiate(configuredTower.CannonRoom, CannonRoomSpawnpoint.position, CannonRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<CannonRoom>();
+        ControlRoom ControlRoom = (Instantiate(configuredTower.ControlRoom, ControlRoomSpawnpoint.position, ControlRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<ControlRoom>();
+        ReloaderRoom LoadingRoom = (Instantiate(configuredTower.RadarRoom, LoadingRoomSpawnpoint.position, LoadingRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<ReloaderRoom>();
+        Instantiate(configuredTower.AmmoRoom, AmmoRoomSpawnpoint.position, AmmoRoomSpawnpoint.rotation, RoomParent);
+
+        TowerRelay.Initialize(RadarRoom, ControlRoom, CannonRoom, LoadingRoom);
+        InitializeKeypoints();
+        //perform configs first
+        Players = players;
+    }
+    void PlayersChanged(){
         if(_Players.Count > 0){
             AI.active = false; // disabling the AI
             List<Camera> PlayerCameras = new List<Camera>();
@@ -41,14 +62,20 @@ public class PlayableTower : Tower
         
     }
     void ToggleRendering(bool toggle){
+        if(RadarScreen == null){
+            RadarScreen = TowerRelay.GetRadar();
+        }
         RadarScreen.ToggleRendering(toggle);
+        if(RadarCamera == null){
+            RadarCamera = TowerRelay.GetRenderCamera();
+        }
         RadarCamera.ToggleRendering(toggle);
     }
     public Transform GetTowerSpawnPoint(){
     	return Spawnpoint;
     }
 
-    public TeamInstance[] GetEnemyTeams(){
+    public TeamInstance[] GetEnemyTeams(){ // gets all the enemy teams of this tower
         return GameManager.RequestEnemyTeams(this);
     }
     public bool GameRunning(){

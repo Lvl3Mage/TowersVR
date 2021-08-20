@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GaugeArrow{
 	public float value;
-
+	public DataType AssignedDataType;
 	public Transform transform;
 	public MeshRenderer meshRenderer;
 	[HideInInspector] public bool enabled;
@@ -42,7 +42,7 @@ public class GaugeArrow{
 		Material.SetColor("_UnlitColor",newColor);
 	}
 }
-public class GaugeDisplay : MultipleNumberContainer
+public class GaugeDisplay : FloatContainer
 {
 	[Tooltip("An array of the gauge controlled arrows (tip: each input element should have its corresponding arrow in this array)")]
 	[SerializeField] GaugeArrow[] Arrows;
@@ -55,29 +55,36 @@ public class GaugeDisplay : MultipleNumberContainer
 	[SerializeField] Gradient ArrowAtractionGradient;
 	[Tooltip("Defines the outer radius of the attraction gradient")]
 	[SerializeField] float attractionValueRadius;
-    protected override void OnListChange(int id){
-    	GaugeArrow ChangedArrow = Arrows[id];
+	GaugeArrow FindArrowByType(DataType type){
+		foreach(GaugeArrow arrow in Arrows){
+			if(arrow.AssignedDataType == type){
+				return arrow;
+			}
+		}
+		Debug.LogError("No arrow with data destination found");
+		return null;
+	}
+    protected override void SetFloat(DataType dataType, float value){
+    	GaugeArrow ChangedArrow = FindArrowByType(dataType); // finds the arrow assosiated with the selected data type
     	bool DisableOutOfRange = ChangedArrow.DisableOutOfRange;
     	bool FloorNullValues = ChangedArrow.FloorNullValues;
     	
+    	ChangedArrow.value = value;
 
-    	float newValue = NumberList[id].value; // the value of the base arrow
-    	ChangedArrow.value = newValue;
-
-    	if(newValue != newValue && !FloorNullValues){
+    	if(value != value && !FloorNullValues){
 			
     		ChangedArrow.enabled = false;
     		ChangedArrow.meshRenderer.enabled = false;
     	}
-    	else if(!CheckRange(newValue, valueRange) && DisableOutOfRange){
+    	else if(!CheckRange(value, valueRange) && DisableOutOfRange){
     		
 			ChangedArrow.enabled = false;
 			ChangedArrow.meshRenderer.enabled = false;
 	    		
     	}
     	else{
-    		if(newValue != newValue){ // if the value is null then it means that we should floor it (because otherwise it would have been disabled)
-    			newValue = valueRange.x;
+    		if(value != value){ // if the value is null then it means that we should floor it (because otherwise it would have been disabled)
+    			value = valueRange.x;
     			ChangedArrow.enabled = false; // we also disable the arrow
     			ChangedArrow.meshRenderer.enabled = true; //but we enable it's mesh renderer because it needs to be shown in this case
     		}
@@ -89,7 +96,7 @@ public class GaugeDisplay : MultipleNumberContainer
 
 	    	//Updates arrow's position
 	    	Vector3 newPosition = ChangedArrow.transform.localPosition; // sets the new position to the old one
-		    newPosition.x = ChangeRange(newValue, valueRange, positionRange); // modifies the x coordinate with the new range
+		    newPosition.x = ChangeRange(value, valueRange, positionRange); // modifies the x coordinate with the new range
 		    newPosition.x = Mathf.Clamp(newPosition.x, positionRange.x, positionRange.y); // clams it to the new range
 		    ChangedArrow.transform.localPosition = newPosition;
     	}

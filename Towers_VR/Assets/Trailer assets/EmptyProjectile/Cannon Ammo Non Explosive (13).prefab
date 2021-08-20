@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4556256150342738138}
   - component: {fileID: 618340331558088575}
   - component: {fileID: 3418300323649936309}
-  - component: {fileID: 6670867695425217874}
   - component: {fileID: 6545537866785210290}
   - component: {fileID: 2227421265663142979}
   - component: {fileID: 8018023919351549732}
@@ -90,23 +89,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6670867695425217874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3778733911109958240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a02ad1e41e01e4b81fc87d8ac747b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _self: {fileID: 3778733911109958240}
-  _bullet: {fileID: 4133117126223820224, guid: 82eab751e726b474c82d0367c160545b, type: 3}
-  _velocity: 320
-  _type: 0
-  _count: 1
 --- !u!54 &6545537866785210290
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,11 +135,11 @@ MonoBehaviour:
   OutsideDamage: 1
   OutsideDamageMultiplier: 1
   PhysicsDamage: 1
-  VelocityDamageMultiplier: 1
-  OtherMassDamageMultiplier: 1
+  PhysicsDamageMultiplier: 1
   PhysicsDamageThreshold: 0
   ExplosionEffect: {fileID: 0}
   Explosion: {fileID: 0}
+  DebrisObject: {fileID: 0}
 --- !u!64 &19021244057634433
 MeshCollider:
   m_ObjectHideFlags: 0

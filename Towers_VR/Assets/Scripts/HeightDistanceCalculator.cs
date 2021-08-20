@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeightDistanceCalculator : MultipleNumberContainer
+public class HeightDistanceCalculator : FloatContainer
 {
 	//[SerializeField] float SingleCameraOffset; //Half of both cameras
-	[SerializeField] NumberContainer[] TargetsForDistance, TargetsForHeight;
+	[SerializeField] DataContainer[] TargetsForDistance, TargetsForHeight;
     // Start is called before the first frame update
+    float VerticalRotation;
+    float LinearDistance;
     void Start()
     {
         
@@ -17,22 +19,29 @@ public class HeightDistanceCalculator : MultipleNumberContainer
     {
         
     }
-    protected override void OnListChange(int id) // the first angle is the x rotation while the second is the y rotation
-    { // the input id is discarded for now. It can be used to not perform the calculations of the distance if it wasn't changed
-    	//if(NumberList[1].value != 0){
-	    	/*float yangle = 90-NumberList[1].value; // converting the angle to triangle angles
-	    	float distanceH = Mathf.Tan(yangle*Mathf.Deg2Rad)*SingleCameraOffset; // Calculating the hipetenuse distance using the formula tan(alfa) = o/a*/
-
-    	float xangle = 90-NumberList[0].value; // converting the angle to triangle angles
-    	float distancex = Mathf.Sin(xangle*Mathf.Deg2Rad)*NumberList[1].value; // calculating the horizontal distance to the point using the formula sin(alfa) = o/h
-    	float relheight = Mathf.Cos(xangle*Mathf.Deg2Rad)*NumberList[1].value;// calculating the relative height to the point using the formula cos(alfa) = a/h
-        foreach (NumberContainer Container in TargetsForDistance) 
+    protected override void SetFloat(DataType dataType, float value)
+    {
+        switch(dataType){
+            case DataType.VerticalRotation:
+                VerticalRotation = value;
+                break;
+            case DataType.LinearDistance:
+                LinearDistance = value;
+                break;
+            default:
+                Debug.LogError("WTF is this => " + dataType + "?", gameObject);
+                break;
+        }
+    	float xangle = 90-VerticalRotation; // converting the angle to triangle angles
+    	float distancex = Mathf.Sin(xangle*Mathf.Deg2Rad)*LinearDistance; // calculating the horizontal distance to the point using the formula sin(alfa) = o/h
+    	float relheight = Mathf.Cos(xangle*Mathf.Deg2Rad)*LinearDistance;// calculating the relative height to the point using the formula cos(alfa) = a/h
+        foreach (DataContainer Container in TargetsForDistance) 
     	{
-    		Container.floatValue = distancex; // outputing the horizontal distance
+    		Container.SetValue(DataType.HorizontalDistance, distancex); // outputing the horizontal distance
     	}
-    	foreach (NumberContainer Container in TargetsForHeight) 
+    	foreach (DataContainer Container in TargetsForHeight) 
     	{
-    		Container.floatValue = relheight; // outputing the relative height
+    		Container.SetValue(DataType.Height, relheight); // outputing the relative height
     	}
     	//}
 

@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     		}
     	}
     	if(aliveTeams.Count == 0){
-    		Debug.LogError("EVERY TEAM IS dEd");
+    		Debug.LogError("EVERY TEAM IS dEd"); //xd
     	}
     	else{
     		for (int i = 0; i < aliveTeams.Count; i++){

@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntContainer : MonoBehaviour
+public class IntContainer : DataContainer
 {
-	protected int _intValue;
-	public int intValue {
+    public override void SetValue<T>(DataType dataType, T value)
+    {
+        if(value is int){
+            SetInt(dataType, (int)(object)value); // can't use the "as" operator here. float is a non nullable type :P
+        }
+        else{
+            Debug.LogWarning("Unexpected type recieved. Expected type: int", gameObject);
+        }
+    }
+    protected virtual void SetInt(DataType dataType, int value){
 
-		get {
-			return _intValue;
-		}
-
-		set {
-			_intValue = value;
-			ValueChanged();
-		}
-	}
-	protected virtual void ValueChanged(){
-
-	}
+    }
 }

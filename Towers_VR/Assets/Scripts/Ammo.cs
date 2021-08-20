@@ -4,9 +4,10 @@ using UnityEngine;
 
 public enum AmmoCaliber
 {
-	MedCannon,
-	LargeCannon,
-	BigCannon
+	Flak,
+	Medium,
+	Heavy,
+    Extreme
 }
 
 
