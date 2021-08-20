@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NumberChangerButton : ToggleButton
 {
-	[SerializeField] AngleContainer NumberTarget;
+	[SerializeField] NumberContainer NumberTarget;
 	[SerializeField] float Change, Acceleration;
 	float CurChange;
 	bool Toggled = false;
@@ -14,7 +14,7 @@ public class NumberChangerButton : ToggleButton
 	}
 	void FixedUpdate(){
 		if(Toggled){
-			NumberTarget.ChangeAngle(Time.fixedDeltaTime*CurChange);
+			NumberTarget.floatValue = NumberTarget.floatValue + Time.fixedDeltaTime*CurChange;
 			CurChange += Acceleration*Time.fixedDeltaTime;
 
 		}

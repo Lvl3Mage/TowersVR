@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class ActivatorButton : SingleActivatedButton
 {
+	[SerializeField] Activatable Target;
 	protected override void SingleActivation(){
-		InvokeAllReferences(1);
+		Target.Activate(true);
 	}
 }

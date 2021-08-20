@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AngleContainer : ReferenceContainer
+public class AngleContainer : NumberContainer
 {
+	[SerializeField] NumberContainer[] AngleTarget;
 	[SerializeField] bool Clamp;
 	[SerializeField] Vector2 ClampNum;
-	[SerializeField] float angle;
- 
-	public void ChangeAngle(float change){
-		angle += change;
-		Mathf.Clamp(angle,ClampNum.x,ClampNum.y);
-		InvokeAllReferences(angle);
+	[SerializeField] float DefaultValue;
+	void Awake(){
+		floatValue = DefaultValue;
 	}
-	protected override void ChangeValue(string varName, float value){
-		angle = value;
-        InvokeAllReferences(angle);
-    }
-
+	protected override void ValueChanged(){
+		if(Clamp){
+			_floatValue = Mathf.Clamp(_floatValue, ClampNum.x, ClampNum.y); 			
+		}
+		foreach (NumberContainer Container in AngleTarget) 
+		{
+			Container.floatValue = _floatValue;
+		}
+	}
 }

@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class ToggleActivatorButton : ToggleButton
 {
+	[SerializeField] Activatable[] Targets;
     // Start is called before the first frame update
     protected override void ToggleOn() {
-    	InvokeAllReferences(1);
+    	foreach (Activatable Target in Targets) 
+    	{
+    		Target.Activate(true);
+    	}
     }
     protected override void ToggleOff() {
-    	InvokeAllReferences(0);
+    	foreach (Activatable Target in Targets) 
+    	{
+    		Target.Activate(false);
+    	}
     }
 }

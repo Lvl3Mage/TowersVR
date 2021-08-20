@@ -5,18 +5,19 @@ using UnityEngine;
 [System.Serializable]
 public class GaugeArrow{
 	public float value;
+
 	public Transform transform;
 	public MeshRenderer meshRenderer;
 	[HideInInspector] public bool enabled;
 	[Tooltip("The id of the material in the materials array that should be recolored")]
 	[SerializeField] int recolorMaterialID;
-	[Tooltip("The name of the other arrow this one will be attracted to (set to blank if none)")]
-	[SerializeField] string attractedTo;
+	[Tooltip("The index of the other arrow this one will be attracted to (set to -1 if none)")]
+	[SerializeField] int attractedTo;
 	public bool DisableOutOfRange;
 	public bool FloorNullValues;
-	public void ReEvaluateColor(Gradient ColorGradient, Dictionary<string, GaugeArrow> Arrows, float valRadius){
+	public void ReEvaluateColor(Gradient ColorGradient, GaugeArrow[] Arrows, float valRadius){
 		if(enabled){ // only if this arrow is enabled
-			if(attractedTo.Length > 0){
+			if(attractedTo > 0){
 				GaugeArrow AtractedToArrow = Arrows[attractedTo];
 				float EvaluationValue;
 				if(AtractedToArrow.enabled){ // chack if the other arrow is enabled
@@ -41,27 +42,10 @@ public class GaugeArrow{
 		Material.SetColor("_UnlitColor",newColor);
 	}
 }
-public class GaugeDisplay : ReferenceContainer
+public class GaugeDisplay : MultipleNumberContainer
 {
-	[System.Serializable]
-	public class NamedArrow
-	{
-		public string name;
-		public GaugeArrow arrow;
-	}
-	[System.Serializable]
-	public class DictValue
-	{
-		public string name;
-		public float value;
-	}
-	
-	[Tooltip("A dictionary of the gauge controlled arrows (tip: each input should have its correspondingly named arrow in this dictionary)")]
-	[SerializeField] NamedArrow[] arrowsList;
-	Dictionary<string, GaugeArrow> Arrows;
-
-	[SerializeField] DictValue[] NamedDataList;
-	Dictionary<string,float> NamedData;
+	[Tooltip("An array of the gauge controlled arrows (tip: each input element should have its corresponding arrow in this array)")]
+	[SerializeField] GaugeArrow[] Arrows;
 
 	[Tooltip("The maximum and minimum input values this display will recieve")]
 	[SerializeField] Vector2 valueRange;
@@ -71,22 +55,13 @@ public class GaugeDisplay : ReferenceContainer
 	[SerializeField] Gradient ArrowAtractionGradient;
 	[Tooltip("Defines the outer radius of the attraction gradient")]
 	[SerializeField] float attractionValueRadius;
-
-	void PostAwake(){
-		for(int i = 0; i < arrowsList.Length; i++){
-            Arrows.Add(arrowsList[i].name, arrowsList[i].arrow);
-        }
-        for(int i = 0; i < NamedDataList.Length; i++){
-            NamedData.Add(NamedDataList[i].name, NamedDataList[i].value);
-        }
-	}
-    protected override void OnValueChange(string varName){
-    	GaugeArrow ChangedArrow = Arrows[varName];
+    protected override void OnListChange(int id){
+    	GaugeArrow ChangedArrow = Arrows[id];
     	bool DisableOutOfRange = ChangedArrow.DisableOutOfRange;
     	bool FloorNullValues = ChangedArrow.FloorNullValues;
     	
 
-    	float newValue = NamedData[varName]; // the value of the base arrow
+    	float newValue = NumberList[id].value; // the value of the base arrow
     	ChangedArrow.value = newValue;
 
     	if(newValue != newValue && !FloorNullValues){
@@ -125,8 +100,8 @@ public class GaugeDisplay : ReferenceContainer
     	ReEvaluateAllArrowColor();
     }
     void ReEvaluateAllArrowColor(){ // ReEvaluates all the arrow's color
-    	 foreach(KeyValuePair<string, GaugeArrow> Arrow in Arrows){
-    		Arrow.Value.ReEvaluateColor(ArrowAtractionGradient, Arrows, attractionValueRadius);
+    	foreach(GaugeArrow Arrow in Arrows){
+    		Arrow.ReEvaluateColor(ArrowAtractionGradient, Arrows, attractionValueRadius);
     	}
     }
     float ChangeRange(float value, Vector2 OldRange, Vector2 NewRange){

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactable : ReferenceContainer
+public class Interactable : MonoBehaviour
 {
 	
 	public void Interact(bool ToggleValue){

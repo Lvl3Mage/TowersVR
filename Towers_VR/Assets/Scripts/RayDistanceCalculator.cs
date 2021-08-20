@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RayDistanceCalculator : ReferenceContainer
+public class RayDistanceCalculator : NumberContainer
 {
+	[SerializeField] NumberContainer[] Targets;
 	[SerializeField] float MaxDistance;
 	[SerializeField] LayerMask Layers;
 	/*Vector3 LastPos;
@@ -15,7 +16,7 @@ public class RayDistanceCalculator : ReferenceContainer
 			LastRot = transform.rotation;
 		}
 	}*/
-	protected override void OnValueChange(string varName){ //Will recalculate the distance on the NumberContainer value change. Add this NumberContainer to any inputs for them to activate distance recalculation
+	protected override void ValueChanged(){ //Will recalculate the distance on the NumberContainer value change. Add this NumberContainer to any inputs for them to activate distance recalculation
 		CalculateDistance();
 	}
 	public void RecalculateDistance(){ // Call this to update the distance
@@ -23,7 +24,10 @@ public class RayDistanceCalculator : ReferenceContainer
 	}
 	void CalculateDistance(){
 		float Distance = RaycastDistance();
-		InvokeAllReferences(Distance);
+		foreach (NumberContainer Target in Targets) 
+		{
+			Target.floatValue = Distance;
+		}
 	}
     float RaycastDistance(){
     	RaycastHit hit;
