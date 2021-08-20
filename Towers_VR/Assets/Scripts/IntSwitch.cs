@@ -6,7 +6,7 @@ public class IntSwitch : Switch
 {
 	[SerializeField] int InitialState;
 	[SerializeField] int MaxState;
-	[SerializeField] DataContainer TextDisplay;
+	[SerializeField] IntContainer TextDisplay;
 	protected int State = 0;
 	void Awake(){
 		State = InitialState;
@@ -16,7 +16,7 @@ public class IntSwitch : Switch
     	if(State>MaxState){
     		State = 0;
     	}
-    	TextDisplay.SetValue("",State);
+    	TextDisplay.intValue = State;
     	StateChanged();
     }
     protected virtual void StateChanged(){

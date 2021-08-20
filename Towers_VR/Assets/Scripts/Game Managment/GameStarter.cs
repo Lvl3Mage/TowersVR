@@ -8,11 +8,6 @@ public class GameStarter : MonoBehaviour
     [SerializeField] Object Tower;
     [SerializeField] Object PCCharacter;
     [SerializeField] Object VRCharacter;
-    [Header("TowerConfigs")]
-    [SerializeField] Dictionary<CannonRoomTypes,Object> CannonRoomTypeObjects;
-    [SerializeField] Dictionary<ControlRoomTypes,Object> ControlRoomTypeObjects;
-    [SerializeField] Dictionary<AmmoRoomTypes,Object> AmmoRoomTypeObjects;
-    [SerializeField] Dictionary<LoadingRoomTypes,Object> LoadingRoomTypeObjects;
     GameManager GameManager;
     void Start(){
         GameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -26,7 +21,6 @@ public class GameStarter : MonoBehaviour
     void SpawnParticipants(BaseTeam[] Teams){
         TeamInstance[] instancedTeams = new TeamInstance[Teams.Length];
         List<PlayableTower> PlayableTowers = new List<PlayableTower>();
-        List<TowerConfigs> TowerConfigs = new List<TowerConfigs>();
         List<List<Player>> GamePlayers = new List<List<Player>>(); // a 2D list of all players in all towers
     	for(int i = 0; i < Teams.Length; i++)
     	{
@@ -41,7 +35,6 @@ public class GameStarter : MonoBehaviour
                 GameObject TowerObject = SpawnTower(participant.spawnPosition, participant.spawnRotation, Tower); // spawns the actual Tower
                 PlayableTower PlayableTower = TowerObject.GetComponent<PlayableTower>();
                 if(PlayableTower){
-                    TowerConfigs.Add(participant.Configs); // saving tower configs for later initialization
                     instancedTowers[j] = PlayableTower;// add the PlayableTower to the instanced list
 
                     ParticipantSettings.PlayerType playerType = participant.playerType;
@@ -76,14 +69,7 @@ public class GameStarter : MonoBehaviour
         for(int i = 0; i < PlayableTowers.Count; i++){
             PlayableTower currentPlayableTower = PlayableTowers[i];
             currentPlayableTower.Players = GamePlayers[i]; // setting the players to the tower for initialization
-            //getting the tower configs which were saved earlier
-            TowerConfigs curTowerConfig = TowerConfigs[i];
-            //using the data from the tower configs to find objects which are stored in dictionries
-            Object CannonRoom = CannonRoomTypeObjects[curTowerConfig.CannonRoomType];
-            Object ControlRoom = ControlRoomTypeObjects[curTowerConfig.ControlRoomType];
-            Object AmmoRoom = AmmoRoomTypeObjects[curTowerConfig.AmmoRoomType];
-            Object LoadingRoom = LoadingRoomTypeObjects[curTowerConfig.LoadingRoomType];
-            currentPlayableTower.Initialize(new ConfiguredTower(CannonRoom,ControlRoom,AmmoRoom,LoadingRoom)); // initializing towers using those objects
+            currentPlayableTower.Initialize();
 
         }
         

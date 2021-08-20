@@ -440,9 +440,7 @@ MonoBehaviour:
   Recoil: 10
   ReloadDelay: 0
   CallBackLoaded: []
-  CallbackLoadedVarName: CannonLoadState
   CallBackProjectileSpeed: []
-  CallBackProjectileSpeedVarName: ProjectileVelocity
   gunPoint: {fileID: 5287335311515921643}
 --- !u!1 &5287335311515921642
 GameObject:

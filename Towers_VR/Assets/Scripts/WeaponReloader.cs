@@ -5,9 +5,7 @@ using UnityEngine;
 public class WeaponReloader : MonoBehaviour
 {
 	[SerializeField] protected Weapon weapon;
-	[Tooltip("A callback array which identifies the objects that receive the weapon's loading state")]// Calls back to an int container (The states of the said container are 1 for loaded, 2 for loading, 3 for unloaded)
-    [SerializeField] protected DataContainer[] CallBackLoaded;
-    [SerializeField] string CallbackLoadedVarName; 
+	[SerializeField] IntContainer[] Callback; // Calls back to an int container (The states of the said container are 1 for loaded, 2 for loading, 3 for unloaded)
 	[SerializeField] AmmoCaliber WeaponCaliber;
 	protected bool Loading = false; // determines when the weapon can be loaded
 
@@ -43,9 +41,9 @@ public class WeaponReloader : MonoBehaviour
     } // Loads an Ammunition class object into the cannon
 
     protected void LoadingCallback(int val){
-    	foreach (DataContainer Cont in CallBackLoaded) 
+    	foreach (IntContainer Cont in Callback) 
     	{
-    		Cont.SetValue(CallbackLoadedVarName, val);
+    		Cont.intValue = val;
     	}
     }
 }

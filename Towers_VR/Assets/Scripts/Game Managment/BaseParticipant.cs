@@ -9,7 +9,6 @@ public class BaseParticipant
 	public Quaternion spawnRotation;
 	public ParticipantSettings.PlayerType playerType; // The type of the player
 	public string name; // name of the participant
-	public TowerConfigs Configs;
 	public BaseParticipant(Vector3 _spawnPosition, Quaternion _spawnRotation, ParticipantSettings.PlayerType _playerType, string _name){
 		spawnPosition = _spawnPosition;
 		spawnRotation = _spawnRotation;

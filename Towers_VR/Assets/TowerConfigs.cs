@@ -18,16 +18,6 @@ public class TowerConfigs
 
     }
 }
-public class ConfiguredTower
-{
-    public Object CannonRoom, ControlRoom, AmmoRoom, LoadingRoom;
-    public ConfiguredTower(Object _CannonRoom, Object _ControlRoom, Object _AmmoRoom, Object _LoadingRoom){
-        CannonRoom = _CannonRoom;
-        CannonRoom = _ControlRoom;
-        AmmoRoom = _AmmoRoom;
-        LoadingRoom = _LoadingRoom;
-    }
-}
 public enum CannonRoomTypes {LowCaliber, MediumCaliber, HighCaliber}; // specifies the type of the cannon room
 public enum ControlRoomTypes {Basic}; // specifies the type of the control room
 public enum AmmoRoomTypes {LowCaliber, MediumCaliber, HighCaliber}; // specifies the type of the ammo room

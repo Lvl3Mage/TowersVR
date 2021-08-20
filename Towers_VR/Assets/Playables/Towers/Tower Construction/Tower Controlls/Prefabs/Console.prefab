@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a970f626d224a4b84703dfde373f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CallBackDist: []
-  DistVarName: ProjectileTravelDistance
+  CallbackReferences: []
 --- !u!1 &2866557218252603435
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,10 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c226257989fd1fa4b8e47bc5485316a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CallBackHorizDistance: []
-  HorizDistanceVarName: HorizontalDistance
-  CallBackHeight: []
-  HeightVarName: Height
+  CallbackReferences: []
 --- !u!1 &3101123392664261463
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,16 +782,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4019833965128312906, guid: 3fcacf14503833d458dd57c257152ea2,
         type: 3}
-      propertyPath: CallbackReferences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4019833965128312906, guid: 3fcacf14503833d458dd57c257152ea2,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].reference.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4019833965128312906, guid: 3fcacf14503833d458dd57c257152ea2,
-        type: 3}
       propertyPath: Clamp
       value: 1
       objectReference: {fileID: 0}
@@ -823,16 +809,6 @@ PrefabInstance:
         type: 3}
       propertyPath: DefaultValue
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4019833965128312906, guid: 3fcacf14503833d458dd57c257152ea2,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].name
-      value: VerticalRotation
-      objectReference: {fileID: 0}
-    - target: {fileID: 4019833965128312906, guid: 3fcacf14503833d458dd57c257152ea2,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].reference.Array.data[0]
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4019833965128312908, guid: 3fcacf14503833d458dd57c257152ea2,
         type: 3}
@@ -996,11 +972,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7055905922959316134, guid: 8f24303e1892ac04eb3a045725856a26,
         type: 3}
-      propertyPath: CallbackReferences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7055905922959316134, guid: 8f24303e1892ac04eb3a045725856a26,
-        type: 3}
       propertyPath: AngleTarget
       value: 
       objectReference: {fileID: 0}
@@ -1023,11 +994,6 @@ PrefabInstance:
         type: 3}
       propertyPath: DefaultValue
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7055905922959316134, guid: 8f24303e1892ac04eb3a045725856a26,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].name
-      value: HorizontalRotation
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f24303e1892ac04eb3a045725856a26, type: 3}
@@ -1052,12 +1018,12 @@ PrefabInstance:
     - target: {fileID: 6638632498032712817, guid: 957fbef2218cb184eb884ec764b2ee63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.956
+      value: -0.817
       objectReference: {fileID: 0}
     - target: {fileID: 6638632498032712817, guid: 957fbef2218cb184eb884ec764b2ee63,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.402
+      value: 0.279
       objectReference: {fileID: 0}
     - target: {fileID: 6638632498032712817, guid: 957fbef2218cb184eb884ec764b2ee63,
         type: 3}
@@ -1119,16 +1085,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2866557218252603434}
     m_Modifications:
-    - target: {fileID: 2394113000323761356, guid: 19e8196be47811641acb567401388b44,
-        type: 3}
-      propertyPath: CallbackReferences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2394113000323761356, guid: 19e8196be47811641acb567401388b44,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].name
-      value: RadarZoom
-      objectReference: {fileID: 0}
     - target: {fileID: 2394113000323761357, guid: 19e8196be47811641acb567401388b44,
         type: 3}
       propertyPath: m_Name
@@ -1264,100 +1220,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2 Arrow Gauge Display
       objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: NamedDataList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[0].name
-      value: ProjectileTravelDistance
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[0].arrow.transform
-      value: 
-      objectReference: {fileID: 7218176337237711518}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[0].arrow.meshRenderer
-      value: 
-      objectReference: {fileID: 7472499792014180017}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[0].arrow.attractedTo
-      value: HorizontalDistance
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[0].arrow.FloorNullValues
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[1].name
-      value: HorizontalDistance
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: NamedDataList.Array.data[0].name
-      value: ProjectileTravelDistance
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: NamedDataList.Array.data[1].name
-      value: HorizontalDistance
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[1].arrow.transform
-      value: 
-      objectReference: {fileID: 1909945765868266683}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[1].arrow.meshRenderer
-      value: 
-      objectReference: {fileID: 6009018275862603925}
-    - target: {fileID: 4255096418343464497, guid: d33be5d01186e7a4a9e06da3637cc062,
-        type: 3}
-      propertyPath: arrowsList.Array.data[1].arrow.FloorNullValues
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d33be5d01186e7a4a9e06da3637cc062, type: 3}
---- !u!23 &7472499792014180017 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3270482050953084140, guid: d33be5d01186e7a4a9e06da3637cc062,
-    type: 3}
-  m_PrefabInstance: {fileID: 5391003233243497053}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1909945765868266683 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5787632871676110566, guid: d33be5d01186e7a4a9e06da3637cc062,
-    type: 3}
-  m_PrefabInstance: {fileID: 5391003233243497053}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6009018275862603925 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1852354559446936264, guid: d33be5d01186e7a4a9e06da3637cc062,
-    type: 3}
-  m_PrefabInstance: {fileID: 5391003233243497053}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8833322390405543639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3478734984298525834, guid: d33be5d01186e7a4a9e06da3637cc062,
-    type: 3}
-  m_PrefabInstance: {fileID: 5391003233243497053}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7218176337237711518 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3385772069271181507, guid: d33be5d01186e7a4a9e06da3637cc062,
     type: 3}
   m_PrefabInstance: {fileID: 5391003233243497053}
   m_PrefabAsset: {fileID: 0}
@@ -1380,16 +1247,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5131135681807642031, guid: 0e9efed311c9a03468105ba75c63ce3b,
         type: 3}
-      propertyPath: CallbackReferences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131135681807642031, guid: 0e9efed311c9a03468105ba75c63ce3b,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].reference.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131135681807642031, guid: 0e9efed311c9a03468105ba75c63ce3b,
-        type: 3}
       propertyPath: InitialState
       value: 0
       objectReference: {fileID: 0}
@@ -1397,11 +1254,6 @@ PrefabInstance:
         type: 3}
       propertyPath: BoolContainer
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5131135681807642031, guid: 0e9efed311c9a03468105ba75c63ce3b,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].name
-      value: AngleCalcOutputType
       objectReference: {fileID: 0}
     - target: {fileID: 6223221269823838487, guid: 0e9efed311c9a03468105ba75c63ce3b,
         type: 3}
@@ -1510,11 +1362,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4019833965128312906, guid: 3fcacf14503833d458dd57c257152ea2,
         type: 3}
-      propertyPath: CallbackReferences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4019833965128312906, guid: 3fcacf14503833d458dd57c257152ea2,
-        type: 3}
       propertyPath: ClampNum.y
       value: 45
       objectReference: {fileID: 0}
@@ -1542,11 +1389,6 @@ PrefabInstance:
         type: 3}
       propertyPath: Clamp
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4019833965128312906, guid: 3fcacf14503833d458dd57c257152ea2,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].name
-      value: CannonAngle
       objectReference: {fileID: 0}
     - target: {fileID: 4019833965128312908, guid: 3fcacf14503833d458dd57c257152ea2,
         type: 3}
@@ -1625,11 +1467,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 968058500265793364, guid: 5178a2e737ade7c41bb0cc05341f21fa,
         type: 3}
-      propertyPath: CallbackReferences.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 968058500265793364, guid: 5178a2e737ade7c41bb0cc05341f21fa,
-        type: 3}
       propertyPath: Target
       value: 
       objectReference: {fileID: 0}
@@ -1637,11 +1474,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 968058500265793364, guid: 5178a2e737ade7c41bb0cc05341f21fa,
-        type: 3}
-      propertyPath: CallbackReferences.Array.data[0].name
-      value: ActivateCannon
       objectReference: {fileID: 0}
     - target: {fileID: 5886887312746364800, guid: 5178a2e737ade7c41bb0cc05341f21fa,
         type: 3}

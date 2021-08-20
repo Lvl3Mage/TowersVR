@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class IntToTextContainer : DataContainer
+public class IntToTextContainer : IntContainer
 {
 	[System.Serializable]
 	public class IntToTextField
@@ -26,13 +26,11 @@ public class IntToTextContainer : DataContainer
 	[SerializeField] IntToTextField[] Values;
 	[SerializeField] TextMeshProUGUI TextField;
 	[SerializeField] int defaultValue;
-	protected int IntValue;
 	void Awake(){
-		IntValue = defaultValue;
+		intValue = defaultValue;
 	}
-	protected override void ChangeValue(string varName, float value){
-		IntValue = (int)value;
-		IntToTextField SetValue = Values[IntValue];
+	protected override void ValueChanged(){
+		IntToTextField SetValue = Values[intValue];
 
 		TextField.color = SetValue.ColorValue;
 		TextField.text = SetValue.TextValue;
