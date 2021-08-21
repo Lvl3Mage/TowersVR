@@ -60,7 +60,8 @@ public class GameStarter : MonoBehaviour
         GameManager.StartManagment(instancedTeams);
         foreach(InstantiatedTower InstantiatedTower in InstantiatedTowers){
             PlayableTower curTower = InstantiatedTower.Tower;
-            curTower.Initialize(InstantiatedTower.Players,InstantiatedTower.ConfiguredTower);
+            curTower.Initialize(InstantiatedTower.ConfiguredTower);
+            curTower.Players = InstantiatedTower.Players;
         }
         
         

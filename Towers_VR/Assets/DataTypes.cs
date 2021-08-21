@@ -16,6 +16,7 @@ public enum DataType
     CannonActivation,
     HorizontalDistance,
     CannonLoadState,
-    RadarZoom
+    RadarZoom,
+    ToggleAI
 
 }

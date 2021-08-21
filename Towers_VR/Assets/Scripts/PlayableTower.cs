@@ -14,7 +14,6 @@ public class PlayableTower : Tower
     [SerializeField] Transform Spawnpoint;
     OptimizedRenderCamera RadarCamera;
     RadarScreen RadarScreen;
-    [SerializeField] AITowerController AI;
     [SerializeField] TowerRelay TowerRelay;
     private List<Player> _Players;
     public List<Player> Players{
@@ -30,22 +29,23 @@ public class PlayableTower : Tower
     protected override void OnDestroy(){
         ToggleRendering(false);
     }
-    public void Initialize(List<Player> players, ConfiguredTower configuredTower){
+    public void Initialize(ConfiguredTower configuredTower){
         //Spawning all the rooms
         RadarRoom RadarRoom = (Instantiate(configuredTower.RadarRoom, RadarRoomSpawnpoint.position, RadarRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<RadarRoom>();
         CannonRoom CannonRoom = (Instantiate(configuredTower.CannonRoom, CannonRoomSpawnpoint.position, CannonRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<CannonRoom>();
         ControlRoom ControlRoom = (Instantiate(configuredTower.ControlRoom, ControlRoomSpawnpoint.position, ControlRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<ControlRoom>();
-        ReloaderRoom LoadingRoom = (Instantiate(configuredTower.RadarRoom, LoadingRoomSpawnpoint.position, LoadingRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<ReloaderRoom>();
+        ReloaderRoom LoadingRoom = (Instantiate(configuredTower.LoadingRoom, LoadingRoomSpawnpoint.position, LoadingRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<ReloaderRoom>();
         Instantiate(configuredTower.AmmoRoom, AmmoRoomSpawnpoint.position, AmmoRoomSpawnpoint.rotation, RoomParent);
 
         TowerRelay.Initialize(RadarRoom, ControlRoom, CannonRoom, LoadingRoom);
         InitializeKeypoints();
-        //perform configs first
-        Players = players;
+
+        RadarCamera = TowerRelay.GetRenderCamera();
+        RadarScreen = TowerRelay.GetRadar();
     }
     void PlayersChanged(){
         if(_Players.Count > 0){
-            AI.active = false; // disabling the AI
+            ToggleAI(false); // disabling the AI
             List<Camera> PlayerCameras = new List<Camera>();
             for(int i = 0; i < _Players.Count; i++){
 
@@ -57,19 +57,16 @@ public class PlayableTower : Tower
         }
         else{
             ToggleRendering(false); // disabling the render camera
-            AI.active = true; // enabling the AI
+            ToggleAI(true); // enabling the AI
         }
         
     }
+    void ToggleAI(bool value){
+        TowerRelay.SetValue(DataType.ToggleAI, value);
+    }
     void ToggleRendering(bool toggle){
-        if(RadarScreen == null){
-            RadarScreen = TowerRelay.GetRadar();
-        }
         RadarScreen.ToggleRendering(toggle);
-        if(RadarCamera == null){
-            RadarCamera = TowerRelay.GetRenderCamera();
-        }
-        RadarCamera.ToggleRendering(toggle);
+        RadarCamera.ToggleRendering(toggle); // probably a good idea to transform them into data containers
     }
     public Transform GetTowerSpawnPoint(){
     	return Spawnpoint;

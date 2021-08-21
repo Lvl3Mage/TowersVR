@@ -20,6 +20,7 @@ public class CannonReloader : WeaponReloader
 {
 	[SerializeField] Transform ReloadPoint;
 	[SerializeField] float LerpRotationSpeed, LerpMovementSpeed;
+    [SerializeField] ReloaderRoom ReloaderRoom;
 	Animator Animator;
     AmmoObjectIdentifier LoadingObject;
 	Transform ShellOffset;
@@ -27,6 +28,7 @@ public class CannonReloader : WeaponReloader
     // Start is called before the first frame update
     void Start()
     {
+        weapon = ReloaderRoom.GetCannon();
         Animator = GetComponent<Animator>();
     }
     protected override void LoadAmmunitionObject(AmmoObjectIdentifier Ammo){

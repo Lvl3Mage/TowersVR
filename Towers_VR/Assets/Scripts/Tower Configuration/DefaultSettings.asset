@@ -14,23 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponConfigs:
   - Type: 0
-    CannonRoom: {fileID: 0}
-    AmmoRoom: {fileID: 0}
+    CannonRoom: {fileID: 5007395966818509569, guid: 65d78d41ef3f5044e869087d9e8e26ba,
+      type: 3}
+    AmmoRoom: {fileID: 4837786582867721185, guid: 809f52519186f2f43a9cd2bb4408db86,
+      type: 3}
   - Type: 1
-    CannonRoom: {fileID: 0}
-    AmmoRoom: {fileID: 0}
+    CannonRoom: {fileID: 5007395966818509569, guid: 65d78d41ef3f5044e869087d9e8e26ba,
+      type: 3}
+    AmmoRoom: {fileID: 4837786582867721185, guid: 809f52519186f2f43a9cd2bb4408db86,
+      type: 3}
   - Type: 2
-    CannonRoom: {fileID: 0}
-    AmmoRoom: {fileID: 0}
+    CannonRoom: {fileID: 5007395966818509569, guid: 65d78d41ef3f5044e869087d9e8e26ba,
+      type: 3}
+    AmmoRoom: {fileID: 4837786582867721185, guid: 809f52519186f2f43a9cd2bb4408db86,
+      type: 3}
   - Type: 3
-    CannonRoom: {fileID: 0}
-    AmmoRoom: {fileID: 0}
+    CannonRoom: {fileID: 5007395966818509569, guid: 65d78d41ef3f5044e869087d9e8e26ba,
+      type: 3}
+    AmmoRoom: {fileID: 4837786582867721185, guid: 809f52519186f2f43a9cd2bb4408db86,
+      type: 3}
   ControlRoomConfigs:
   - Type: 0
-    ControlRoom: {fileID: 0}
+    ControlRoom: {fileID: 4938271962936881658, guid: 6e62a9c55512643498ba197b404ed345,
+      type: 3}
   LoadingRoomConfigs:
   - Type: 0
-    LoadingRoom: {fileID: 0}
+    LoadingRoom: {fileID: 2914955345994897825, guid: d62d397f0f3f96344ab2699c5f89c3f3,
+      type: 3}
   RadarRoomConfigs:
   - Type: 0
-    RadarRoom: {fileID: 0}
+    RadarRoom: {fileID: 1901083234934056779, guid: 0e69ada4030c4684394619d0685c606a,
+      type: 3}

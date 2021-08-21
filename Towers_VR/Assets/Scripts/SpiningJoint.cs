@@ -18,11 +18,12 @@ public class SpiningJoint : FloatContainer
     void Update()
     {
         float ownRotation = HJ.connectedBody.gameObject.transform.localEulerAngles.y + baseOffset;
+        float desiredRotation = targetRotation; // the real rotation the cannon will turn to
         if(InvertAngle){
-            targetRotation *= -1;
+            desiredRotation *= -1;
         }
-        targetRotation += angleOffset;
-        float AngleDifference = CalcAngleDifference(ownRotation,targetRotation);
+        desiredRotation += angleOffset;
+        float AngleDifference = CalcAngleDifference(ownRotation,desiredRotation);
         ApplyPhysicsRotation(AngleDifference);
     }
     void ApplyPhysicsRotation(float DifAngle){

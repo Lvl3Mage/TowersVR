@@ -8,7 +8,8 @@ public class RadarScreen : MonoBehaviour
 	[SerializeField] Object TowerMarker;
 	[SerializeField] Object ViewConeObject;
 	[SerializeField] Color DestroyedColor;
-	[SerializeField] Transform TowerRotationIndicator;
+	[SerializeField] ControlRoom controlRoom;
+	Transform TowerRotationIndicator;
 
 	[Header("Marker position settings")]
 	[SerializeField] Vector2 GlobalRangeX;
@@ -30,6 +31,9 @@ public class RadarScreen : MonoBehaviour
 			if(!GameManager){
 				Debug.LogError("No GameManager found in scene");
 			}
+		}
+		if(!TowerRotationIndicator){
+			TowerRotationIndicator = controlRoom.GetRotationIndicator();
 		}
 	}
 	public void ToggleRendering(bool value){

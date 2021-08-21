@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TowerRelay : DataContainer
 {
+    [SerializeField] PlayableTower SelfTower;
     RadarRoom RadarRoom;
     ControlRoom ControlRoom;
     CannonRoom CannonRoom;
@@ -38,6 +39,19 @@ public class TowerRelay : DataContainer
         ReloaderRoom = reloaderRoom;
 
     }
+    public override void SetValue<T>(DataType dataType, T value){
+        Debug.Log("Input " + dataType + ", value " + value);
+        if(RelayData.ContainsKey(dataType)){
+            DataContainer[] DestContiners = RelayData[dataType];
+            foreach(DataContainer container in DestContiners){
+                container.SetValue(dataType, value);
+            }
+            
+        }
+        else{
+            Debug.LogError("No type found for input " + dataType);
+        }
+    }
     public WeaponReloader GetReloader(){
         return ReloaderRoom.GetReloader();
     }
@@ -55,5 +69,11 @@ public class TowerRelay : DataContainer
     }
     public Transform GetRotationIndicator(){
         return RadarRoom.GetRotationIndicator();
+    }
+    public PlayableTower GetSelfTower(){
+        return SelfTower;
+    }
+    public Transform GetGunpoint(){
+        return CannonRoom.GetGunpoint();
     }
 }

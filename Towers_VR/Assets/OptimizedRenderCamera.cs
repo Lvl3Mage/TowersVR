@@ -5,7 +5,7 @@ using UnityEngine;
 public class OptimizedRenderCamera : RenderCamera
 {
 	[SerializeField] int Framerate;
-	[SerializeField] Camera[] RenderForCamera;
+	[SerializeField] Camera[] RenderForCameras;
     bool Rendering = false;
     Coroutine RenderCycle = null;
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class OptimizedRenderCamera : RenderCamera
     }
     bool CheckRenderReqirement(){
     	bool NeedRender = false;
-    	foreach (Camera Cam in RenderForCamera) 
+    	foreach (Camera Cam in RenderForCameras) 
     	{
 	    	foreach (MeshMaterial renderTo in renderToObjects) 
 	    	{
@@ -47,13 +47,14 @@ public class OptimizedRenderCamera : RenderCamera
     	return GeometryUtility.TestPlanesAABB(frustumPlanes, Renderer.bounds);
     }
     public void AssignRenderForCamera(Camera[] Cameras){
-        RenderForCamera = Cameras;
+        RenderForCameras = Cameras;
     }
     public void ToggleRendering(bool value){
         Rendering = value;
         if(value){ // if the rendering has started
             Debug.Log("Render true");
             if(RenderCycle == null){ // if the render loop has not been started
+                Initialize();
                 Debug.Log("Start cycle");
                 RenderCycle = StartCoroutine(RenderLoop()); // start a render loop
             }

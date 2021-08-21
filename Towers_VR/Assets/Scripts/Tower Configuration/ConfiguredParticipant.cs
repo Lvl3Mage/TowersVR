@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class ConfiguredParticipant
 {
     public ConfiguredParticipant(WeaponConfigType weaponConfigs, ControlRoomType controlRoomConfigs, LoadingRoomType loadingRoomConfigs, RadarRoomType radarRoomConfigs){

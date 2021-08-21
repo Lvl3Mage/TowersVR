@@ -5,8 +5,8 @@ using UnityEngine;
 public class AITowerController : TowerController
 {
 	
-	[SerializeField] PlayableTower SelfTower;
-	[SerializeField] Transform gunPoint;
+	PlayableTower SelfTower;
+	Transform gunPoint;
 	[SerializeField] Ammunition[] AIExampleAmmo;
 	[Header("Aim Settings")]
 	[Tooltip("The time ")]
@@ -18,19 +18,19 @@ public class AITowerController : TowerController
 	[SerializeField] CorrectionVariation[] CorrectionVariations;
 	Coroutine AIRoutineCycle = null;
 
-	private bool _active = false;
-	public bool active{
-		get{
-			return _active;
+	bool active = false;
+	void Initialize(){
+		if(SelfTower == null){
+			SelfTower = ControlRoom.GetSelfTower();
 		}
-		set{
-			_active = value;
-			AIToggled();
+		if(gunPoint == null){
+			gunPoint = ControlRoom.GetGunpoint();
 		}
 	}
-
-    void AIToggled(){
-    	if(_active){
+    protected override void ToggleAI(bool value){
+    	active = value;
+    	if(active){
+    		Initialize();
     		if(AIRoutineCycle == null){
     			AIRoutineCycle = StartCoroutine(AICycle());	
     		}
@@ -38,7 +38,7 @@ public class AITowerController : TowerController
     	// in the opposite case all the other cycles will stop by themselves
     }
     bool CanShoot(){
-    	return SelfTower.TowerIntact() && SelfTower.GameRunning() && _active;
+    	return SelfTower.TowerIntact() && SelfTower.GameRunning() && active;
     }
     IEnumerator AICycle(){
     	yield return null; // waits till initialization
@@ -137,7 +137,7 @@ public class AITowerController : TowerController
     	}
     }
     IEnumerator AimAtAngles(Vector2 Aim){
-    	if(_active){
+    	if(active){
 	    	Vector2 PastAim = GetCurrentRotation();
 
 	    	if(float.IsNaN(Aim.x)){
@@ -157,7 +157,7 @@ public class AITowerController : TowerController
     	
     }
     IEnumerator LoadAmmunition(int id){
-    	if(_active){
+    	if(active){
 	    	Ammunition ExampleAmmo = AIExampleAmmo[0];
 			LoadCannon(new Ammunition(ExampleAmmo.bullet, ExampleAmmo.velocity, ExampleAmmo.caliber, ExampleAmmo.ammoCount));
 			yield return new WaitForSeconds(Random.Range(AmmoLoadTimeRange.x, AmmoLoadTimeRange.y)); // loading wait
@@ -214,7 +214,7 @@ public class AITowerController : TowerController
     }
     float RotationAngleTo(Transform aimObj){ // calculates the angle that the tower has to move to reach a target
 			Vector3 AimDirection = aimObj.position - SelfTower.gameObject.transform.position;
-			Vector3 CurrentAimDirection = gunPoint.forward;
+			Vector3 CurrentAimDirection = gunPoint.forward; // need the reference to the gunpoint
 			float angle = Vector3.Angle(AimDirection, CurrentAimDirection);
 			return angle;
     }

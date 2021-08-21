@@ -144,7 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f195a239f405d4980d638ac8212321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Outputs: []
+  Outputs:
+  - OutputDataContainers:
+    - {fileID: 6169856669878140382}
+    OutputType: 0
   Clamp: 0
   ClampValue: {x: 0, y: 0}
   DefaultValue: 0

@@ -9,6 +9,7 @@ public class ConfiguredTower
         AmmoRoom = ammoRoom;
         ControlRoom = controlRoom;
         LoadingRoom = loadingRoom;
+        RadarRoom = radarRoom;
     }
     public Object RadarRoom;
     public Object CannonRoom;

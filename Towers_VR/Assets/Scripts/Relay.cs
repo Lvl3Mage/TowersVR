@@ -37,6 +37,7 @@ public class Relay : DataContainer
             }
         }
         else{ // in case this data type can't be found
+            Debug.Log("Sending up");
             UpperRelay.SetValue(dataType, value);
         }
     }

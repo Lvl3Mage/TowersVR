@@ -39,7 +39,7 @@ public class DestructableObject : MonoBehaviour
     		float Damage = collisionInfo.impulse.magnitude * PhysicsDamageMultiplier;
     		if(Damage > PhysicsDamageThreshold){
     			ApplyDamage(Damage);
-    			Debug.Log("Damaged by " + Damage, gameObject);
+    			//Debug.Log("Damaged by " + Damage, gameObject);
     		}
     	}
     }

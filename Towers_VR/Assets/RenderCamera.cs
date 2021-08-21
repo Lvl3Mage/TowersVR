@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RenderCamera : MonoBehaviour
+public class RenderCamera : FloatContainer
 {
 
     
@@ -15,29 +15,34 @@ public class RenderCamera : MonoBehaviour
 	GlobalRenderCamera GlobalCam;
 	float FOV;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-    	renderToObjects = RadarRoom.GetRenderObjects();
-    	FOV = 60f;
-    	CameraRenderTexture = Instantiate(RenderTexturePreview);
-    	Material clonedMat = Instantiate(MaterialPreview); 
-
-    	clonedMat.SetTexture("_UnlitColorMap", CameraRenderTexture);
-
-    	foreach (MeshMaterial renderTo in renderToObjects) 
-    	{
-    		Material[] matArray = renderTo.MeshRenderer.materials;
- 			matArray[renderTo.id] = clonedMat;
- 			renderTo.MeshRenderer.materials = matArray;
-    	}
-
-    	GlobalCam = GameObject.FindGameObjectWithTag("GlobalRenderCamera").GetComponent<GlobalRenderCamera>();
+    	
+	}
+	protected void Initialize(){
+		if(CameraRenderTexture == null){ //if haven't initialized yet
+			FOV = 60f;	
+			CameraRenderTexture = Instantiate(RenderTexturePreview);
+			Material clonedMat = Instantiate(MaterialPreview); 
+			clonedMat.SetTexture("_UnlitColorMap", CameraRenderTexture);
+			renderToObjects = RadarRoom.GetRenderObjects();
+			foreach (MeshMaterial renderTo in renderToObjects) 
+	    	{
+	    		Material[] matArray = renderTo.MeshRenderer.materials;
+	 			matArray[renderTo.id] = clonedMat;
+	 			renderTo.MeshRenderer.materials = matArray;
+	    	}
+		}
+		
+		if(!GlobalCam){
+			GlobalCam = GameObject.FindGameObjectWithTag("GlobalRenderCamera").GetComponent<GlobalRenderCamera>();
+		}
 	}
 	protected void Render(){
 		GlobalCam.RenderToTexture(transform, CameraRenderTexture, FOV);
 	}
-	public void SetFOV(float fov){
-		FOV = fov; 
+	protected override void SetFloat(DataType dataType, float value){
+		FOV = value;
 	}
 }
 [System.Serializable]

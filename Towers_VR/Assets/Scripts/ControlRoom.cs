@@ -15,4 +15,15 @@ public class ControlRoom : Room
     public Transform GetRotationIndicator(){
         return towerRelay.GetRotationIndicator();
     }
+    public WeaponReloader GetReloader(){
+        return towerRelay.GetReloader();
+    }
+
+    //for AI
+    public PlayableTower GetSelfTower(){
+        return towerRelay.GetSelfTower();
+    }
+    public Transform GetGunpoint(){
+        return towerRelay.GetGunpoint();
+    }
 }

@@ -43,8 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83db14d5dd32f314388c8015fc98016a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultParticipant:
+    WeaponConfiguration: 0
+    ControlRoomConfiguration: 0
+    LoadingRoomConfiguration: 0
+    RadarRoomConfiguration: 0
   SpawnPoints: []
-  TowerObject: {fileID: 0}
+  TowerObject: {fileID: 523630609536182774, guid: e323a38ef1241a34491c13f4579d965e,
+    type: 3}
   PCCharacter: {fileID: 9041447693760621573, guid: 50415ac5ab3e50a4e80176fb6c76d6f1,
     type: 3}
   VRCharacter: {fileID: 4934580704485539790, guid: e5cb7f5338cca9248928d6655e0026e1,

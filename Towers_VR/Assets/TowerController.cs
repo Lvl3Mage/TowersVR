@@ -4,47 +4,48 @@ using UnityEngine;
 
 public class TowerController : DataContainer
 {
-	[SerializeField] TowerRelay TowerRelay;
+	[SerializeField] protected ControlRoom ControlRoom;
 	WeaponReloader CannonReloader;
 	GameObject LastFiredProjectile;
 	float CannonAngle;
 	float HorizontalRotation;
 	float ProjectileLinearVelocity;
+	Vector2 LastAim = Vector2.zero;
 	public override void SetValue<T>(DataType dataType, T value){
 		 switch(dataType){
 			case DataType.LastFiredProjectile:
 				LastFiredProjectile = value as GameObject;
 				break;
-			case DataType.CannonAngle:
-				CannonAngle = (float)(object)value;
-				break;
-			case DataType.HorizontalRotation:
-				HorizontalRotation = (float)(object)value;
-				break;
 			case DataType.ProjectileLinearVelocity:
 				ProjectileLinearVelocity = (float)(object)value;
+				break;
+			case DataType.ToggleAI:
+				ToggleAI((bool)(object)value);
 				break;
 			default:
 				Debug.LogError("WTF is this => " + dataType + "?", gameObject);
 				break;
 		}
 	}
+	protected virtual void ToggleAI(bool value){}
 	protected void SetYAngle(float angle){
-		TowerRelay.SetValue(DataType.HorizontalRotation, angle);
+		LastAim.y = angle;
+		ControlRoom.SetValue(DataType.HorizontalRotation, angle);
 	}
 	protected void SetXAngle(float angle){
-		TowerRelay.SetValue(DataType.CannonAngle, angle);
+		LastAim.x = angle;
+		ControlRoom.SetValue(DataType.CannonAngle, angle);
 	}
 	protected void LoadCannon(Ammunition ammo){
 		if(CannonReloader == null){
-			CannonReloader = TowerRelay.GetReloader();
+			CannonReloader = ControlRoom.GetReloader();
 		}
 		if(!CannonReloader.LoadAmmo(ammo)){
 			Debug.LogWarning("Unable to load cannon!", gameObject);
 		}
 	}
 	protected void FireCannon(){
-		TowerRelay.SetValue(DataType.CannonActivation, true);
+		ControlRoom.SetValue(DataType.CannonActivation, true);
 	}
 	protected GameObject GetLastProjectile(){
 		return LastFiredProjectile;
@@ -56,6 +57,6 @@ public class TowerController : DataContainer
 		return ProjectileLinearVelocity;
 	}
 	protected Vector2 GetCurrentRotation(){
-		return new Vector2(CannonAngle,HorizontalRotation);
+		return LastAim;
 	}
 }

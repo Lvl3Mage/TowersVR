@@ -18,9 +18,6 @@ public class WeaponReloader : MonoBehaviour
 	    	}
     	}
     }
-    public void SetWeapon(Weapon newWeapon){
-        weapon = newWeapon;
-    }
     public bool LoadAmmo(AmmoObjectIdentifier Ammo){ // Call to load an ammo object
     	bool _Loadable = Loadable(Ammo.caliber);
     	if(_Loadable){

@@ -43,17 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc88dae801c7fa04aaba7f8812b9a188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CannonRotation: {fileID: 0}
-  TowerRotation: {fileID: 0}
-  Cannon: {fileID: 0}
-  CannonReloader: {fileID: 0}
+  TowerRelay: {fileID: 0}
   SelfTower: {fileID: 0}
   gunPoint: {fileID: 0}
   AIExampleAmmo:
   - _bullet: {fileID: 685619737413003781, guid: 8fdc7ebfe12268a44a0f55e1687e64a6,
       type: 3}
     _velocity: 250
-    _caliber: 0
+    _caliber: 1
     _ammoCount: 1
   PerRotationDegreeWait: 0.1
   PerRotationWait: 12
@@ -81,4 +78,3 @@ MonoBehaviour:
   - CorrectionName: Perfect Aim
     CorrectionChance: 1
     Range: {x: 1, y: 1}
-  DebugTarget: {fileID: 0}
