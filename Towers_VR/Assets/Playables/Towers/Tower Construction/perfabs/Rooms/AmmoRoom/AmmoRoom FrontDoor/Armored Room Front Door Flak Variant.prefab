@@ -1,0 +1,3550 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &17657124458236144
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (16)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &4790421060758704090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 17657124458236144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &251958443531496114
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (15)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &4700464176787549592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 251958443531496114}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &290736117319121083
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &5065603347959693201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 290736117319121083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &923605413302351023
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &4016577309962098977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 923605413302351023}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &964259321346233328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &3894854245611961982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 964259321346233328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &977791302145441261
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &5752668610927295175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 977791302145441261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1032817610751697791
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &3835307490358300401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032817610751697791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1259220175299025176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &5998200480951442994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 1259220175299025176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1262917229103890149
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &3092347272388268907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 1262917229103890149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1873963893581928896
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &2408680095661634638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 1873963893581928896}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2553250129584950894
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &1729952377664791520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 2553250129584950894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2771062310988742775
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &7219428395664344925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 2771062310988742775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2974757249148451591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &7713593486565899309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 2974757249148451591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3010214406598539733
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &7746802208772308735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 3010214406598539733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3445358086183883446
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &1494261721151209272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 3445358086183883446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3724014423942750589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &8208407347535406679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 3724014423942750589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3990700606916485750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &868386571762372600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 3990700606916485750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4240219217118514319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &122926615722107137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 4240219217118514319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4353327171755043127
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &506353751723803833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 4353327171755043127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4581529144290902750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &358086237147623248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 4581529144290902750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4584794559720668854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 2650249277623075380}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 908401213016387907}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[2]
+      value: 
+      objectReference: {fileID: 8208407347535406679}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[3]
+      value: 
+      objectReference: {fileID: 4168171085816505687}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[4]
+      value: 
+      objectReference: {fileID: 1356080346936967221}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[5]
+      value: 
+      objectReference: {fileID: 826032323271629731}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[6]
+      value: 
+      objectReference: {fileID: 7746802208772308735}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[7]
+      value: 
+      objectReference: {fileID: 5752668610927295175}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[8]
+      value: 
+      objectReference: {fileID: 7219428395664344925}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[9]
+      value: 
+      objectReference: {fileID: 4117305141930746901}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[10]
+      value: 
+      objectReference: {fileID: 5065603347959693201}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[11]
+      value: 
+      objectReference: {fileID: 5998200480951442994}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[12]
+      value: 
+      objectReference: {fileID: 7713593486565899309}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[13]
+      value: 
+      objectReference: {fileID: 1644878909757793603}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[14]
+      value: 
+      objectReference: {fileID: 3920486865142909950}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[15]
+      value: 
+      objectReference: {fileID: 4700464176787549592}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[16]
+      value: 
+      objectReference: {fileID: 4790421060758704090}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[0].ammo.Array.data[17]
+      value: 
+      objectReference: {fileID: 2252189606844681820}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 5779823189751518846}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 4016577309962098977}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[2]
+      value: 
+      objectReference: {fileID: 6589355908156417277}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[3]
+      value: 
+      objectReference: {fileID: 6966749323250442494}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[4]
+      value: 
+      objectReference: {fileID: 3894854245611961982}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[5]
+      value: 
+      objectReference: {fileID: 122926615722107137}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[6]
+      value: 
+      objectReference: {fileID: 2408680095661634638}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[7]
+      value: 
+      objectReference: {fileID: 506353751723803833}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[8]
+      value: 
+      objectReference: {fileID: 4879691422056708609}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[9]
+      value: 
+      objectReference: {fileID: 8614419024772992752}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[10]
+      value: 
+      objectReference: {fileID: 6456122542357060605}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[11]
+      value: 
+      objectReference: {fileID: 5654625771738357887}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[12]
+      value: 
+      objectReference: {fileID: 1494261721151209272}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[13]
+      value: 
+      objectReference: {fileID: 358086237147623248}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[14]
+      value: 
+      objectReference: {fileID: 3835307490358300401}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[15]
+      value: 
+      objectReference: {fileID: 6263749098024086479}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[16]
+      value: 
+      objectReference: {fileID: 9112535783047986609}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[17]
+      value: 
+      objectReference: {fileID: 5543433505364981263}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[18]
+      value: 
+      objectReference: {fileID: 1729952377664791520}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[19]
+      value: 
+      objectReference: {fileID: 868386571762372600}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[20]
+      value: 
+      objectReference: {fileID: 8219897234414121673}
+    - target: {fileID: 954051413863956043, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: AmmoGroups.Array.data[1].ammo.Array.data[21]
+      value: 
+      objectReference: {fileID: 3092347272388268907}
+    - target: {fileID: 4837786582867721185, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_Name
+      value: Armored Room Front Door Flak Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.257
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217585023788212571, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756212281051188581, guid: 809f52519186f2f43a9cd2bb4408db86,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41436768
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 809f52519186f2f43a9cd2bb4408db86, type: 3}
+--- !u!4 &1049022091493392631 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3543935246880439873, guid: 809f52519186f2f43a9cd2bb4408db86,
+    type: 3}
+  m_PrefabInstance: {fileID: 4584794559720668854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2350300320697943284 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2251104837225364034, guid: 809f52519186f2f43a9cd2bb4408db86,
+    type: 3}
+  m_PrefabInstance: {fileID: 4584794559720668854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4034019432956895643 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 602287255186317101, guid: 809f52519186f2f43a9cd2bb4408db86,
+    type: 3}
+  m_PrefabInstance: {fileID: 4584794559720668854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6093177956861245366 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7723435101047965952, guid: 809f52519186f2f43a9cd2bb4408db86,
+    type: 3}
+  m_PrefabInstance: {fileID: 4584794559720668854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4979515475222368319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &9112535783047986609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 4979515475222368319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5274539354278894729
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &826032323271629731 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 5274539354278894729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5295671351524515655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &8219897234414121673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 5295671351524515655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5539534764389360510
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &8614419024772992752 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 5539534764389360510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5683278341409617513
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &908401213016387907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 5683278341409617513}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5806695150190397215
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &1356080346936967221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 5806695150190397215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &6095495901430751849
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (13)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &1644878909757793603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 6095495901430751849}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &6611896043592600944
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &6966749323250442494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 6611896043592600944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &6702806632877377910
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (17)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &2252189606844681820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 6702806632877377910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &6926230270033267059
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &6589355908156417277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 6926230270033267059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &7130377769379788403
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &6456122542357060605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 7130377769379788403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &7386983317392950558
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &2650249277623075380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 7386983317392950558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &7735776114791463920
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &5779823189751518846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 7735776114791463920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &7890798495597774401
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &6263749098024086479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 7890798495597774401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8371096135941065940
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (14)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &3920486865142909950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 8371096135941065940}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8436849435854966257
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &5654625771738357887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 8436849435854966257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8611668181383895937
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4034019432956895643}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &5543433505364981263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 8611668181383895937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8706817677921425295
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1049022091493392631}
+    m_Modifications:
+    - target: {fileID: 8186042617315062204, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Explosive Flak (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849989772437203718, guid: b63878d308dcd3c43aae4129b27fe698,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b63878d308dcd3c43aae4129b27fe698, type: 3}
+--- !u!114 &4879691422056708609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4282063369582472590, guid: b63878d308dcd3c43aae4129b27fe698,
+    type: 3}
+  m_PrefabInstance: {fileID: 8706817677921425295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8892320815365743423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2350300320697943284}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22001465
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &4117305141930746901 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 8892320815365743423}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &8907016263073636989
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6093177956861245366}
+    m_Modifications:
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004282011706057866, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384748925983768112, guid: 06639b097d5890848a3facddd7d3f896,
+        type: 3}
+      propertyPath: m_Name
+      value: Cannon Ammo Non Explosive Flak (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06639b097d5890848a3facddd7d3f896, type: 3}
+--- !u!114 &4168171085816505687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775018046941300522, guid: 06639b097d5890848a3facddd7d3f896,
+    type: 3}
+  m_PrefabInstance: {fileID: 8907016263073636989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc595bfadcff90740807facc6049b8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

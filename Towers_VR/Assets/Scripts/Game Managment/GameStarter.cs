@@ -17,8 +17,6 @@ public class GameStarter : MonoBehaviour
             ConfiguredTower = configuredTower;
         }
     }
-    [SerializeField] ConfiguredParticipant defaultParticipant;
-    [SerializeField] Transform[] SpawnPoints;
     [SerializeField] Object TowerObject;
     [SerializeField] Object PCCharacter;
     [SerializeField] Object VRCharacter;
@@ -29,9 +27,6 @@ public class GameStarter : MonoBehaviour
         if(!GameManager){
             Debug.LogError("No GameManager found in scene");
         }
-    }
-    public Transform[] GetSpawnPoints(){
-        return SpawnPoints;
     }
     void SpawnParticipants(BaseTeam[] Teams){
         TeamInstance[] instancedTeams = new TeamInstance[Teams.Length]; // the teams array that will serve as the backbone for the GameManager
@@ -51,7 +46,7 @@ public class GameStarter : MonoBehaviour
 
 
                 spawnedTowers[j] = spawnedTower; // adding the spawned tower to the array for later use
-                InstantiatedTowers.Add(new InstantiatedTower(spawnedTower, players, TowerConfigSettings.GetConfiguredTower(defaultParticipant/*currentParticipant.participantConfiguration*/))); // the tower is now fully spawned so we save the needed data for later initialization
+                InstantiatedTowers.Add(new InstantiatedTower(spawnedTower, players, TowerConfigSettings.GetConfiguredTower(currentParticipant.participantConfiguration))); // the tower is now fully spawned so we save the needed data for later initialization
             }
 
             instancedTeams[i] = new TeamInstance(spawnedTowers, currentTeam);

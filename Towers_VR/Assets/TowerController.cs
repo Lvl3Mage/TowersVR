@@ -11,6 +11,8 @@ public class TowerController : DataContainer
 	float HorizontalRotation;
 	float ProjectileLinearVelocity;
 	Vector2 LastAim = Vector2.zero;
+	List<AmmoRoom.AmmoGroup> AmmoGroups;
+
 	public override void SetValue<T>(DataType dataType, T value){
 		 switch(dataType){
 			case DataType.LastFiredProjectile:
@@ -36,13 +38,45 @@ public class TowerController : DataContainer
 		LastAim.x = angle;
 		ControlRoom.SetValue(DataType.CannonAngle, angle);
 	}
-	protected void LoadCannon(Ammunition ammo){
+	protected bool LoadCannon(){
+		if(AmmoGroups == null){
+			AmmoGroups = ControlRoom.GetAmmo();
+		}
 		if(CannonReloader == null){
 			CannonReloader = ControlRoom.GetReloader();
 		}
-		if(!CannonReloader.LoadAmmo(ammo)){
-			Debug.LogWarning("Unable to load cannon!", gameObject);
+
+		AmmoObjectIdentifier ammunition = null;
+		for(int i = AmmoGroups.Count-1; i >= 0; i--){
+			List<AmmoObjectIdentifier> ammo = AmmoGroups[i].ammo;
+			for(int j = ammo.Count-1; j >= 0; j--){
+				//saving the ammo
+				ammunition = ammo[j];
+
+				//removing the selected ammo after remembering it (it has to be removed either way)
+				AmmoGroups[i].ammo.RemoveAt(j);
+
+
+				if(ammunition != null){ // if the ammo is valid
+					break; // we have found the needed ammo;
+				}
+			}
+
+			if(ammo.Count == 0){
+				AmmoGroups.RemoveAt(i);
+			}
+			if(ammunition != null){ // if we have found the needed ammo 
+				break;
+			}
 		}
+		if(ammunition != null){ // if the ammo was found
+			if(CannonReloader.LoadAmmo(new Ammunition(ammunition))){ // we try to load it
+				return true; // success
+			}
+		}
+		
+		// if we weren't able to load the ammo
+		return false;
 	}
 	protected void FireCannon(){
 		ControlRoom.SetValue(DataType.CannonActivation, true);

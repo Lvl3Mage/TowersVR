@@ -32,4 +32,5 @@ public class AmmoObjectIdentifier : MonoBehaviour
             return _ammoCount;
         }
     }
+    [Range(0f,0.05f)] public float spread; // percentage of the velocity
 }

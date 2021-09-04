@@ -481,6 +481,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hard Armored Small Wall Allround joint Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3968045457051661545, guid: 1d4c41901114a92439df5301e493671e,
+        type: 3}
+      propertyPath: BreakTorque
+      value: 270000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4c41901114a92439df5301e493671e, type: 3}
 --- !u!4 &1105671424332500503 stripped

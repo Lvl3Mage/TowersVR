@@ -35,9 +35,9 @@ public class PlayableTower : Tower
         CannonRoom CannonRoom = (Instantiate(configuredTower.CannonRoom, CannonRoomSpawnpoint.position, CannonRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<CannonRoom>();
         ControlRoom ControlRoom = (Instantiate(configuredTower.ControlRoom, ControlRoomSpawnpoint.position, ControlRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<ControlRoom>();
         ReloaderRoom LoadingRoom = (Instantiate(configuredTower.LoadingRoom, LoadingRoomSpawnpoint.position, LoadingRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<ReloaderRoom>();
-        Instantiate(configuredTower.AmmoRoom, AmmoRoomSpawnpoint.position, AmmoRoomSpawnpoint.rotation, RoomParent);
+        AmmoRoom AmmoRoom = (Instantiate(configuredTower.AmmoRoom, AmmoRoomSpawnpoint.position, AmmoRoomSpawnpoint.rotation, RoomParent) as GameObject).GetComponent<AmmoRoom>();;
 
-        TowerRelay.Initialize(RadarRoom, ControlRoom, CannonRoom, LoadingRoom);
+        TowerRelay.Initialize(RadarRoom, ControlRoom, CannonRoom, LoadingRoom, AmmoRoom);
         InitializeKeypoints();
 
         RadarCamera = TowerRelay.GetRenderCamera();

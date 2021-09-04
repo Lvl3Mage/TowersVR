@@ -9,6 +9,7 @@ TagManager:
   - BaseMapGenerator
   - GlobalRenderCamera
   - GameManager
+  - GameStarter
   layers:
   - Default
   - TransparentFX

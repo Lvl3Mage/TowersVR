@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
 [System.Serializable]
 public class PlayerTypeLimit
 {
@@ -15,24 +14,22 @@ public class OnMapSpawnPicker : MonoBehaviour
 {
 	[Header("Reference requirements")]
     [SerializeField] TeamsList TeamsList;
-	Transform[] SpawnPoints;
 	[SerializeField] RectTransform Map;
 	[SerializeField] Object ExamplePoint;
-	[SerializeField] GameStarter GameStarter;
+	[SerializeField] ParticipantConfigurator ParticipantConfigurator;
     [SerializeField] Button[] ValidatedButtons;
+    [SerializeField] Transform[] SpawnPoints;
 	[Header("Map rendering settings")]
 	[SerializeField] Camera MapRendererCamera;
 	[SerializeField] Material RenderMaterial_Preview;
 	[SerializeField] RenderTexture RenderTexture_Preview;
 
-	[SerializeField] PlayerTypeLimit[] PlayerTypeLimits; //Specifies how many players of type are possible (Use the same order as the enum + all types need to be present) 
-	protected BaseTeam[] Teams;
+	[SerializeField] PlayerTypeLimit[] PlayerTypeLimits; //Specifies how many players of type are possible (Use the same order as the enum + all types need to be present)
 	protected MapSpawnpoint[] UISpawnpoints;
 	int[] PlayerTypeQuantities; // an array that counts how many players of type have been added  
     // Start is called before the first frame update
     void Start()
     {
-    	SpawnPoints = GameStarter.GetSpawnPoints();
     	PlayerTypeQuantities = new int[ParticipantSettings.PlayerType.GetNames(typeof(ParticipantSettings.PlayerType)).Length]; // sets the array to have the length of the player type enum
     	RenderMapPreview();
     	PlacePoints();
@@ -78,13 +75,12 @@ public class OnMapSpawnPicker : MonoBehaviour
     	PointTrns.anchoredPosition3D = DimPos;
     	//Creates the spawnpoint object to return later on
     	MapSpawnpoint Point = PointInstance.GetComponent<MapSpawnpoint>();
-    	Point = PointGenerated(Point); // an overridable function that can be used to modify the button before it is returned
 
         return Point;
     }
-    void InitiateGame(BaseTeam[] Teams){
+    void NextStage(BaseTeam[] Teams){
     	Teams = ModifyResults(Teams);
-    	GameStarter.StartGame(Teams);
+    	ParticipantConfigurator.ConfigureParticipants(Teams);
         HidePicker();
     }
     void HidePicker(){
@@ -134,9 +130,6 @@ public class OnMapSpawnPicker : MonoBehaviour
         return -1;
     }
     //Future Overridable methods
-    protected virtual MapSpawnpoint PointGenerated(MapSpawnpoint generatedButton){
-    	return generatedButton;
-    }
     protected virtual BaseTeam[] ModifyResults(BaseTeam[] Teams){
     	return Teams;
     }
@@ -144,6 +137,16 @@ public class OnMapSpawnPicker : MonoBehaviour
     //Public methods to be called from elsewhere
     public MapSpawnpoint[] RequestSpawnpoints(){
         return UISpawnpoints;
+    }
+    public void LoadConfiguration(){
+        string savefileName = GetSceneName();
+        BaseTeam[] LoadedTeams = SaveSystem.LoadTeamConfigs(savefileName);
+        if(LoadedTeams != null){
+            NextStage(LoadedTeams);
+        }
+    }
+    string GetSceneName(){ // used for save file naming
+        return SceneManager.GetActiveScene().name;
     }
     protected virtual bool CheckStartingConditions(){ // override this for new starting conditions
         int Teamtypes = 0;
@@ -191,28 +194,11 @@ public class OnMapSpawnPicker : MonoBehaviour
             return true;
         }
     }
-    public void StartGame(){
+    public void CompileResults(){
         if(CheckStartingConditions()){ // Check if the start conditions have been met
             BaseTeam[] CompiledTeams = CompileTeams();
-            InitiateGame(CompiledTeams);
+            NextStage(CompiledTeams);
         }
-    }
-    public void SaveConfiguration(){
-        if(CheckStartingConditions()){ // Check if the start conditions have been met
-            BaseTeam[] CompiledTeams = CompileTeams();
-            string savefileName = GetSceneName();
-            SaveSystem.SaveTeamConfigs(CompiledTeams, savefileName);
-        }
-    }
-    public void LoadConfiguration(){
-        string savefileName = GetSceneName();
-        BaseTeam[] LoadedTeams = SaveSystem.LoadTeamConfigs(savefileName);
-        if(LoadedTeams != null){
-            InitiateGame(LoadedTeams);
-        }
-    }
-    string GetSceneName(){ // used for save file naming
-        return SceneManager.GetActiveScene().name;
     }
     //Inform methods
     public void RevalidateStartConditions(){ // Recalculates in case the start conditions have been met

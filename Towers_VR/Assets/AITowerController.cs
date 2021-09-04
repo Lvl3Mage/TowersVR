@@ -7,7 +7,6 @@ public class AITowerController : TowerController
 	
 	PlayableTower SelfTower;
 	Transform gunPoint;
-	[SerializeField] Ammunition[] AIExampleAmmo;
 	[Header("Aim Settings")]
 	[Tooltip("The time ")]
 	[SerializeField] float PerRotationDegreeWait;
@@ -158,8 +157,8 @@ public class AITowerController : TowerController
     }
     IEnumerator LoadAmmunition(int id){
     	if(active){
-	    	Ammunition ExampleAmmo = AIExampleAmmo[0];
-			LoadCannon(new Ammunition(ExampleAmmo.bullet, ExampleAmmo.velocity, ExampleAmmo.caliber, ExampleAmmo.ammoCount));
+			bool ammoLeft = LoadCannon();
+			active = ammoLeft;
 			yield return new WaitForSeconds(Random.Range(AmmoLoadTimeRange.x, AmmoLoadTimeRange.y)); // loading wait
     	}
     	else{

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AutomaticWeapon : Weapon
 {
-	[SerializeField] Transform gunPoint;
 	[SerializeField] float shootingDelay;
 	bool triggerActive, weaponResetting;
 	protected override void FireWeapon(){
@@ -17,21 +16,16 @@ public class AutomaticWeapon : Weapon
 		triggerActive = toggleValue; // sets the trigger state
 	}
 	void Fire(){
-		if(Clip.ammoCount>0){
-			Clip.ammoCount -= 1; 
-			if(Clip.ammoCount == 0){
-				CallBackLoadedState(2);
-				State = false; // sets the state to false so the weapon can be reloaded (this will be reworked in the future cause you should obviously be able to reload your weapon without emptying it)
-			}
-			ShootProjectile(Clip.bullet, Clip.velocity, Recoil,gunPoint);
-			StartCoroutine(StartDelay());
-		}
+		Clip.ammoCount -= 1;
+		ShootProjectile();
+		WeaponFired();
+		StartCoroutine(StartDelay());
 	}
 	IEnumerator StartDelay(){ // starts the delay for the next shot
 		weaponResetting = true;
 		yield return new WaitForSeconds(shootingDelay);
 		weaponResetting = false; // sets the weapon state to ready for firing
-		if(triggerActive){
+		if(triggerActive && State){
 			Fire();// fires the weapon if the trigger is pressed
 		}
 	}

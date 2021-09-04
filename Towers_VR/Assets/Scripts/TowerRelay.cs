@@ -9,9 +9,10 @@ public class TowerRelay : DataContainer
     ControlRoom ControlRoom;
     CannonRoom CannonRoom;
     ReloaderRoom ReloaderRoom;
+    AmmoRoom AmmoRoom;
     Dictionary<DataType,DataContainer[]> RelayData;
-    public void Initialize(RadarRoom radarRoom, ControlRoom controlRoom, CannonRoom cannonRoom, ReloaderRoom reloaderRoom){
-        Room[] Rooms = new Room[] {radarRoom, controlRoom, cannonRoom, reloaderRoom};
+    public void Initialize(RadarRoom radarRoom, ControlRoom controlRoom, CannonRoom cannonRoom, ReloaderRoom reloaderRoom, AmmoRoom ammoRoom){
+        Room[] Rooms = new Room[] {radarRoom, controlRoom, cannonRoom, reloaderRoom, ammoRoom};
 
         Dictionary<DataType,List<DataContainer>> ModifiableRelayData = new Dictionary<DataType,List<DataContainer>>();
 
@@ -37,6 +38,7 @@ public class TowerRelay : DataContainer
         ControlRoom = controlRoom;
         CannonRoom = cannonRoom;
         ReloaderRoom = reloaderRoom;
+        AmmoRoom = ammoRoom;
 
     }
     public override void SetValue<T>(DataType dataType, T value){
@@ -75,5 +77,8 @@ public class TowerRelay : DataContainer
     }
     public Transform GetGunpoint(){
         return CannonRoom.GetGunpoint();
+    }
+    public List<AmmoRoom.AmmoGroup> GetAmmo(){
+        return AmmoRoom.GetAmmo();
     }
 }

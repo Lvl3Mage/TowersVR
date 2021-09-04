@@ -19,12 +19,14 @@ public class Ammunition
 		_velocity = ammoObject.velocity;
 		_caliber = ammoObject.caliber;
 		_ammoCount = ammoObject.ammoCount;
+        spread = ammoObject.spread;
 	}
-	public Ammunition(Object newBullet, float newVelocity, AmmoCaliber newCaliber, int newAmmoCount){
+	public Ammunition(Object newBullet, float newVelocity, AmmoCaliber newCaliber, int newAmmoCount, float newSpread){
 		_bullet = newBullet;
 		_velocity = newVelocity;
 		_caliber = newCaliber;
 		_ammoCount = newAmmoCount;
+        spread = newSpread;
 	}
 	[SerializeField] protected Object _bullet;
     public Object bullet {
@@ -58,6 +60,7 @@ public class Ammunition
             _ammoCount = value;
         }
     }
+    [Range(0f,0.05f)] public float spread;
 }
 /*
 */

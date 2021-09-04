@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Weapon : BoolContainer
 {
-	[SerializeField] protected Object MuzzleFlash; // the muzzleflash of the weapon's
-	[SerializeField] protected Rigidbody Barrel; // a reference to the barrel of the weapon's
+    [SerializeField] Transform gunPoint;
+	[SerializeField] Object MuzzleFlash; // the muzzleflash of the weapon's
+	[SerializeField] Rigidbody Barrel; // a reference to the barrel of the weapon's
     [SerializeField] AmmoCaliber WeaponCaliber;
- 	[SerializeField] protected float Recoil, ReloadDelay;
+ 	[SerializeField] float Recoil, ReloadDelay;
     [Tooltip("A callback array which identifies the objects that receive the weapon's loading state")]
-	[SerializeField] protected DataContainer[] CallBackLoaded;
+	[SerializeField] DataContainer[] CallBackLoaded;
     [Tooltip("A callback array which identifies the objects that receive the weapon's projectile speed")]
-	[SerializeField] protected DataContainer[] CallBackProjectileSpeed;
+	[SerializeField] DataContainer[] CallBackProjectileSpeed;
     [Tooltip("A callback array which identifies the objects that receive the weapon's last fired projectile")]
-    [SerializeField] protected DataContainer[] CallBackLastProjectile;
+    [SerializeField] DataContainer[] CallBackLastProjectile;
     protected Ammunition Clip; // The ammo clip loaded into the weapon
 	protected bool State = false;
     public void Reload(Ammunition Ammo){ // Call this to reload 
@@ -23,7 +24,7 @@ public class Weapon : BoolContainer
     	yield return new WaitForSeconds(ReloadDelay);
     	Clip = Ammo;
     	State = true;
-        CallBackLoadedState(0);
+        CallBackLoadedState(0); // Loaded
         CallBackProjVel();
     }
     public bool Loaded(){
@@ -32,7 +33,7 @@ public class Weapon : BoolContainer
     public bool Loadable(AmmoCaliber AmmoCaliber){
         return AmmoCaliber == WeaponCaliber;
     }
-    protected override void SetBool(DataType dataType, bool toggleValue){
+    protected override void SetBool(DataType dataType, bool toggleValue){ // weapon activation
     	TriggerPressed(toggleValue);
     	if(State){
     		if(toggleValue){ // checks if the trigger is pulled
@@ -40,7 +41,7 @@ public class Weapon : BoolContainer
     		}
     	}
     }
-    protected virtual void FireWeapon(){
+    protected virtual void FireWeapon(){ // gets called if the trigger is pressed and the gun is supposed to start firing
 
     }
     protected virtual void TriggerPressed(bool toggleValue){
@@ -59,15 +60,23 @@ public class Weapon : BoolContainer
         }
         
     }
-    protected virtual void ShootProjectile(Object bullet,float velocity,float Force, Transform gunPoint){ // Override this method if you want to create a weapon that will shoot the projectile in a different way
-        GameObject LastFiredProjectile = SpawnBullet(bullet, velocity, gunPoint);
+    protected void WeaponFired(){ // call this afeter the weapon has been fired
+        if(Clip.ammoCount <= 0){
+            CallBackLoadedState(2); // unloaded
+            State = false; // sets the state to false so the weapon can be reloaded (this will be reworked in the future cause you should obviously be able to reload your weapon without emptying it)
+        }
+    }
+    //call this method to fire the gun
+    protected virtual void ShootProjectile(){ // Override this method if you want to create a weapon that will shoot the projectile in a different way
+        GameObject LastFiredProjectile = SpawnBullet(Clip.bullet, Clip.velocity, Clip.spread, gunPoint);
         SetFiredProjectile(LastFiredProjectile);
         SpawnEffect(gunPoint);
-        PushBack(Force, gunPoint);
+        PushBack(Recoil, gunPoint);
     }
-    GameObject SpawnBullet(Object bullet, float velocity, Transform gunPoint){ // the function for shooting out the projectile
+    GameObject SpawnBullet(Object bullet, float velocity, float spread, Transform gunPoint){ // the function for shooting out the projectile
         GameObject Projectile = Object.Instantiate(bullet, gunPoint.position, gunPoint.rotation) as GameObject;
-        Projectile.GetComponent<Rigidbody>().velocity = Projectile.transform.TransformDirection(Vector3.forward * velocity /*RandomInaccuracy * velocity*/);
+        Vector2 RandomSpreadPoint = Random.insideUnitCircle * spread * velocity; // calculating the randomized spread point with the spread as the precentage from the velocity
+        Projectile.GetComponent<Rigidbody>().velocity = Projectile.transform.TransformDirection(Vector3.forward * velocity + new Vector3(RandomSpreadPoint.x,RandomSpreadPoint.y,0)); // adding the velocity and the spread point velocity
         return Projectile;
     }
     void SpawnEffect(Transform gunPoint){

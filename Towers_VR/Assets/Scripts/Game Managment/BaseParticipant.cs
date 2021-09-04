@@ -16,4 +16,11 @@ public class BaseParticipant
 		playerType = _playerType;
 		name = _name;
 	}
+	public BaseParticipant(Vector3 _spawnPosition, Quaternion _spawnRotation, ParticipantSettings.PlayerType _playerType, string _name, ConfiguredParticipant newParticipantConfiguration){
+		spawnPosition = _spawnPosition;
+		spawnRotation = _spawnRotation;
+		playerType = _playerType;
+		name = _name;
+		participantConfiguration = newParticipantConfiguration;
+	}
 }

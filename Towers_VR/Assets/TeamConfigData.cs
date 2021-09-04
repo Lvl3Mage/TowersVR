@@ -43,9 +43,9 @@ public class TeamConfigData // Savedata
 
 				string playerName = configPlayer.playerName;
 
-
+				ConfiguredParticipant ConfiguredParticipant = configPlayer.GetConfiguredParticipant();
 				//creates the actual base participant
-				BaseParticipant baseParticipant = new BaseParticipant(playerPosition, playerRotation, playerType, playerName);
+				BaseParticipant baseParticipant = new BaseParticipant(playerPosition, playerRotation, playerType, playerName, ConfiguredParticipant);
 
 				//assigns the created base participant to the base participant array
 				baseParticipants[j] = baseParticipant;
@@ -95,6 +95,10 @@ public class PlayerConfig
 	public float[] PlayerPosition;
 	public float[] PlayerRotation;
 	public int playerType;
+	public int weaponType;
+	public int controlRoomType;
+	public int loadingRoomType;
+	public int radarRoomType;
 	public string playerName;
 
 	public PlayerConfig(BaseParticipant baseParticipant){
@@ -115,5 +119,14 @@ public class PlayerConfig
 		playerType = (int)baseParticipant.playerType;
 
 		playerName = baseParticipant.name;
+
+		ConfiguredParticipant participantConfiguration = baseParticipant.participantConfiguration;
+		weaponType = (int)participantConfiguration.WeaponConfiguration;
+		controlRoomType = (int)participantConfiguration.ControlRoomConfiguration;
+		loadingRoomType = (int)participantConfiguration.LoadingRoomConfiguration;
+		radarRoomType = (int)participantConfiguration.RadarRoomConfiguration;
+	}
+	public ConfiguredParticipant GetConfiguredParticipant(){
+		return new ConfiguredParticipant((WeaponConfigType)weaponType, (ControlRoomType)controlRoomType, (LoadingRoomType)loadingRoomType, (RadarRoomType)radarRoomType);
 	}
 }

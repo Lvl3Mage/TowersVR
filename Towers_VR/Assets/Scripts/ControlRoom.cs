@@ -26,4 +26,7 @@ public class ControlRoom : Room
     public Transform GetGunpoint(){
         return towerRelay.GetGunpoint();
     }
+    public List<AmmoRoom.AmmoGroup> GetAmmo(){
+        return towerRelay.GetAmmo();
+    }
 }

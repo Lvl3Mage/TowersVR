@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
 	Rigidbody RB;
 	[SerializeField] bool RotateToVelocity;
-    [SerializeField] [Range(0f,2f)] protected float _WindFactor;
+    [SerializeField] [Range(0f,10f)] protected float _WindFactor;
     public float WindFactor{
         get{
             return _WindFactor;
