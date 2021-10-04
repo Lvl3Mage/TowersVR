@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 86864439299639063}
   - component: {fileID: 9024174283564732919}
   m_Layer: 11
-  m_Name: Cannon Ammo Non Explosive
+  m_Name: Cannon Ammo Non Explosive Medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,9 +133,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 2485673250264605158, guid: 87058b4893cf5a844a9aaf28dd2fdba5, type: 3}
-  _velocity: 320
+  _velocity: 270
   _caliber: 1
   _ammoCount: 1
+  spread: 0
 --- !u!54 &5944592700094184418
 Rigidbody:
   m_ObjectHideFlags: 0

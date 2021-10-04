@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 685619737413003781, guid: cc47291ba862c024fb80a035d29a904a, type: 3}
-  _velocity: 300
+  _velocity: 370
   _caliber: 0
   _ammoCount: 15
   spread: 0.007

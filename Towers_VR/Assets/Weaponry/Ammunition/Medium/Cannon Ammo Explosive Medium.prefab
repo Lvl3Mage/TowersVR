@@ -131,9 +131,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 685619737413003781, guid: 8fdc7ebfe12268a44a0f55e1687e64a6, type: 3}
-  _velocity: 250
+  _velocity: 270
   _caliber: 1
   _ammoCount: 1
+  spread: 0
 --- !u!64 &3557193940566594627
 MeshCollider:
   m_ObjectHideFlags: 0

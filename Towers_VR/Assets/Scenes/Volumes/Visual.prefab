@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 476339003287738523}
   - component: {fileID: 476339003287738522}
   - component: {fileID: 476339003287738525}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 476339003503526046}
   - component: {fileID: 476339003503526045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sky and Fog Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 476339003580232079}
   - component: {fileID: 476339003580232064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Exposure Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 476339003776598953}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

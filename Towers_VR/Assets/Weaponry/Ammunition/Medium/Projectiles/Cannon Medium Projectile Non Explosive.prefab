@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4256547059917388774}
   - component: {fileID: 2507318877935012423}
   m_Layer: 16
-  m_Name: Cannon Projectile Non Explosive
+  m_Name: Cannon Medium Projectile Non Explosive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,6 +232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateToVelocity: 1
-  _WindFactor: 1
+  _WindFactor: 0.7
   OnContactEffect: {fileID: 2993120601015108234, guid: af07dbb7a8e75bf43a91db65b96cb26f,
     type: 3}

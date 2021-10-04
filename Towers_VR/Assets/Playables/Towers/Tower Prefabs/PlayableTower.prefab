@@ -865,11 +865,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light
       objectReference: {fileID: 0}
-    - target: {fileID: 2609512227429449139, guid: 60ffd7132caab9b47bc9b08c43beac0e,
-        type: 3}
-      propertyPath: m_BounceIntensity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5495982446830842340, guid: 60ffd7132caab9b47bc9b08c43beac0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -923,6 +918,11 @@ PrefabInstance:
     - target: {fileID: 5495982446830842340, guid: 60ffd7132caab9b47bc9b08c43beac0e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141065397712906924, guid: 60ffd7132caab9b47bc9b08c43beac0e,
+        type: 3}
+      propertyPath: m_PointlightHDType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

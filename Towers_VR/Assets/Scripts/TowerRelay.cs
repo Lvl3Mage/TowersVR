@@ -42,7 +42,7 @@ public class TowerRelay : DataContainer
 
     }
     public override void SetValue<T>(DataType dataType, T value){
-        Debug.Log("Input " + dataType + ", value " + value);
+        //Debug.Log("Input " + dataType + ", value " + value);
         if(RelayData.ContainsKey(dataType)){
             DataContainer[] DestContiners = RelayData[dataType];
             foreach(DataContainer container in DestContiners){
@@ -78,7 +78,7 @@ public class TowerRelay : DataContainer
     public Transform GetGunpoint(){
         return CannonRoom.GetGunpoint();
     }
-    public List<AmmoRoom.AmmoGroup> GetAmmo(){
+    public AmmoRoom.FiringGroup GetAmmo(){
         return AmmoRoom.GetAmmo();
     }
 }

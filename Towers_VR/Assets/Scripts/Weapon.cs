@@ -94,4 +94,6 @@ public class Weapon : BoolContainer
         }
 
     }
+
+    //Get methods
 }

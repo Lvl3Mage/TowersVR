@@ -11,7 +11,8 @@ public class TowerController : DataContainer
 	float HorizontalRotation;
 	float ProjectileLinearVelocity;
 	Vector2 LastAim = Vector2.zero;
-	List<AmmoRoom.AmmoGroup> AmmoGroups;
+	int cannonLoadedState = 2; // unloaded
+	AmmoRoom.FiringGroup firingGroup;
 
 	public override void SetValue<T>(DataType dataType, T value){
 		 switch(dataType){
@@ -23,6 +24,9 @@ public class TowerController : DataContainer
 				break;
 			case DataType.ToggleAI:
 				ToggleAI((bool)(object)value);
+				break;
+			case DataType.CannonLoadState:
+				SetCannonLoadState((int)(object)value);
 				break;
 			default:
 				Debug.LogError("WTF is this => " + dataType + "?", gameObject);
@@ -39,43 +43,23 @@ public class TowerController : DataContainer
 		ControlRoom.SetValue(DataType.CannonAngle, angle);
 	}
 	protected bool LoadCannon(){
-		if(AmmoGroups == null){
-			AmmoGroups = ControlRoom.GetAmmo();
+		if(firingGroup == null){
+			firingGroup = ControlRoom.GetAmmo();
 		}
 		if(CannonReloader == null){
 			CannonReloader = ControlRoom.GetReloader();
 		}
+		AmmoObjectIdentifier ammoObjectIdentifier = firingGroup.GetNextRound();
 
-		AmmoObjectIdentifier ammunition = null;
-		for(int i = AmmoGroups.Count-1; i >= 0; i--){
-			List<AmmoObjectIdentifier> ammo = AmmoGroups[i].ammo;
-			for(int j = ammo.Count-1; j >= 0; j--){
-				//saving the ammo
-				ammunition = ammo[j];
+		if(ammoObjectIdentifier != null){ // if the ammo was found
 
-				//removing the selected ammo after remembering it (it has to be removed either way)
-				AmmoGroups[i].ammo.RemoveAt(j);
-
-
-				if(ammunition != null){ // if the ammo is valid
-					break; // we have found the needed ammo;
-				}
-			}
-
-			if(ammo.Count == 0){
-				AmmoGroups.RemoveAt(i);
-			}
-			if(ammunition != null){ // if we have found the needed ammo 
-				break;
-			}
-		}
-		if(ammunition != null){ // if the ammo was found
-			if(CannonReloader.LoadAmmo(new Ammunition(ammunition))){ // we try to load it
+			if(CannonReloader.LoadAmmo(new Ammunition(ammoObjectIdentifier))){ // we try to load it
+				Destroy(ammoObjectIdentifier.gameObject); // destroying the ammo gameObject
 				return true; // success
 			}
 		}
-		
 		// if we weren't able to load the ammo
+		Debug.Log("Tower ran out of ammo!");
 		return false;
 	}
 	protected void FireCannon(){
@@ -92,5 +76,11 @@ public class TowerController : DataContainer
 	}
 	protected Vector2 GetCurrentRotation(){
 		return LastAim;
+	}
+	protected int GetCannonLoadState(){ // the loadstate is passed in with the data container system
+		return cannonLoadedState;
+	}
+	void SetCannonLoadState(int newState){
+		cannonLoadedState = newState;
 	}
 }

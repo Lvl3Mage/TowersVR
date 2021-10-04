@@ -440,7 +440,7 @@ MonoBehaviour:
   Barrel: {fileID: 5287335310278544982}
   WeaponCaliber: 0
   Recoil: 0.1
-  ReloadDelay: 2
+  ReloadDelay: 0.5
   CallBackLoaded: []
   CallBackProjectileSpeed: []
   CallBackLastProjectile: []

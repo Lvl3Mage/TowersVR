@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 9112139954266532905}
   - component: {fileID: 9112139954266532910}
   - component: {fileID: 9112139954266532911}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: Contour effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1220,7 +1220,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9112139954511583680}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -1236,11 +1236,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -256.2
-  far clip plane: 1766
+  near clip plane: 1208
+  far clip plane: 1797
   field of view: 60
   orthographic: 1
-  orthographic size: 3926.6
+  orthographic size: 1430
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 262145
   volumeAnchorOverride: {fileID: 0}
   antialiasing: 0
   SMAAQuality: 2

@@ -11,7 +11,7 @@ public class AITowerController : TowerController
 	[Tooltip("The time ")]
 	[SerializeField] float PerRotationDegreeWait;
 	[SerializeField] float PerRotationWait;
-	[SerializeField] Vector2 AmmoLoadTimeRange;
+	[SerializeField] Vector2 AdditionalLoadTimeRange;
 	[Tooltip("The cannon innacuracy during the first shot. The x value represents the vertical innacuracy and the y represents the horizontal innacuracy")]
 	[SerializeField] Vector2 FirstShotInnacuracy;
 	[SerializeField] CorrectionVariation[] CorrectionVariations;
@@ -57,7 +57,7 @@ public class AITowerController : TowerController
     	// First unmodified aiming
     	Transform keypointTransform = keypoint.gameObject.transform;
     	//Loading ammo
-		yield return StartCoroutine(LoadAmmunition(0));
+		yield return StartCoroutine(LoadAmmunition());
 
     	Vector2 Aim;
     	Aim.x = CalculateXAim(keypointTransform.position);
@@ -92,7 +92,6 @@ public class AITowerController : TowerController
 
 				yield return null;
 			}
-
 			Vector3 impactPoint;
 			if(Projectile.HasCollided()){
 				impactPoint = ProjectileObject.transform.position; // the impact point will be the position of the projectile if it has collided
@@ -101,8 +100,8 @@ public class AITowerController : TowerController
 			else{
 				impactPoint = PastProjectilePosition; // if it didn't collide it means it passed by, so the impact point is the past projectile position
 			}
-			
-			yield return StartCoroutine(LoadAmmunition(0));
+			yield return StartCoroutine(CannonLoadStateWait(2)); // wait till the cannon is fully unloaded
+			yield return StartCoroutine(LoadAmmunition()); // load the cannon again 
 
 			keypoint.RecalculateKeypoint();
 
@@ -155,16 +154,28 @@ public class AITowerController : TowerController
     	
     	
     }
-    IEnumerator LoadAmmunition(int id){
-    	if(active){
-			bool ammoLeft = LoadCannon();
-			active = ammoLeft;
-			yield return new WaitForSeconds(Random.Range(AmmoLoadTimeRange.x, AmmoLoadTimeRange.y)); // loading wait
+    IEnumerator LoadAmmunition(){
+    	if(GetCannonLoadState() == 2){ // if the cannon is unloaded
+			if(active){
+				bool ammoLeft = LoadCannon();
+				active = ammoLeft;
+				yield return StartCoroutine(CannonLoadStateWait(0)); // waiting till the cannon is loaded
+				yield return new WaitForSeconds(Random.Range(AdditionalLoadTimeRange.x, AdditionalLoadTimeRange.y)); // additional loading wait
+	    	}
+	    	else{
+	    		yield return null;
+	    	}
     	}
     	else{
     		yield return null;
     	}
     	
+    	
+    }
+    IEnumerator CannonLoadStateWait(int desiredLoadState){
+    	while(GetCannonLoadState() != desiredLoadState){
+    		yield return null;
+    	}
     }
     CorrectionVariation ChooseCorrection(){
     	int totalChances = 0;

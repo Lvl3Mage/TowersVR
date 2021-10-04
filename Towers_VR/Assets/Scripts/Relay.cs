@@ -9,11 +9,12 @@ public class Relay : DataContainer
     {
         public DataType Type;
         public DataContainer[] Destinations;
+        [Tooltip("Mark this if you want the relay to pass this information outwards aswell as inwards")]
         public bool RelayUp;
     }
     [SerializeField] TypeRelay[] TypeRelayList;
     Dictionary<DataType, DataContainer[]> TypeRelays = new Dictionary<DataType, DataContainer[]>();//Dict of all input destinations
-    HashSet<DataType> RelayUp = new HashSet<DataType>(); // all data types that will be relayed up
+    HashSet<DataType> RelayUpSet = new HashSet<DataType>(); // all data types that will be relayed up
     DataContainer UpperRelay;
 
     void Awake(){
@@ -22,7 +23,7 @@ public class Relay : DataContainer
 
             // in case the relay up is marked
             if(typeRelay.RelayUp){
-                RelayUp.Add(typeRelay.Type); // add this type to relay up
+                RelayUpSet.Add(typeRelay.Type); // add this type to relay up
             }
         }
     }
@@ -32,12 +33,12 @@ public class Relay : DataContainer
             foreach(DataContainer dest in Destinations){
                 dest.SetValue(dataType, value);
             }
-            if(RelayUp.Contains(dataType)){ // if this particular datatype is marked to relay up
+            if(RelayUpSet.Contains(dataType)){ // if this particular datatype is marked to relay up
                 UpperRelay.SetValue(dataType, value);
             }
         }
         else{ // in case this data type can't be found
-            Debug.Log("Sending up");
+            //Debug.Log("Sending up");
             UpperRelay.SetValue(dataType, value);
         }
     }
@@ -45,7 +46,7 @@ public class Relay : DataContainer
         HashSet<DataType> Inputs = new HashSet<DataType>();
         foreach(KeyValuePair<DataType, DataContainer[]> entry in TypeRelays) // for each relay
         {
-            if(!RelayUp.Contains(entry.Key)){ // if the entry is not set to relay up
+            if(!RelayUpSet.Contains(entry.Key)){ // if the entry is not set to relay up
                 Inputs.Add(entry.Key); // then it is an input
             }
         }
