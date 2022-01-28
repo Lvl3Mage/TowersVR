@@ -289,7 +289,7 @@ Material:
     - _SVBRDF_HeightMapMaxMM: 0
     - _SVBRDF_SpecularLobeMapScale: 1
     - _Smoothness: 0
-    - _SmoothnessRemapMax: 0.2182196
+    - _SmoothnessRemapMax: 0
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
